@@ -88,12 +88,10 @@ public class CannonCtrlR : MonoBehaviour
 		}
 		if (other.transform.tag == "EnemyR")
 		{
-			//Debug.Log("발사범위 접촉");
-			playerFire();
-		}
-
-		FindEnemyR = true;
-		//Debug.Log(FindClosestEnemy().name);
+            FindEnemyR = true;
+            //Debug.Log("발사범위 접촉");
+            playerFire();
+        }
 	}
 
 	public void playerFire()

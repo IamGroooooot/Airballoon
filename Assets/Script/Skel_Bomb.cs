@@ -7,12 +7,12 @@ public class Skel_Bomb : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GameObject player = GameObject.FindGameObjectWithTag ("ShipBody");
+		GameObject player = GameObject.FindGameObjectWithTag ("Player");
 
-		Vector3 wherToFire = player.transform.position - transform.position; 
-		GetComponent<Rigidbody> ().velocity = wherToFire *3;
-
-	}
+		Vector3 whereToFire = player.transform.position - transform.position; 
+		GetComponent<Rigidbody> ().velocity = whereToFire *3;
+        Destroy(this.gameObject,5f);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,11 +20,10 @@ public class Skel_Bomb : MonoBehaviour {
 	}
 
 	void OnCollisionEnter (Collision C){
-		if (C.gameObject.tag == "Player" || C.gameObject.tag == "ShipBody") {
+		if (C.gameObject.tag == "Player") {
 			C.gameObject.GetComponent<HP_Bar> ().IsDamaged = true;
 			Destroy (this.gameObject);
 		}
-
 	}
 
 }
