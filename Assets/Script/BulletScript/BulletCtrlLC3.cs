@@ -16,11 +16,12 @@ public class BulletCtrlLC3 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		/////Airship = GameObject.Find ("Player");
-		//이 부분에서 가장 가까운 적(태그:Enemy)찾고 최단거리 적 방향으로 발사하도록
-		////GetComponent<Rigidbody>().AddForce(Airship.transform.right*-1*speed);
-		//GetComponent<Rigidbody>().velocity = cnnCtrlL.WhereToFireLC3;
-	}
+        /////Airship = GameObject.Find ("Player");
+        //이 부분에서 가장 가까운 적(태그:Enemy)찾고 최단거리 적 방향으로 발사하도록
+        ////GetComponent<Rigidbody>().AddForce(Airship.transform.right*-1*speed);
+        //GetComponent<Rigidbody>().velocity = cnnCtrlL.WhereToFireLC3;
+        Destroy(this.gameObject, 3f);
+    }
 
 	// Update is called once per frame
 	void Update () {

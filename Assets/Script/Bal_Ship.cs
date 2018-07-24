@@ -31,14 +31,14 @@ public class Bal_Ship : MonoBehaviour {
 //	private float currentHitDistance;
 //
 
-
+    
 	// Use this for initialization
 	void Start () {
 		canAttack = false;
 		fire = false;
 		MyTrans = gameObject.GetComponent<Transform>();
 		MyRigid = GetComponent<Rigidbody>();
-		//MyRigid.maxAngularVelocity = 1;
+		MyRigid.maxAngularVelocity = 1;
 		time = 0;
 	}
 	
@@ -96,7 +96,7 @@ public class Bal_Ship : MonoBehaviour {
 		}
 		if (fire) {
 			//인스턴트화하고 폭탄 스크립트에 폭탄 발사 넣기
-			Instantiate(bomb, MyTrans.transform.position + (MyTrans.transform.forward*10),transform.rotation);
+			Instantiate(bomb, MyTrans.transform.position + (MyTrans.transform.forward*20),transform.rotation);
 			Debug.Log ("인스턴스화 완료");
 			fire = false;
 		}

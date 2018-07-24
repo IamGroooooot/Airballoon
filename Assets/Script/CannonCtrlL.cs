@@ -58,19 +58,23 @@ public class CannonCtrlL : MonoBehaviour
 				Vector3 FirePos_1 = Fire_1.position;
 				TempBulletLC1 = Instantiate (BulletLC1, FirePos_1, BulletLC1.transform.rotation) as GameObject;
 				TempBulletLC1.name = "tempBullectLC1"; 
-				GameObject.Find ("tempBullectLC1").GetComponent<Rigidbody> ().velocity =  Vector3.Scale(WhereToFireLC1,new Vector3 (3,3,3));
-			} else if (time == reload * 2) {
+				GameObject.Find ("tempBullectLC1").GetComponent<Rigidbody> ().velocity =  Vector3.Scale(WhereToFireLC1.normalized,new Vector3 (60,60,60));
+                //if(WhereToFireLC1== null)
+                //{
+                //    Debug.Log("널 오류남");
+                //}
+            } else if (time == reload * 2) {
 				//Debug.Log ("대포 발사2");
 				Vector3 FirePos_2 = Fire_2.position;
 				TempBulletLC2 = Instantiate (BulletLC2, FirePos_2, BulletLC2.transform.rotation);
 				TempBulletLC2.name = "tempBullectLC2";
-				GameObject.Find ("tempBullectLC2").GetComponent<Rigidbody> ().velocity =  Vector3.Scale(WhereToFireLC2,new Vector3 (3,3,3));
+				GameObject.Find ("tempBullectLC2").GetComponent<Rigidbody> ().velocity =  Vector3.Scale(WhereToFireLC2.normalized,new Vector3 (60, 60, 60));
 			} else if (time == reload * 3) {
 				//Debug.Log ("대포 발사3");
 				Vector3 FirePos_3 = Fire_3.position;
 				TempBulletLC3 =Instantiate (BulletLC3, FirePos_3, BulletLC3.transform.rotation);
 				TempBulletLC3.name = "tempBullectLC3";
-				GameObject.Find ("tempBullectLC3").GetComponent<Rigidbody> ().velocity =  Vector3.Scale(WhereToFireLC3,new Vector3 (3,3,3));
+				GameObject.Find ("tempBullectLC3").GetComponent<Rigidbody> ().velocity =  Vector3.Scale(WhereToFireLC3.normalized,new Vector3 (60, 60, 60));
 				time = 0;
 				TimerOn = false;
 			}
@@ -136,6 +140,7 @@ public class CannonCtrlL : MonoBehaviour
 		}
 		return closest;
 	}
+
 	public GameObject FindClosestEnemyC2(){
 		GameObject[] gos;
 		gos = GameObject.FindGameObjectsWithTag ("EnemyL");

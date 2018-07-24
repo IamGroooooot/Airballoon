@@ -11,7 +11,7 @@ public class Joystick2 : MonoBehaviour {
 	public Transform Player;        // 플레이어.
 	public Rigidbody RB_Player;		
 	public float max_Speed = 300.0f;//속도 제한
-	public float rotationSpeed = 0.01f;//선회 속도
+	public float rotationSpeed = 100f;//선회 속도
 	public Transform Stick;         // 조이스틱.
 
 
@@ -33,7 +33,8 @@ public class Joystick2 : MonoBehaviour {
 		Radius *= Can;
 
 		MoveFlag = false;
-	}
+
+    }
 
 	void Update()
 	{
