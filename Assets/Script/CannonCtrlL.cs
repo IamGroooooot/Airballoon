@@ -59,10 +59,6 @@ public class CannonCtrlL : MonoBehaviour
 				TempBulletLC1 = Instantiate (BulletLC1, FirePos_1, BulletLC1.transform.rotation) as GameObject;
 				TempBulletLC1.name = "tempBullectLC1"; 
 				GameObject.Find ("tempBullectLC1").GetComponent<Rigidbody> ().velocity =  Vector3.Scale(WhereToFireLC1.normalized,new Vector3 (60,60,60));
-                //if(WhereToFireLC1== null)
-                //{
-                //    Debug.Log("널 오류남");
-                //}
             } else if (time == reload * 2) {
 				//Debug.Log ("대포 발사2");
 				Vector3 FirePos_2 = Fire_2.position;
@@ -93,12 +89,10 @@ public class CannonCtrlL : MonoBehaviour
         }
 		if (other.transform.tag == "EnemyL")
 		{
-			//Debug.Log("발사범위 접촉");
-			playerFire();
+            FindEnemyL = true;
+            //Debug.Log("발사범위 접촉");
+            playerFire();
 		}
-
-		FindEnemyL = true;
-		//Debug.Log(FindClosestEnemy().name);
     }
 
     public void playerFire()

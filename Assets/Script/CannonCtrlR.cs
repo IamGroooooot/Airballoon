@@ -50,6 +50,7 @@ public class CannonCtrlR : MonoBehaviour
 			WhereToFireRC2 = FindClosestEnemyC1 ().transform.position - Fire_2.position;
 			WhereToFireRC3 = FindClosestEnemyC1 ().transform.position - Fire_3.position;
 		}
+
 		if (TimerOn) {
 			time++;
 			if (time == reload) {
