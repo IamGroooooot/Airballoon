@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 135281434305181622}
   - component: {fileID: 23602387288511008}
   - component: {fileID: 114665452478821578}
+  - component: {fileID: 54360556226523142}
   m_Layer: 0
   m_Name: Skel_bomb
   m_TagString: Untagged
@@ -84,6 +85,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985557565537212}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54360556226523142
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1985557565537212}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114665452478821578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,6 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182d5ed7d79cdb24d8f41a021e46ce86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  angle: 0.7853982
+  bombSpeed: 6
 --- !u!135 &135281434305181622
 SphereCollider:
   m_ObjectHideFlags: 1
