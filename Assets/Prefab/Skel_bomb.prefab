@@ -92,7 +92,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985557565537212}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
@@ -111,8 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182d5ed7d79cdb24d8f41a021e46ce86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 0.7853982
-  bombSpeed: 6
 --- !u!135 &135281434305181622
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -120,7 +118,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1985557565537212}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

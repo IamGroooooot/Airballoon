@@ -1138,7 +1138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 469518611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56b340e0cc7b5a644b6317f407a58f6c, type: 3}
+  m_Script: {fileID: 11500000, guid: 919e219a626d65a41ab2e3476da959e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerTrans: {fileID: 494457107}
@@ -1148,6 +1148,8 @@ MonoBehaviour:
   fire: 0
   TimerOn: 0
   speed: 5
+  angle_degr: 45
+  bombSpeed: 1
 --- !u!54 &469518613
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1247,8 +1249,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 10, z: 0}
+  m_Radius: 45
+  m_Center: {x: 0, y: 45, z: 0}
 --- !u!54 &494457110
 Rigidbody:
   m_ObjectHideFlags: 0
