@@ -45,7 +45,7 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
     void Start () {
 		canAttack = false;
 		fire = false;
-        //		MyTrans = Skel.GetComponent<Transform>();
+
         myPosition = new Vector3(0, 0, 0);
         myRotation = new Quaternion(0, 0, 0, 0);
 		time = 0;
@@ -67,7 +67,6 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
 
 			Vector3 newDir = Vector3.RotateTowards (Skel.transform.forward, targetDir, step, 0.0f);
 			Quaternion rotation = Quaternion.LookRotation (newDir);
-			//transform.rotation = Quaternion.LookRotation (newDir);
 
             Skel.transform.rotation = Quaternion.Lerp (Skel.transform.rotation, rotation, step);
 
@@ -81,13 +80,13 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
 			}
 		}
 
-		if (TimerOn) {
-			
+		if (TimerOn)
+        {
 			time++;
-			if (time == 3 *60) {
+			if (time == 3 *60)
+            {
 				fire = true;
 			}
-
 		}
 		if (fire) {
 			//인스턴트화하고 폭탄 스크립트에 폭탄 발사 넣기
@@ -132,28 +131,17 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
 
     void FireSkelBomb(GameObject Bomb)
     {
-        
         //GameObject player = GameObject.FindGameObjectWithTag("Player");
         //Vector3 playerPos = new Vector3(player.transform.position.x, player.transform.position.y + 33f, player.transform.position.z);
-        playerPos = new Vector3(PlayerTrans.position.x, PlayerTrans.position.y, PlayerTrans.position.z); //보정값
-        //안바뀜
+        playerPos = new Vector3(PlayerTrans.position.x, PlayerTrans.position.y, PlayerTrans.position.z);
         displace = playerPos - transform.position;
-        //안바뀜
         distance = Mathf.Pow((displace.x) * (displace.x) + (displace.z) * (displace.z), 0.5f);
-        //아래에서 오류발생
+
         BombInitVelocity = new Vector3(displace.x, distance * Mathf.Tan(angle_degr), displace.z).normalized;
-        Debug.Log("Nomal Vector체크 " + BombInitVelocity);
-        //위에서 오류 발생, y축 속도가 누락?됨
-        
+        BombInitVelocity = BombInitVelocity * Mathf.Sqrt(Mathf.Abs(Physics.gravity.y) * distance / Mathf.Cos(angle_degr));
 
-        BombInitVelocity = BombInitVelocity * Mathf.Sqrt( Mathf.Abs(Physics.gravity.y)*distance/Mathf.Cos(angle_degr) );
-
-        //Debug.Log("변위벡터는 " + displace);
-        //Debug.Log("거리는 " + distance);
-        Debug.Log("최종 초기 속력 값은 ? " + BombInitVelocity);
-        Bomb.GetComponent<Rigidbody>().velocity = BombInitVelocity * bombSpeed;//강체를 찾을 수 없음?????
+        Bomb.GetComponent<Rigidbody>().velocity = BombInitVelocity * bombSpeed;
 
         Destroy(Bomb.gameObject, 5f);
     }
-
 }
