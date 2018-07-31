@@ -58,20 +58,20 @@ public class CannonCtrlR : MonoBehaviour
 				//Debug.Log ("대포 발사1");
 				Vector3 FirePos_1 = Fire_1.position;
 				TempBulletRC1 = Instantiate (BulletRC1, FirePos_1, BulletRC1.transform.rotation) as GameObject;
-				TempBulletRC1.name = "tempBullectRC1"; 
-				GameObject.Find ("tempBullectRC1").GetComponent<Rigidbody> ().velocity = WhereToFireRC1.normalized*bullectRSpeed;
+                
+                TempBulletRC1.GetComponent<Rigidbody> ().velocity = WhereToFireRC1.normalized*bullectRSpeed;
 			} else if (time == reload * 2) {
 				//Debug.Log ("대포 발사2");
 				Vector3 FirePos_2 = Fire_2.position;
 				TempBulletRC2 = Instantiate (BulletRC2, FirePos_2, BulletRC2.transform.rotation);
-				TempBulletRC2.name = "tempBullectRC2";
-				GameObject.Find ("tempBullectRC2").GetComponent<Rigidbody> ().velocity =WhereToFireRC2.normalized*bullectRSpeed;
+               
+                TempBulletRC2.GetComponent<Rigidbody> ().velocity =WhereToFireRC2.normalized*bullectRSpeed;
 			} else if (time == reload * 3) {
 				//Debug.Log ("대포 발사3");
 				Vector3 FirePos_3 = Fire_3.position;
 				TempBulletRC3 = Instantiate (BulletRC3, FirePos_3, BulletRC3.transform.rotation);
-				TempBulletRC3.name = "tempBullectRC3";
-				GameObject.Find ("tempBullectRC3").GetComponent<Rigidbody> ().velocity = WhereToFireRC3.normalized*bullectRSpeed;
+                
+                TempBulletRC3.GetComponent<Rigidbody> ().velocity = WhereToFireRC3.normalized*bullectRSpeed;
 				time = 0;
 				TimerOn = false;
 			}

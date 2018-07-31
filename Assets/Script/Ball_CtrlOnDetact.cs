@@ -11,44 +11,30 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
 
 	public GameObject bomb; //발사할 스켈레톤의 폭탄 prefab
     
-	private int time;
-	public bool canAttack,fire,TimerOn;
+	private int time2;
+    private float time1;
+    public bool canAttack,fire,TimerOn;
 
 	public float speed = 5f;
     private Vector3 myPosition;
     private Quaternion myRotation;
 
     //해골이 던지는 폭탄에 대한 설정 값
-    public float angle_degr = 45f; //기본각도를 45도로 설정0.0174532924
-    public float bombSpeed = 1f;
+    public float angle_degr = 60f; //기본각도를 60도로 설정
     private GameObject Skel_Bomb;
     Vector3 BombInitVelocity;
     Vector3 displace;
     float distance;
     Vector3 playerPos;
 
-
-    //	public GameObject currentHitObject;
-    //
-    //	public float sphereRadius;
-    //	public float maxDistance;
-    //	public LayerMask layerMask;
-    //
-    //	private Vector3 origin;
-    //	private Vector3 direction;
-    //
-    //	private float currentHitDistance;
-    //
-
-
-    // Use this for initialization
     void Start () {
 		canAttack = false;
 		fire = false;
 
         myPosition = new Vector3(0, 0, 0);
         myRotation = new Quaternion(0, 0, 0, 0);
-		time = 0;
+        time1 = 0;
+        time2 = 0;
         angle_degr = angle_degr * Mathf.Deg2Rad;// Deg2Rad
     }
 	
@@ -60,62 +46,52 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
         transform.position = myPosition;
         transform.rotation = myRotation;
 
-		if (canAttack) {
-			Vector3 targetDir = PlayerTrans.position - Skel.transform.position;
+        if (canAttack)
+        {
+            Vector3 targetDir = PlayerTrans.position - Skel.transform.position;
 
-			float step = speed * Time.deltaTime;
+            float step = speed * Time.deltaTime;
 
-			Vector3 newDir = Vector3.RotateTowards (Skel.transform.forward, targetDir, step, 0.0f);
-			Quaternion rotation = Quaternion.LookRotation (newDir);
+            Vector3 newDir = Vector3.RotateTowards(Skel.transform.forward, targetDir, step, 0.0f);
+            Quaternion rotation = Quaternion.LookRotation(newDir);
 
-            Skel.transform.rotation = Quaternion.Lerp (Skel.transform.rotation, rotation, step);
+            //Skel.transform.rotation = Quaternion.Lerp(Skel.transform.rotation, rotation, step);           //rotation 처음에 끊김
+            Skel.transform.rotation = Quaternion.RotateTowards(Skel.transform.rotation, rotation, step);
 
-			float MyAngle = Skel.transform.eulerAngles.y;
-			float PlayerAngle = PlayerTrans.eulerAngles.y;
+            time1 =time1+(speed  * Time.deltaTime);
 
-			float RotAngle = PlayerAngle - MyAngle;
+            if (time1>(1/step))
+            {
+                TimerOn = true;
+            }
 
-			if (Mathf.Abs (RotAngle) < 110 && Mathf.Abs (RotAngle) > 89) {
-				TimerOn = true;
-			}
-		}
+        }
+        else
+        {
+            TimerOn = false;
+            time1 = 0;
+        }
+
 
 		if (TimerOn)
         {
-			time++;
-			if (time == 3 *60)
+			time2++;
+			if (time2 == 3 *60)
             {
 				fire = true;
 			}
 		}
+
 		if (fire) {
 			//인스턴트화하고 폭탄 스크립트에 폭탄 발사 넣기
 			Skel_Bomb = Instantiate(bomb, Skel.transform.position + (Skel.transform.forward*20) ,Skel.transform.rotation) as GameObject;
             FireSkelBomb(Skel_Bomb);
 			Debug.Log ("인스턴스화 완료");
-            time = 0;
+            time2 = 0;
 			fire = false;
 		}
-
-//		origin = transform.position;
-//		direction = transform.forward;
-//
-//		RaycastHit hit;
-//		if(Physics.SphereCast(origin,sphereRadius,direction,out hit,maxDistance,layerMask,QueryTriggerInteraction.UseGlobal)){
-//			currentHitObject = hit.transform.gameObject;
-//			currentHitDistance = hit.distance;
-//		}  else{
-//			currentHitDistance = maxDistance;
-//			currentHitObject = null;
-//		}
 	}
 
-
-//	private void OnDrawGizmosSelected(){
-//		Gizmos.color = Color.red;
-//		Debug.DrawLine (origin, origin + direction * currentHitDistance);
-//		Gizmos.DrawWireSphere (origin + direction * currentHitDistance,sphereRadius);
-//	}
 
 	void OnTriggerStay(Collider C){
 		if(C.gameObject.tag == "Player")
@@ -129,18 +105,18 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
 		}
 	}
 
+
+    //포물선으로 쏘는것
     void FireSkelBomb(GameObject Bomb)
     {
-        //GameObject player = GameObject.FindGameObjectWithTag("Player");
-        //Vector3 playerPos = new Vector3(player.transform.position.x, player.transform.position.y + 33f, player.transform.position.z);
-        playerPos = new Vector3(PlayerTrans.position.x, PlayerTrans.position.y, PlayerTrans.position.z);
+        playerPos = new Vector3(PlayerTrans.position.x, PlayerTrans.position.y-10f, PlayerTrans.position.z);
         displace = playerPos - transform.position;
-        distance = Mathf.Pow((displace.x) * (displace.x) + (displace.z) * (displace.z), 0.5f);
+        distance = Mathf.Pow((displace.x) * (displace.x) + (displace.z) * (displace.z), 0.5f); //수평도달거리 계산
 
-        BombInitVelocity = new Vector3(displace.x, distance * Mathf.Tan(angle_degr), displace.z).normalized;
-        BombInitVelocity = BombInitVelocity * Mathf.Sqrt(Mathf.Abs(Physics.gravity.y) * distance / Mathf.Cos(angle_degr));
+        BombInitVelocity = new Vector3(displace.x, distance * Mathf.Tan(angle_degr), displace.z).normalized; //내가 포물선으로 쏠 벡터의 단위벡터 계산
+        BombInitVelocity = BombInitVelocity * Mathf.Sqrt(  Mathf.Abs(Physics.gravity.y) * distance / Mathf.Sin(2*angle_degr)  ); //물리식 속도는 중력에 비례하기 때문에 *중력 수정함*
 
-        Bomb.GetComponent<Rigidbody>().velocity = BombInitVelocity * bombSpeed;
+        Bomb.GetComponent<Rigidbody>().velocity = BombInitVelocity; //폭탄 인스턴트에 속도 부여
 
         Destroy(Bomb.gameObject, 5f);
     }
