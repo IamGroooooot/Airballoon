@@ -11,33 +11,44 @@ public class Airship : MonoBehaviour {
 	Rigidbody Airship_rb;
 
 	// Use this for initialization
-	void Start () {
-		Airship_rb = GetComponent<Rigidbody> ();
+	void Start ()
+    {
+		Airship_rb = gameObject.GetComponent<Rigidbody> ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 
 
 	}
 
-	private void FixedUpdate(){
-
+	private void FixedUpdate()
+    {
 		//바람 방향으로 ADDFORCE
-		if (inWindArea) {
-		Airship_rb.AddForce (windArea.GetComponent<WindArea>().direction * windArea.GetComponent<WindArea>().windPower);
+		if (inWindArea)
+        {
+		    Airship_rb.AddForce (windArea.GetComponent<WindArea>().direction * windArea.GetComponent<WindArea>().windPower);
+ 
 			//TempVector = Airship_rb.velocity;
 		}
 	}
 
-	//void OnTriggerEnter(Collider C){
-	//	if (C.gameObject.tag == "WindArea") {
-	//		//windArea = C.gameObject;
-	//		inWindArea = true;
-	//	}
-	//}
+	void OnTriggerEnter(Collider C)
+    {
+        Debug.Log("Wind가 나와 되는데" + C.gameObject.name);
+		if (C.gameObject.tag == "WindArea")
+        {
+			windArea = C.gameObject;
+			inWindArea = true;
+		}
+	}
 
-	//void OnTriggerExit(Collider C){
-	//	inWindArea = true;
-	//}
+	void OnTriggerExit(Collider C)
+    {
+        if (C.gameObject.tag == "WindArea")
+        {
+            inWindArea = false;
+        }
+	}
 }

@@ -2,21 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gull : MonoBehaviour {
+public class BalloonShipCtrl : MonoBehaviour {
 
 	// Use this for initialization
-	void Start ()
-    {
+	void Start () {
 		
 	}
 	
 	// Update is called once per frame
-	void Update ()
-    {
+	void Update () {
 		
 	}
-    private void OnBecameInvisible()
-    {
-        Destroy(this.gameObject);
-    }
 }

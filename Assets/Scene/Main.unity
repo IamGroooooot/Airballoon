@@ -201,7 +201,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4013439663473618, guid: 0ea071f3790661240a9f169abbf00d60, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -300
+      value: -400
       objectReference: {fileID: 0}
     - target: {fileID: 4013439663473618, guid: 0ea071f3790661240a9f169abbf00d60, type: 2}
       propertyPath: m_LocalPosition.z
@@ -705,7 +705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa53eca793802f43bc5b0a79556444f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windPower: 1
+  windPower: 100
   direction: {x: 1, y: 0, z: 0}
 --- !u!4 &201757050
 Transform:
@@ -1350,7 +1350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inWindArea: 1
-  windArea: {fileID: 201757047}
+  windArea: {fileID: 0}
 --- !u!136 &494457109
 CapsuleCollider:
   m_ObjectHideFlags: 0

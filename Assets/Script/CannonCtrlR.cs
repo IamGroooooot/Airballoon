@@ -52,9 +52,7 @@ public class CannonCtrlR : MonoBehaviour
             Vector3 closeEnemyPos3;
             if (GameObject.FindGameObjectWithTag("EnemyR") != null)
             {
-
-                Debug.Log("최단거리적Right 이름 : " + FindClosestEnemyC1().name);
-
+              
                 closeEnemyPos1 = new Vector3(FindClosestEnemyC1().transform.position.x, FindClosestEnemyC1().transform.position.y + 60f, FindClosestEnemyC1().transform.position.z);
                 closeEnemyPos2 = new Vector3(FindClosestEnemyC2().transform.position.x, FindClosestEnemyC2().transform.position.y + 60f, FindClosestEnemyC2().transform.position.z);
                 closeEnemyPos3 = new Vector3(FindClosestEnemyC3().transform.position.x, FindClosestEnemyC3().transform.position.y + 60f, FindClosestEnemyC3().transform.position.z);
