@@ -5,7 +5,7 @@ using UnityEngine;
 //Airship 바람영향받고 밀림 
 
 public class Airship : MonoBehaviour {
-	public bool inWindArea = true;
+	public bool inWindArea = false;
 	public GameObject windArea; 
 
 	Rigidbody Airship_rb;
@@ -29,17 +29,15 @@ public class Airship : MonoBehaviour {
 		if (inWindArea)
         {
 		    Airship_rb.AddForce (windArea.GetComponent<WindArea>().direction * windArea.GetComponent<WindArea>().windPower);
- 
 			//TempVector = Airship_rb.velocity;
 		}
 	}
 
-	void OnTriggerEnter(Collider C)
+    void OnTriggerEnter(Collider Coll)
     {
-        Debug.Log("Wind가 나와 되는데" + C.gameObject.name);
-		if (C.gameObject.tag == "WindArea")
+		if (Coll.gameObject.tag == "WindArea")
         {
-			windArea = C.gameObject;
+			windArea = Coll.gameObject;
 			inWindArea = true;
 		}
 	}
