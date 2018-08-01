@@ -28,7 +28,8 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
     Vector3 playerPos;
 
     void Start () {
-		canAttack = false;
+        PlayerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+        canAttack = false;
 		fire = false;
 
         myPosition = new Vector3(0, 0, 0);

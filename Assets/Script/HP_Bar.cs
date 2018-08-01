@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HP_Bar : MonoBehaviour
@@ -8,10 +9,10 @@ public class HP_Bar : MonoBehaviour
     public float max_Health = 100f;
     public float cur_Health = 0;
     public Image myHealthBar;
-    public float Damage = 2f;
-    public float HealValue = 2f;
-    public bool IsDamaged = false;
-    public bool IsHeal = false;
+    public static float Damage = 20f;
+    public static float HealValue = 2f;
+    public static bool IsDamaged = false;
+    public static bool IsHeal = false;
 
 
     // Use this for initialization
@@ -25,6 +26,7 @@ public class HP_Bar : MonoBehaviour
     {
         if (cur_Health <= 0)
         {
+            SceneManager.LoadScene(1);
             Debug.Log("체력 0  -  게임오버");  //게임 종료
             cur_Health = 0f;
         }
@@ -40,9 +42,9 @@ public class HP_Bar : MonoBehaviour
                 HealthIncrease();
                 IsHeal = false;
             }
-            if (cur_Health > 100)
+            if (cur_Health > max_Health)
             {
-                cur_Health = 100f;
+                cur_Health = max_Health;
             }
         }
     }

@@ -10,7 +10,7 @@ public class Joystick2 : MonoBehaviour {
 	// 공개
 	public Transform Player;        // 플레이어.
 	public Rigidbody RB_Player;		
-	public float max_Speed = 300.0f;//속도 제한
+	public static float max_Speed = 300.0f;//속도 제한
 	public float rotationSpeed = 100f;//선회 속도
 	public Transform Stick;         // 조이스틱.
 
