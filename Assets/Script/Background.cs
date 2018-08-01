@@ -11,12 +11,12 @@ public class Background : MonoBehaviour {
     public float BgUlDir_X = 0;
     public float BgUlDir_Y = 0;
     WindArea mWindArea;
-    private float playerMaxSpeed;
+    //private float playerMaxSpeed;
 
     // Use this for initialization
     void Start () {
         mWindArea = GameObject.FindGameObjectWithTag("WindArea").GetComponent<WindArea>();
-        playerMaxSpeed = Joystick2.max_Speed;
+        //playerMaxSpeed = Joystick2.max_Speed;
     }
 	
 	// Update is called once per frame

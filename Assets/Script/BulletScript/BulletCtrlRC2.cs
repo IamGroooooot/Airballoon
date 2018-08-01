@@ -15,9 +15,6 @@ public class BulletCtrlRC2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ////Airship = GameObject.Find ("Player");
-        //이 부분에서 가장 가까운 적(태그:Enemy)찾고 최단거리 적 방향으로 발사하도록
-        ////GetComponent<Rigidbody>().AddForce(Airship.transform.right * speed);
         Destroy(this.gameObject, 3f);
 
     }
@@ -32,12 +29,17 @@ public class BulletCtrlRC2 : MonoBehaviour {
 		Destroy(this.gameObject);
 	}
 
-	//Enemy태그 가진애한테 충돌하면 총알 없앰
-	void OnCollisionEnter (Collision C){
-		//if (C.gameObject.tag == "Enemy") {
-		Destroy (this.gameObject);
-		//}
-
-	}
+    //Enemy태그 가진애한테 충돌하면 총알 없앰
+    void OnTriggerEnter(Collider CollEnter)
+    {
+        OnTriggerStay(CollEnter);
+    }
+    void OnTriggerStay(Collider CollStay)
+    {
+        if (CollStay.gameObject.tag == "EnemyR")
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
 }

@@ -47,9 +47,22 @@ public class CannonCtrlR : MonoBehaviour
 	void Update()
 	{
 		if (FindEnemyR) {
-			WhereToFireRC1 = FindClosestEnemyC1 ().transform.position - Fire_1.position;
-			WhereToFireRC2 = FindClosestEnemyC1 ().transform.position - Fire_2.position;
-			WhereToFireRC3 = FindClosestEnemyC1 ().transform.position - Fire_3.position;
+            Vector3 closeEnemyPos1;
+            Vector3 closeEnemyPos2;
+            Vector3 closeEnemyPos3;
+            if (GameObject.FindGameObjectWithTag("EnemyR") != null)
+            {
+
+                Debug.Log("최단거리적Right 이름 : " + FindClosestEnemyC1().name);
+
+                closeEnemyPos1 = new Vector3(FindClosestEnemyC1().transform.position.x, FindClosestEnemyC1().transform.position.y + 60f, FindClosestEnemyC1().transform.position.z);
+                closeEnemyPos2 = new Vector3(FindClosestEnemyC2().transform.position.x, FindClosestEnemyC2().transform.position.y + 60f, FindClosestEnemyC2().transform.position.z);
+                closeEnemyPos3 = new Vector3(FindClosestEnemyC3().transform.position.x, FindClosestEnemyC3().transform.position.y + 60f, FindClosestEnemyC3().transform.position.z);
+
+                WhereToFireRC1 = closeEnemyPos1 - Fire_1.position;
+                WhereToFireRC2 = closeEnemyPos2 - Fire_2.position;
+                WhereToFireRC3 = closeEnemyPos3 - Fire_3.position;
+            }
 		}
 
 		if (TimerOn) {
@@ -80,7 +93,20 @@ public class CannonCtrlR : MonoBehaviour
 		}
 	}
 
-	void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider CollEnter)
+    {
+        OnTriggerStay(CollEnter);
+    }
+
+    void OnTriggerExit(Collider CollExit)
+    {
+        if (CollExit.gameObject.tag == "EnemyR")
+        {
+            CollExit.gameObject.tag = "Enemy";
+        }
+    }
+
+    void OnTriggerStay(Collider other)
 	{
 		//발사 범위 충돌 시 발사여부 체크
 		if (other.transform.tag == "Enemy"||other.transform.tag == "EnemyL")

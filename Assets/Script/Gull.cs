@@ -13,4 +13,8 @@ public class Gull : MonoBehaviour {
 	void Update () {
 		
 	}
+    private void OnBecameInvisible()
+    {
+        Destroy(this.gameObject);
+    }
 }

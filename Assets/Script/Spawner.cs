@@ -113,7 +113,7 @@ public class Spawner : MonoBehaviour
 
     void SpawnRock(Transform _enemy)
     {
-        Debug.Log("Spawn Rock : " + _enemy.name);
+        Debug.Log("Spawn Enemy : " + _enemy.name);
         //spawn Enemy
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(_enemy, _sp.position, _sp.rotation);

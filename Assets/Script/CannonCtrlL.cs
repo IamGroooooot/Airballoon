@@ -46,27 +46,47 @@ public class CannonCtrlL : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (FindEnemyL) {
-			WhereToFireLC1 = FindClosestEnemyC1 ().transform.position - Fire_1.position;
-			WhereToFireLC2 = FindClosestEnemyC1 ().transform.position - Fire_2.position;
-			WhereToFireLC3 = FindClosestEnemyC1 ().transform.position - Fire_3.position;
-		}
+		if (FindEnemyL)
+        {
+            Vector3 closeEnemyPos1;
+            Vector3 closeEnemyPos2;
+            Vector3 closeEnemyPos3;
+            if (GameObject.FindGameObjectWithTag("EnemyL") != null)
+            {
+                Debug.Log("최단거리적Left 이름 : "+ FindClosestEnemyC1().name);
 
-		if (TimerOn) {
+
+                closeEnemyPos1 = new Vector3(FindClosestEnemyC1().transform.position.x, FindClosestEnemyC1().transform.position.y + 60f, FindClosestEnemyC1().transform.position.z);
+                closeEnemyPos2 = new Vector3(FindClosestEnemyC2().transform.position.x, FindClosestEnemyC2().transform.position.y + 60f, FindClosestEnemyC2().transform.position.z);
+                closeEnemyPos3 = new Vector3(FindClosestEnemyC3().transform.position.x, FindClosestEnemyC3().transform.position.y + 60f, FindClosestEnemyC3().transform.position.z);
+
+                WhereToFireLC1 = closeEnemyPos1 - Fire_1.position;
+                WhereToFireLC2 = closeEnemyPos2 - Fire_2.position;
+                WhereToFireLC3 = closeEnemyPos3 - Fire_3.position;
+            }
+        }
+
+		if (TimerOn)
+        {
 			time++;
-			if (time == reload) {
+			if (time == reload)
+            {
 				//Debug.Log ("대포 발사1");
 				Vector3 FirePos_1 = Fire_1.position;
 				TempBulletLC1 = Instantiate (BulletLC1, FirePos_1, BulletLC1.transform.rotation) as GameObject;
 
                 TempBulletLC1.GetComponent<Rigidbody> ().velocity =  WhereToFireLC1.normalized* bullectLSpeed;
-            } else if (time == reload * 2) {
+            }
+            else if (time == reload * 2)
+            {
 				//Debug.Log ("대포 발사2");
 				Vector3 FirePos_2 = Fire_2.position;
 				TempBulletLC2 = Instantiate (BulletLC2, FirePos_2, BulletLC2.transform.rotation);
 
                 TempBulletLC2.GetComponent<Rigidbody> ().velocity =  WhereToFireLC2.normalized*bullectLSpeed;
-			} else if (time == reload * 3) {
+			}
+            else if (time == reload * 3)
+            {
 				//Debug.Log ("대포 발사3");
 				Vector3 FirePos_3 = Fire_3.position;
 				TempBulletLC3 =Instantiate (BulletLC3, FirePos_3, BulletLC3.transform.rotation);
@@ -75,9 +95,24 @@ public class CannonCtrlL : MonoBehaviour
 				time = 0;
 				TimerOn = false;
 			}
-		} else {
+		}
+        else
+        {
 			FindEnemyL = false;
 		}
+    }
+
+    void OnTriggerEnter(Collider CollEnter)
+    {
+        OnTriggerStay(CollEnter);
+    }
+
+    void OnTriggerExit(Collider CollExit)
+    {
+        if (CollExit.transform.tag == "EnemyL")
+        {
+            CollExit.gameObject.tag = "Enemy";
+        }
     }
 
     void OnTriggerStay(Collider other)
