@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public enum SpawnState { SPAWNING, WAITING, COUNTING };
+    public bool SpawnStart;
     
     [System.Serializable]
     public class Wave
@@ -29,7 +30,8 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        if(spawnPoints.Length == 0)
+        SpawnStart = true;
+        if (spawnPoints.Length == 0)
         {
             Debug.Log("Error : No Spawn Points Referenced");
         }
@@ -40,7 +42,8 @@ public class Spawner : MonoBehaviour
     {
         if(state == SpawnState.WAITING)
         {
-            if(!EnemyIsAlive())
+            //Enemy가 아직 있는지 확인
+            if (!EnemyIsAlive())
             {
                 WaveCompleted();
             }
@@ -48,8 +51,8 @@ public class Spawner : MonoBehaviour
             {
                 return;
             }
-            //Enemy가 아직 있는지 확인
         }
+
         if(waveCountdown <= 0)
         {
             if(state != SpawnState.SPAWNING)
@@ -57,7 +60,7 @@ public class Spawner : MonoBehaviour
                 StartCoroutine(SpawnWave(waves[nextWave]));
             }
         }
-        else
+        else if(SpawnStart)
         {
             waveCountdown -= Time.deltaTime;
         }
@@ -65,7 +68,7 @@ public class Spawner : MonoBehaviour
 
     void WaveCompleted()
     {
-     //Begin new wave
+        //Begin new wave
         Debug.Log("WaveCompleted");
 
         state = SpawnState.COUNTING;
@@ -103,7 +106,7 @@ public class Spawner : MonoBehaviour
 
         for (int i = 0; i < _wave.count; i++)
         {
-            SpawnRock(_wave.enemy);
+            SpawnEnemy(_wave.enemy);
             yield return new WaitForSeconds(1f / _wave.rate);
         }
 
@@ -111,10 +114,10 @@ public class Spawner : MonoBehaviour
         yield break;
     }
 
-    void SpawnRock(Transform _enemy)
+    void SpawnEnemy(Transform _enemy)
     {
         Debug.Log("Spawn Enemy : " + _enemy.name);
-        //spawn Enemy
+        //Spawn Enemy
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(_enemy, _sp.position, _sp.rotation);
     }

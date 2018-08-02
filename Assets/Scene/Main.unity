@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0ba2c4999312f4e821cd63202cc34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnStart: 0
   waves:
   - name: Gull
     enemy: {fileID: 4758367018971526, guid: 877557c18085032449aedc3849b27d69, type: 2}
@@ -625,7 +626,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5545
+      value: -4143
       objectReference: {fileID: 0}
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalPosition.y
@@ -633,7 +634,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -35
+      value: 4438
       objectReference: {fileID: 0}
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3489,7 +3490,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4314
+      value: -1191
       objectReference: {fileID: 0}
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3497,7 +3498,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3617
+      value: 5888
       objectReference: {fileID: 0}
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3932,11 +3933,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0ba2c4999312f4e821cd63202cc34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnStart: 0
   waves:
-  - name: Enemy
+  - name: First_Wave_1
     enemy: {fileID: 4637548706107936, guid: 99a8e8fb98378d14caaff0c50adf026d, type: 2}
-    count: 100
-    rate: 0.5
+    count: 4
+    rate: 0.01
+  - name: Second_Wave_2
+    enemy: {fileID: 4637548706107936, guid: 99a8e8fb98378d14caaff0c50adf026d, type: 2}
+    count: 8
+    rate: 0.05
   spawnPoints:
   - {fileID: 1299793395}
   - {fileID: 1427731187}
@@ -4434,7 +4440,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 28
+      value: 5010
       objectReference: {fileID: 0}
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4442,7 +4448,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -5714
+      value: 3158
       objectReference: {fileID: 0}
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -4485,7 +4491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1775055756
 Transform:
   m_ObjectHideFlags: 0
@@ -4580,7 +4586,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4306
+      value: -5172
       objectReference: {fileID: 0}
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4588,7 +4594,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3849
+      value: 1239
       objectReference: {fileID: 0}
     - target: {fileID: 4785592762963828, guid: 210940f209bfadb408cb71e892d6174b, type: 2}
       propertyPath: m_LocalRotation.x

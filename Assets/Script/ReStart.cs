@@ -3,18 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ReStart : MonoBehaviour {
+//Restart
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-    public void Restart()
+public class Restart : MonoBehaviour {
+    public void Restart_Game()
     {
         SceneManager.LoadScene(0);
 

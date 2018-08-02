@@ -10,8 +10,9 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
     public GameObject Skel; //스켈레톤이 있는 열기구 설정
 
 	public GameObject bomb; //발사할 스켈레톤의 폭탄 prefab
-    
-	private int time2;
+    public float followSpeed = 50f;
+
+    private int time2;
     private float time1;
     public bool canAttack,fire,TimerOn;
 
@@ -65,10 +66,13 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
             {
                 TimerOn = true;
             }
-
+            Skel.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
         }
         else
         {
+
+            //PlayerFollower(); //여기에 빨로빨로미
+
             TimerOn = false;
             time1 = 0;
         }
@@ -81,7 +85,8 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
             {
 				fire = true;
 			}
-		}
+        }
+        
 
 		if (fire) {
 			//인스턴트화하고 폭탄 스크립트에 폭탄 발사 넣기
@@ -91,10 +96,17 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
             time2 = 0;
 			fire = false;
 		}
-	}
 
+        
 
-	void OnTriggerStay(Collider C){
+    }
+
+    void PlayerFollower() //플레이어 빨로우 하는 함수
+    {
+        Skel.GetComponent<Rigidbody>().AddForce((PlayerTrans.position - Skel.transform.position).normalized * followSpeed);
+    }
+
+    void OnTriggerStay(Collider C){
 		if(C.gameObject.tag == "Player")
 			canAttack = true;
 	}
