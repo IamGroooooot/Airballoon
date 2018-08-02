@@ -43,10 +43,6 @@ MonoBehaviour:
   max_Health: 100
   cur_Health: 0
   myHealthBar: {fileID: 114527503270490304}
-  Damage: 2
-  HealValue: 2
-  IsDamaged: 0
-  IsHeal: 0
 --- !u!114 &114527503270490304
 MonoBehaviour:
   m_ObjectHideFlags: 1
