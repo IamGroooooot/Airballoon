@@ -52,7 +52,6 @@ public class CannonCtrlR : MonoBehaviour
             Vector3 closeEnemyPos3;
             if (GameObject.FindGameObjectWithTag("EnemyR") != null)
             {
-              
                 closeEnemyPos1 = new Vector3(FindClosestEnemyC1().transform.position.x, FindClosestEnemyC1().transform.position.y + 60f, FindClosestEnemyC1().transform.position.z);
                 closeEnemyPos2 = new Vector3(FindClosestEnemyC2().transform.position.x, FindClosestEnemyC2().transform.position.y + 60f, FindClosestEnemyC2().transform.position.z);
                 closeEnemyPos3 = new Vector3(FindClosestEnemyC3().transform.position.x, FindClosestEnemyC3().transform.position.y + 60f, FindClosestEnemyC3().transform.position.z);
@@ -60,6 +59,10 @@ public class CannonCtrlR : MonoBehaviour
                 WhereToFireRC1 = closeEnemyPos1 - Fire_1.position;
                 WhereToFireRC2 = closeEnemyPos2 - Fire_2.position;
                 WhereToFireRC3 = closeEnemyPos3 - Fire_3.position;
+            }
+            else
+            {
+                time = 0;
             }
 		}
 

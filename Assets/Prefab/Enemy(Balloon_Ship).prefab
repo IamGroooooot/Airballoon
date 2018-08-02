@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 4617589454692820}
   - component: {fileID: 54236566022679838}
   - component: {fileID: 136905385852421228}
+  - component: {fileID: 114656116279065454}
   m_Layer: 8
   m_Name: Balloon Ship
   m_TagString: Enemy
@@ -2199,6 +2200,17 @@ MonoBehaviour:
   TimerOn: 0
   speed: 20
   angle_degr: 60
+--- !u!114 &114656116279065454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1310712548157432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c361c12faf0799d43946eecd8b4fe7ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135954429394492412
 SphereCollider:
   m_ObjectHideFlags: 1

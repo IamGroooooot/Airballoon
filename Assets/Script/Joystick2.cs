@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-// 조이스틱 정의, 조이스틱 값을 이용하여 배의 움직임 제어(ADDFORCE ADDTORQUE 사용함)
+// 조이스틱 정의, 조이스틱 값을 이용하여 배의 움직임 제어(ADDFORCE)
+// 플레이어 회전을 토크로 구현 (ADDTORQUE)
 
 public class Joystick2 : MonoBehaviour {
 
@@ -20,7 +21,7 @@ public class Joystick2 : MonoBehaviour {
 	private Vector3 JoyVec;         // 조이스틱의 벡터(방향)
 	private float Radius;           // 조이스틱 배경의 반 지름.
 	private bool MoveFlag;          // 플레이어 움직임 스위치.
-	//int count = 0;
+
 
 
 	void Start()
@@ -36,18 +37,12 @@ public class Joystick2 : MonoBehaviour {
 
     }
 
-	void Update()
-	{
-		//Debug.Log (Mathf.Atan2(JoyVec.x, JoyVec.y) * Mathf.Rad2Deg+360);
-	}
 	//조이스틱방향으로 ADDFORCE
 	void FixedUpdate() {
 
 		if (MoveFlag) {
-			//Player.transform.Translate(0,0,1* Time.deltaTime * 100f);
-			//R	B_Player.velocity = Player.forward * 1 * Time.deltaTime * 10000f;
 			if (Mathf.Abs (RB_Player.velocity.z) < max_Speed) {
-				RB_Player.AddForce (Player.forward * 1 * 100f); //앞으로 가기 
+				RB_Player.AddForce (Player.forward * 1 * 100f); //앞으로 가기
 			}
 
             RotateShip();
@@ -94,7 +89,7 @@ public class Joystick2 : MonoBehaviour {
 //------------------------------------------------------------------------------------------------------//
 		//아래는 토크를 이용하여 돌게만드는 함수
 
-        //RB_Player.AddTorque(0,Player.eulerAngles.y-(360-Mathf.Atan2(JoyVec.x, JoyVec.y) * Mathf.Rad2Deg), 0);
+        
         if (Mathf.Atan2(JoyVec.x, JoyVec.y) * Mathf.Rad2Deg > 0)
         {//0~180
             float JAngle = Mathf.Atan2(JoyVec.x, JoyVec.y) * Mathf.Rad2Deg;//조이스틱 각
@@ -122,7 +117,7 @@ public class Joystick2 : MonoBehaviour {
 
         }
         else
-        {                  //Mathf.Atan2(JoyVec.x, JoyVec.y) * Mathf.Rad2Deg+360 // 180~360
+        {
             float JAngle = Mathf.Atan2(JoyVec.x, JoyVec.y) * Mathf.Rad2Deg + 360; //조이스틱 각
             float MyAngle = Player.eulerAngles.y;
             float RotAngle = JAngle - MyAngle;

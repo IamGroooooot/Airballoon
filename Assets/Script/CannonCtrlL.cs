@@ -53,9 +53,6 @@ public class CannonCtrlL : MonoBehaviour
             Vector3 closeEnemyPos3;
             if (GameObject.FindGameObjectWithTag("EnemyL") != null)
             {
-                Debug.Log("최단거리적Left 이름 : "+ FindClosestEnemyC1().name);
-
-
                 closeEnemyPos1 = new Vector3(FindClosestEnemyC1().transform.position.x, FindClosestEnemyC1().transform.position.y + 60f, FindClosestEnemyC1().transform.position.z);
                 closeEnemyPos2 = new Vector3(FindClosestEnemyC2().transform.position.x, FindClosestEnemyC2().transform.position.y + 60f, FindClosestEnemyC2().transform.position.z);
                 closeEnemyPos3 = new Vector3(FindClosestEnemyC3().transform.position.x, FindClosestEnemyC3().transform.position.y + 60f, FindClosestEnemyC3().transform.position.z);
@@ -63,6 +60,10 @@ public class CannonCtrlL : MonoBehaviour
                 WhereToFireLC1 = closeEnemyPos1 - Fire_1.position;
                 WhereToFireLC2 = closeEnemyPos2 - Fire_2.position;
                 WhereToFireLC3 = closeEnemyPos3 - Fire_3.position;
+            }
+            else
+            {
+                time = 0;
             }
         }
 
