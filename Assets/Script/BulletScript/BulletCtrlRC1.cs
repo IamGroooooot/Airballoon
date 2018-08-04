@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletCtrlRC1 : MonoBehaviour {
-	private GameObject Airship;
+    public GameObject Hit;
+    private GameObject Airship;
 	//포탄 공격력
 	public int damage = 20;
 
@@ -37,6 +38,7 @@ public class BulletCtrlRC1 : MonoBehaviour {
     {
         if (CollStay.gameObject.tag == "EnemyR")
         {
+            Instantiate(Hit, CollStay.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }

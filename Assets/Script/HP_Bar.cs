@@ -14,6 +14,11 @@ public class HP_Bar : MonoBehaviour
     public static bool IsDamaged = false;
     public static bool IsHeal = false;
 
+    //Effects
+    public GameObject Fire1;
+    public GameObject Fire2;
+    public GameObject Fire3;
+    public GameObject Smoke;
 
     // Use this for initialization
     void Start()
@@ -24,6 +29,30 @@ public class HP_Bar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //화염 이펙트
+        if (cur_Health/100 <= 0.6)
+        {
+            Fire1.gameObject.SetActive(true);
+
+            if (cur_Health / 100 <= 0.4)
+            {
+                Fire2.gameObject.SetActive(true);
+
+                if (cur_Health / 100 <= 0.2)
+                {
+                    Fire3.gameObject.SetActive(true);
+                    Smoke.gameObject.SetActive(true);
+                }
+            }
+        }
+        else
+        {
+            Fire1.gameObject.SetActive(false);
+            Fire2.gameObject.SetActive(false);
+            Fire3.gameObject.SetActive(false);
+            Smoke.gameObject.SetActive(false);
+        }
+
         if (cur_Health <= 0)
         {
             SceneManager.LoadScene(1);

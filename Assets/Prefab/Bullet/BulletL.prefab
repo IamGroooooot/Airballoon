@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1948068796072478}
   m_LocalRotation: {x: 0.016330175, y: 0.84976876, z: 0.0066508967, w: -0.52686065}
   m_LocalPosition: {x: -89.41598, y: 755.1434, z: -435.86053}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1948068796072478}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 86e87ae3d4ea8074da8ba37b46a9b076, type: 3}
 --- !u!54 &54247396895350598
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -111,10 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951ea1f23ce5591438a86b02e6e22773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Airship: {fileID: 0}
-  damage: 20
-  speed: 8000
-  delay: 3
 --- !u!135 &135845421808697990
 SphereCollider:
   m_ObjectHideFlags: 1

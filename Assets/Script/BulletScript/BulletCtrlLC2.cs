@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class BulletCtrlLC2 : MonoBehaviour {
 	public GameObject Airship;
-	//포탄 공격력
-	public int damage = 20;
+    public GameObject Hit;
+
+    //포탄 공격력
+    public int damage = 20;
 
 	//포탄 속도
 	public float speed = 8000f;
@@ -37,6 +39,7 @@ public class BulletCtrlLC2 : MonoBehaviour {
     {
         if (CollStay.gameObject.tag == "EnemyL")
         {
+            Instantiate(Hit, CollStay.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
