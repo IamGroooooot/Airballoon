@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletCtrlLC3 : MonoBehaviour {
     public GameObject Hit;
-    public GameObject Airship;
+
 	//포탄 공격력
 	public int damage = 20;
 

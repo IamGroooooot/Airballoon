@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletCtrlLC2 : MonoBehaviour {
-	public GameObject Airship;
+
     public GameObject Hit;
 
     //포탄 공격력
