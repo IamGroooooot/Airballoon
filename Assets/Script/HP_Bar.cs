@@ -9,7 +9,7 @@ public class HP_Bar : MonoBehaviour
     public float max_Health = 100f;
     public float cur_Health = 0;
     public Image myHealthBar;
-    public static float Damage = 5f;
+    public static float Damage = 20f;
     public static float HealValue = 2f;
     public static bool IsDamaged = false;
     public static bool IsHeal = false;
