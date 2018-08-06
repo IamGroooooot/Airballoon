@@ -12,6 +12,8 @@ ModelImporter:
     400002: Cylinder02
     400004: //RootNode
     2100000: Material01
+    2100002: Box01Mat
+    2100004: Cylinder02Mat
     2300000: Box01
     2300002: Cylinder02
     3300000: Box01
@@ -69,8 +71,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
+    normalSmoothAngle: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1

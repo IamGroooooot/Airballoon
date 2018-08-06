@@ -10,6 +10,7 @@ ModelImporter:
     400000: //RootNode
     400002: Regroup13
     2100000: Material01
+    2100002: Regroup13Mat
     2300000: Regroup13
     3300000: Regroup13
     4300000: Regroup13
@@ -64,8 +65,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
+    normalSmoothAngle: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1

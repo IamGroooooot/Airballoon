@@ -13,6 +13,8 @@ ModelImporter:
     400004: Regroup00
     2100000: Material01
     2100002: Material02
+    2100004: Cylinder01Mat
+    2100006: Regroup00Mat
     2300000: Cylinder01
     2300002: Regroup00
     3300000: Cylinder01
@@ -70,8 +72,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
+    normalSmoothAngle: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1

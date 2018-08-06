@@ -13,6 +13,8 @@ ModelImporter:
     400004: Regroup06
     2100000: Material02
     2100002: Material01
+    2100004: Plane01Mat
+    2100006: Regroup06Mat
     2300000: Plane01
     2300002: Regroup06
     3300000: Plane01
@@ -70,8 +72,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
+    normalSmoothAngle: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
