@@ -1,0 +1,39 @@
+[
+  {
+    "id": 0,
+    "title": "Blue Cusor",
+    "value": 5,
+    "description": "Cusor Which is blue",
+    "stackable": false,
+    "purpose": 0, //0:영구적,1:일회용,2:퀘스트아이템
+    "slug": "cursorGauntlet_blue"
+  },
+  {
+    "id": 1,
+    "title": "Stackable Cusor",
+    "value": 10,
+    "description": "Cusor Which is bronze, and Stackable",
+    "stackable": true,
+    "purpose": 0, //0:영구적,1:일회용,2:퀘스트아이템
+    "slug": "cursorGauntlet_bronze"
+  },
+  {
+    "id": 2,
+    "title": "Bronze Sword",
+    "value": 20,
+    "description": "일회용임 ㅋ,Sword made from broze",
+    "stackable": false, 
+    "purpose": 1, //0:영구적,1:일회용,2:퀘스트아이템
+    "slug": "cursorSword_bronze"
+  },
+  {
+    "id": 3,
+    "title": "Gold Sword",
+    "value": 50,
+    "description": "골드 소드, 스택 가능, 영구적",
+    "stackable": true,
+    "purpose": 0, //0:영구적,1:일회용,2:퀘스트아이템
+    "slug": "cursorSword_gold"
+  }
+
+]
