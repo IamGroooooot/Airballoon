@@ -65,9 +65,12 @@ public class Joystick2 : MonoBehaviour {
 
 		// 거리가 반지름보다 작으면 조이스틱을 현재 터치하고 있는 곳으로 이동.
 		if (Dis < Radius)
+			//Stick.GetComponent<RectTransform> ().anchoredPosition = StickFirstPos+ JoyVec * Dis;
 			Stick.position = StickFirstPos + JoyVec * Dis;
+
 		// 거리가 반지름보다 커지면 조이스틱을 반지름의 크기만큼만 이동.
 		else
+			//Stick.GetComponent<RectTransform> ().anchoredPosition = StickFirstPos + JoyVec * Radius;
 			Stick.position = StickFirstPos + JoyVec * Radius;
 	}
 
@@ -75,7 +78,9 @@ public class Joystick2 : MonoBehaviour {
 	// 드래그 끝.
 	public void DragEnd()
 	{
-		Stick.position = StickFirstPos; // 스틱을 원래의 위치로.
+		Stick.GetComponent<RectTransform> ().anchoredPosition = Vector2.zero;
+		//Stick.position = StickFirstPos; // 스틱을 원래의 위치로.
+		StickFirstPos = Stick.transform.position;
 		JoyVec = Vector3.zero;          // 방향을 0으로.
 		MoveFlag = false;
 	}
