@@ -9,6 +9,8 @@ public class CamCtrl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Screen.orientation = ScreenOrientation.LandscapeRight; //주형 수정: 오른쪽가로로 스크린 고정 
+
         offset = transform.position - Player.transform.position;
 
     }

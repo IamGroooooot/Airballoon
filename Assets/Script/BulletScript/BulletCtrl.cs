@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletCtrl : MonoBehaviour {
-	public GameObject Airship;
     public GameObject Hit;
 
     //포탄 공격력
@@ -35,12 +34,11 @@ public class BulletCtrl : MonoBehaviour {
     //Enemy태그 가진애한테 충돌하면 총알 없앰
     void OnTriggerEnter(Collider CollEnter)
     {
-       
         OnTriggerStay(CollEnter);
     }
     void OnTriggerStay(Collider CollStay)
     {
-        if (CollStay.gameObject.tag == "EnemyL")
+        if (CollStay.gameObject.tag == "EnemyL"|| CollStay.gameObject.tag == "EnemyR")
         {
             Instantiate(Hit, CollStay.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
