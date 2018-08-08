@@ -116,7 +116,6 @@ public class Spawner : MonoBehaviour
 
     void SpawnEnemy(Transform _enemy)
     {
-        Debug.Log("Spawn Enemy : " + _enemy.name);
         //Spawn Enemy
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(_enemy, _sp.position, _sp.rotation);

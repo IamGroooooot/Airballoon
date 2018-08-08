@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: ce0583395df705e4c9352c8502ea6a68
-timeCreated: 1533286226
+guid: d1d6b8c97726ac147b2718a8e07e824d
+timeCreated: 1533631987
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Regroup37
-    400000: //RootNode
-    400002: Regroup37
-    2100000: Regroup37Mat
-    2100002: Material01
-    2300000: Regroup37
-    3300000: Regroup37
-    4300000: Regroup37
+    100000: Body
+    100002: //RootNode
+    100004: tentacle
+    400000: Body
+    400002: //RootNode
+    400004: tentacle
+    2100000: Material01
+    2100002: BodyMat
+    2100004: tentacleMat
+    2300000: Body
+    2300002: tentacle
+    3300000: Body
+    3300002: tentacle
+    4300000: Body
+    4300002: tentacle
   externalObjects: {}
   materials:
     importMaterials: 1

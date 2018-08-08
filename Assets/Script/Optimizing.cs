@@ -6,33 +6,8 @@ public class Optimizing : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-	}
+        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-	void OnBecameInvisible()
-
-	{
-		Off ();
-	}
-
-	void OnBecameVisible()
-
-	{
-		ON ();
-	}
-
-	void Off()
-	{
-		this.gameObject.SetActive (false);		
-	}
-		
-	void ON()
-	{
-		this.gameObject.SetActive (true);		
-	}
 }

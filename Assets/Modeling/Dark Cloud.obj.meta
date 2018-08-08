@@ -1,19 +1,48 @@
 fileFormatVersion: 2
-guid: ce0583395df705e4c9352c8502ea6a68
-timeCreated: 1533286226
+guid: e58534fca9161ef41a8d99ee0568a5c4
+timeCreated: 1533646335
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Regroup37
+    100002: Duplicate12
+    100004: Plane05
+    100006: Regroup01
+    100008: Duplicate13
+    100010: Duplicate14
+    100012: Regroup02
     400000: //RootNode
-    400002: Regroup37
-    2100000: Regroup37Mat
-    2100002: Material01
-    2300000: Regroup37
-    3300000: Regroup37
-    4300000: Regroup37
+    400002: Duplicate12
+    400004: Plane05
+    400006: Regroup01
+    400008: Duplicate13
+    400010: Duplicate14
+    400012: Regroup02
+    2100000: Duplicate12Mat
+    2100002: Plane05Mat
+    2100004: Regroup01Mat
+    2100006: Duplicate13Mat
+    2100008: Duplicate14Mat
+    2100010: Regroup02Mat
+    2300000: Duplicate12
+    2300002: Plane05
+    2300004: Regroup01
+    2300006: Duplicate13
+    2300008: Duplicate14
+    2300010: Regroup02
+    3300000: Duplicate12
+    3300002: Plane05
+    3300004: Regroup01
+    3300006: Duplicate13
+    3300008: Duplicate14
+    3300010: Regroup02
+    4300000: Duplicate12
+    4300002: Plane05
+    4300004: Regroup01
+    4300006: Duplicate13
+    4300008: Duplicate14
+    4300010: Regroup02
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -65,8 +94,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 0
-    normalImportMode: 1
+    normalSmoothAngle: 60
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1

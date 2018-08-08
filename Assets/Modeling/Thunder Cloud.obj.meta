@@ -1,19 +1,54 @@
 fileFormatVersion: 2
-guid: ce0583395df705e4c9352c8502ea6a68
-timeCreated: 1533286226
+guid: 56150d76f60ced047babcbabb59db9e0
+timeCreated: 1533659596
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Regroup37
-    400000: //RootNode
-    400002: Regroup37
-    2100000: Regroup37Mat
-    2100002: Material01
-    2300000: Regroup37
-    3300000: Regroup37
-    4300000: Regroup37
+    100000: Cylinder02
+    100002: Duplicate03
+    100004: Duplicate04
+    100006: Duplicate05
+    100008: Duplicate06
+    100010: Sphere03
+    100012: //RootNode
+    100014: Regroup00
+    400000: Cylinder02
+    400002: Duplicate03
+    400004: Duplicate04
+    400006: Duplicate05
+    400008: Duplicate06
+    400010: Sphere03
+    400012: //RootNode
+    400014: Regroup00
+    2100000: Cylinder02Mat
+    2100002: Duplicate03Mat
+    2100004: Duplicate04Mat
+    2100006: Duplicate05Mat
+    2100008: Duplicate06Mat
+    2100010: Sphere03Mat
+    2100012: Regroup00Mat
+    2300000: Cylinder02
+    2300002: Duplicate03
+    2300004: Duplicate04
+    2300006: Duplicate05
+    2300008: Duplicate06
+    2300010: Sphere03
+    2300012: Regroup00
+    3300000: Cylinder02
+    3300002: Duplicate03
+    3300004: Duplicate04
+    3300006: Duplicate05
+    3300008: Duplicate06
+    3300010: Sphere03
+    3300012: Regroup00
+    4300000: Cylinder02
+    4300002: Duplicate03
+    4300004: Duplicate04
+    4300006: Duplicate05
+    4300008: Duplicate06
+    4300010: Sphere03
+    4300012: Regroup00
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -65,8 +100,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 0
-    normalImportMode: 1
+    normalSmoothAngle: 60
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
