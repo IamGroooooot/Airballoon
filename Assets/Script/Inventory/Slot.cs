@@ -15,25 +15,38 @@ public class Slot : MonoBehaviour, IDropHandler {
 
 		if(inv.items[id].ID == -1)
 		{
-			inv.items[droppedItem.slot] = new Item();
+
+
+            inv.items[droppedItem.slot] = new Item();
 			inv.items[id] = droppedItem.item;
 			droppedItem.slot = id;
-		}
+            droppedItem.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);//위치오류수정
+
+
+        }
 		else if(droppedItem.slot != id)//인벤토리에 아이템이 있으면 swap하기
 		{
-			Transform item =  this.transform.GetChild(0);
-			item.GetComponent<ItemData>().slot = droppedItem.slot;
+
+
+            Transform item =  this.transform.GetChild(0);
+
+            item.GetComponent<ItemData>().slot = droppedItem.slot;
+            
 			item.transform.SetParent(inv.slots[droppedItem.slot].transform);
 			item.transform.position = inv.slots[droppedItem.slot].transform.position;
+            item.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0); //위치오류수정
 
-			droppedItem.slot = id;
+            droppedItem.slot = id;
 			droppedItem.transform.SetParent(this.transform);
-			droppedItem.transform.position = this.transform.position;
 
-			inv.items[droppedItem.slot] =  item.GetComponent<ItemData>().item;
+            droppedItem.transform.position = this.transform.position;
+            droppedItem.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0); //위치오류수정
+
+            inv.items[droppedItem.slot] =  item.GetComponent<ItemData>().item;
 			inv.items[id] = droppedItem.item;
 
-		}
+
+        }
 
 
 	}

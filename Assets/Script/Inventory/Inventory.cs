@@ -5,11 +5,17 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour {
 	GameObject inventoryPanel;
 	GameObject slotPanel;
+    GameObject skillPanel;
 	Item_Database database;
 	public GameObject inventorySlot;
-	public GameObject inventoryItem;
+    public GameObject SkillSlot;
+    public GameObject inventoryItem;
 
-	int slotAmount;
+    public Transform SkillSlotPos1;
+    public Transform SkillSlotPos2;
+    public Transform SkillSlotPos3;
+    public Transform canvas;
+    int slotAmount;
 
 	public List<Item> items = new List<Item>();
 	public List<GameObject> slots = new List<GameObject>();
@@ -22,28 +28,74 @@ public class Inventory : MonoBehaviour {
 		slotAmount = 9;
 		inventoryPanel = GameObject.Find ("Inventory_Panel");
 		slotPanel = inventoryPanel.transform.Find("Slot_Panel").gameObject;
+        skillPanel = GameObject.Find("Skill_Panel");
 
-		inventoryPanel.SetActive (false);
+
+
+        inventoryPanel.SetActive (false);
 
 		for (int i = 0; i < slotAmount; i++) {
 			items.Add (new Item ());
 			slots.Add (Instantiate (inventorySlot));
 			slots [i].GetComponent<Slot> ().id = i;
 			slots [i].transform.SetParent (slotPanel.transform);
-
 		}
-		AddItem (0);
+        //skill slot 정의
+        
+        for (int i = slotAmount; i < slotAmount+3; i++)
+        {
+            items.Add(new Item());
+            GameObject Temp;
+            if (i == slotAmount)
+            {
+                Temp = Instantiate(SkillSlot, SkillSlotPos1);
+                Temp.name = "SkillSlot1";
+                slots.Add(Temp);
+                slots[i].GetComponent<Slot>().id = i;
+                slots[i].transform.SetParent(skillPanel.transform);
+                SkillSlotPos1.transform.SetParent(canvas.transform);
+            }
+            else if (i == (slotAmount+1))
+            {
+                Temp = Instantiate(SkillSlot, SkillSlotPos2);
+                Temp.name = "SkillSlot2";
+                slots.Add(Temp);
+                slots[i].GetComponent<Slot>().id = i;
+                slots[i].transform.SetParent(skillPanel.transform);
+                SkillSlotPos2.transform.SetParent(canvas.transform);
+            }
+            else if (i == (slotAmount + 2))
+            {
+                Temp = Instantiate(SkillSlot, SkillSlotPos3);
+                Temp.name = "SkillSlot3";
+                slots.Add(Temp);
+                slots[i].GetComponent<Slot>().id = i;
+                slots[i].transform.SetParent(skillPanel.transform);
+                SkillSlotPos3.transform.SetParent(canvas.transform);
+            }
+
+
+        }
+        
+
+        AddItem (0);
 		AddItem (1);
 		AddItem (1);
 		AddItem (1);
 		AddItem (1);
 		AddItem (1);
-		AddItem (3);
 		AddItem (2);
-		AddItem (1);
+		AddItem (3);
+        AddItem(4);
+        AddItem(5);
+        AddItem(6);
+        AddItem(7);
+        AddItem(8);
+        AddItem(9);
 
+       
+    }
 
-	}
 	public void AddItem(int id)
 	{
 		Item itemToAdd = database.FindItemByID (id);
@@ -67,8 +119,8 @@ public class Inventory : MonoBehaviour {
 					itemObj.GetComponent<ItemData> ().slot = i;
 					itemObj.GetComponent<ItemData>().amount = 1;
 					itemObj.transform.SetParent (slots [i].transform);
-					itemObj.transform.position = Vector2.zero;
-					itemObj.GetComponent<Image> ().sprite = itemToAdd.Sprite;
+                    itemObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
+                    itemObj.GetComponent<Image> ().sprite = itemToAdd.Sprite;
 					itemObj.name = itemToAdd.Title;
 					break;
 				}

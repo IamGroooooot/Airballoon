@@ -22,7 +22,7 @@ public class ItemData : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
 	{
 		if (item != null) 
 		{
-			this.transform.SetParent (this.transform.parent.parent);
+			this.transform.SetParent (this.transform.parent.parent.parent.parent);
 
 			GetComponent<CanvasGroup> ().blocksRaycasts = false;
 		}
@@ -32,9 +32,10 @@ public class ItemData : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
 
 	public void OnPointerDown(PointerEventData eventData)
 	{
+        
 		offset = eventData.position - (Vector2)this.transform.position;
 		this.transform.position = eventData.position - offset;
-	}
+    }
 
 	public void OnDrag(PointerEventData eventData)
 	{
@@ -48,9 +49,10 @@ public class ItemData : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
 	public void OnEndDrag(PointerEventData eventData)
 	{
 		this.transform.SetParent (inv.slots[slot].transform);
+        
 		this.transform.position = inv.slots[slot].transform.position;
-
-		GetComponent<CanvasGroup> ().blocksRaycasts = true;
+        this.transform.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0); //위치오류수정
+        GetComponent<CanvasGroup> ().blocksRaycasts = true;
 	}
 
 
