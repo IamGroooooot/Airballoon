@@ -12,11 +12,4 @@ public class Restart : MonoBehaviour {
 
 
     }
-    public void Restart_Game1()
-    {
-        SceneManager.LoadScene(1);
-
-
-    }
-
 }

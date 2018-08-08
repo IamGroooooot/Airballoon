@@ -6,16 +6,6 @@ using UnityEngine;
 
 public class BalloonShipCtrl : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     private void OnBecameInvisible()
     {
         Destroy(this.gameObject);
