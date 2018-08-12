@@ -11,8 +11,8 @@ public class Joystick2 : MonoBehaviour {
 	// 공개
 	public Transform Player;        // 플레이어.
 	public Rigidbody RB_Player;		
-	public static float max_Speed = 300.0f;//속도 제한
-	public float rotationSpeed = 100f;//선회 속도
+	public static float max_Speed;//속도 제한
+	public float rotationSpeed;//선회 속도
 	public Transform Stick;         // 조이스틱.
 
 
@@ -22,6 +22,10 @@ public class Joystick2 : MonoBehaviour {
 	private float Radius;           // 조이스틱 배경의 반 지름.
 	private bool MoveFlag;          // 플레이어 움직임 스위치.
 
+	void Awake(){
+		max_Speed = PlayerDB.DB.max_Speed;
+		rotationSpeed = PlayerDB.DB.rotationSpeed;
+	}
 
 
 	void Start()

@@ -1,18 +1,48 @@
 fileFormatVersion: 2
-guid: 4059b14f4ea6de64f9c8027363a95f6f
-timeCreated: 1533212698
+guid: c35fb01175bb7ac42adfbc1f81855cad
+timeCreated: 1533983349
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Regroup10
-    100002: //RootNode
-    400000: Regroup10
-    400002: //RootNode
-    2100000: Regroup10Mat
-    2300000: Regroup10
-    3300000: Regroup10
-    4300000: Regroup10
+    100000: Box05
+    100002: Cylinder03
+    100004: Duplicate29
+    100006: //RootNode
+    100008: Regroup13
+    100010: Regroup15
+    100012: Regroup18
+    400000: Box05
+    400002: Cylinder03
+    400004: Duplicate29
+    400006: //RootNode
+    400008: Regroup13
+    400010: Regroup15
+    400012: Regroup18
+    2100000: Box05Mat
+    2100002: Cylinder03Mat
+    2100004: Duplicate29Mat
+    2100006: Regroup13Mat
+    2100008: Regroup15Mat
+    2100010: Regroup18Mat
+    2300000: Box05
+    2300002: Cylinder03
+    2300004: Duplicate29
+    2300006: Regroup13
+    2300008: Regroup15
+    2300010: Regroup18
+    3300000: Box05
+    3300002: Cylinder03
+    3300004: Duplicate29
+    3300006: Regroup13
+    3300008: Regroup15
+    3300010: Regroup18
+    4300000: Box05
+    4300002: Cylinder03
+    4300004: Duplicate29
+    4300006: Regroup13
+    4300008: Regroup15
+    4300010: Regroup18
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -44,7 +74,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 3
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1

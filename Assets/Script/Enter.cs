@@ -6,11 +6,6 @@ public class Enter : MonoBehaviour {
 
 	public GameObject _Enter;
 
-	// Use this for initialization
-	void Start () {
-
-	}
-		
 	void OnTriggerEnter(Collider ColEnter)
 	{
 		if (ColEnter.gameObject.tag == "Player") 
@@ -22,9 +17,14 @@ public class Enter : MonoBehaviour {
 	}		
 	void OnTriggerStay(Collider ColStay)
 	{
-		if (ColStay.gameObject.tag == "Player") 
-		{
+		if (ColStay.gameObject.tag == "Player") {
 			_Enter.gameObject.SetActive (true);
+		}
+	}
+	void OnTriggerExit(Collider ColExit)
+	{
+		if (ColExit.gameObject.tag == "Player") {
+			_Enter.gameObject.SetActive (false);
 		}
 	}
 }

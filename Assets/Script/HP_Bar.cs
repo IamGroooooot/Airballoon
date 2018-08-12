@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class HP_Bar : MonoBehaviour
 {
-    public float max_Health = 100f;
-    public float cur_Health = 0;
+    public float max_Health;
+    public float cur_Health;
     public Image myHealthBar;
     public static float Damage = 20f;
     public static float HealValue = 2f;
@@ -19,6 +19,11 @@ public class HP_Bar : MonoBehaviour
     public GameObject Fire2;
     public GameObject Fire3;
     public GameObject Smoke;
+
+	void Awake(){
+		max_Health = PlayerDB.DB.max_Health;
+		cur_Health = PlayerDB.DB.cur_Health;
+	}
 
     // Use this for initialization
     void Start()
