@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Ballon Ship에 대한 스크립트 : 폭탄 투하하게 함
-//최적화 ㅇ
+//최적화 O
 
 
 public class Ball_CtrlOnDetact : MonoBehaviour {

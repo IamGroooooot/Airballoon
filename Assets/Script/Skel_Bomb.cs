@@ -22,12 +22,13 @@ public class Skel_Bomb : MonoBehaviour
         {
             HP_Bar.IsDamaged = true;
 
-            //Instantiate(Hit,Coll.transform.position,Quaternion.identity);
 			GameObject Hit = ObjectPooling.pool.GetPoolObject_Hit ();
 			if (Hit == null) return;
 
 			Hit.transform.position = Coll.transform.position;
 			Hit.SetActive (true);
+
+            //Instantiate(Hit,Coll.transform.position,Quaternion.identity);
 
 			//Bullet Active False
 			this.gameObject.SetActive (false);

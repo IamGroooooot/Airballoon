@@ -32,20 +32,21 @@ public class SmallBulletCtrl : MonoBehaviour {
 	//Enemy태그 가진애한테 충돌하면 총알 없앰
 	void OnTriggerEnter(Collider CollEnter)
 	{
+		//Hit Particle생성
+
+		GameObject Hit = ObjectPooling.pool.GetPoolObject_Hit ();
+		if (Hit == null) return;
+
+		Hit.transform.position = CollEnter.transform.position;
+		//Hit.transform.localScale = Vector3 (1, 1, 1);
+		Hit.SetActive (true);
+
 		OnTriggerStay(CollEnter);
 	}
 	void OnTriggerStay(Collider CollStay)
 	{
 		if (CollStay.CompareTag ("Enemy"))
 		{
-			//Hit Particle생성
-
-			GameObject Hit = ObjectPooling.pool.GetPoolObject_Hit ();
-			if (Hit == null) return;
-
-			Hit.transform.position = CollStay.transform.position;
-			Hit.SetActive (true);
-
 			//Instantiate(Hit, CollStay.transform.position, Quaternion.identity);
 			this.gameObject.SetActive (false);
 		}
