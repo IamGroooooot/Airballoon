@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //Ballon Ship에 대한 스크립트 : 폭탄 투하하게 함
+//최적화 ㅇ
+
 
 public class Ball_CtrlOnDetact : MonoBehaviour {
 
-	public Transform PlayerTrans; //플레이어
+	private Transform PlayerTrans; //플레이어
     public GameObject Skel; //스켈레톤이 있는 열기구 설정
 
-	public GameObject bomb; //발사할 스켈레톤의 폭탄 prefab
+	//public GameObject bomb; //발사할 스켈레톤의 폭탄 prefab
     public float followSpeed = 50f;
 
     private int time2;
@@ -19,6 +21,7 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
 	public float speed = 5f;
     private Vector3 myPosition;
     private Quaternion myRotation;
+	private Rigidbody Rb;
 
     //해골이 던지는 폭탄에 대한 설정 값
     public float angle_degr = 60f; //기본각도를 60도로 설정
@@ -29,7 +32,9 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
     Vector3 playerPos;
 
     void Start () {
-        PlayerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+
+        //PlayerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+		PlayerTrans = PlayerManager.instance.player.transform;
         canAttack = false;
 		fire = false;
 
@@ -66,7 +71,7 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
             {
                 TimerOn = true;
             }
-            Skel.GetComponent<Rigidbody>().velocity = new Vector3(0,0,0);
+			Skel.GetComponent<Rigidbody> ().velocity = new Vector3(0,0,0);
         }
         else
         {
@@ -90,9 +95,16 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
 
 		if (fire) {
 			//인스턴트화하고 폭탄 스크립트에 폭탄 발사 넣기
-			Skel_Bomb = Instantiate(bomb, Skel.transform.position + (Skel.transform.forward*20) ,Skel.transform.rotation) as GameObject;
-            FireSkelBomb(Skel_Bomb);
-			Debug.Log ("인스턴스화 완료");
+			GameObject bomb = ObjectPooling.pool.GetPoolObject_SkelBomb ();
+			if (bomb == null) return;
+
+			bomb.transform.position = Skel.transform.position + (Skel.transform.forward * 20);
+			bomb.transform.rotation = Skel.transform.rotation;
+			bomb.SetActive (true);
+
+			//Skel_Bomb = Instantiate(bomb, Skel.transform.position + (Skel.transform.forward*20) ,Skel.transform.rotation) as GameObject;
+            FireSkelBomb(bomb);
+			//Debug.Log ("인스턴스화 완료");
             time2 = 0;
 			fire = false;
 		}
@@ -131,6 +143,6 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
 
         Bomb.GetComponent<Rigidbody>().velocity = BombInitVelocity; //폭탄 인스턴트에 속도 부여
 
-        Destroy(Bomb.gameObject, 5f);
+		//Bomb.gameObject.SetActive (false);
     }
 }

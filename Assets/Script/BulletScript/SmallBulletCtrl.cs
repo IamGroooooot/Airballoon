@@ -2,23 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletCtrl : MonoBehaviour {
+public class SmallBulletCtrl : MonoBehaviour {
 	public GameObject Hit;
 	public Transform CollPos;
 
 	//포탄 공격력
-	public int damage = 20;
+	public int damage = 2;
 
-	//public float speed = 10f;
+	public float speed = 800f;
 
 	private Rigidbody Rb;
 
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine (Disable (2.0f));
+		Rb = GetComponent<Rigidbody> ();
+		StartCoroutine (Disable (2.5f));
 	}
-		
+
+	void Update(){
+		this.Rb.velocity = new Vector3(0,0,1) * speed;
+	}
 
 	private void OnBecameInvisible()
 	{
@@ -32,7 +36,7 @@ public class BulletCtrl : MonoBehaviour {
 	}
 	void OnTriggerStay(Collider CollStay)
 	{
-		if (CollStay.CompareTag ("EnemyL")|| CollStay.CompareTag ("EnemyR"))
+		if (CollStay.CompareTag ("Enemy"))
 		{
 			//Hit Particle생성
 

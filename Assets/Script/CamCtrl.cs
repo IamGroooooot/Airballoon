@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CamCtrl : MonoBehaviour {
 
-    public GameObject Player;
+    //public GameObject Player;
+
+	private GameObject Player;
     private Vector3 offset;
 
 	public GameObject MainCam;
@@ -15,7 +17,8 @@ public class CamCtrl : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
+		Player = PlayerManager.instance.player;
+
 		mainCamOn ();
 
 		offset = transform.position - Player.transform.position;

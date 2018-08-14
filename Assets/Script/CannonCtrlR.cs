@@ -12,7 +12,7 @@ public class CannonCtrlR : MonoBehaviour
 	public int reload = 30;
 	public bool CanShoot, TimerOn;
 	int time;
-    public float bullectRSpeed = 100f;
+    public float bullectRSpeed = 400f;
 
     //발사위치
     public Transform Fire_1;
@@ -23,12 +23,12 @@ public class CannonCtrlR : MonoBehaviour
 	public Vector3 WhereToFireRC3;
 
 	//복제할 총알 오브젝트
-	public GameObject BulletRC1;
-	public GameObject BulletRC2;
-	public GameObject BulletRC3;
-	private GameObject TempBulletRC1;
-	private GameObject TempBulletRC2;
-	private GameObject TempBulletRC3;
+	//public GameObject BulletRC1;
+	//public GameObject BulletRC2;
+	//public GameObject BulletRC3;
+	//private GameObject TempBulletRC1;
+	//private GameObject TempBulletRC2;
+	//private GameObject TempBulletRC3;
 
 	private bool FindEnemyR;
 
@@ -71,21 +71,42 @@ public class CannonCtrlR : MonoBehaviour
 			if (time == reload) {
 				//Debug.Log ("대포 발사1");
 				Vector3 FirePos_1 = Fire_1.position;
-				TempBulletRC1 = Instantiate (BulletRC1, FirePos_1, BulletRC1.transform.rotation) as GameObject;
+				//TempBulletRC1 = Instantiate (BulletRC1, FirePos_1, BulletRC1.transform.rotation) as GameObject;
                 
-                TempBulletRC1.GetComponent<Rigidbody> ().velocity = WhereToFireRC1.normalized*bullectRSpeed;
+				GameObject Bullet = ObjectPooling.pool.GetPoolObject_Bullet ();
+				if (Bullet == null) return;
+
+				Bullet.transform.position = FirePos_1;
+
+
+				Bullet.SetActive (true);
+
+				Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireRC1.normalized*bullectRSpeed;
+
 			} else if (time == reload * 2) {
 				//Debug.Log ("대포 발사2");
 				Vector3 FirePos_2 = Fire_2.position;
-				TempBulletRC2 = Instantiate (BulletRC2, FirePos_2, BulletRC2.transform.rotation);
-               
-                TempBulletRC2.GetComponent<Rigidbody> ().velocity =WhereToFireRC2.normalized*bullectRSpeed;
+			
+				//TempBulletRC2 = Instantiate (BulletRC2, FirePos_2, BulletRC2.transform.rotation);
+				GameObject Bullet = ObjectPooling.pool.GetPoolObject_Bullet ();
+				if (Bullet == null) return;
+
+				Bullet.transform.position = FirePos_2;
+
+
+				Bullet.SetActive (true);
+				Bullet.GetComponent<Rigidbody> ().velocity =WhereToFireRC2.normalized*bullectRSpeed;
+			
 			} else if (time == reload * 3) {
 				//Debug.Log ("대포 발사3");
 				Vector3 FirePos_3 = Fire_3.position;
-				TempBulletRC3 = Instantiate (BulletRC3, FirePos_3, BulletRC3.transform.rotation);
-                
-                TempBulletRC3.GetComponent<Rigidbody> ().velocity = WhereToFireRC3.normalized*bullectRSpeed;
+				//TempBulletRC3 = Instantiate (BulletRC3, FirePos_3, BulletRC3.transform.rotation);
+				GameObject Bullet = ObjectPooling.pool.GetPoolObject_Bullet ();
+				if (Bullet == null) return;
+
+				Bullet.transform.position = FirePos_3;
+
+				Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireRC3.normalized*bullectRSpeed;
 				time = 0;
 				TimerOn = false;
 			}
@@ -101,9 +122,9 @@ public class CannonCtrlR : MonoBehaviour
 
     void OnTriggerExit(Collider CollExit)
     {
-        if (CollExit.gameObject.tag == "EnemyR")
+		if (CollExit.CompareTag("EnemyR"))
         {
-            CollExit.gameObject.tag = "Enemy";
+			CollExit.CompareTag("Enemy");
         }
     }
 
@@ -115,7 +136,7 @@ public class CannonCtrlR : MonoBehaviour
 			//Debug.Log("EnemyL로 태그 바꿈");
 			other.gameObject.tag = "EnemyR";
 		}
-		if (other.transform.tag == "EnemyR")
+		if (other.CompareTag("EnemyR"))
 		{
             FindEnemyR = true;
             //Debug.Log("발사범위 접촉");

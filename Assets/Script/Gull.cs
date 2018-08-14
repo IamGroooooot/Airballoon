@@ -10,7 +10,7 @@ public class Gull : MonoBehaviour {//(0~300)
  	// Use this for initialization
 	void Start ()
     {
-        playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
+		playerTrans = PlayerManager.instance.player.transform;
         float X = playerTrans.position.x + Random.Range(-300f, 300f);
       //float Y = playerTrans.position.y + Random.Range(-300f, 300f);
         float Z = playerTrans.position.z + Random.Range(-300f, 300f);

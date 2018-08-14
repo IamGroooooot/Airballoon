@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class Particle_Destroy : MonoBehaviour {
 
-    private ParticleSystem ps;
+    //private ParticleSystem ps;
     // Use this for initialization
     void Start () {
-        ps = GetComponent<ParticleSystem>();       
+       // ps = GetComponent<ParticleSystem>();       
+
+		StartCoroutine((Disable(1.0f)));
     }
 	
 	// Update is called once per frame
-	void Update () {
+	/*void Update () {
         if (ps)
         {
             if (!ps.IsAlive())
             {
-                Destroy(gameObject);
+				
             }
         }
-    }
+    }*/
 
+	IEnumerator Disable(float waitTime){
+		yield return new WaitForSeconds (waitTime);
+		this.gameObject.SetActive (false);
+	}
 }

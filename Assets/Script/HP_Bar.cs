@@ -20,14 +20,13 @@ public class HP_Bar : MonoBehaviour
     public GameObject Fire3;
     public GameObject Smoke;
 
-	void Awake(){
-		max_Health = PlayerDB.DB.max_Health;
-		cur_Health = PlayerDB.DB.cur_Health;
-	}
 
     // Use this for initialization
     void Start()
     {
+		max_Health = PlayerDB.DB.max_Health;
+		cur_Health = PlayerDB.DB.cur_Health;
+
         cur_Health = max_Health;
     }
 

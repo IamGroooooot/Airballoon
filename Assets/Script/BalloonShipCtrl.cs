@@ -8,6 +8,6 @@ public class BalloonShipCtrl : MonoBehaviour {
 
     private void OnBecameInvisible()
     {
-        Destroy(this.gameObject);
+		this.gameObject.SetActive (false);
     }
 }

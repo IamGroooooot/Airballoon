@@ -6,28 +6,31 @@ using UnityEngine;
 
 public class Skel_Bomb : MonoBehaviour
 {
-    public GameObject Hit;
 
-    // Use this for initialization
-    void Start()
-    {
-        
-    }
+	public string poolItemName = "Skel_bomb";
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+	void Update(){
+		if (this.transform.position.y < 20f) 
+		{
+			this.gameObject.SetActive (false);
+		}
+	}
 
     void OnTriggerEnter(Collider Coll)
     {
-        if (Coll.gameObject.tag == "Player")
+		if (Coll.CompareTag ("Player"))
         {
             HP_Bar.IsDamaged = true;
 
-            Instantiate(Hit,Coll.transform.position,Quaternion.identity);
-            Destroy(this.gameObject);
+            //Instantiate(Hit,Coll.transform.position,Quaternion.identity);
+			GameObject Hit = ObjectPooling.pool.GetPoolObject_Hit ();
+			if (Hit == null) return;
+
+			Hit.transform.position = Coll.transform.position;
+			Hit.SetActive (true);
+
+			//Bullet Active False
+			this.gameObject.SetActive (false);
         }
     }
     void OnTriggerStay(Collider CollStay)

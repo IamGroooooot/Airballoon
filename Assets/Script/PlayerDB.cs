@@ -28,6 +28,11 @@ public class PlayerDB : MonoBehaviour {
 	public bool is_head;
 	public bool is_gun;
 
+	//Resource
+	public int gold;
+	public int log;
+	public int steel;
+
 	//Equip List
 	public int Top; // Balloon=0, Normal=1, Speed=2, East=3
 	public int Body; //Quick=0, Noraml=1, Iron=2
@@ -72,6 +77,10 @@ public class PlayerDB : MonoBehaviour {
 		PlayerPrefs.SetInt ("Body",Body);
 		PlayerPrefs.SetInt ("Head",Head);
 		PlayerPrefs.SetInt ("Item",Item);
+
+		PlayerPrefs.SetInt ("Gold", gold);
+		PlayerPrefs.SetInt ("Log", log);
+		PlayerPrefs.SetInt ("Steel", steel);
 
 		switch (Top) {
 
