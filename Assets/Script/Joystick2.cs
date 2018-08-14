@@ -14,8 +14,13 @@ public class Joystick2 : MonoBehaviour {
 	public static float max_Speed;//속도 제한
 	public float rotationSpeed;//선회 속도
 	public Transform Stick;         // 조이스틱.
+	//부스터 스킬
+	public static bool BoostTimerOn;
+	public static float BoostTime;
+	public static float BoostRate;
 
-
+	private float BoostedSpeed;
+	private float OriginSpeed;
 	// 비공개
 	private Vector3 StickFirstPos;  // 조이스틱의 처음 위치.
 	private Vector3 JoyVec;         // 조이스틱의 벡터(방향)
@@ -25,11 +30,18 @@ public class Joystick2 : MonoBehaviour {
 
 	void Start()
 	{
+		BoostTimerOn = false;
+		BoostTime = 2f;
+		BoostRate = 1.5f;
+
+
 		Player = PlayerManager.instance.player.transform;
 		RB_Player = PlayerManager.instance.player.GetComponent<Rigidbody>();
 
 		max_Speed = PlayerDB.DB.max_Speed;
 		rotationSpeed = PlayerDB.DB.rotationSpeed;
+		BoostedSpeed = BoostRate * max_Speed ;
+
 
 		Radius = GetComponent<RectTransform>().sizeDelta.y * 0.15f;
 		StickFirstPos = Stick.transform.position;
@@ -41,6 +53,20 @@ public class Joystick2 : MonoBehaviour {
 		MoveFlag = false;
 
     }
+	void Update(){
+		if (BoostTimerOn) //빠르게
+		{
+			max_Speed = BoostedSpeed;
+			BoostTime -= Time.deltaTime;
+			if (BoostTime <= 0) //느리게
+			{
+				max_Speed = PlayerDB.DB.max_Speed;//원래 스피드로
+				BoostTimerOn = false;
+			}
+
+		}
+
+	}
 
 	//조이스틱방향으로 ADDFORCE
 	void FixedUpdate() {

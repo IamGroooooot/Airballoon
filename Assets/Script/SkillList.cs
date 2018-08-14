@@ -19,95 +19,109 @@ public class SkillList : MonoBehaviour{
 	public Transform PlayerTr;
 	public Transform PlayerTr2;
 
+	public float cool0 = 20f;
+	public float cool1 = 20f;
+	public float cool2 =2f;
+	public float cool3 =15f;
+	public float cool4 = 2f;
+	public float cool5 =8f;
+	public float cool6 = 8f;
+	public float cool7 = 8f;
+	public float cool8 = 15f;
+	public float cool9 = 15f;
+	public float cool10 = 15f;
+
 
 	void Awake(){
 		
 		Skill_List = this;
 	}
-
-	//쿨타임은 해당스킬 버튼 ~초(변수:스킬마다 다르게 설정 후 대입)동안 
-	//비활성화 시키면서 시간 뜨게하고, 
+ 
 	//색 어둡게 변경하면 될듯!
 
 	//Using Skill List
-	void Repair () 
+	public void Repair () //0 쿨20초
 	{
-		//전체 체력의 10%를 수리한다. 쿨타임 20초, 소모품:(Item갯수 -1)
-		//(Code)~번 스킬 창 쿨타임 ON (20초)
-		PlayerDB.DB.cur_Health = PlayerDB.DB.cur_Health + (PlayerDB.DB.max_Health*0.1f);
+		//소모품:(Item갯수 -1)
+	
+		HP_Bar.IsHeal = true;
+		Debug.Log ("Repair성공");
+	}
+
+	public void Booster () //1 쿨20초
+	{
+		// 소모품
+		Joystick2.max_Speed = PlayerDB.DB.max_Speed;
+		Joystick2.BoostRate = 1.5f; // 150%증가
+		Joystick2.BoostTime = 2f;
+		Joystick2.BoostTimerOn = true;
 
 	}
 
-	void Booster () 
-	{
-		// 일시적으로 속도를 150% 증가시킨다, 소모품
-		//(Code)~번 스킬 창 쿨타임 ON (20초)
-		PlayerDB.DB.max_Speed+= (PlayerDB.DB.max_Speed*0.5f);
-		// (Code)임시 카운트(2초) 이후 속도 그대로
-		PlayerDB.DB.max_Speed-=(PlayerDB.DB.max_Speed*0.5f);
-
-	}
-
-	void Shield()
+	public void Shield() //2 쿨2초
 	{
 		//임시 방어막을 생성한다, 소모품
 		shield.gameObject.SetActive(true);
-		//(Code)~번 스킬 창 쿨타임 ON (5초)
-		//(Code) Lasting Time(2sec)이후 비활성화
+		//(Code) Lasting Time(2sec)이후 비활성화 : 스크립트달아야할듯
 
 	}
 
 	//Instantiate Skill List
-	void Drone()
+	public void Drone() //3
 	{
 		//드론을 생성한다,소모품
 		Instantiate(drone,PlayerTr);
-		//(Code)~번 스킬 창 쿨타임 ON (15초)
 		//드론은 10초 후에 자동 소멸(SetActive(false)) : Drone Script참조
+
 	}
 
-	void Balloon()
+	public void Balloon() //4
 	{
 		//풍선을 생성한다, 소모품
-		//(Code)~번 스킬 창 쿨타임 ON (2초)
 		Instantiate(balloon,PlayerTr);
+
 	}
 
-	void Rain()
+	public void Rain() //5
 	{
 		//비구름 생성, 소모품
-		//(Code)~번 스킬 창 쿨타임 ON (8초)
 		Instantiate(rain,PlayerTr2);
+
 	}
 
-	void SpeedCloud()
+	public void SpeedCloud() //6
 	{
 		//근두운 생성, 소모품
-		//(Code)~번 스킬 창 쿨타임 ON (8초)
 		Instantiate(speed,PlayerTr2);
+
 	}
 
-	void Thunder()
+	public void Thunder() //7
 	{
 		//번개구름생성, 소모품
-		//(Code)~번 스킬 창 쿨타임 ON (8초)
 		Instantiate(thunder,PlayerTr2);
+
 	}
 		
 	//Fire Skill List - ReadyFire Obj생성 후 위치 선정되면 스킬 구현
-	void Anchor()
+	public void Anchor() //8
 	{
 		// 닻 발사
 		anchor.gameObject.SetActive(true);
-	}
-		
-	void Chain()
-	{
-		chain.gameObject.SetActive(true);
+
 	}
 
-	void WaterBomb()
+	public void WaterBomb() //9
 	{
 		water.gameObject.SetActive (true);
+
 	}
+
+	public void Chain() //10
+	{
+		chain.gameObject.SetActive(true);
+
+	}
+
+
 }

@@ -1,42 +1,6 @@
 [
   {
     "id": 0,
-    "title": "Anchor With Rope",
-    "value": 5,
-    "description": "Cusor Which is blue",
-    "stackable": false,
-    "purpose": 0, 
-    "slug": "Anchor"
-  },
-  {
-    "id": 1,
-    "title": "Rain",
-    "value": 10,
-    "description": "Cusor Which is bronze, and Stackable",
-    "stackable": true,
-    "purpose": 0, 
-    "slug": "Rain"
-  },
-  {
-    "id": 2,
-    "title": "Thunder",
-    "value": 20,
-    "description": "For Once",
-    "stackable": true, 
-    "purpose": 1, 
-    "slug": "Thunder"
-  },
-  {
-    "id": 3,
-    "title": "WaterBomb",
-    "value": 50,
-    "description": "Forever Use",
-    "stackable": false,
-    "purpose": 0, 
-    "slug": "WaterBomb"
-  },
-  {
-    "id": 4,
     "title": "Repair",
     "value": 50,
     "description": "Forever Use",
@@ -44,26 +8,9 @@
     "purpose": 0, 
     "slug": "Kit"
   },
+
   {
-    "id": 5,
-    "title": "Drone",
-    "value": 50,
-    "description": "Forever Use",
-    "stackable": false,
-    "purpose": 0, 
-    "slug": "Flying"
-  },
-  {
-    "id": 6,
-    "title": "Chain Cannon",
-    "value": 50,
-    "description": "Forever Use",
-    "stackable": false,
-    "purpose": 0, 
-    "slug": "Chain"
-  },
-  {
-    "id": 7,
+    "id": 1,
     "title": "Booster",
     "value": 50,
     "description": "Forever Use",
@@ -71,8 +18,29 @@
     "purpose": 0, 
     "slug": "Booster"
   },
+
   {
-    "id": 8,
+    "id": 2,
+    "title": "Shield",
+    "value": 50,
+    "description": "Forever Use",
+    "stackable": true,
+    "purpose": 0, 
+    "slug": "cursorSword_gold"
+  },
+
+  {
+    "id": 3,
+    "title": "Drone",
+    "value": 50,
+    "description": "Forever Use",
+    "stackable": false,
+    "purpose": 0, 
+    "slug": "Flying"
+  },
+
+  {
+    "id": 4,
     "title": "Balloon Bomb",
     "value": 50,
     "description": "Forever Use",
@@ -80,24 +48,67 @@
     "purpose": 0, 
     "slug": "BalloonBomb"
   },
+
+  {
+    "id": 5,
+    "title": "Rain",
+    "value": 10,
+    "description": "Cusor Which is bronze, and Stackable",
+    "stackable": true,
+    "purpose": 0, 
+    "slug": "Rain"
+  },
+
+  {
+    "id": 6,
+    "title": "Speed Cloud",
+    "value": 50,
+    "description": "Forever Use",
+    "stackable": true,
+    "purpose": 0, 
+    "slug": "cursorSword_gold"
+  },
+
+  {
+    "id": 7,
+    "title": "Thunder",
+    "value": 20,
+    "description": "For Once",
+    "stackable": true, 
+    "purpose": 1, 
+    "slug": "Thunder"
+  },
+
+  {
+    "id": 8,
+    "title": "Anchor With Rope",
+    "value": 5,
+    "description": "Cusor Which is blue",
+    "stackable": false,
+    "purpose": 0, 
+    "slug": "Anchor"
+  },
+
   {
     "id": 9,
-    "title": "Gold Sword",
+    "title": "WaterBomb",
     "value": 50,
     "description": "Forever Use",
-    "stackable": true,
+    "stackable": false,
     "purpose": 0, 
-    "slug": "cursorSword_gold"
+    "slug": "WaterBomb"
   },
+
   {
     "id": 10,
-    "title": "Gold Sword",
+    "title": "Chain Cannon",
     "value": 50,
     "description": "Forever Use",
-    "stackable": true,
+    "stackable": false,
     "purpose": 0, 
-    "slug": "cursorSword_gold"
+    "slug": "Chain"
   },
+
   {
     "id": 11,
     "title": "Gold Sword",
@@ -107,6 +118,7 @@
     "purpose": 0, 
     "slug": "cursorSword_gold"
   },
+
   {
     "id": 12,
     "title": "Gold Sword",
@@ -116,5 +128,4 @@
     "purpose": 0, 
     "slug": "cursorSword_gold"
   }
-
 ]

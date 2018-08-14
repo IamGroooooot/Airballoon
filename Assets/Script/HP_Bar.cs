@@ -89,13 +89,17 @@ public class HP_Bar : MonoBehaviour
         float calc_Health = cur_Health / max_Health;
         MyHealthBarSet(calc_Health);
 
+		PlayerDB.DB.cur_Health = cur_Health;
     }
+
     void HealthIncrease()
     {
-        cur_Health += HealValue;
+		cur_Health += max_Health*0.1f;
 
         float calc_Health = cur_Health / max_Health;
         MyHealthBarSet(calc_Health);
+
+		PlayerDB.DB.cur_Health = cur_Health;
     }
 
     public void MyHealthBarSet(float myHealth)

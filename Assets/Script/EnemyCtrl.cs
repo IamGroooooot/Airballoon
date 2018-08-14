@@ -8,9 +8,9 @@ public class EnemyCtrl : MonoBehaviour {
 
 	public static EnemyCtrl Instance;
 
+	public int Max_Hp;
 	public int HP;
 	public bool is_dead;
-	private Rigidbody Rb;
 
 	void Awake(){
 		Instance = this;
@@ -18,15 +18,21 @@ public class EnemyCtrl : MonoBehaviour {
 
 	void Start()
 	{
-		Rb = this.GetComponent<Rigidbody> ();
+		Max_Hp = HP;
 	}
 
 	void Update(){
 		if (HP<=0) 
 		{
 			is_dead = true;
-			//(Code)중력 적용해서 죽을때 아래로 떨어지도록
-			//(오류나네..)this.Rb.useGravity;
+
+			gameObject.transform.parent.GetChild (1).gameObject.SetActive (false); //BallCtlOnDetect비활
+			GetComponent<Rigidbody> ().useGravity = true;
+			float WhereY = GetComponent<Transform> ().position.y;
+			if (WhereY < -2000f) {
+				OnBecameInvisible ();
+
+			}
 		}
 	}
 
@@ -43,7 +49,14 @@ public class EnemyCtrl : MonoBehaviour {
 
     private void OnBecameInvisible()
     {
-		this.gameObject.SetActive (false);
-		//OBJ Pooling 다시 사용하려면 HP,is_dead,Rb 초기화 해야함
+		gameObject.transform.parent.GetChild (1).gameObject.SetActive (true);
+		GetComponent<Rigidbody> ().velocity = Vector3.zero;
+		is_dead = false;
+		GetComponent<Rigidbody> ().useGravity = false;
+		HP = Max_Hp;
+
+		this.gameObject.SetActive (false);//얘가 아니라 얘의 부모를 SetActive(false)해야됨
+
     }
+	
 }
