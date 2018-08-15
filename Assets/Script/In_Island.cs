@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class In_Island : MonoBehaviour {
 
@@ -23,6 +24,7 @@ public class In_Island : MonoBehaviour {
 
 	public void Store()
 	{
+		UnityEngine.SceneManagement.SceneManager.LoadScene (5);
 		Store_UI.gameObject.SetActive (true);
 	}
 

@@ -29,9 +29,9 @@ public class PlayerDB : MonoBehaviour {
 	public bool is_gun;
 
 	//Resource
-	public int gold;
-	public int log;
-	public int steel;
+	public static int gold;
+	public static int log;
+	public static int steel;
 
 	//Equip List
 	public int Top; // Balloon=0, Normal=1, Speed=2, East=3

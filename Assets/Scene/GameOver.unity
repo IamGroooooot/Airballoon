@@ -273,7 +273,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 503132694}
-        m_MethodName: Restart_Game
+        m_MethodName: Scene_MainGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 503132689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1285e37f45ba62478cba4b7afce87ff, type: 3}
+  m_Script: {fileID: 11500000, guid: ade11ef7dcbafe94eba95c182ef5f8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &711753715

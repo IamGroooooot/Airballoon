@@ -59,7 +59,7 @@ public class HP_Bar : MonoBehaviour
 
         if (cur_Health <= 0)
         {
-            SceneManager.LoadScene(1);
+			UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
             Debug.Log("체력 0  -  게임오버");  //게임 종료
             cur_Health = 0f;
         }

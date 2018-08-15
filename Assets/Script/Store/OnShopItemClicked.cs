@@ -1,0 +1,186 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+
+public class OnShopItemClicked : MonoBehaviour {
+
+	public int WhichSlot;
+	//GameObject MyStore;
+	GameObject MyInv;
+
+	inventoryInStore MyInvScript;
+
+	void Start()
+	{
+		//MyStore = GameObject.Find ("Store");
+		MyInv = GameObject.Find ("Inventory");
+
+		MyInvScript = MyInv.GetComponent<inventoryInStore> ();
+
+	}
+
+	public void OnBtnClick()
+	{
+		switch (WhichSlot)
+		{
+		case 0:
+			OnItem1Clicked ();
+			break;
+		case 1:
+			OnItem2Clicked ();
+			break;
+
+		case 2:
+			OnItem3Clicked ();
+			break;
+
+		case 3:
+			OnItem4Clicked ();
+			break;
+
+		case 4:
+			OnItem5Clicked ();
+			break;
+		case 5:
+			OnItem6Clicked ();
+			break;
+		case 6:
+			OnItem7Clicked ();
+			break;
+		case 7:
+			OnItem8Clicked ();
+			break;
+		case 8:
+			OnItem9Clicked ();
+			break;
+		case 9:
+			OnItem10Clicked ();
+			break;
+		case 10:
+			OnItem11Clicked ();
+			break;
+		case 11:
+			OnItem12Clicked ();
+			break;
+		
+		default:
+			Debug.Log ("해당하는 스킬 없음");
+			break;
+		}
+
+	}
+
+
+	public void OnItem1Clicked()
+	{
+		int cost = 1;
+		if (PlayerDB.gold >= cost) {
+			MyInvScript.AddItem (0);
+			PlayerDB.gold -= cost;
+		}
+
+	}
+	public void OnItem2Clicked()
+	{
+		int cost = 1;
+		if (PlayerDB.gold >= cost) {
+			MyInvScript.AddItem (1);
+			PlayerDB.gold -= cost;
+		}
+
+	}
+	public void OnItem3Clicked()
+	{
+		int cost = 1;
+		if (PlayerDB.gold >= cost) {
+			MyInvScript.AddItem (2);
+			PlayerDB.gold -= cost;
+		}
+	}
+	public void OnItem4Clicked()
+	{
+		int cost = 1;
+		if (PlayerDB.gold >= cost) {
+			MyInvScript.AddItem (3);
+			PlayerDB.gold -= cost;
+		}
+
+	}
+	public void OnItem5Clicked()
+	{
+		int cost = 1;
+		if (PlayerDB.gold >= cost) {
+			MyInvScript.AddItem (4);
+			PlayerDB.gold -= cost;
+		}
+	}
+	public void OnItem6Clicked()
+	{
+		int cost = 1;
+		if (PlayerDB.gold >= cost) {
+			MyInvScript.AddItem (5);
+			PlayerDB.gold -= cost;
+		}
+	}
+	public void OnItem7Clicked()
+	{
+		int cost = 1;
+		if (PlayerDB.gold >= cost) {
+			MyInvScript.AddItem (6);
+			PlayerDB.gold -= cost;
+		}
+
+
+	}
+	public void OnItem8Clicked()
+	{
+		int cost = 1;
+		if (PlayerDB.gold >= cost) {
+			MyInvScript.AddItem (7);
+			PlayerDB.gold -= cost;
+		}
+
+	}
+	public void OnItem9Clicked()
+	{
+		int cost = 1;
+		if (PlayerDB.gold >= cost) {
+			MyInvScript.AddItem (8);
+			PlayerDB.gold -= cost;
+		}
+
+	}
+	public void OnItem10Clicked()
+	{
+		int cost = 1;
+		if (PlayerDB.gold >= cost) {
+			MyInvScript.AddItem (9);
+			PlayerDB.gold -= cost;
+		}
+
+	}
+	public void OnItem11Clicked()
+	{
+		int cost = 1;
+		if (PlayerDB.gold >= cost) {
+			MyInvScript.AddItem (10);
+			PlayerDB.gold -= cost;
+		}
+	}
+	public void OnItem12Clicked()
+	{
+		int cost = 1;
+		if (PlayerDB.gold >= cost) {
+			MyInvScript.AddItem (11);
+			PlayerDB.gold -= cost;
+		}
+
+	}
+
+
+
+
+
+}
