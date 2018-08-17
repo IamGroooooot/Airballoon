@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerDB : MonoBehaviour {
 
@@ -30,9 +29,6 @@ public class PlayerDB : MonoBehaviour {
 	public bool is_gun;
 
 	//Resource
-	public Text goldText;	
-	public Text logText;
-	public Text steelText;
 	public static int gold;
 	public static int log;
 	public static int steel;
@@ -47,6 +43,9 @@ public class PlayerDB : MonoBehaviour {
 	public GameObject[] BodyList = new GameObject[3];
 	public GameObject[] HeadList = new GameObject[3];
 	public GameObject[] ItemList = new GameObject[4];
+
+	//Public Player (싱글턴 참조용)
+	public GameObject Player;
 
 	//Item List Int형으로 위와 같이 열거하면 돼
 
@@ -201,13 +200,6 @@ public class PlayerDB : MonoBehaviour {
 	void Start () 
 	{
 		
-	}
-
-	void FixedUpdate()
-	{
-		goldText.text = gold.ToString();
-		logText.text = log.ToString();
-		steelText.text = steel.ToString();
 	}
 
 	void Update () 

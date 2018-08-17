@@ -7,10 +7,15 @@ using UnityEngine;
 public class EnemyCtrl : MonoBehaviour {
 
 	public static EnemyCtrl Instance;
-
+	float WhereY;
 	public int Max_Hp;
 	public int HP;
 	public bool is_dead;
+	int count;
+	public GameObject explosion;
+
+	private Transform Tr;
+	private Rigidbody Rb;
 
 	void Awake(){
 		Instance = this;
@@ -18,22 +23,11 @@ public class EnemyCtrl : MonoBehaviour {
 
 	void Start()
 	{
+		count = 0;
+		Tr = this.GetComponent<Transform> ();
 		Max_Hp = HP;
-	}
-
-	void Update(){
-		if (HP<=0) 
-		{
-			is_dead = true;
-
-			gameObject.transform.parent.GetChild (1).gameObject.SetActive (false); //BallCtlOnDetect비활
-			GetComponent<Rigidbody> ().useGravity = true;
-			float WhereY = GetComponent<Transform> ().position.y;
-			if (WhereY < -2000f) {
-				OnBecameInvisible ();
-
-			}
-		}
+		Rb = this.GetComponent<Rigidbody> ();
+		is_dead = false;
 	}
 
 	void OnTriggerEnter(Collider Col)
@@ -46,16 +40,46 @@ public class EnemyCtrl : MonoBehaviour {
 			HP -= 1;
 		}
 	}
+	void FixedUpdate()
+	{
+		
 
+
+
+		if (WhereY < -2000f) {
+			OnBecameInvisible ();
+		}
+	}
+
+	void Update(){
+		if (HP<=0)
+		{
+			is_dead = true;
+			WhereY = GetComponent<Transform> ().position.y;
+			this.Rb.AddForce (0,-1000,0);
+			gameObject.transform.GetChild (1).gameObject.SetActive (false); //BallCtlOnDetect비활
+			this.Rb.useGravity = true;
+		}
+
+		if (is_dead == true && count ==0) {
+			//Explosion Effect 왜 실행이 안되는거지 ㅠㅠ
+			explosion.gameObject.SetActive (true);
+			explosion.transform.position = Tr.position;
+			count = 1;
+		}
+	}
+		
     private void OnBecameInvisible()
     {
-		gameObject.transform.parent.GetChild (1).gameObject.SetActive (true);
-		GetComponent<Rigidbody> ().velocity = Vector3.zero;
-		is_dead = false;
-		GetComponent<Rigidbody> ().useGravity = false;
-		HP = Max_Hp;
+		gameObject.transform.GetChild (1).gameObject.SetActive (true);
 
-		this.gameObject.SetActive (false);//얘가 아니라 얘의 부모를 SetActive(false)해야됨
+		this.Rb.velocity = Vector3.zero;
+		is_dead = false;
+		this.Rb.useGravity = false;
+		HP = Max_Hp;
+		WhereY = 100;
+		count = 0;
+		gameObject.transform.parent.gameObject.SetActive (false);//얘가 아니라 얘의 부모를 SetActive(false)해야됨
 
     }
 	

@@ -9,6 +9,7 @@ using UnityEngine;
 public class Ball_CtrlOnDetact : MonoBehaviour {
 
 	private Transform PlayerTrans; //플레이어
+
     public GameObject Skel; //스켈레톤이 있는 열기구 설정
 
 	//public GameObject bomb; //발사할 스켈레톤의 폭탄 prefab
@@ -33,8 +34,10 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
 
     void Start () {
 
-        //PlayerTrans = GameObject.FindGameObjectWithTag("Player").transform;
-		PlayerTrans = PlayerManager.instance.player.transform;
+
+		PlayerTrans = PlayerDB.DB.Player.transform.GetChild(1);
+
+
         canAttack = false;
 		fire = false;
 
@@ -53,9 +56,11 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
         transform.position = myPosition;
         transform.rotation = myRotation;
 
+
         if (canAttack)
         {
-            Vector3 targetDir = PlayerTrans.position - Skel.transform.position;
+			Vector3 PlayerPosForRotation = new Vector3 (PlayerTrans.position.x,Skel.transform.position.y,PlayerTrans.position.z);
+			Vector3 targetDir = PlayerPosForRotation - Skel.transform.position;
 
             float step = speed * Time.deltaTime;
 
@@ -134,7 +139,7 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
     //포물선으로 쏘는것
     void FireSkelBomb(GameObject Bomb)
     {
-        playerPos = new Vector3(PlayerTrans.position.x, PlayerTrans.position.y-10f, PlayerTrans.position.z);
+        playerPos = PlayerTrans.position;
         displace = playerPos - transform.position;
         distance = Mathf.Pow((displace.x) * (displace.x) + (displace.z) * (displace.z), 0.5f); //수평도달거리 계산
 
@@ -142,7 +147,7 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
         BombInitVelocity = BombInitVelocity * Mathf.Sqrt(  Mathf.Abs(Physics.gravity.y) * distance / Mathf.Sin(2*angle_degr)  ); //물리식 속도는 중력에 비례하기 때문에 *중력 수정함*
 
         Bomb.GetComponent<Rigidbody>().velocity = BombInitVelocity; //폭탄 인스턴트에 속도 부여
-
+		Bomb.GetComponent<TrailRenderer> ().Clear();
 		//Bomb.gameObject.SetActive (false);
     }
 }

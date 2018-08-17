@@ -82,6 +82,7 @@ public class CannonCtrlR : MonoBehaviour
 				Bullet.SetActive (true);
 
 				Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireRC1.normalized*bullectRSpeed;
+				Bullet.GetComponent<TrailRenderer> ().Clear();
 
 			} else if (time == reload * 2) {
 				//Debug.Log ("대포 발사2");
@@ -96,6 +97,7 @@ public class CannonCtrlR : MonoBehaviour
 
 				Bullet.SetActive (true);
 				Bullet.GetComponent<Rigidbody> ().velocity =WhereToFireRC2.normalized*bullectRSpeed;
+				Bullet.GetComponent<TrailRenderer> ().Clear();
 			
 			} else if (time == reload * 3) {
 				//Debug.Log ("대포 발사3");
@@ -107,6 +109,7 @@ public class CannonCtrlR : MonoBehaviour
 				Bullet.transform.position = FirePos_3;
 
 				Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireRC3.normalized*bullectRSpeed;
+				Bullet.GetComponent<TrailRenderer> ().Clear();
 				time = 0;
 				TimerOn = false;
 			}

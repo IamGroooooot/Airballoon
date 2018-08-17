@@ -34,7 +34,7 @@ public class CamCtrl : MonoBehaviour {
 
 	public void ZoomClick()
 	{
-		Debug.Log ("Zoom in");
+		//Debug.Log ("Zoom in");
 		subCamOn ();
 		ZoomInButton.gameObject.SetActive (false);
 		InBattleUI.gameObject.SetActive (false);

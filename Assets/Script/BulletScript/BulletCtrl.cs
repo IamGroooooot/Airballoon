@@ -16,7 +16,7 @@ public class BulletCtrl : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void OnEnable () {
 		StartCoroutine (Disable (2.0f));
 	}
 		

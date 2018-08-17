@@ -11,24 +11,28 @@ public class ObjectPooling : MonoBehaviour {
 	public GameObject Bullet;
 	public GameObject Hit;
 	public GameObject SmallBullet;
+	public GameObject EnemyBullet;
 
 	//Pooled Obj 폴더
 	public GameObject Skel_Parent;
 	public GameObject Player_Bullet;
 	public GameObject Hit_Folder;
 	public GameObject SmallBullet_Folder;
+	public GameObject EnemyBullet_Folder;
 
 	// 몇개를 복제할 것인가?
 	public int PoolAmount_SkelBomb;
 	public int PoolAmount_Bullet;
 	public int PoolAmount_Hit;
 	public int PoolAmount_SmallBullet;
+	public int PoolAmount_EnemyBullet;
 
 	//Pooled Obj 리스트
 	public List<GameObject> PoolObjs_SkelBomb;
 	public List<GameObject> PoolObjs_Bullet;
 	public List<GameObject> PoolObjs_Hit;
 	public List<GameObject> PoolObjs_SmallBullet;
+	public List<GameObject> PoolObjs_EnemyBullet;
 
 	void Awake(){
 		pool = this;
@@ -40,12 +44,14 @@ public class ObjectPooling : MonoBehaviour {
 		PoolObjs_Bullet = new List<GameObject> ();
 		PoolObjs_Hit = new List<GameObject> ();
 		PoolObjs_SmallBullet = new List<GameObject> ();
+		PoolObjs_EnemyBullet = new List<GameObject> ();
 
 		for (int i = 0; i < PoolAmount_SkelBomb; i++) {
 			// 생성후 차곡차곡 넣기
 			GameObject Obj_SkelBomb = (GameObject)Instantiate (SkelBomb);
 
 			Obj_SkelBomb.transform.parent = Skel_Parent.transform;
+
 
 			Obj_SkelBomb.SetActive (false);
 			PoolObjs_SkelBomb.Add (Obj_SkelBomb);
@@ -79,6 +85,16 @@ public class ObjectPooling : MonoBehaviour {
 
 			Obj_SmallBullet.SetActive (false);
 			PoolObjs_SmallBullet.Add (Obj_SmallBullet);
+		}
+
+		for (int i = 0; i < PoolAmount_EnemyBullet; i++) {
+			// 생성후 Pool에 차곡차곡 넣기
+			GameObject Obj_EnemyBullet = (GameObject)Instantiate (EnemyBullet);
+
+			Obj_EnemyBullet.transform.parent = EnemyBullet_Folder.transform;
+
+			Obj_EnemyBullet.SetActive (false);
+			PoolObjs_SmallBullet.Add (Obj_EnemyBullet);
 		}
 	}
 
@@ -160,6 +176,27 @@ public class ObjectPooling : MonoBehaviour {
 
 			if (!PoolObjs_SmallBullet[i].activeInHierarchy) {
 				return PoolObjs_SmallBullet [i];// SetActive(true)된 Pooled Obj 호출
+			}
+
+		}
+		return null;
+	}
+
+	public GameObject GetPoolObject_EnemyBullet(){
+
+		if (PoolObjs_EnemyBullet.Count == 0) {
+			GameObject Obj_EnemyBullet = Instantiate (EnemyBullet);
+			return Obj_EnemyBullet;
+
+			//PoolObjs_SkelBomb.Add(SkelBomb);
+		}
+
+		// obj.SetActive false이면 실행할것이다.
+		for (int i = 0; i < PoolObjs_EnemyBullet.Count; i++) {
+
+
+			if (!PoolObjs_EnemyBullet[i].activeInHierarchy) {
+				return PoolObjs_EnemyBullet [i];// SetActive(true)된 Pooled Obj 호출
 			}
 
 		}

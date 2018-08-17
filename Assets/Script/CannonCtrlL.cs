@@ -13,6 +13,7 @@ public class CannonCtrlL : MonoBehaviour
     public bool CanShoot, TimerOn;
     int time;
     public float bullectLSpeed = 400f;
+	public Material TrailMat;
 
     //발사위치
     public Transform Fire_1;
@@ -42,6 +43,8 @@ public class CannonCtrlL : MonoBehaviour
 		WhereToFireLC2= new Vector3(0,0,0);
 		WhereToFireLC3= new Vector3(0,0,0);
 		FindEnemyL=false;
+
+
 
     }
 
@@ -87,6 +90,9 @@ public class CannonCtrlL : MonoBehaviour
 				Bullet.SetActive (true);
 
 				Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireLC1.normalized* bullectLSpeed;
+
+				Bullet.GetComponent<TrailRenderer> ().Clear();
+
             }
             else if (time == reload * 2)
             {
@@ -102,6 +108,9 @@ public class CannonCtrlL : MonoBehaviour
 				Bullet.SetActive (true);
                 
 				Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireLC2.normalized*bullectLSpeed;
+
+				Bullet.GetComponent<TrailRenderer> ().Clear();
+
 			}
             else if (time == reload * 3)
             {
@@ -117,6 +126,8 @@ public class CannonCtrlL : MonoBehaviour
 				Bullet.SetActive (true);
 
 				Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireLC3.normalized*bullectLSpeed;
+
+				Bullet.GetComponent<TrailRenderer> ().Clear();
 				time = 0;
 
 				TimerOn = false;
@@ -228,4 +239,5 @@ public class CannonCtrlL : MonoBehaviour
 		}
 		return closest;
 	}
+		
 }

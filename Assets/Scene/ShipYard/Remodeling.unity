@@ -913,6 +913,86 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 224331762083408752, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 481
+      objectReference: {fileID: 0}
+    - target: {fileID: 224331762083408752, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 311.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224639120538129604, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 158.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224639120538129604, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 311.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224195374905258858, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -480.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224195374905258858, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 311.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224374098004086382, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -160.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224374098004086382, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 311.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224331762083408752, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 297.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 224331762083408752, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 136.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224639120538129604, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 297.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 224639120538129604, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 136.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224195374905258858, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 298
+      objectReference: {fileID: 0}
+    - target: {fileID: 224195374905258858, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 136.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224374098004086382, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 297.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 224374098004086382, guid: 572b6e4571b7e7c428e018b619f7892b,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 136.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 572b6e4571b7e7c428e018b619f7892b, type: 2}
   m_IsPrefabParent: 0
@@ -2239,9 +2319,6 @@ MonoBehaviour:
   is_body: 0
   is_head: 0
   is_gun: 0
-  gold: 0
-  log: 0
-  steel: 0
   Top: 3
   Body: 1
   Head: 2
@@ -2264,6 +2341,7 @@ MonoBehaviour:
   - {fileID: 998098410}
   - {fileID: 737072898}
   - {fileID: 1450615019}
+  Player: {fileID: 0}
 --- !u!136 &394887764
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3438,12 +3516,12 @@ Prefab:
     - target: {fileID: 224870657660389200, guid: 22d82be5aad3f354fbbc63d813ad526a,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -327
+      value: -463
       objectReference: {fileID: 0}
     - target: {fileID: 224870657660389200, guid: 22d82be5aad3f354fbbc63d813ad526a,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -328
+      value: -296
       objectReference: {fileID: 0}
     - target: {fileID: 224870657660389200, guid: 22d82be5aad3f354fbbc63d813ad526a,
         type: 2}
@@ -7129,11 +7207,11 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1280, y: 720}
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -7862,8 +7940,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 355.89178, y: 28.840408}
-  m_SizeDelta: {x: 265.5, y: 237.3}
+  m_AnchoredPosition: {x: 489, y: 18.4}
+  m_SizeDelta: {x: 292.8, y: 259.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &824791087
 MonoBehaviour:
@@ -9209,6 +9287,7 @@ MonoBehaviour:
   CanShoot: 0
   TimerOn: 0
   bullectLSpeed: 100
+  TrailMat: {fileID: 0}
   Fire_1: {fileID: 1853574462}
   Fire_2: {fileID: 1432008523}
   Fire_3: {fileID: 1457417701}
@@ -9772,7 +9851,7 @@ RectTransform:
   m_GameObject: {fileID: 1246403346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6280651, y: 0.62806517, z: 0.62806517}
+  m_LocalScale: {x: 0.8541685, y: 0.8541685, z: 0.8541685}
   m_Children:
   - {fileID: 2106666016}
   - {fileID: 1845690900}
@@ -9783,7 +9862,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 351, y: -242}
+  m_AnchoredPosition: {x: 456, y: -205}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1267845701
@@ -10427,7 +10506,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1361190269}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 875, y: 339, z: -2215.3}
+  m_LocalPosition: {x: 1040, y: 327, z: -2215.3}
   m_LocalScale: {x: 0.5896977, y: 0.58969784, z: 0.58969784}
   m_Children:
   - {fileID: 175522599}
@@ -14035,6 +14114,7 @@ MonoBehaviour:
   CanShoot: 0
   TimerOn: 0
   bullectLSpeed: 100
+  TrailMat: {fileID: 0}
   Fire_1: {fileID: 1739660478}
   Fire_2: {fileID: 988272516}
   Fire_3: {fileID: 2037270365}

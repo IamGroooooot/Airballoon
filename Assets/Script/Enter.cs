@@ -10,11 +10,10 @@ public class Enter : MonoBehaviour {
 	{
 		if (ColEnter.gameObject.tag == "Player") 
 		{
-			Debug.Log ("Enter");
-			_Enter.gameObject.SetActive (true);
 			OnTriggerStay (ColEnter);
 		}
 	}		
+
 	void OnTriggerStay(Collider ColStay)
 	{
 		if (ColStay.gameObject.tag == "Player") {

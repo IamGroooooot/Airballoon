@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23565675866401052}
   - component: {fileID: 54782911828675480}
   - component: {fileID: 114923440825774256}
-  - component: {fileID: 96218039882286426}
+  - component: {fileID: 96476073079233764}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -101,7 +101,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!96 &96218039882286426
+--- !u!96 &96476073079233764
 TrailRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 1
@@ -150,8 +150,8 @@ TrailRenderer:
         outSlope: 0
         tangentMode: 0
       - serializedVersion: 2
-        time: 0.99999535
-        value: 0.037036777
+        time: 0.9893162
+        value: -0.01910828
         inSlope: 0
         outSlope: 0
         tangentMode: 0

@@ -7,6 +7,7 @@ public class OnMyItemClicked : MonoBehaviour {
 	public int WhichSlot;
 
 	GameObject MyInv;
+	//GameObject SlotPanel;
 	GameObject mySkill;
 
 	inventoryInStore MyInvScript;
@@ -15,6 +16,7 @@ public class OnMyItemClicked : MonoBehaviour {
 	{
 		PlayerDB.gold = 1000000;// For Test
 		MyInv = GameObject.Find ("Inventory");
+		//SlotPanel = transform.parent.parent.parent.gameObject;
 		MyInvScript = MyInv.GetComponent<inventoryInStore> ();
 	}
 

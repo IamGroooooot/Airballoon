@@ -17,6 +17,10 @@ public class SmallBulletCtrl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Rb = GetComponent<Rigidbody> ();
+	}
+
+	void OnEnable(){
+		Rb = GetComponent<Rigidbody> ();
 		StartCoroutine (Disable (2.5f));
 	}
 

@@ -6,8 +6,6 @@ public class SkillList : MonoBehaviour{
 
 	public static SkillList Skill_List;
 
-
-
 	public GameObject shield;
 	public GameObject anchor;
 	public GameObject drone;

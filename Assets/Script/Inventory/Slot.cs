@@ -24,6 +24,7 @@ public class Slot : MonoBehaviour, IDropHandler {
 
 
         }
+		// 여기 가끔 오류나더라
 		else if(droppedItem.slot != id)//인벤토리에 아이템이 있으면 swap하기
 		{
 

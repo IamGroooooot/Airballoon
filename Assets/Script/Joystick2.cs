@@ -35,8 +35,8 @@ public class Joystick2 : MonoBehaviour {
 		BoostRate = 1.5f;
 
 
-		Player = PlayerManager.instance.player.transform;
-		RB_Player = PlayerManager.instance.player.GetComponent<Rigidbody>();
+		Player = PlayerManager.instance.player.transform; //.parent
+		RB_Player = PlayerManager.instance.player.transform.GetComponent<Rigidbody>();
 
 		max_Speed = PlayerDB.DB.max_Speed;
 		rotationSpeed = PlayerDB.DB.rotationSpeed;
