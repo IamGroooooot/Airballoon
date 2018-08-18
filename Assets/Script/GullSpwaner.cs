@@ -46,24 +46,29 @@ public class GullSpwaner : MonoBehaviour {
 		}
 	}
 	
-	IEnumerator CreateGull(){
-		while (Gull_On) {
+	IEnumerator CreateGull()
+	{
+		while (Gull_On)
+		{
 			//int gullCount = (int)GameObject.FindGameObjectsWithTag ("Gull").Length;
 			yield return new WaitForSeconds (createTime);
 
 			foreach (GameObject gull in GullPool) 
 			{
-					if (!gull.activeSelf) 
-					{
-						int Place_idx = Random.Range (1, points.Length);
-						gull.transform.position = points [Place_idx].position;
-						gull.SetActive (true);
-
-						break;
-					}
+				if (!gull.activeSelf) 
+				{
+					int Place_idx = Random.Range (1, points.Length);
+					gull.transform.position = points [Place_idx].position;
+					gull.SetActive (true);
+				
+					break;
+				}
 			}
 
-						}
-		
+
+
+		}
+
+
 	}
 }

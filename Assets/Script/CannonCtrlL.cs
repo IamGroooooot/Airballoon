@@ -23,14 +23,6 @@ public class CannonCtrlL : MonoBehaviour
 	public Vector3 WhereToFireLC2;
 	public Vector3 WhereToFireLC3;
 
-    //복제할 총알 오브젝트
-	public GameObject BulletLC1;
-	public GameObject BulletLC2;
-	public GameObject BulletLC3;
-	private GameObject TempBulletLC1;
-	private GameObject TempBulletLC2;
-	private GameObject TempBulletLC3;
-
 
 	private bool FindEnemyL;
 
@@ -79,7 +71,6 @@ public class CannonCtrlL : MonoBehaviour
             {
 				//Debug.Log ("대포 발사1");
 				Vector3 FirePos_1 = Fire_1.position;
-				//TempBulletLC1 = Instantiate (BulletLC1, FirePos_1, BulletLC1.transform.rotation) as GameObject;
 
 				GameObject Bullet = ObjectPooling.pool.GetPoolObject_Bullet ();
 				if (Bullet == null) return;
@@ -98,7 +89,6 @@ public class CannonCtrlL : MonoBehaviour
             {
 				//Debug.Log ("대포 발사2");
 				Vector3 FirePos_2 = Fire_2.position;
-				//TempBulletLC2 = Instantiate (BulletLC2, FirePos_2, BulletLC2.transform.rotation);
 
 				GameObject Bullet = ObjectPooling.pool.GetPoolObject_Bullet ();
 				if (Bullet == null) return;
@@ -116,7 +106,6 @@ public class CannonCtrlL : MonoBehaviour
             {
 				//Debug.Log ("대포 발사3");
 				Vector3 FirePos_3 = Fire_3.position;
-				//TempBulletLC3 =Instantiate (BulletLC3, FirePos_3, BulletLC3.transform.rotation);
 
 				GameObject Bullet = ObjectPooling.pool.GetPoolObject_Bullet ();
 				if (Bullet == null) return;

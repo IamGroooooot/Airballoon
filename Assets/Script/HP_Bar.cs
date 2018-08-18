@@ -6,13 +6,15 @@ using UnityEngine.UI;
 
 public class HP_Bar : MonoBehaviour
 {
-    public float max_Health;
-    public float cur_Health;
+    //public float max_Health;
+    //public float cur_Health;
     public Image myHealthBar;
     public static float Damage = 20f;
+
     public static float HealValue = 2f;
     public static bool IsDamaged = false;
     public static bool IsHeal = false;
+	public static bool MyHealthBarSetIsTrue= false;
 
     //Effects
     public GameObject Fire1;
@@ -24,25 +26,25 @@ public class HP_Bar : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		max_Health = PlayerDB.DB.max_Health;
-		cur_Health = PlayerDB.DB.cur_Health;
+		//max_Health = PlayerDB.DB.max_Health;
+		//cur_Health = PlayerDB.DB.cur_Health;
 
-        cur_Health = max_Health;
+        //cur_Health = max_Health;
     }
 
     // Update is called once per frame
     void Update()
     {
         //화염 이펙트
-        if (cur_Health/100 <= 0.6)
+		if (PlayerDB.DB.cur_Health/100 <= 0.6)
         {
             Fire1.gameObject.SetActive(true);
 
-            if (cur_Health / 100 <= 0.4)
+			if (PlayerDB.DB.cur_Health / 100 <= 0.4)
             {
                 Fire2.gameObject.SetActive(true);
 
-                if (cur_Health / 100 <= 0.2)
+				if (PlayerDB.DB.cur_Health / 100 <= 0.2)
                 {
                     Fire3.gameObject.SetActive(true);
                     Smoke.gameObject.SetActive(true);
@@ -57,11 +59,11 @@ public class HP_Bar : MonoBehaviour
             Smoke.gameObject.SetActive(false);
         }
 
-        if (cur_Health <= 0)
+		if (PlayerDB.DB.cur_Health <= 0)
         {
 			UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
             Debug.Log("체력 0  -  게임오버");  //게임 종료
-            cur_Health = 0f;
+			PlayerDB.DB.cur_Health = 0f;
         }
         else
         {
@@ -75,31 +77,37 @@ public class HP_Bar : MonoBehaviour
                 HealthIncrease();
                 IsHeal = false;
             }
-            if (cur_Health > max_Health)
+			if (PlayerDB.DB.cur_Health > PlayerDB.DB.max_Health)
             {
-                cur_Health = max_Health;
+				PlayerDB.DB.cur_Health = PlayerDB.DB.max_Health;
             }
         }
+		if (MyHealthBarSetIsTrue) {
+			float calc_Health = PlayerDB.DB.cur_Health / PlayerDB.DB.max_Health;
+			MyHealthBarSet (calc_Health);
+			MyHealthBarSetIsTrue = false;
+		}
+
+
     }
 
     void HealthDecrease()
     {
-        cur_Health -= Damage;
+		PlayerDB.DB.cur_Health -= Damage;
 
-        float calc_Health = cur_Health / max_Health;
+		float calc_Health = PlayerDB.DB.cur_Health / PlayerDB.DB.max_Health;
         MyHealthBarSet(calc_Health);
 
-		PlayerDB.DB.cur_Health = cur_Health;
+		//PlayerDB.DB.cur_Health = cur_Health;
     }
 
     void HealthIncrease()
     {
-		cur_Health += max_Health*0.1f;
+		PlayerDB.DB.cur_Health += PlayerDB.DB.max_Health*0.1f;
 
-        float calc_Health = cur_Health / max_Health;
+		float calc_Health = PlayerDB.DB.cur_Health / PlayerDB.DB.max_Health;
         MyHealthBarSet(calc_Health);
 
-		PlayerDB.DB.cur_Health = cur_Health;
     }
 
     public void MyHealthBarSet(float myHealth)

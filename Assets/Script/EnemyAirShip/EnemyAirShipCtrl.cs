@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAirShipCtrl : MonoBehaviour {
 	Transform target;
+	Transform targetForRotation;
 	float DistanceIS;
 	// Use this for initialization
 	void Start () {
@@ -15,20 +16,43 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 		DistanceIS = Vector3.Distance (target.position,transform.position);
 
 		//Debug.Log (DistanceIS);
-		if (DistanceIS > 300f) { 
+		if (DistanceIS > 400f) { 
 			FaceTarget ();
 			GetComponent<Rigidbody> ().velocity= transform.forward*300f;
 		}
 		else 
 		{
-			
-			TurnTarget ();
-			GetComponent<Rigidbody> ().velocity= transform.forward*150f;
+			targetForRotation = FindClosest ().transform;
+
+			FaceTargetForRotation ();
+
+			GetComponent<Rigidbody> ().velocity= transform.forward*145f;
 		}
 
 
 
 	}
+
+
+
+	public GameObject FindClosest(){
+		GameObject[] gos;
+		gos = GameObject.FindGameObjectsWithTag ("Rotation");
+		GameObject closest = null;
+		float distance = Mathf.Infinity;
+		Vector3 position = transform.position;
+		foreach (GameObject go in gos) {
+			Vector3 diff = go.transform.position - position;
+			float curDistance = diff.sqrMagnitude;
+			if (curDistance < distance) {
+				closest = go;
+				distance = curDistance;
+			}
+		}
+		return closest;
+	}
+
+
 
 	void FaceTarget()
 	{
@@ -37,6 +61,15 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 		Quaternion lookRotation = Quaternion.LookRotation (new Vector3(direction.x,0,direction.z));
 		transform.rotation = Quaternion.RotateTowards (transform.rotation,lookRotation,Time.deltaTime *70f);
 	}
+
+	void FaceTargetForRotation()
+	{
+		Vector3 direction = (targetForRotation.position - transform.position).normalized;
+
+		Quaternion lookRotation = Quaternion.LookRotation (new Vector3(direction.x,0,direction.z));
+		transform.rotation = Quaternion.RotateTowards (transform.rotation,lookRotation,Time.deltaTime *100f);
+	}
+
 
 	void TurnTarget()
 	{

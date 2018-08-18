@@ -35,7 +35,7 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
     void Start () {
 
 
-		PlayerTrans = PlayerDB.DB.Player.transform.GetChild(1);
+		PlayerTrans = PlayerManager.instance.player.transform.GetChild(0);
 
 
         canAttack = false;

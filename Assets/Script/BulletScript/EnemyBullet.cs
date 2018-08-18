@@ -15,15 +15,19 @@ public class EnemyBullet : MonoBehaviour {
 	private Rigidbody Rb;
 
 	void Start(){
-		Rb = this.GetComponent<Rigidbody> ();
+		
 		//Rb.AddForce (transform.forward * speed);
 	}
 
 	// Use this for initialization
 	void OnEnable () {
+		GameObject ImEnemy = FindEnemy ();
+		Debug.Log (ImEnemy.transform.GetChild(0).name);
+		Vector3 WhereToShoot = (ImEnemy.transform.GetChild(0).position - transform.position).normalized;
 
 		Rb = this.GetComponent<Rigidbody> ();
-		Rb.AddForce (transform.forward * speed);
+		Rb.velocity= WhereToShoot *speed;
+
 		StartCoroutine (Disable (2.0f));
 	}
 
@@ -62,6 +66,70 @@ public class EnemyBullet : MonoBehaviour {
 	IEnumerator Disable(float waitTime){
 		yield return new WaitForSeconds (waitTime);
 		this.gameObject.SetActive (false);
+	}
+
+	public GameObject FindEnemy(){
+		GameObject[] gos;
+		gos = GameObject.FindGameObjectsWithTag ("Enemy");
+		GameObject closest = null;
+		float distance = Mathf.Infinity;
+		Vector3 position = transform.position;
+		foreach (GameObject go in gos) {
+			Vector3 diff = go.transform.position - position;
+			float curDistance = diff.sqrMagnitude;
+			if (curDistance < distance) {
+				closest = go;
+				distance = curDistance;
+			}
+		}
+		gos = GameObject.FindGameObjectsWithTag ("EnemyR");
+		GameObject closest1 = null;
+		float distance1 = Mathf.Infinity;
+		position = transform.position;
+		foreach (GameObject go in gos) {
+			Vector3 diff = go.transform.position - position;
+			float curDistance = diff.sqrMagnitude;
+			if (curDistance < distance1) {
+				closest1 = go;
+				distance1 = curDistance;
+			}
+		}
+		gos = GameObject.FindGameObjectsWithTag ("EnemyL");
+		GameObject closest2 = null;
+		float distance2= Mathf.Infinity;
+		position = transform.position;
+		foreach (GameObject go in gos) {
+			Vector3 diff = go.transform.position - position;
+			float curDistance = diff.sqrMagnitude;
+			if (curDistance < distance2) {
+				closest2 = go;
+				distance2 = curDistance;
+			}
+		}
+
+		position = transform.position;
+		Vector3 Dis1 = Vector3.positiveInfinity;
+		Vector3 Dis2 = Vector3.positiveInfinity;
+		Vector3 Dis3 = Vector3.positiveInfinity;
+		if (closest !=null)	{
+			Dis1 = closest.transform.position - position;
+		}
+		if (closest1 !=null)	{
+			Dis2 = closest1.transform.position - position;
+		}
+		if (closest2 !=null)	{
+			Dis3 = closest2.transform.position - position;
+		}
+
+		if (Dis1.sqrMagnitude < Dis2.sqrMagnitude && Dis1.sqrMagnitude < Dis3.sqrMagnitude) {
+			return closest;
+		} else if (Dis2.sqrMagnitude < Dis1.sqrMagnitude && Dis2.sqrMagnitude < Dis1.sqrMagnitude) {
+			return closest1;
+		} else if (Dis3.sqrMagnitude < Dis1.sqrMagnitude && Dis3.sqrMagnitude < Dis2.sqrMagnitude) {
+			return closest2;
+		}
+
+		return closest;
 	}
 
 }

@@ -79,6 +79,8 @@ public class SelfDestrucer : MonoBehaviour {
 			case State.attak:
 
 				PlayerDB.DB.cur_Health -= 30;
+				HP_Bar.MyHealthBarSetIsTrue = true;
+
 				explosion.gameObject.SetActive (true);
 				explosion.transform.position = Tr.position;
 				this.gameObject.SetActive (false);

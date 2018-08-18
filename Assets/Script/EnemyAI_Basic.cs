@@ -26,6 +26,10 @@ public class EnemyAI_Basic : MonoBehaviour {
 	public bool isDie = false;
 
 
+	bool onFire;
+	float timer;
+	public float fireDelay =3f;
+
 
 	// Use this for initialization
 	void Start () {
@@ -36,8 +40,29 @@ public class EnemyAI_Basic : MonoBehaviour {
 		StartCoroutine(this.CheckState());
 		StartCoroutine(this.Action());
 
+
+		onFire = false;
+		timer = 0f;
 	}
 		
+	void Update(){
+		
+		if (onFire) 
+		{
+			timer += Time.deltaTime;
+			if (timer >= fireDelay) 
+			{
+				Fire ();
+				timer = 0f;
+				onFire = false;
+			}
+
+		}
+
+
+	}
+
+
 
 	IEnumerator CheckState()
 	{
@@ -86,27 +111,31 @@ public class EnemyAI_Basic : MonoBehaviour {
 			case State.attak:
 				//Logic: attak-idle-(delay)-attak-idle..순서로
 				//총알 발사 딜레이 시간 넣어줘 (스크립트 재사용 해야하니 미지수로) 
-				StartCoroutine (Fire());
+				onFire = true;
 				
 				break;
 
 			case State.die: 
-				//사망루틴(SetActive(false)-변수 초기화-폭발이펙트)			
+				//사망루틴(SetActive(false)-변수 초기화-폭발이펙트)		
+
+				gameObject.SetActive (false);
+				HP = 50f;
+				state = State.idle;
 				break;
-			}	
+			}
 			yield return null;
 		}	
 	}
 
-	IEnumerator Fire()
+	void Fire()
 	{
 		GameObject enemyBullet = ObjectPooling.pool.GetPoolObject_EnemyBullet ();
 		//if (enemyBullet == null) return;
 
 		enemyBullet.transform.position = FirePos.position;
-
+		enemyBullet.GetComponent <TrailRenderer> ().Clear();
 
 		enemyBullet.SetActive (true);
-		yield return null;
+		//yield return null;
 	}
 }
