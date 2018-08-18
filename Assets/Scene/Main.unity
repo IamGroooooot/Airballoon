@@ -5853,6 +5853,7 @@ GameObject:
   - component: {fileID: 154553191}
   - component: {fileID: 154553190}
   - component: {fileID: 154553189}
+  - component: {fileID: 154553193}
   m_Layer: 0
   m_Name: Wall_Down
   m_TagString: Untagged
@@ -5901,7 +5902,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154553188}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -5926,6 +5927,17 @@ Transform:
   m_Father: {fileID: 1519839168}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &154553193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 154553188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4fbe75e1464b740b685343fb0b6f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &169314491
 GameObject:
   m_ObjectHideFlags: 0
@@ -9188,6 +9200,7 @@ GameObject:
   - component: {fileID: 443905076}
   - component: {fileID: 443905075}
   - component: {fileID: 443905074}
+  - component: {fileID: 443905078}
   m_Layer: 0
   m_Name: Wall_Left
   m_TagString: Untagged
@@ -9236,7 +9249,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 443905073}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -9261,6 +9274,17 @@ Transform:
   m_Father: {fileID: 1519839168}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &443905078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 443905073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4fbe75e1464b740b685343fb0b6f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &444001744
 GameObject:
   m_ObjectHideFlags: 0
@@ -9477,6 +9501,7 @@ GameObject:
   - component: {fileID: 447553659}
   - component: {fileID: 447553658}
   - component: {fileID: 447553657}
+  - component: {fileID: 447553661}
   m_Layer: 0
   m_Name: Wall_Right
   m_TagString: Untagged
@@ -9525,7 +9550,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 447553656}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -9550,6 +9575,17 @@ Transform:
   m_Father: {fileID: 1519839168}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &447553661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 447553656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4fbe75e1464b740b685343fb0b6f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &448227097
 GameObject:
   m_ObjectHideFlags: 0
@@ -9928,6 +9964,7 @@ GameObject:
   - component: {fileID: 476595989}
   - component: {fileID: 476595988}
   - component: {fileID: 476595987}
+  - component: {fileID: 476595991}
   m_Layer: 0
   m_Name: Wall_Top
   m_TagString: Untagged
@@ -9976,7 +10013,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 476595986}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -10001,6 +10038,17 @@ Transform:
   m_Father: {fileID: 1519839168}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
+--- !u!114 &476595991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 476595986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4fbe75e1464b740b685343fb0b6f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &486885219
 GameObject:
   m_ObjectHideFlags: 0
@@ -10230,7 +10278,7 @@ SphereCollider:
   m_GameObject: {fileID: 494457106}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -32926,8 +32974,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1519839168}
-  - component: {fileID: 1519839169}
-  - component: {fileID: 1519839170}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -32952,29 +32998,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1519839169
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1519839167}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1519839170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1519839167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d4fbe75e1464b740b685343fb0b6f7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1520704687
 GameObject:
   m_ObjectHideFlags: 0
