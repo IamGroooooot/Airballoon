@@ -8,7 +8,7 @@ public class PlayerDB : MonoBehaviour {
 
 	//HP
 	public float max_Health = 100f;
-	public float cur_Health ;
+	public float cur_Health;
 
 	//Speed
 	public float max_Speed = 300.0f;//속도 제한
@@ -66,6 +66,8 @@ public class PlayerDB : MonoBehaviour {
 
 		DB = this;
 
+        cur_Health = max_Health;
+
 		max_Health = PlayerPrefs.GetFloat ("MAX_HP");
 		cur_Health = PlayerPrefs.GetFloat ("Cur_HP");
 		max_Speed = PlayerPrefs.GetFloat ("MAX_SPEED");
@@ -88,24 +90,28 @@ public class PlayerDB : MonoBehaviour {
 
 	void OnEnable()
 	{
-		PlayerPrefs.GetFloat ("MAX_HP");
-		PlayerPrefs.GetFloat ("Cur_HP");
-		PlayerPrefs.GetFloat ("MAX_SPEED");
-		PlayerPrefs.GetFloat ("Rotation_SPEED");
-		PlayerPrefs.GetFloat ("Fire");
-		PlayerPrefs.GetFloat ("Ice");
-		PlayerPrefs.GetFloat ("Water");
+        cur_Health = max_Health;
 
-		PlayerPrefs.GetInt ("Top");
-		PlayerPrefs.GetInt ("Body");
-		PlayerPrefs.GetInt ("Head");
-		PlayerPrefs.GetInt ("Item");
+        max_Health = PlayerPrefs.GetFloat("MAX_HP");
+        cur_Health = PlayerPrefs.GetFloat("Cur_HP");
+        max_Speed = PlayerPrefs.GetFloat("MAX_SPEED");
+        rotationSpeed = PlayerPrefs.GetFloat("Rotation_SPEED");
+        Fire = PlayerPrefs.GetFloat("Fire");
+        Ice = PlayerPrefs.GetFloat("Ice");
+        Water = PlayerPrefs.GetFloat("Water");
 
-		PlayerPrefs.GetInt ("Gold");
-		PlayerPrefs.GetInt ("Log");
-		PlayerPrefs.GetInt ("Steel");
+        Tuto = PlayerPrefs.HasKey("Tuto");
 
-		switch (Top) {
+        Top = PlayerPrefs.GetInt("Top");
+        Body = PlayerPrefs.GetInt("Body");
+        Head = PlayerPrefs.GetInt("Head");
+        Item = PlayerPrefs.GetInt("Item");
+
+        gold = PlayerPrefs.GetInt("Gold");
+        log = PlayerPrefs.GetInt("Log");
+        steel = PlayerPrefs.GetInt("Steel");
+
+        switch (Top) {
 
 		case -1:
 			none.gameObject.SetActive (true);

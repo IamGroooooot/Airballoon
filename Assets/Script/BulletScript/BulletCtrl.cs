@@ -17,7 +17,7 @@ public class BulletCtrl : MonoBehaviour {
 
 	// Use this for initialization
 	void OnEnable () {
-		StartCoroutine (Disable (2.0f));
+		StartCoroutine (Disable (4.0f));
 	}
 		
 
@@ -29,23 +29,26 @@ public class BulletCtrl : MonoBehaviour {
 	//Enemy태그 가진애한테 충돌하면 총알 없앰
 	void OnTriggerEnter(Collider CollEnter)
 	{
-		//Hit Particle생성
+        //Hit Particle생성
+        if (CollEnter.CompareTag("Enemy") || CollEnter.CompareTag("EnemyR") || CollEnter.CompareTag("EnemyL"))
+        {
+            GameObject Hit = ObjectPooling.pool.GetPoolObject_Hit();
+            if (Hit == null) return;
 
-		GameObject Hit = ObjectPooling.pool.GetPoolObject_Hit ();
-		if (Hit == null) return;
+            Hit.transform.position = CollEnter.transform.position;
+            Hit.SetActive(true);
 
-		Hit.transform.position = CollEnter.transform.position;
-		Hit.SetActive (true);
+            OnTriggerStay(CollEnter);
+        }
 
-		OnTriggerStay(CollEnter);
 	}
 	void OnTriggerStay(Collider CollStay)
 	{
 		if (CollStay.CompareTag ("EnemyL")|| CollStay.CompareTag ("EnemyR"))
 		{
 			
-			//Instantiate(Hit, CollStay.transform.position, Quaternion.identity);
 			this.gameObject.SetActive (false);
+
 		}
 	}
 

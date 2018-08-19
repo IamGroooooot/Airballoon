@@ -1924,7 +1924,6 @@ GameObject:
   - component: {fileID: 561253821}
   - component: {fileID: 561253823}
   - component: {fileID: 561253822}
-  - component: {fileID: 561253824}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1982,38 +1981,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-
-'
+  m_Text: "\uC790\uB124\uAC00 \uC0C8\uB85C\uC628 \uC120\uC7A5\uC778\uAC00?    \n\uB098\uB294
+    \uC6D0\uC815\uD568\uB300\uC758 \uC0AC\uB839\uAD00\uC774\uB2E4.    \n\uC790\uB124
+    \uB2A5\uB825\uC744 \uC2DC\uD5D8\uD574\uBCF4\uACA0\uB2E4!\n\n"
 --- !u!222 &561253823
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 561253820}
---- !u!114 &561253824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 561253820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f5d6004ad3326f40b0edc0eda4b0d25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 0.03
-  Skip_delay: 1
-  cnt: 0
-  fulltext:
-  - "\uC790\uB124\uAC00 \uC0C8\uB85C\uC628 \uC120\uC7A5\uC778\uAC00?     \uB098\uB294
-    \uC6D0\uC815\uD568\uB300\uC758 \uC0AC\uB839\uAD00\uC774\uB2E4.    \uC790\uB124
-    \uB2A5\uB825\uC744 \uC2DC\uD5D8\uD574\uBCF4\uACA0\uB2E4!"
-  dialog_cnt: 1
-  text_exit: 0
-  text_full: 0
-  text_cut: 0
 --- !u!1 &600952971
 GameObject:
   m_ObjectHideFlags: 0
@@ -2482,7 +2458,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uADF8\uB7EC\uB4E0\uAC00"
+  m_Text: "\uC54C\uACA0\uC2B5\uB2C8\uB2E4"
 --- !u!222 &889470746
 CanvasRenderer:
   m_ObjectHideFlags: 0

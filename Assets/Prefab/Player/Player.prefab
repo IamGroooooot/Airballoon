@@ -6322,8 +6322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a5a0a44f3a76841af6c00608dcea3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_Health: 10000
-  cur_Health: 0
+  max_Health: 100
+  cur_Health: 100
   max_Speed: 300
   rotationSpeed: 100
   Fire: 0
@@ -6333,9 +6333,6 @@ MonoBehaviour:
   is_body: 0
   is_head: 0
   is_gun: 0
-  gold: 0
-  log: 0
-  steel: 0
   Top: 3
   Body: 1
   Head: 2
@@ -6358,6 +6355,14 @@ MonoBehaviour:
   - {fileID: 1148184474428828}
   - {fileID: 1714136400193452}
   - {fileID: 1665942860923918}
+  FriendList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  none: {fileID: 0}
+  Tuto: 0
+  friend: 0
+  Player: {fileID: 0}
 --- !u!114 &114468181990696548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6407,15 +6412,13 @@ MonoBehaviour:
   CanShoot: 0
   TimerOn: 0
   bullectLSpeed: 100
+  TrailMat: {fileID: 0}
   Fire_1: {fileID: 4188113372217504}
   Fire_2: {fileID: 4579616067337922}
   Fire_3: {fileID: 4427752022764260}
   WhereToFireLC1: {x: 0, y: 0, z: 0}
   WhereToFireLC2: {x: 0, y: 0, z: 0}
   WhereToFireLC3: {x: 0, y: 0, z: 0}
-  BulletLC1: {fileID: 1377871989178600, guid: 1a5895d53e672c04eaccd2f642d04bec, type: 2}
-  BulletLC2: {fileID: 1377871989178600, guid: 1a5895d53e672c04eaccd2f642d04bec, type: 2}
-  BulletLC3: {fileID: 1377871989178600, guid: 1a5895d53e672c04eaccd2f642d04bec, type: 2}
 --- !u!114 &114551749970857742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6432,7 +6435,7 @@ MonoBehaviour:
   - name: Gull
     enemy: {fileID: 4758367018971526, guid: 877557c18085032449aedc3849b27d69, type: 2}
     count: 2
-    rate: 1
+    delay: 0
   spawnPoints:
   - {fileID: 4105044184947500}
   - {fileID: 4378043846024826}
@@ -6493,8 +6496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de44cacb09d8ef42953c9fb8e4adf42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_Health: 100
-  cur_Health: 0
   myHealthBar: {fileID: 0}
   Fire1: {fileID: 1059726431442146}
   Fire2: {fileID: 1785993398487466}
@@ -6516,7 +6517,7 @@ MonoBehaviour:
   - name: Enemy
     enemy: {fileID: 0}
     count: 4
-    rate: 0.5
+    delay: 0
   spawnPoints:
   - {fileID: 4619288690221194}
   - {fileID: 4922440772990868}

@@ -38,6 +38,6 @@ public class SceneManager : MonoBehaviour {
 	}
 
 	public void Tutorial(){
-		UnityEngine.SceneManagement.SceneManager.LoadScene("Tuto");
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial");
 	}
 }

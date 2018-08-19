@@ -11,7 +11,6 @@ public class Enter : MonoBehaviour {
 		if (ColEnter.gameObject.tag == "Player") 
 		{
             Tuto.Tutorial.EnterCircle = true;
-        }
+		}
 	}		
-
 }

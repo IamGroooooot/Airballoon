@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Tuto : MonoBehaviour {
 
+    public GameObject Player;
+    public Transform startTr;
     public static Tuto Tutorial;
 
     public bool EnterBuoy;
@@ -23,10 +25,12 @@ public class Tuto : MonoBehaviour {
     public GameObject Buoy;
     public GameObject Balloon;
 
-    public int click;
+    public bool Obj_dead;
+
+    public Text explain;
 
     private void Awake()
-    {
+    {      
         Explain2.gameObject.SetActive(false);
         Explain3.gameObject.SetActive(false);
         Tutorial = this;
@@ -36,6 +40,7 @@ public class Tuto : MonoBehaviour {
     void Start () {
         BattleUI.gameObject.SetActive(false);
         Officer.gameObject.SetActive(true);
+        explain.text = "";
     }
 	
 	// Update is called once per frame
@@ -50,25 +55,19 @@ public class Tuto : MonoBehaviour {
             Enter();
         }
 
-        if (EnemyCtrl.Instance.is_dead)
+        if (Obj_dead) //2단계 검은 공 파괴하면 Level3로 넘어감
         {
             Level3();
         }
 		
 	}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            EnterBuoy = true;
-        }
-    }
-
     void ReGame() {
 
         EnterBuoy = false;
         Officer.gameObject.SetActive(true);
+        explain.text = "실격, 다시";
+        Player.transform.position = startTr.position;
     }
 
     public void StartGame()
@@ -80,6 +79,7 @@ public class Tuto : MonoBehaviour {
 
     public void Enter()
     {
+        explain.text = "";
         Buoy.gameObject.SetActive(false);
         BlueCircle.gameObject.SetActive(false);
         EnterCircle = false;
@@ -91,11 +91,13 @@ public class Tuto : MonoBehaviour {
         Blueball.gameObject.SetActive(true);
     }
 
+    //해골비행선 죽이면 튜토리얼 끝남 -> 보상창 나타남(UI)
     public void Level3() {
 
         RedCircle.gameObject.SetActive(false);
         Blueball.gameObject.SetActive(false);
 
+        Explain2.gameObject.SetActive(false);
         EnemyCtrl.Instance.is_dead = false;
         BattleUI.gameObject.SetActive(false);
         Officer.gameObject.SetActive(true);
@@ -103,5 +105,6 @@ public class Tuto : MonoBehaviour {
 
         Circle3.gameObject.SetActive(true);
         Balloon.gameObject.SetActive(true);
+        Obj_dead = false;
     }
 }

@@ -51,8 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a5a0a44f3a76841af6c00608dcea3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_Health: 10000
-  cur_Health: 0
+  max_Health: 100
+  cur_Health: 100
   max_Speed: 300
   rotationSpeed: 100
   Fire: 0
@@ -62,9 +62,6 @@ MonoBehaviour:
   is_body: 0
   is_head: 0
   is_gun: 0
-  gold: 0
-  log: 0
-  steel: 0
   Top: 3
   Body: 1
   Head: 2
@@ -87,3 +84,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  FriendList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  none: {fileID: 0}
+  Tuto: 0
+  friend: 0
+  Player: {fileID: 0}
