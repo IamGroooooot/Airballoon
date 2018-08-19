@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 //인벤토리 패널 컨트롤과 버튼 클릭 가능한지 설정
 public class InventoryButton : MonoBehaviour {
-	GameObject inventoryPanel;
+	GameObject inventoryPanel,inventory;
     public GameObject SkillTouch1;
     public GameObject SkillTouch2;
     public GameObject SkillTouch3;
@@ -15,18 +15,18 @@ public class InventoryButton : MonoBehaviour {
 
     void Start(){
 		inventoryPanel = GameObject.Find ("Inventory_Panel");
-
+		inventory = GameObject.Find ("Inventory");
 	}
 
 	public void OnInvButtonClicked()
 	{
 		inTheMain = false;
-		MyStoreInvScript = inventoryPanel.GetComponent<inventoryInStore> ();
+		MyStoreInvScript = inventory.GetComponent<inventoryInStore> ();
 
 
 		if (MyStoreInvScript == null) {
 			inTheMain = true;
-			MyMainInvScript = inventoryPanel.GetComponent<Inventory> ();
+			MyMainInvScript = inventory.GetComponent<Inventory> ();
 		}
 
         if (!inventoryPanel.activeSelf)

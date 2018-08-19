@@ -119,19 +119,21 @@ public class inventoryInStore : MonoBehaviour {
 				Loadeditems = (List<Item>)bformatter.Deserialize (stream); 
 
 			}
+
+			foreach(Item Myitem in Loadeditems) 
+			{
+				if (Myitem.ID == -1) {
+					Debug.Log (Myitem.ID);
+					continue;
+				}
+				Debug.Log (Myitem.ID);
+				AddItem (Myitem.ID);
+
+			}
 			Debug.Log ("File Exists");
 		}
 
-		foreach(Item Myitem in Loadeditems) 
-		{
-			if (Myitem.ID == -1) {
-				Debug.Log (Myitem.ID);
-				continue;
-			}
-			Debug.Log (Myitem.ID);
-			AddItem (Myitem.ID);
 
-		}
 
 
 

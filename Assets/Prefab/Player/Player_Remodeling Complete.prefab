@@ -1087,7 +1087,7 @@ GameObject:
   - component: {fileID: 54650330669222902}
   - component: {fileID: 114271107289052522}
   m_Layer: 0
-  m_Name: Player_Complete
+  m_Name: Player_Remodeling Complete
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4922,7 +4922,13 @@ MonoBehaviour:
   - {fileID: 1603856437647298}
   - {fileID: 1599174536377158}
   - {fileID: 1523026690400738}
+  FriendList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   none: {fileID: 0}
+  Tuto: 0
+  friend: 0
   Player: {fileID: 1687851190168896}
 --- !u!114 &114488888920587556
 MonoBehaviour:

@@ -2,94 +2,96 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDB : MonoBehaviour {
+public class PlayerDB : MonoBehaviour
+{
 
-	public static PlayerDB DB;
+    public static PlayerDB DB;
 
-	//HP
-	public float max_Health = 100f;
-	public float cur_Health;
+    //HP
+    public float max_Health = 100f;
+    public float cur_Health;
 
-	//Speed
-	public float max_Speed = 300.0f;//속도 제한
-	public float rotationSpeed = 100f;//선회 속도
+    //Speed
+    public float max_Speed = 300.0f;//속도 제한
+    public float rotationSpeed = 100f;//선회 속도
 
-	//Atk
-	public float Fire;
-	public float Ice;
-	public float Water;
+    //Atk
+    public float Fire;
+    public float Ice;
+    public float Water;
 
-	//State
-	public enum State {NONE,Thundered};
+    //State
+    public enum State { NONE, Thundered };
 
-	//is_equipped? (상점에서)
-	public bool is_top;
-	public bool is_body;
-	public bool is_head;
-	public bool is_gun;
+    //is_equipped? (상점에서)
+    public bool is_top;
+    public bool is_body;
+    public bool is_head;
+    public bool is_gun;
 
-	//Resource
-	public static int gold;
-	public static int log;
-	public static int steel;
+    //Resource
+    public static int gold;
+    public static int log;
+    public static int steel;
 
-	//Equip List
-	public int Top; // Balloon=0, Normal=1, Speed=2, East=3,
-	public int Body; //Quick=0, Noraml=1, Iron=2, 
-	public int Head; //Turtle=0, Bird=1, Horse=2,
-	public int Item; //Deck=0, Machine_Gun=1, Organ=2, Low=3, 
-	// -1: none
+    //Equip List
+    public int Top; // Balloon=0, Normal=1, Speed=2, East=3,
+    public int Body; //Quick=0, Noraml=1, Iron=2, 
+    public int Head; //Turtle=0, Bird=1, Horse=2,
+    public int Item; //Deck=0, Machine_Gun=1, Organ=2, Low=3, 
+                     // -1: none
 
-	public GameObject[] TopList = new GameObject[4];
-	public GameObject[] BodyList = new GameObject[3];
-	public GameObject[] HeadList = new GameObject[3];
-	public GameObject[] ItemList = new GameObject[4];
-	public GameObject[] FriendList = new GameObject[3];
+    public GameObject[] TopList = new GameObject[4];
+    public GameObject[] BodyList = new GameObject[3];
+    public GameObject[] HeadList = new GameObject[3];
+    public GameObject[] ItemList = new GameObject[4];
+    public GameObject[] FriendList = new GameObject[3];
 
-	public GameObject none; //-1
+    public GameObject none; //-1
 
-	public bool Tuto;
-	public int friend; //0: 1: 2:
+    public bool Tuto;
+    public int friend; //0: 1: 2:
 
-	//Public Player (싱글턴 참조용)
-	public GameObject Player;
+    //Public Player (싱글턴 참조용)
+    public GameObject Player;
 
-	//Item List Int형으로 위와 같이 열거하면 돼
+    //Item List Int형으로 위와 같이 열거하면 돼
 
-	void Awake(){
-		
-		//Test
-		//Top = 0;
-		//Body = 0;
-		//Head = 0;
-		//Item = 0;
+    void Awake()
+    {
 
-		DB = this;
+        //Test
+        //Top = 0;
+        //Body = 0;
+        //Head = 0;
+        //Item = 0;
+
+        DB = this;
 
         cur_Health = max_Health;
 
-		max_Health = PlayerPrefs.GetFloat ("MAX_HP");
-		cur_Health = PlayerPrefs.GetFloat ("Cur_HP");
-		max_Speed = PlayerPrefs.GetFloat ("MAX_SPEED");
-		rotationSpeed =PlayerPrefs.GetFloat ("Rotation_SPEED");
-		Fire = PlayerPrefs.GetFloat ("Fire");
-		Ice = PlayerPrefs.GetFloat ("Ice");
-		Water = PlayerPrefs.GetFloat ("Water");
+        max_Health = PlayerPrefs.GetFloat("MAX_HP");
+        cur_Health = PlayerPrefs.GetFloat("Cur_HP");
+        max_Speed = PlayerPrefs.GetFloat("MAX_SPEED");
+        rotationSpeed = PlayerPrefs.GetFloat("Rotation_SPEED");
+        Fire = PlayerPrefs.GetFloat("Fire");
+        Ice = PlayerPrefs.GetFloat("Ice");
+        Water = PlayerPrefs.GetFloat("Water");
 
-		Tuto = PlayerPrefs.HasKey ("Tuto");
+        Tuto = PlayerPrefs.HasKey("Tuto");
 
-		Top = PlayerPrefs.GetInt ("Top");
-		Body =PlayerPrefs.GetInt ("Body");
-		Head =PlayerPrefs.GetInt ("Head");
-		Item =PlayerPrefs.GetInt ("Item");
+        Top = PlayerPrefs.GetInt("Top");
+        Body = PlayerPrefs.GetInt("Body");
+        Head = PlayerPrefs.GetInt("Head");
+        Item = PlayerPrefs.GetInt("Item");
 
-		gold =PlayerPrefs.GetInt ("Gold");
-		log =PlayerPrefs.GetInt ("Log");
-		steel = PlayerPrefs.GetInt ("Steel");
-	}
+        gold = PlayerPrefs.GetInt("Gold");
+        log = PlayerPrefs.GetInt("Log");
+        steel = PlayerPrefs.GetInt("Steel");
+    }
 
-	void OnEnable()
-	{
+    void OnEnable()
+    {
         cur_Health = max_Health;
 
         max_Health = PlayerPrefs.GetFloat("MAX_HP");
@@ -111,319 +113,321 @@ public class PlayerDB : MonoBehaviour {
         log = PlayerPrefs.GetInt("Log");
         steel = PlayerPrefs.GetInt("Steel");
 
-        switch (Top) {
+        switch (Top)
+        {
 
-		case -1:
-			none.gameObject.SetActive (true);
-			TopList [0].gameObject.SetActive (false);	
-			TopList [1].gameObject.SetActive (false);		
-			TopList [2].gameObject.SetActive (false);
-			TopList [3].gameObject.SetActive (false);
-			break;
+            case -1:
+                none.gameObject.SetActive(true);
+                TopList[0].gameObject.SetActive(false);
+                TopList[1].gameObject.SetActive(false);
+                TopList[2].gameObject.SetActive(false);
+                TopList[3].gameObject.SetActive(false);
+                break;
 
-		case 0:
-			TopList [0].gameObject.SetActive (true);	
+            case 0:
+                TopList[0].gameObject.SetActive(true);
 
-			TopList [1].gameObject.SetActive (false);		
-			TopList [2].gameObject.SetActive (false);
-			TopList [3].gameObject.SetActive (false);
-		break;
-		
-		case 1:
-			TopList [1].gameObject.SetActive (true);
+                TopList[1].gameObject.SetActive(false);
+                TopList[2].gameObject.SetActive(false);
+                TopList[3].gameObject.SetActive(false);
+                break;
 
-			TopList [0].gameObject.SetActive (false);	
-			TopList [2].gameObject.SetActive (false);
-			TopList [3].gameObject.SetActive (false);
-			break;
-		
-		case 2:
-			TopList [2].gameObject.SetActive (true);
+            case 1:
+                TopList[1].gameObject.SetActive(true);
 
-			TopList [0].gameObject.SetActive (false);	
-			TopList [1].gameObject.SetActive (false);	
-			TopList [3].gameObject.SetActive (false);
-			break;
-		
-		case 3:
-			TopList [3].gameObject.SetActive (true);
+                TopList[0].gameObject.SetActive(false);
+                TopList[2].gameObject.SetActive(false);
+                TopList[3].gameObject.SetActive(false);
+                break;
 
-			TopList [0].gameObject.SetActive (false);	
-			TopList [1].gameObject.SetActive (false);	
-			TopList [2].gameObject.SetActive (false);	
-			break;
-		}
+            case 2:
+                TopList[2].gameObject.SetActive(true);
 
-		switch (Body) 
-		{
-		case -1:
-			none.gameObject.SetActive (true);
-			BodyList [0].gameObject.SetActive (false);	
-			BodyList [1].gameObject.SetActive (false);		
-			BodyList [2].gameObject.SetActive (false);
-			break;
+                TopList[0].gameObject.SetActive(false);
+                TopList[1].gameObject.SetActive(false);
+                TopList[3].gameObject.SetActive(false);
+                break;
 
-		case 0:
-			BodyList [0].gameObject.SetActive (true);	
+            case 3:
+                TopList[3].gameObject.SetActive(true);
 
-			BodyList [1].gameObject.SetActive (false);
-			BodyList [2].gameObject.SetActive (false);
-			break;
+                TopList[0].gameObject.SetActive(false);
+                TopList[1].gameObject.SetActive(false);
+                TopList[2].gameObject.SetActive(false);
+                break;
+        }
 
-		case 1:
-			BodyList [1].gameObject.SetActive (true);	
+        switch (Body)
+        {
+            case -1:
+                none.gameObject.SetActive(true);
+                BodyList[0].gameObject.SetActive(false);
+                BodyList[1].gameObject.SetActive(false);
+                BodyList[2].gameObject.SetActive(false);
+                break;
 
-			BodyList [0].gameObject.SetActive (false);
-			BodyList [2].gameObject.SetActive (false);
-			break;
-		case 2:
-			BodyList [2].gameObject.SetActive (true);		
+            case 0:
+                BodyList[0].gameObject.SetActive(true);
 
-			BodyList [0].gameObject.SetActive (false);
-			BodyList [1].gameObject.SetActive (false);
-			break;
-		}
-		switch (Head) 
-		{
-		case -1:
-			none.gameObject.SetActive (true);
-			HeadList [0].gameObject.SetActive (false);	
-			HeadList [1].gameObject.SetActive (false);		
-			HeadList [2].gameObject.SetActive (false);
-			break;
+                BodyList[1].gameObject.SetActive(false);
+                BodyList[2].gameObject.SetActive(false);
+                break;
 
-		case 0:
-			HeadList [0].gameObject.SetActive (true);		
+            case 1:
+                BodyList[1].gameObject.SetActive(true);
 
-			HeadList [1].gameObject.SetActive (false);
-			HeadList [2].gameObject.SetActive (false);
-			break;
-		case 1:
-			HeadList [1].gameObject.SetActive (true);	
+                BodyList[0].gameObject.SetActive(false);
+                BodyList[2].gameObject.SetActive(false);
+                break;
+            case 2:
+                BodyList[2].gameObject.SetActive(true);
 
-			HeadList [0].gameObject.SetActive (false);
-			HeadList [2].gameObject.SetActive (false);
-			break;
-		case 2:
-			HeadList [2].gameObject.SetActive (true);		
+                BodyList[0].gameObject.SetActive(false);
+                BodyList[1].gameObject.SetActive(false);
+                break;
+        }
+        switch (Head)
+        {
+            case -1:
+                none.gameObject.SetActive(true);
+                HeadList[0].gameObject.SetActive(false);
+                HeadList[1].gameObject.SetActive(false);
+                HeadList[2].gameObject.SetActive(false);
+                break;
 
-			HeadList [0].gameObject.SetActive (false);
-			HeadList [1].gameObject.SetActive (false);
-			break;
-		}
+            case 0:
+                HeadList[0].gameObject.SetActive(true);
 
-		switch (Item) 
-		{
-		case -1:
-			none.gameObject.SetActive (true);
-			ItemList [0].gameObject.SetActive (false);	
-			ItemList [1].gameObject.SetActive (false);		
-			ItemList [2].gameObject.SetActive (false);
-			ItemList [3].gameObject.SetActive (false);
-			break;
+                HeadList[1].gameObject.SetActive(false);
+                HeadList[2].gameObject.SetActive(false);
+                break;
+            case 1:
+                HeadList[1].gameObject.SetActive(true);
 
-		case 0:
-			ItemList [0].gameObject.SetActive (true);	
+                HeadList[0].gameObject.SetActive(false);
+                HeadList[2].gameObject.SetActive(false);
+                break;
+            case 2:
+                HeadList[2].gameObject.SetActive(true);
 
-			ItemList [1].gameObject.SetActive (false);
-			ItemList [2].gameObject.SetActive (false);
-			ItemList [3].gameObject.SetActive (false);
-			break;
-		case 1:
-			ItemList [1].gameObject.SetActive (true);	
+                HeadList[0].gameObject.SetActive(false);
+                HeadList[1].gameObject.SetActive(false);
+                break;
+        }
 
-			ItemList [0].gameObject.SetActive (false);
-			ItemList [2].gameObject.SetActive (false);
-			ItemList [3].gameObject.SetActive (false);
-			break;
-		case 2:
-			ItemList [2].gameObject.SetActive (true);	
+        switch (Item)
+        {
+            case -1:
+                none.gameObject.SetActive(true);
+                ItemList[0].gameObject.SetActive(false);
+                ItemList[1].gameObject.SetActive(false);
+                ItemList[2].gameObject.SetActive(false);
+                ItemList[3].gameObject.SetActive(false);
+                break;
 
-			ItemList [0].gameObject.SetActive (false);
-			ItemList [1].gameObject.SetActive (false);
-			ItemList [3].gameObject.SetActive (false);
-			break;
-		case 3:
-			ItemList [3].gameObject.SetActive (true);		
+            case 0:
+                ItemList[0].gameObject.SetActive(true);
 
-			ItemList [0].gameObject.SetActive (false);
-			ItemList [1].gameObject.SetActive (false);
-			ItemList [2].gameObject.SetActive (false);
-			break;
-		}
-	}
-		
-	//Only in Shipyard
-	void Update () 
-	{
-		switch (Top) {
+                ItemList[1].gameObject.SetActive(false);
+                ItemList[2].gameObject.SetActive(false);
+                ItemList[3].gameObject.SetActive(false);
+                break;
+            case 1:
+                ItemList[1].gameObject.SetActive(true);
 
-		case -1:
-			none.gameObject.SetActive (true);
-			TopList [0].gameObject.SetActive (false);	
-			TopList [1].gameObject.SetActive (false);		
-			TopList [2].gameObject.SetActive (false);
-			TopList [3].gameObject.SetActive (false);
-			break;
+                ItemList[0].gameObject.SetActive(false);
+                ItemList[2].gameObject.SetActive(false);
+                ItemList[3].gameObject.SetActive(false);
+                break;
+            case 2:
+                ItemList[2].gameObject.SetActive(true);
 
-		case 0:
-			TopList [0].gameObject.SetActive (true);	
+                ItemList[0].gameObject.SetActive(false);
+                ItemList[1].gameObject.SetActive(false);
+                ItemList[3].gameObject.SetActive(false);
+                break;
+            case 3:
+                ItemList[3].gameObject.SetActive(true);
 
-			TopList [1].gameObject.SetActive (false);		
-			TopList [2].gameObject.SetActive (false);
-			TopList [3].gameObject.SetActive (false);
-			break;
+                ItemList[0].gameObject.SetActive(false);
+                ItemList[1].gameObject.SetActive(false);
+                ItemList[2].gameObject.SetActive(false);
+                break;
+        }
+    }
 
-		case 1:
-			TopList [1].gameObject.SetActive (true);
+    //Only in Shipyard
+    void Update()
+    {
+        switch (Top)
+        {
 
-			TopList [0].gameObject.SetActive (false);	
-			TopList [2].gameObject.SetActive (false);
-			TopList [3].gameObject.SetActive (false);
-			break;
+            case -1:
+                none.gameObject.SetActive(true);
+                TopList[0].gameObject.SetActive(false);
+                TopList[1].gameObject.SetActive(false);
+                TopList[2].gameObject.SetActive(false);
+                TopList[3].gameObject.SetActive(false);
+                break;
 
-		case 2:
-			TopList [2].gameObject.SetActive (true);
+            case 0:
+                TopList[0].gameObject.SetActive(true);
 
-			TopList [0].gameObject.SetActive (false);	
-			TopList [1].gameObject.SetActive (false);	
-			TopList [3].gameObject.SetActive (false);
-			break;
+                TopList[1].gameObject.SetActive(false);
+                TopList[2].gameObject.SetActive(false);
+                TopList[3].gameObject.SetActive(false);
+                break;
 
-		case 3:
-			TopList [3].gameObject.SetActive (true);
+            case 1:
+                TopList[1].gameObject.SetActive(true);
 
-			TopList [0].gameObject.SetActive (false);	
-			TopList [1].gameObject.SetActive (false);	
-			TopList [2].gameObject.SetActive (false);	
-			break;
-		}
+                TopList[0].gameObject.SetActive(false);
+                TopList[2].gameObject.SetActive(false);
+                TopList[3].gameObject.SetActive(false);
+                break;
 
-		switch (Body) 
-		{
-		case -1:
-			none.gameObject.SetActive (true);
-			BodyList [0].gameObject.SetActive (false);	
-			BodyList [1].gameObject.SetActive (false);		
-			BodyList [2].gameObject.SetActive (false);
-			break;
+            case 2:
+                TopList[2].gameObject.SetActive(true);
 
-		case 0:
-			BodyList [0].gameObject.SetActive (true);	
+                TopList[0].gameObject.SetActive(false);
+                TopList[1].gameObject.SetActive(false);
+                TopList[3].gameObject.SetActive(false);
+                break;
 
-			BodyList [1].gameObject.SetActive (false);
-			BodyList [2].gameObject.SetActive (false);
-			break;
+            case 3:
+                TopList[3].gameObject.SetActive(true);
 
-		case 1:
-			BodyList [1].gameObject.SetActive (true);	
+                TopList[0].gameObject.SetActive(false);
+                TopList[1].gameObject.SetActive(false);
+                TopList[2].gameObject.SetActive(false);
+                break;
+        }
 
-			BodyList [0].gameObject.SetActive (false);
-			BodyList [2].gameObject.SetActive (false);
-			break;
-		case 2:
-			BodyList [2].gameObject.SetActive (true);		
+        switch (Body)
+        {
+            case -1:
+                none.gameObject.SetActive(true);
+                BodyList[0].gameObject.SetActive(false);
+                BodyList[1].gameObject.SetActive(false);
+                BodyList[2].gameObject.SetActive(false);
+                break;
 
-			BodyList [0].gameObject.SetActive (false);
-			BodyList [1].gameObject.SetActive (false);
-			break;
-		}
-		switch (Head) 
-		{
-		case -1:
-			none.gameObject.SetActive (true);
-			HeadList [0].gameObject.SetActive (false);	
-			HeadList [1].gameObject.SetActive (false);		
-			HeadList [2].gameObject.SetActive (false);
-			break;
+            case 0:
+                BodyList[0].gameObject.SetActive(true);
 
-		case 0:
-			HeadList [0].gameObject.SetActive (true);		
+                BodyList[1].gameObject.SetActive(false);
+                BodyList[2].gameObject.SetActive(false);
+                break;
 
-			HeadList [1].gameObject.SetActive (false);
-			HeadList [2].gameObject.SetActive (false);
-			break;
-		case 1:
-			HeadList [1].gameObject.SetActive (true);	
+            case 1:
+                BodyList[1].gameObject.SetActive(true);
 
-			HeadList [0].gameObject.SetActive (false);
-			HeadList [2].gameObject.SetActive (false);
-			break;
-		case 2:
-			HeadList [2].gameObject.SetActive (true);		
+                BodyList[0].gameObject.SetActive(false);
+                BodyList[2].gameObject.SetActive(false);
+                break;
+            case 2:
+                BodyList[2].gameObject.SetActive(true);
 
-			HeadList [0].gameObject.SetActive (false);
-			HeadList [1].gameObject.SetActive (false);
-			break;
-		}
+                BodyList[0].gameObject.SetActive(false);
+                BodyList[1].gameObject.SetActive(false);
+                break;
+        }
+        switch (Head)
+        {
+            case -1:
+                none.gameObject.SetActive(true);
+                HeadList[0].gameObject.SetActive(false);
+                HeadList[1].gameObject.SetActive(false);
+                HeadList[2].gameObject.SetActive(false);
+                break;
 
-		switch (Item) 
-		{
-		case -1:
-			none.gameObject.SetActive (true);
-			ItemList [0].gameObject.SetActive (false);	
-			ItemList [1].gameObject.SetActive (false);		
-			ItemList [2].gameObject.SetActive (false);
-			ItemList [3].gameObject.SetActive (false);
-			break;
+            case 0:
+                HeadList[0].gameObject.SetActive(true);
 
-		case 0:
-			ItemList [0].gameObject.SetActive (true);	
+                HeadList[1].gameObject.SetActive(false);
+                HeadList[2].gameObject.SetActive(false);
+                break;
+            case 1:
+                HeadList[1].gameObject.SetActive(true);
 
-			ItemList [1].gameObject.SetActive (false);
-			ItemList [2].gameObject.SetActive (false);
-			ItemList [3].gameObject.SetActive (false);
-			break;
-		case 1:
-			ItemList [1].gameObject.SetActive (true);	
+                HeadList[0].gameObject.SetActive(false);
+                HeadList[2].gameObject.SetActive(false);
+                break;
+            case 2:
+                HeadList[2].gameObject.SetActive(true);
 
-			ItemList [0].gameObject.SetActive (false);
-			ItemList [2].gameObject.SetActive (false);
-			ItemList [3].gameObject.SetActive (false);
-			break;
-		case 2:
-			ItemList [2].gameObject.SetActive (true);	
+                HeadList[0].gameObject.SetActive(false);
+                HeadList[1].gameObject.SetActive(false);
+                break;
+        }
 
-			ItemList [0].gameObject.SetActive (false);
-			ItemList [1].gameObject.SetActive (false);
-			ItemList [3].gameObject.SetActive (false);
-			break;
-		case 3:
-			ItemList [3].gameObject.SetActive (true);		
+        switch (Item)
+        {
+            case -1:
+                none.gameObject.SetActive(true);
+                ItemList[0].gameObject.SetActive(false);
+                ItemList[1].gameObject.SetActive(false);
+                ItemList[2].gameObject.SetActive(false);
+                ItemList[3].gameObject.SetActive(false);
+                break;
 
-			ItemList [0].gameObject.SetActive (false);
-			ItemList [1].gameObject.SetActive (false);
-			ItemList [2].gameObject.SetActive (false);
-			break;
-		}
-	}
+            case 0:
+                ItemList[0].gameObject.SetActive(true);
 
-	void OnDisable()
-	{
-		//값 저장(Set)
-		PlayerPrefs.SetFloat ("MAX_HP",max_Health);
-		PlayerPrefs.SetFloat ("Cur_HP",cur_Health);
-		PlayerPrefs.SetFloat ("MAX_SPEED",max_Speed);
-		PlayerPrefs.SetFloat ("Rotation_SPEED",rotationSpeed);
-		PlayerPrefs.SetFloat ("Fire",Fire);
-		PlayerPrefs.SetFloat ("Ice",Ice);
-		PlayerPrefs.SetFloat ("Water",Water);
+                ItemList[1].gameObject.SetActive(false);
+                ItemList[2].gameObject.SetActive(false);
+                ItemList[3].gameObject.SetActive(false);
+                break;
+            case 1:
+                ItemList[1].gameObject.SetActive(true);
 
-		PlayerPrefs.HasKey("is_top");
-		PlayerPrefs.HasKey("is_body");
-		PlayerPrefs.HasKey("is_head");
-		PlayerPrefs.HasKey("is_gun");
-		PlayerPrefs.HasKey("Tuto");
+                ItemList[0].gameObject.SetActive(false);
+                ItemList[2].gameObject.SetActive(false);
+                ItemList[3].gameObject.SetActive(false);
+                break;
+            case 2:
+                ItemList[2].gameObject.SetActive(true);
 
-		PlayerPrefs.SetInt ("Top",Top);
-		PlayerPrefs.SetInt ("Body",Body);
-		PlayerPrefs.SetInt ("Head",Head);
-		PlayerPrefs.SetInt ("Item",Item);
+                ItemList[0].gameObject.SetActive(false);
+                ItemList[1].gameObject.SetActive(false);
+                ItemList[3].gameObject.SetActive(false);
+                break;
+            case 3:
+                ItemList[3].gameObject.SetActive(true);
 
-		PlayerPrefs.SetInt ("Gold", gold);
-		PlayerPrefs.SetInt ("Log", log);
-		PlayerPrefs.SetInt ("Steel", steel);
+                ItemList[0].gameObject.SetActive(false);
+                ItemList[1].gameObject.SetActive(false);
+                ItemList[2].gameObject.SetActive(false);
+                break;
+        }
+    }
 
-		PlayerPrefs.Save ();
-	}
+    void OnDisable()
+    {
+        //값 저장(Set)
+        PlayerPrefs.SetFloat("MAX_HP", max_Health);
+        PlayerPrefs.SetFloat("Cur_HP", cur_Health);
+        PlayerPrefs.SetFloat("MAX_SPEED", max_Speed);
+        PlayerPrefs.SetFloat("Rotation_SPEED", rotationSpeed);
+        PlayerPrefs.SetFloat("Fire", Fire);
+        PlayerPrefs.SetFloat("Ice", Ice);
+        PlayerPrefs.SetFloat("Water", Water);
+
+        PlayerPrefs.HasKey("is_top");
+        PlayerPrefs.HasKey("is_body");
+        PlayerPrefs.HasKey("is_head");
+        PlayerPrefs.HasKey("is_gun");
+        PlayerPrefs.HasKey("Tuto");
+
+        PlayerPrefs.SetInt("Top", Top);
+        PlayerPrefs.SetInt("Body", Body);
+        PlayerPrefs.SetInt("Head", Head);
+        PlayerPrefs.SetInt("Item", Item);
+
+        PlayerPrefs.SetInt("Gold", gold);
+        PlayerPrefs.SetInt("Log", log);
+        PlayerPrefs.SetInt("Steel", steel);
+
+        PlayerPrefs.Save();
+    }
 }
