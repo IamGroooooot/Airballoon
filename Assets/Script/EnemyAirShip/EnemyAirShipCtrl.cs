@@ -16,9 +16,9 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 		DistanceIS = Vector3.Distance (target.position,transform.position);
 
 		//Debug.Log (DistanceIS);
-		if (DistanceIS > 600f) { 
+		if (DistanceIS > 400f) { 
 			FaceTarget ();
-			GetComponent<Rigidbody> ().velocity= transform.forward*100f;
+			GetComponent<Rigidbody> ().velocity= transform.forward*300f;
 		}
 		else 
 		{
@@ -26,7 +26,7 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 
 			FaceTargetForRotation ();
 
-			GetComponent<Rigidbody> ().velocity= transform.forward*30f;
+			GetComponent<Rigidbody> ().velocity= transform.forward*145f;
 		}
 
 

@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
         public string name;
         public Transform enemy;
         public int count;
-        public float delay; //delay
+        public float rate; //delay
     }
 
     public Wave[] waves;
@@ -36,7 +36,6 @@ public class Spawner : MonoBehaviour
             Debug.Log("Error : No Spawn Points Referenced");
         }
         waveCountdown = timeBtwnWaves;
-
     }
 
     void Update()
@@ -66,9 +65,6 @@ public class Spawner : MonoBehaviour
             waveCountdown -= Time.deltaTime;
         }
     }
-	
-
-
 
     void WaveCompleted()
     {
@@ -95,7 +91,7 @@ public class Spawner : MonoBehaviour
         if (searchCountdown <= 0)
         {
             searchCountdown = 1f;
-            if (GameObject.FindGameObjectWithTag("EnemyShip") == null)
+            if (GameObject.FindGameObjectWithTag("Enemy") == null)
             {
                 return false;
             }
@@ -111,7 +107,7 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < _wave.count; i++)
         {
             SpawnEnemy(_wave.enemy);
-			yield return new WaitForSeconds(_wave.delay);
+            yield return new WaitForSeconds(1f / _wave.rate);
         }
 
         state = SpawnState.WAITING;

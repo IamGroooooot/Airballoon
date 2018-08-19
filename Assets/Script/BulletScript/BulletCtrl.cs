@@ -44,8 +44,8 @@ public class BulletCtrl : MonoBehaviour {
 		if (CollStay.CompareTag ("EnemyL")|| CollStay.CompareTag ("EnemyR"))
 		{
 			
+			//Instantiate(Hit, CollStay.transform.position, Quaternion.identity);
 			this.gameObject.SetActive (false);
-
 		}
 	}
 

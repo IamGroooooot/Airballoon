@@ -106,6 +106,7 @@ public class TypeWriterEffect : MonoBehaviour
             //스킵_지연후 종료
             Debug.Log("Enter 대기");
             text_full = true;
+            End_Typing();
         }
     }
 }

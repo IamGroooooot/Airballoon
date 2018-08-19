@@ -13,6 +13,7 @@ public class EnemyAitshipCannonR : MonoBehaviour {
 	public float bullectRSpeed = 100f;
 
 	//발사위치
+	public Transform Fire_1;
 
 	public Vector3 WhereToFireRC1;
 
@@ -40,7 +41,7 @@ public class EnemyAitshipCannonR : MonoBehaviour {
 			Vector3 PlayerPos1;
 
 			PlayerPos1 = FindPlayer ().transform.position;
-			WhereToFireRC1 = PlayerPos1 - transform.position;
+			WhereToFireRC1 = PlayerPos1 - Fire_1.position;
 		}
 
 		if (TimerOn)
@@ -49,15 +50,10 @@ public class EnemyAitshipCannonR : MonoBehaviour {
 			if (time == reload)
 			{
 				//Debug.Log ("대포 발사1");
-				GameObject enemyBullet = ObjectPooling.pool.GetPoolObject_EnemyBullet ();
-				if (enemyBullet == null) return;
+				Vector3 FirePos_1 = Fire_1.position;
+				TempBulletRC1 = Instantiate (BulletRC1, FirePos_1, BulletRC1.transform.rotation) as GameObject;
 
-				enemyBullet.transform.position = transform.position;
-				enemyBullet.GetComponent <TrailRenderer> ().Clear();
-
-				enemyBullet.SetActive (true);
-
-				enemyBullet.GetComponent<Rigidbody> ().velocity =  WhereToFireRC1.normalized* bullectRSpeed;
+				TempBulletRC1.GetComponent<Rigidbody> ().velocity =  WhereToFireRC1.normalized* bullectRSpeed;
 			}
 			else if (time == reload * 2)
 			{

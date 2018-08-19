@@ -19,8 +19,8 @@ public class ObjectPooling : MonoBehaviour {
 	public GameObject Island4;
 	public GameObject Island5;
 	public GameObject Island6;
-	public GameObject Island7;
-	public GameObject Island8;
+	//public GameObject Island7;
+	//public GameObject Island8;
 
 	//Pooled Obj 폴더
 	public GameObject Skel_Parent;
@@ -35,8 +35,8 @@ public class ObjectPooling : MonoBehaviour {
 	public GameObject Island4_Folder;
 	public GameObject Island5_Folder;
 	public GameObject Island6_Folder;
-	public GameObject Island7_Folder;
-	public GameObject Island8_Folder;
+	//public GameObject Island7_Folder;
+	//public GameObject Island8_Folder;
 
 	// 몇개를 복제할 것인가?
 	public int PoolAmount_SkelBomb;
@@ -51,8 +51,8 @@ public class ObjectPooling : MonoBehaviour {
 	public int PoolAmount_Island4;
 	public int PoolAmount_Island5;
 	public int PoolAmount_Island6;
-	public int PoolAmount_Island7;
-	public int PoolAmount_Island8;
+	//public int PoolAmount_Island7;
+	//public int PoolAmount_Island8;
 
 
 	//Pooled Obj 리스트
@@ -68,8 +68,8 @@ public class ObjectPooling : MonoBehaviour {
 	public List<GameObject> PoolObjs_Island4;
 	public List<GameObject> PoolObjs_Island5;
 	public List<GameObject> PoolObjs_Island6;
-	public List<GameObject> PoolObjs_Island7;
-	public List<GameObject> PoolObjs_Island8;
+	//public List<GameObject> PoolObjs_Island7;
+	//public List<GameObject> PoolObjs_Island8;
 
 
 	void Awake(){
@@ -89,8 +89,8 @@ public class ObjectPooling : MonoBehaviour {
 		PoolObjs_Island4= new List<GameObject> ();
 		PoolObjs_Island5= new List<GameObject> ();
 		PoolObjs_Island6= new List<GameObject> ();
-		PoolObjs_Island7= new List<GameObject> ();
-		PoolObjs_Island8= new List<GameObject> ();
+		//PoolObjs_Island7= new List<GameObject> ();
+		//PoolObjs_Island8= new List<GameObject> ();
 
 		//Islands
 		for (int i = 0; i < PoolAmount_Island1; i++) {
@@ -159,7 +159,7 @@ public class ObjectPooling : MonoBehaviour {
 			PoolObjs_Island6.Add (Island);
 		}
 
-		for (int i = 0; i < PoolAmount_Island7; i++) {
+		/*for (int i = 0; i < PoolAmount_Island7; i++) {
 			// 생성후 차곡차곡 넣기
 			GameObject Island = (GameObject)Instantiate (Island7);
 
@@ -179,7 +179,7 @@ public class ObjectPooling : MonoBehaviour {
 
 			Island.SetActive (false);
 			PoolObjs_Island8.Add (Island);
-		}
+		}*/
 			
 		//Extra
 
@@ -363,7 +363,7 @@ public class ObjectPooling : MonoBehaviour {
 		return null;
 	}
 
-	public GameObject GetPoolObject_Island7(){
+	/*public GameObject GetPoolObject_Island7(){
 
 		if (PoolObjs_Island7.Count == 0) {
 			GameObject Obj_Island = Instantiate (Island7);
@@ -403,7 +403,7 @@ public class ObjectPooling : MonoBehaviour {
 
 		}
 		return null;
-	}
+	}*/
 
 
 

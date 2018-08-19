@@ -59,7 +59,7 @@ public class HP_Bar : MonoBehaviour
             Smoke.gameObject.SetActive(false);
         }
 
-		if (PlayerDB.DB.cur_Health < 0)
+		if (PlayerDB.DB.cur_Health <= 0)
         {
 			//UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
             //Debug.Log("체력 0  -  게임오버");  //게임 종료

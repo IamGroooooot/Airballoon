@@ -9,6 +9,7 @@ public class IslandSpawner : MonoBehaviour {
 	//GameObject Island;
 	int RadomNum=0;
 	public float createTime = 7f;
+
 	public static IslandSpawner instance = null;
 
 	void Awake(){
@@ -26,53 +27,46 @@ public class IslandSpawner : MonoBehaviour {
 
 	IEnumerator CreateGull()
 	{
-		while (true) 
-		{
-			yield return new WaitForSeconds (createTime);
+ForceIterate:
+		yield return new WaitForSeconds (createTime);
+FindNewIsland :
+		RadomNum = Random.Range (1,6);
+		GameObject Island = null;
+		if (RadomNum == 1) {
+			Island = ObjectPooling.pool.GetPoolObject_Island1 ();
 
-			RadomNum = Random.Range (1, 8);
-			GameObject Island = null;
-			if (RadomNum == 1) {
-				Island = ObjectPooling.pool.GetPoolObject_Island1 ();
-			
-			} else if (RadomNum == 2) {
-				Island = ObjectPooling.pool.GetPoolObject_Island2 ();
+		} else if (RadomNum == 2) {
+			Island = ObjectPooling.pool.GetPoolObject_Island2 ();
 
-			} else if (RadomNum == 3) {
-				Island = ObjectPooling.pool.GetPoolObject_Island3 ();
+		}else if (RadomNum == 3) {
+			Island = ObjectPooling.pool.GetPoolObject_Island3 ();
 
-			} else if (RadomNum == 4) {
-				Island = ObjectPooling.pool.GetPoolObject_Island4 ();
-			
-			} else if (RadomNum == 5) {
-				Island = ObjectPooling.pool.GetPoolObject_Island5 ();
+		}else if (RadomNum == 4) {
+			Island = ObjectPooling.pool.GetPoolObject_Island4 ();
+
+		}else if (RadomNum == 5) {
+			Island = ObjectPooling.pool.GetPoolObject_Island5 ();
+
+		}else if (RadomNum == 6) {
+			Island = ObjectPooling.pool.GetPoolObject_Island6 ();
+
+		}/*else if (RadomNum == 7) {
+			Island = ObjectPooling.pool.GetPoolObject_Island7 ();
+
+		}else {
+			Island = ObjectPooling.pool.GetPoolObject_Island8 ();
+
+		}*/
+
+		if (Island != null && !Island.activeSelf) {
+			int Place_idx = Random.Range (1, points.Length);
+			Island.transform.position = points [Place_idx].position;
 		
-			} else if (RadomNum == 6) {
-				Island = ObjectPooling.pool.GetPoolObject_Island6 ();
 
-			} else if (RadomNum == 7) {
-				Island = ObjectPooling.pool.GetPoolObject_Island7 ();
-		
-			} else {
-				Island = ObjectPooling.pool.GetPoolObject_Island8 ();
-			
-			}
-
-			if (Island != null && !Island.activeSelf) {
-				int Place_idx = Random.Range (1, points.Length);
-				Island.transform.position = points [Place_idx].position;
-		
-
-				Island.SetActive (true);
-			} else {
-				
-			}
-
+			Island.SetActive (true);
+			goto ForceIterate;
+		} else {
+			goto FindNewIsland;
 		}
-
-
 	}
-
-
-
 }

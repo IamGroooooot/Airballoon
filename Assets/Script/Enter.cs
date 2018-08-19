@@ -10,20 +10,8 @@ public class Enter : MonoBehaviour {
 	{
 		if (ColEnter.gameObject.tag == "Player") 
 		{
-			OnTriggerStay (ColEnter);
-		}
+            Tuto.Tutorial.EnterCircle = true;
+        }
 	}		
 
-	void OnTriggerStay(Collider ColStay)
-	{
-		if (ColStay.gameObject.tag == "Player") {
-			_Enter.gameObject.SetActive (true);
-		}
-	}
-	void OnTriggerExit(Collider ColExit)
-	{
-		if (ColExit.gameObject.tag == "Player") {
-			_Enter.gameObject.SetActive (false);
-		}
-	}
 }
