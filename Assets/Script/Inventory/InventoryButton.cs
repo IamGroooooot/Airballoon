@@ -9,14 +9,26 @@ public class InventoryButton : MonoBehaviour {
     public GameObject SkillTouch2;
     public GameObject SkillTouch3;
 
-
+	bool inTheMain = false;
+	inventoryInStore MyStoreInvScript;
+	Inventory MyMainInvScript;
 
     void Start(){
 		inventoryPanel = GameObject.Find ("Inventory_Panel");
 
 	}
 
-	public void OnInvButtonClicked(){
+	public void OnInvButtonClicked()
+	{
+		inTheMain = false;
+		MyStoreInvScript = inventoryPanel.GetComponent<inventoryInStore> ();
+
+
+		if (MyStoreInvScript == null) {
+			inTheMain = true;
+			MyMainInvScript = inventoryPanel.GetComponent<Inventory> ();
+		}
+
         if (!inventoryPanel.activeSelf)
         {
             inventoryPanel.SetActive(true);
@@ -31,6 +43,12 @@ public class InventoryButton : MonoBehaviour {
             SkillTouch1.GetComponent<Image>().raycastTarget = true;
             SkillTouch2.GetComponent<Image>().raycastTarget = true;
             SkillTouch3.GetComponent<Image>().raycastTarget = true;
+
+			if (inTheMain) {
+				MyMainInvScript.save ();
+			} else {
+				MyStoreInvScript.save ();
+			}
         }
 
 	}

@@ -24,11 +24,11 @@ public class Inventory : MonoBehaviour {
 
 	public List<Item> items = new List<Item>();
 	public List<GameObject> slots = new List<GameObject>();
-
+	List<Item> Loadeditems;
 
 	void Start()
 	{
-		Load ();
+		
 
 		database = GetComponent<Item_Database> ();//같은 object에 있어야함
 		slotAmount = 9;
@@ -82,23 +82,26 @@ public class Inventory : MonoBehaviour {
 
 
         }
-        
-		/*
-        AddItem (0);
-		AddItem (1);
-		AddItem (1);
-		AddItem (1);
-		AddItem (1);
-		AddItem (1);
-		AddItem (2);
-		AddItem (3);
-        AddItem(4);
-        AddItem(5);
-        AddItem(6);
-        AddItem(7);
-        AddItem(8);
-        AddItem(9);
-        */
+
+		Load ();
+		//AddItem (1);
+		//AddItem (1);
+
+		//AddItem (1);
+		//AddItem (1);
+		//AddItem (0);
+		//AddItem (1);
+		//AddItem (1);
+		//AddItem (1);
+		//AddItem (2);
+		//AddItem (3);
+        //AddItem(4);
+        //AddItem(5);
+        //AddItem(6);
+        //AddItem(7);
+        //AddItem(8);
+        //AddItem(9);
+
 		//save ();
        
     }
@@ -106,6 +109,10 @@ public class Inventory : MonoBehaviour {
 	public void AddItem(int id)
 	{
 		Item itemToAdd = database.FindItemByID (id);
+		if (itemToAdd == null) {
+			Debug.Log("Blank Space");
+			return;
+		}
 		if (itemToAdd.Stackable && CheckIfItemIsInInventory (itemToAdd)) {
 			for (int i = 0; i < items.Count; i++) {
 				if (items [i].ID == id) {
@@ -130,6 +137,9 @@ public class Inventory : MonoBehaviour {
 
                     //itemObj.GetComponent<Image> ().sprite = itemToAdd.Sprite;
 					itemObj.name = itemToAdd.Title;
+
+					save ();//Logically this souldn't be needed => 베포전 삭제하기
+
 					break;
 				}
 			}
@@ -147,36 +157,40 @@ public class Inventory : MonoBehaviour {
 	}
 
 
-	private void save()
+	public void save()
 	{
 		BinaryFormatter bf = new BinaryFormatter ();
-		FileStream file = File.Create (Application.persistentDataPath + "/Inventory1.dat");
+		FileStream file = File.Create (Application.dataPath + "/Resources/Inventory1.dat");
 		bf.Serialize (file,items);
 		file.Close ();
+		Debug.Log ("Saved");
 	}
 
 	private void Load()
 	{
-		if (File.Exists (Application.persistentDataPath + "/Inventory1.dat")) 
+		if (File.Exists (Application.dataPath + "/Resources/Inventory1.dat")) 
 		{
 			//BinaryFormatter bf = new BinaryFormatter ();
 			//FileStream file = File.Open (Application.persistentDataPath + "/Inventory.dat",FileMode.Open);
-			using (Stream stream = File.Open (Application.persistentDataPath + "/Inventory1.dat", FileMode.Open)) 
+			using (Stream stream = File.Open (Application.dataPath + "/Resources/Inventory1.dat", FileMode.Open)) 
 			{
 				var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter ();
 
-				List<Item> items = (List<Item>)bformatter.Deserialize (stream); 
+				Loadeditems = (List<Item>)bformatter.Deserialize (stream); 
 
 			}
+			Debug.Log ("File Exists");
 		}
 
-		foreach(Item Myitem in items) 
+		foreach(Item Myitem in Loadeditems) 
 		{
+			if (Myitem.ID == -1) {
+				Debug.Log (Myitem.ID);
+				continue;
+			}
+			Debug.Log (Myitem.ID);
 			AddItem (Myitem.ID);
 
-
-
-			Debug.Log ("hi");
 		}
 
 

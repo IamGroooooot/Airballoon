@@ -15,4 +15,10 @@ public class StoreItemData : MonoBehaviour {
 
 		GetComponent<Image> ().sprite = mySprite;
 	}
+
+	void Update(){
+		
+
+
+	}
 }

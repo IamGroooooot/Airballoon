@@ -163,7 +163,7 @@ public class OnMyItemClicked : MonoBehaviour {
 		if (transform.parent.childCount == 2)
 			Destroy(transform.parent.GetChild(0).gameObject);
 		
-
+		MyInvScript.save();
 
 		//droppedItem.slot = id;
 
@@ -177,7 +177,9 @@ public class OnMyItemClicked : MonoBehaviour {
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
 			Destroy(transform.parent.GetChild(0).gameObject);
-		
+
+		MyInvScript.save();
+
 		PlayerDB.gold += cost;
 
 
@@ -189,6 +191,9 @@ public class OnMyItemClicked : MonoBehaviour {
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
 			Destroy(transform.parent.GetChild(0).gameObject);
+
+		MyInvScript.save();
+
 		PlayerDB.gold += cost;
 
 	}
@@ -199,6 +204,9 @@ public class OnMyItemClicked : MonoBehaviour {
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
 			Destroy(transform.parent.GetChild(0).gameObject);
+
+		MyInvScript.save();
+
 		PlayerDB.gold += cost;
 
 
@@ -210,6 +218,9 @@ public class OnMyItemClicked : MonoBehaviour {
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
 			Destroy(transform.parent.GetChild(0).gameObject);
+
+		MyInvScript.save();
+
 		PlayerDB.gold += cost;
 
 	}
@@ -220,6 +231,9 @@ public class OnMyItemClicked : MonoBehaviour {
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
 			Destroy(transform.parent.GetChild(0).gameObject);
+
+		MyInvScript.save();
+
 		PlayerDB.gold += cost;
 
 	}
@@ -230,6 +244,9 @@ public class OnMyItemClicked : MonoBehaviour {
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
 			Destroy(transform.parent.GetChild(0).gameObject);
+
+		MyInvScript.save();
+
 		PlayerDB.gold += cost;
 
 
@@ -241,6 +258,9 @@ public class OnMyItemClicked : MonoBehaviour {
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
 			Destroy(transform.parent.GetChild(0).gameObject);
+
+		MyInvScript.save();
+
 		PlayerDB.gold += cost;
 
 
@@ -253,6 +273,9 @@ public class OnMyItemClicked : MonoBehaviour {
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
 			Destroy(transform.parent.GetChild(0).gameObject);
+
+		MyInvScript.save();
+
 		PlayerDB.gold += cost;
 
 
@@ -264,6 +287,9 @@ public class OnMyItemClicked : MonoBehaviour {
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
 			Destroy(transform.parent.GetChild(0).gameObject);
+
+		MyInvScript.save();
+
 		PlayerDB.gold += cost;
 
 
@@ -275,6 +301,9 @@ public class OnMyItemClicked : MonoBehaviour {
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
 			Destroy(transform.parent.GetChild(0).gameObject);
+
+		MyInvScript.save();
+
 		PlayerDB.gold += cost;
 
 
@@ -286,6 +315,9 @@ public class OnMyItemClicked : MonoBehaviour {
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
 			Destroy(transform.parent.GetChild(0).gameObject);
+
+		MyInvScript.save();
+
 		PlayerDB.gold += cost;
 
 

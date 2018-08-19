@@ -25,6 +25,9 @@ public class Item_Database : MonoBehaviour {
 
 	public Item FindItemByID(int id)
 	{
+		if (id == -1) {
+			return null;
+		}
 		for (int i = 0; i<database.Count; i++) 
 		{
 			if (database [i].ID == id) 
