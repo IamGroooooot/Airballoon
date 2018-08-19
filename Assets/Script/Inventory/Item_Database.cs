@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using LitJson;
 using System.IO;
+using System;
+
 
 public class Item_Database : MonoBehaviour {
 	private List<Item> database = new List<Item>();
@@ -50,6 +52,7 @@ public class Item_Database : MonoBehaviour {
 
 }
 
+[System.Serializable]
 public class Item
 {
 	public int ID {get;set;}
@@ -59,7 +62,7 @@ public class Item
 	public bool Stackable {get;set;}
 	public int Purpose {get;set;}
 	public string Slug {get;set;}
-	public Sprite Sprite {get;set;}
+
 
 	public Item(int id, string title, int value,string description, bool stackable,int purpose, string slug)
 	{
@@ -70,7 +73,6 @@ public class Item
 		this.Stackable = stackable;
 		this.Purpose = purpose;
 		this.Slug = slug;
-		this.Sprite = Resources.Load<Sprite> ("Sprites/Items/"+slug);
 	}
 
 	public Item()

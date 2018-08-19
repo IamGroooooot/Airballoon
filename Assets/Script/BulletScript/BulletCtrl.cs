@@ -6,10 +6,10 @@ public class BulletCtrl : MonoBehaviour {
 
 	public GameObject Hit;
 	public Transform CollPos;
-
+	public GameObject Enemy = null;
 	//포탄 공격력
 	public int damage = 10;
-
+	float speed = 100f; 
 	//public float speed = 10f;
 
 	private Rigidbody Rb;
@@ -18,8 +18,21 @@ public class BulletCtrl : MonoBehaviour {
 	// Use this for initialization
 	void OnEnable () {
 		StartCoroutine (Disable (4.0f));
+		if (Enemy != null) {
+			StartCoroutine (Bullet ());
+		}
 	}
 		
+
+	IEnumerator Bullet(){
+		while (true) {
+
+			Vector3 myNewVelocity = (Enemy.transform.position - transform.position).normalized;
+			GetComponent<Rigidbody> ().velocity = myNewVelocity * speed;
+			yield return new WaitForSeconds (0.04f);
+
+		}
+	}
 
 	private void OnBecameInvisible()
 	{

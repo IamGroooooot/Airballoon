@@ -7664,7 +7664,6 @@ GameObject:
   - component: {fileID: 494457109}
   - component: {fileID: 494457108}
   - component: {fileID: 494457112}
-  - component: {fileID: 494457113}
   - component: {fileID: 494457114}
   m_Layer: 0
   m_Name: Player
@@ -7804,18 +7803,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!135 &494457113
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 494457106}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &494457114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22346,7 +22333,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4232917014336690, guid: 9685ac87bd59d914d8862b3497b8385f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.09
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4232917014336690, guid: 9685ac87bd59d914d8862b3497b8385f, type: 2}
       propertyPath: m_LocalPosition.z

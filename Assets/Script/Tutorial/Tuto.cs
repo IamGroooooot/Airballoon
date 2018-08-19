@@ -98,8 +98,9 @@ public class Tuto : MonoBehaviour {
         Blueball.gameObject.SetActive(false);
 
         Explain2.gameObject.SetActive(false);
-        EnemyCtrl.Instance.is_dead = false;
+        //EnemyCtrl.Instance.is_dead = false;
         BattleUI.gameObject.SetActive(false);
+
         Officer.gameObject.SetActive(true);
         Explain3.gameObject.SetActive(true);
 

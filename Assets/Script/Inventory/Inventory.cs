@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+
+
 public class Inventory : MonoBehaviour {
 	GameObject inventoryPanel;
 	GameObject slotPanel;
@@ -20,9 +25,10 @@ public class Inventory : MonoBehaviour {
 	public List<Item> items = new List<Item>();
 	public List<GameObject> slots = new List<GameObject>();
 
+
 	void Start()
 	{
-		
+		Load ();
 
 		database = GetComponent<Item_Database> ();//같은 object에 있어야함
 		slotAmount = 9;
@@ -77,7 +83,7 @@ public class Inventory : MonoBehaviour {
 
         }
         
-
+		/*
         AddItem (0);
 		AddItem (1);
 		AddItem (1);
@@ -92,7 +98,8 @@ public class Inventory : MonoBehaviour {
         AddItem(7);
         AddItem(8);
         AddItem(9);
-
+        */
+		//save ();
        
     }
 
@@ -100,7 +107,7 @@ public class Inventory : MonoBehaviour {
 	{
 		Item itemToAdd = database.FindItemByID (id);
 		if (itemToAdd.Stackable && CheckIfItemIsInInventory (itemToAdd)) {
-			for (int i = 0; i < items.Count; i++) {	
+			for (int i = 0; i < items.Count; i++) {
 				if (items [i].ID == id) {
 					ItemData data = slots [i].transform.GetChild (0).GetComponent<ItemData> ();
 					data.amount++;
@@ -120,7 +127,8 @@ public class Inventory : MonoBehaviour {
 					itemObj.GetComponent<ItemData>().amount = 1;
 					itemObj.transform.SetParent (slots [i].transform);
                     itemObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-                    itemObj.GetComponent<Image> ().sprite = itemToAdd.Sprite;
+
+                    //itemObj.GetComponent<Image> ().sprite = itemToAdd.Sprite;
 					itemObj.name = itemToAdd.Title;
 					break;
 				}
@@ -136,6 +144,43 @@ public class Inventory : MonoBehaviour {
 				return true;
 		}
 		return false;
+	}
+
+
+	private void save()
+	{
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Create (Application.persistentDataPath + "/Inventory1.dat");
+		bf.Serialize (file,items);
+		file.Close ();
+	}
+
+	private void Load()
+	{
+		if (File.Exists (Application.persistentDataPath + "/Inventory1.dat")) 
+		{
+			//BinaryFormatter bf = new BinaryFormatter ();
+			//FileStream file = File.Open (Application.persistentDataPath + "/Inventory.dat",FileMode.Open);
+			using (Stream stream = File.Open (Application.persistentDataPath + "/Inventory1.dat", FileMode.Open)) 
+			{
+				var bformatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter ();
+
+				List<Item> items = (List<Item>)bformatter.Deserialize (stream); 
+
+			}
+		}
+
+		foreach(Item Myitem in items) 
+		{
+			AddItem (Myitem.ID);
+
+
+
+			Debug.Log ("hi");
+		}
+
+
+
 	}
 
 }

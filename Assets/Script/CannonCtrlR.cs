@@ -22,13 +22,9 @@ public class CannonCtrlR : MonoBehaviour
 	public Vector3 WhereToFireRC2;
 	public Vector3 WhereToFireRC3;
 
-	//복제할 총알 오브젝트
-	//public GameObject BulletRC1;
-	//public GameObject BulletRC2;
-	//public GameObject BulletRC3;
-	//private GameObject TempBulletRC1;
-	//private GameObject TempBulletRC2;
-	//private GameObject TempBulletRC3;
+	GameObject CloseEn1;
+	GameObject CloseEn2;
+	GameObject CloseEn3;
 
 	private bool FindEnemyR;
 
@@ -52,13 +48,16 @@ public class CannonCtrlR : MonoBehaviour
             Vector3 closeEnemyPos3;
             if (GameObject.FindGameObjectWithTag("EnemyR") != null)
             {
-                closeEnemyPos1 = new Vector3(FindClosestEnemyC1().transform.position.x, FindClosestEnemyC1().transform.position.y + 60f, FindClosestEnemyC1().transform.position.z);
-                closeEnemyPos2 = new Vector3(FindClosestEnemyC2().transform.position.x, FindClosestEnemyC2().transform.position.y + 60f, FindClosestEnemyC2().transform.position.z);
-                closeEnemyPos3 = new Vector3(FindClosestEnemyC3().transform.position.x, FindClosestEnemyC3().transform.position.y + 60f, FindClosestEnemyC3().transform.position.z);
+				CloseEn1 = FindClosestEnemyC1 ();
+				CloseEn2 = FindClosestEnemyC2 ();
+				CloseEn3 = FindClosestEnemyC3 ();
+				closeEnemyPos1 = new Vector3(CloseEn1.transform.position.x, CloseEn1.transform.position.y, CloseEn1.transform.position.z);
+				closeEnemyPos2 = new Vector3(CloseEn2.transform.position.x, CloseEn2.transform.position.y, CloseEn2.transform.position.z);
+				closeEnemyPos3 = new Vector3(CloseEn3.transform.position.x, CloseEn3.transform.position.y, CloseEn3.transform.position.z);
 
-                WhereToFireRC1 = closeEnemyPos1 - Fire_1.position;
-                WhereToFireRC2 = closeEnemyPos2 - Fire_2.position;
-                WhereToFireRC3 = closeEnemyPos3 - Fire_3.position;
+				WhereToFireRC1 = closeEnemyPos1 - Fire_1.position;
+				WhereToFireRC2 = closeEnemyPos2 - Fire_2.position;
+				WhereToFireRC3 = closeEnemyPos3 - Fire_3.position;
             }
             else
             {
@@ -76,6 +75,8 @@ public class CannonCtrlR : MonoBehaviour
 				GameObject Bullet = ObjectPooling.pool.GetPoolObject_Bullet ();
 				if (Bullet == null) return;
 
+				Bullet.GetComponent<BulletCtrl> ().Enemy = CloseEn1;
+
 				Bullet.transform.position = FirePos_1;
 
 
@@ -92,6 +93,8 @@ public class CannonCtrlR : MonoBehaviour
 				GameObject Bullet = ObjectPooling.pool.GetPoolObject_Bullet ();
 				if (Bullet == null) return;
 
+				Bullet.GetComponent<BulletCtrl> ().Enemy = CloseEn2;
+
 				Bullet.transform.position = FirePos_2;
 
 
@@ -105,6 +108,8 @@ public class CannonCtrlR : MonoBehaviour
 				//TempBulletRC3 = Instantiate (BulletRC3, FirePos_3, BulletRC3.transform.rotation);
 				GameObject Bullet = ObjectPooling.pool.GetPoolObject_Bullet ();
 				if (Bullet == null) return;
+
+				Bullet.GetComponent<BulletCtrl> ().Enemy = CloseEn3;
 
 				Bullet.transform.position = FirePos_3;
 

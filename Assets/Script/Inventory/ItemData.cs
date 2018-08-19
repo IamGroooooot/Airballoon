@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ItemData : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHandler, IPointerDownHandler,IPointerEnterHandler,IPointerExitHandler {
 	public Item item;
 	public int amount;
 	public int slot; //슬롯 위치
-
+	public Sprite mySprite;
 
 	private Inventory inv;
 	private Tooltip tooltip;
@@ -16,6 +17,10 @@ public class ItemData : MonoBehaviour, IBeginDragHandler,IDragHandler,IEndDragHa
 	void Start(){
 		inv = GameObject.Find ("Inventory").GetComponent<Inventory>();
 		tooltip = inv.GetComponent<Tooltip> ();
+
+		mySprite = Resources.Load<Sprite> ("Sprites/Items/"+item.Slug);
+
+		GetComponent<Image> ().sprite = mySprite;
 	}
 
 	public void OnBeginDrag(PointerEventData eventData)

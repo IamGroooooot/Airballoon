@@ -23,6 +23,9 @@ public class CannonCtrlL : MonoBehaviour
 	public Vector3 WhereToFireLC2;
 	public Vector3 WhereToFireLC3;
 
+	GameObject CloseEn1;
+	GameObject CloseEn2;
+	GameObject CloseEn3;
 
 	private bool FindEnemyL;
 
@@ -50,9 +53,12 @@ public class CannonCtrlL : MonoBehaviour
             Vector3 closeEnemyPos3;
             if (GameObject.FindGameObjectWithTag("EnemyL") != null)
             {
-                closeEnemyPos1 = new Vector3(FindClosestEnemyC1().transform.position.x, FindClosestEnemyC1().transform.position.y + 60f, FindClosestEnemyC1().transform.position.z);
-                closeEnemyPos2 = new Vector3(FindClosestEnemyC2().transform.position.x, FindClosestEnemyC2().transform.position.y + 60f, FindClosestEnemyC2().transform.position.z);
-                closeEnemyPos3 = new Vector3(FindClosestEnemyC3().transform.position.x, FindClosestEnemyC3().transform.position.y + 60f, FindClosestEnemyC3().transform.position.z);
+				CloseEn1 = FindClosestEnemyC1 ();
+				CloseEn2 = FindClosestEnemyC2 ();
+				CloseEn3 = FindClosestEnemyC3 ();
+				closeEnemyPos1 = new Vector3(CloseEn1.transform.position.x, CloseEn1.transform.position.y, CloseEn1.transform.position.z);
+				closeEnemyPos2 = new Vector3(CloseEn2.transform.position.x, CloseEn2.transform.position.y, CloseEn2.transform.position.z);
+				closeEnemyPos3 = new Vector3(CloseEn3.transform.position.x, CloseEn3.transform.position.y, CloseEn3.transform.position.z);
 
                 WhereToFireLC1 = closeEnemyPos1 - Fire_1.position;
                 WhereToFireLC2 = closeEnemyPos2 - Fire_2.position;
@@ -75,6 +81,8 @@ public class CannonCtrlL : MonoBehaviour
 				GameObject Bullet = ObjectPooling.pool.GetPoolObject_Bullet ();
 				if (Bullet == null) return;
 
+				Bullet.GetComponent<BulletCtrl> ().Enemy = CloseEn1;
+
 				Bullet.transform.position = FirePos_1;
 
 
@@ -93,6 +101,8 @@ public class CannonCtrlL : MonoBehaviour
 				GameObject Bullet = ObjectPooling.pool.GetPoolObject_Bullet ();
 				if (Bullet == null) return;
 
+				Bullet.GetComponent<BulletCtrl> ().Enemy = CloseEn2;
+
 				Bullet.transform.position = FirePos_2;
 
 				Bullet.SetActive (true);
@@ -109,6 +119,8 @@ public class CannonCtrlL : MonoBehaviour
 
 				GameObject Bullet = ObjectPooling.pool.GetPoolObject_Bullet ();
 				if (Bullet == null) return;
+
+				Bullet.GetComponent<BulletCtrl> ().Enemy = CloseEn3;
 
 				Bullet.transform.position = FirePos_3;
 

@@ -79,7 +79,7 @@ public class Store : MonoBehaviour {
 					itemObj.GetComponent<StoreItemData>().amount = 1;
 					itemObj.transform.SetParent (slots [i].transform);
 					itemObj.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-					itemObj.GetComponent<Image> ().sprite = itemToAdd.Sprite;
+					//itemObj.GetComponent<Image> ().sprite = itemToAdd.Sprite;
 					itemObj.name = itemToAdd.Title;
 
 					GameObject BBTouch = Instantiate (BuyByTouch, itemObj.transform);

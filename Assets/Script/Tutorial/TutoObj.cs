@@ -45,6 +45,7 @@ public class TutoObj : MonoBehaviour {
         Tuto.Tutorial.Obj_dead = true;
         this.gameObject.SetActive(false);
 
+
         is_dead = false;
     }
 }
