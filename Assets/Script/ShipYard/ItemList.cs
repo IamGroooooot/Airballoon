@@ -1,8 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemList : MonoBehaviour {
+
+	//Choose Button
+	public GameObject sail_button;
+	public GameObject body_button;
+	public GameObject head_button;
+	public GameObject item_button;
+
+	//Ship icon
+	public GameObject image;
+	public Sprite sail;
+	public Sprite body;
+	public Sprite head;
+	public Sprite item;
+
 
 	//ItemList(대입)
 
@@ -39,6 +54,13 @@ public class ItemList : MonoBehaviour {
 	//버튼 누르면 대입
 	public void Sail()
 	{
+		//Button
+		sail_button.gameObject.SetActive(true);
+		body_button.gameObject.SetActive(false);
+		head_button.gameObject.SetActive(false);
+		item_button.gameObject.SetActive(false);
+
+		image.gameObject.GetComponent<Image>().sprite = sail;
 		Clear ();
 		Tap = true;
 		index [0] = Balloon;
@@ -50,10 +72,17 @@ public class ItemList : MonoBehaviour {
 
 	public void Body()
 	{
+		//Button
+		sail_button.gameObject.SetActive(false);
+		body_button.gameObject.SetActive(true);
+		head_button.gameObject.SetActive(false);
+		item_button.gameObject.SetActive(false);
+
+		image.gameObject.GetComponent<Image>().sprite = body;
 		Clear ();
 		Tap = true;
-		index [0] = Normal;
-		index [1] = Speed;
+		index [0] = Speed;
+		index [1] = Normal;
 		index [2] = Iron;
 		//대입 후 초기화(index[0]부터)
 		Initialize ();
@@ -61,6 +90,13 @@ public class ItemList : MonoBehaviour {
 
 	public void Head()
 	{
+		//Button
+		sail_button.gameObject.SetActive(false);
+		body_button.gameObject.SetActive(false);
+		head_button.gameObject.SetActive(true);
+		item_button.gameObject.SetActive(false);
+
+		image.gameObject.GetComponent<Image>().sprite = head;
 		Clear ();
 		Tap = true;
 		index [0] = Turtle;
@@ -72,11 +108,18 @@ public class ItemList : MonoBehaviour {
 
 	public void Item()
 	{
+		//Button
+		sail_button.gameObject.SetActive(false);
+		body_button.gameObject.SetActive(false);
+		head_button.gameObject.SetActive(false);
+		item_button.gameObject.SetActive(true);
+
+		image.gameObject.GetComponent<Image>().sprite = item;
 		Clear ();
 		Tap = true;
-		index [0] = Gun;
-		index [1] = Organ;
-		index [2] = Deck;
+		index [0] = Deck;
+		index [1] = Gun;
+		index [2] = Organ;
 		//대입 후 초기화(index[0]부터)
 		Initialize ();
 	}
@@ -103,7 +146,7 @@ public class ItemList : MonoBehaviour {
 		if (Tap) {
 			int LimitPage=page++;
 
-			if (LimitPage == 3) {
+			if (LimitPage == 2) {
 				page = 0;
 			}
 			Debug.Log (page + "," + LimitPage);
@@ -128,6 +171,37 @@ public class ItemList : MonoBehaviour {
 				index [1].gameObject.SetActive (false);
 				break;
 			}
+		}
+	}
+
+	//결정
+	public void BodyChoose(){
+		if (Tap) {
+			PlayerDB.DB.Body = page;
+			//능력치 부여
+			switch (page) {
+			case 0:
+				break;
+			case 1:
+				break;
+			case 2:
+				break;
+			}
+		}
+	}
+	public void SailChoose(){
+		if (Tap) {
+			PlayerDB.DB.Top = page;
+		}
+	}
+	public void HeadChoose(){
+		if (Tap) {
+			PlayerDB.DB.Head = page;
+		}
+	}
+	public void ItemChoose(){
+		if (Tap) {
+			PlayerDB.DB.Item = page;
 		}
 	}
 }

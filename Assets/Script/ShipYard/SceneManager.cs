@@ -11,7 +11,7 @@ public class SceneManager : MonoBehaviour {
 		UnityEngine.SceneManagement.SceneManager.LoadScene("ShipMain");
 	}
 
-	public void Scene_store()
+	public void Scene_shipyardstore()
 	{
 		UnityEngine.SceneManagement.SceneManager.LoadScene("ShipStore");
 	}
@@ -25,5 +25,19 @@ public class SceneManager : MonoBehaviour {
 	public void Scene_MainGame()
 	{
 		UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
+	}
+
+	public void Scene_Store()
+	{
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Store");
+	}
+
+	public void Scene_WorldMap()
+	{
+		UnityEngine.SceneManagement.SceneManager.LoadScene("WorldMap");
+	}
+
+	public void Tutorial(){
+		UnityEngine.SceneManagement.SceneManager.LoadScene("Tuto");
 	}
 }

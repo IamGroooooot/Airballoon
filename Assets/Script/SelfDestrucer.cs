@@ -19,6 +19,8 @@ public class SelfDestrucer : MonoBehaviour {
 	public float traceDist = 1000.0f;
 	public bool isDie = false;
 
+	public float damage;
+
 	//private Rigidbody Rb;
 
 	// Use this for initialization
@@ -78,9 +80,8 @@ public class SelfDestrucer : MonoBehaviour {
 
 			case State.attak:
 
-				PlayerDB.DB.cur_Health -= 30;
+				PlayerDB.DB.cur_Health -= damage;
 				HP_Bar.MyHealthBarSetIsTrue = true;
-
 				explosion.gameObject.SetActive (true);
 				explosion.transform.position = Tr.position;
 				this.gameObject.SetActive (false);

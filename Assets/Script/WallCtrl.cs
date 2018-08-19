@@ -16,9 +16,7 @@ public class WallCtrl : MonoBehaviour {
 			Debug.Log ("나나가가ㅏㅏ나");
 
 			Player.gameObject.GetComponent<Rigidbody> ().velocity = new Vector3 (0,0,0);
-			Player.SetActive(false);
 			Player.transform.position = CollStay.transform.position + (CollStay.transform.forward * 200);
-			Player.SetActive(true);	
 			Player.gameObject.transform.eulerAngles = transform.eulerAngles;
 		}
 	}

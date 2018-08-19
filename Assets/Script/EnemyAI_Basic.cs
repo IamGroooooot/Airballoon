@@ -18,9 +18,9 @@ public class EnemyAI_Basic : MonoBehaviour {
 	private Vector3 WhereToFire;
 	//public float acceleration;
 	public float HP = 50;
-	public float velocity = 3.0f;
+	public float velocity = 2.0f;
 
-	public float BulletSpeed = 500f;
+	public float BulletSpeed = 800f;
 	public float attackDist = 100.0f;
 	public float traceDist = 1000.0f;
 	public bool isDie = false;
@@ -109,6 +109,9 @@ public class EnemyAI_Basic : MonoBehaviour {
 				break;
 
 			case State.attak:
+				Quaternion rot1 = Quaternion.LookRotation(PlayerTr.position - Tr.position);
+
+				Tr.rotation = Quaternion.Slerp(this.Tr.rotation, rot1, Time.deltaTime*2f);
 				//Logic: attak-idle-(delay)-attak-idle..순서로
 				//총알 발사 딜레이 시간 넣어줘 (스크립트 재사용 해야하니 미지수로) 
 				onFire = true;
@@ -129,13 +132,14 @@ public class EnemyAI_Basic : MonoBehaviour {
 
 	void Fire()
 	{
-		GameObject enemyBullet = ObjectPooling.pool.GetPoolObject_EnemyBullet ();
+		/*GameObject enemyBullet = ObjectPooling.pool.GetPoolObject_EnemyBullet ();
 		//if (enemyBullet == null) return;
 
 		enemyBullet.transform.position = FirePos.position;
+		enemyBullet.transform.rotation = this.Tr.rotation;
 		enemyBullet.GetComponent <TrailRenderer> ().Clear();
 
 		enemyBullet.SetActive (true);
-		//yield return null;
+		//yield return null;*/
 	}
 }

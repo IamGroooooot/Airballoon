@@ -22,7 +22,7 @@ public class EnemyBullet : MonoBehaviour {
 	// Use this for initialization
 	void OnEnable () {
 		GameObject ImEnemy = FindEnemy ();
-		Debug.Log (ImEnemy.transform.GetChild(0).name);
+		//Debug.Log (ImEnemy.transform.GetChild(0).name);
 		Vector3 WhereToShoot = (ImEnemy.transform.GetChild(0).position - transform.position).normalized;
 
 		Rb = this.GetComponent<Rigidbody> ();
