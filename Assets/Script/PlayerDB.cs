@@ -30,9 +30,9 @@ public class PlayerDB : MonoBehaviour
     public bool is_gun;
 
     //Resource
-    public static int gold;
-    public static int log;
-    public static int steel;
+    public int gold;
+    public int log;
+    public int steel;
 
     //Equip List
     public int Top; // Balloon=0, Normal=1, Speed=2, East=3,
@@ -49,7 +49,7 @@ public class PlayerDB : MonoBehaviour
 
     public GameObject none; //-1
 
-    public bool Tuto;
+    public int Tuto; // 0:미완료 1:완료
     public int friend; //0: 1: 2:
 
     //Public Player (싱글턴 참조용)
@@ -59,6 +59,7 @@ public class PlayerDB : MonoBehaviour
 
     void Awake()
     {
+        //Debug.Log("튜토리얼" + Tuto);
 
         //Test
         //Top = 0;
@@ -78,7 +79,7 @@ public class PlayerDB : MonoBehaviour
         Ice = PlayerPrefs.GetFloat("Ice");
         Water = PlayerPrefs.GetFloat("Water");
 
-        Tuto = PlayerPrefs.HasKey("Tuto");
+        Tuto = PlayerPrefs.GetInt("Tuto");
 
         Top = PlayerPrefs.GetInt("Top");
         Body = PlayerPrefs.GetInt("Body");
@@ -102,7 +103,7 @@ public class PlayerDB : MonoBehaviour
         Ice = PlayerPrefs.GetFloat("Ice");
         Water = PlayerPrefs.GetFloat("Water");
 
-        Tuto = PlayerPrefs.HasKey("Tuto");
+        Tuto = PlayerPrefs.GetInt("Tuto");
 
         Top = PlayerPrefs.GetInt("Top");
         Body = PlayerPrefs.GetInt("Body");
@@ -417,7 +418,7 @@ public class PlayerDB : MonoBehaviour
         PlayerPrefs.HasKey("is_body");
         PlayerPrefs.HasKey("is_head");
         PlayerPrefs.HasKey("is_gun");
-        PlayerPrefs.HasKey("Tuto");
+        PlayerPrefs.SetInt("Tuto",Tuto);
 
         PlayerPrefs.SetInt("Top", Top);
         PlayerPrefs.SetInt("Body", Body);

@@ -14,7 +14,6 @@ public class OnMyItemClicked : MonoBehaviour {
 
 	void Start()
 	{
-		PlayerDB.gold = 1000000;// For Test
 		MyInv = GameObject.Find ("Inventory");
 		//SlotPanel = transform.parent.parent.parent.gameObject;
 		MyInvScript = MyInv.GetComponent<inventoryInStore> ();
@@ -167,7 +166,7 @@ public class OnMyItemClicked : MonoBehaviour {
 
 		//droppedItem.slot = id;
 
-		PlayerDB.gold += cost;
+		PlayerDB.DB.gold += cost;
 
 	}
 	public void OnSellId2()
@@ -180,7 +179,7 @@ public class OnMyItemClicked : MonoBehaviour {
 
 		MyInvScript.save();
 
-		PlayerDB.gold += cost;
+		PlayerDB.DB.gold += cost;
 
 
 	}
@@ -194,7 +193,7 @@ public class OnMyItemClicked : MonoBehaviour {
 
 		MyInvScript.save();
 
-		PlayerDB.gold += cost;
+		PlayerDB.DB.gold += cost;
 
 	}
 	public void OnSellId4()
@@ -207,10 +206,10 @@ public class OnMyItemClicked : MonoBehaviour {
 
 		MyInvScript.save();
 
-		PlayerDB.gold += cost;
+        PlayerDB.DB.gold += cost;
 
 
-	}
+    }
 	public void OnSellId5()
 	{
 		int cost = 1;
@@ -221,9 +220,9 @@ public class OnMyItemClicked : MonoBehaviour {
 
 		MyInvScript.save();
 
-		PlayerDB.gold += cost;
+        PlayerDB.DB.gold += cost;
 
-	}
+    }
 	public void OnSellId6()
 	{
 		int cost = 1;
@@ -234,9 +233,9 @@ public class OnMyItemClicked : MonoBehaviour {
 
 		MyInvScript.save();
 
-		PlayerDB.gold += cost;
+        PlayerDB.DB.gold += cost;
 
-	}
+    }
 	public void OnSellId7()
 	{
 		int cost = 1;
@@ -247,10 +246,10 @@ public class OnMyItemClicked : MonoBehaviour {
 
 		MyInvScript.save();
 
-		PlayerDB.gold += cost;
+        PlayerDB.DB.gold += cost;
 
 
-	}
+    }
 	public void OnSellId8()
 	{
 		int cost = 1;
@@ -261,10 +260,10 @@ public class OnMyItemClicked : MonoBehaviour {
 
 		MyInvScript.save();
 
-		PlayerDB.gold += cost;
+        PlayerDB.DB.gold += cost;
 
 
-	}
+    }
 
 	public void OnSellId9()
 	{
@@ -276,10 +275,10 @@ public class OnMyItemClicked : MonoBehaviour {
 
 		MyInvScript.save();
 
-		PlayerDB.gold += cost;
+        PlayerDB.DB.gold += cost;
 
 
-	}
+    }
 	public void OnSellId10()
 	{
 		int cost = 1;
@@ -290,10 +289,10 @@ public class OnMyItemClicked : MonoBehaviour {
 
 		MyInvScript.save();
 
-		PlayerDB.gold += cost;
+        PlayerDB.DB.gold += cost;
 
 
-	}
+    }
 	public void OnSellId11()
 	{
 		int cost = 1;
@@ -304,10 +303,10 @@ public class OnMyItemClicked : MonoBehaviour {
 
 		MyInvScript.save();
 
-		PlayerDB.gold += cost;
+        PlayerDB.DB.gold += cost;
 
 
-	}
+    }
 	public void OnSellId12()
 	{
 		int cost = 1;
@@ -318,10 +317,10 @@ public class OnMyItemClicked : MonoBehaviour {
 
 		MyInvScript.save();
 
-		PlayerDB.gold += cost;
+        PlayerDB.DB.gold += cost;
 
 
-	}
+    }
 
 
 

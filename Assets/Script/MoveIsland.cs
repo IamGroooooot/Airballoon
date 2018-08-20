@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveIsland : MonoBehaviour {
-	private float IslandSpeed=100f;
+	public float IslandSpeed=100f;
 	private Transform playerTrans;
 	Vector3 nearPlayerPos;
 	WindArea mWindArea;

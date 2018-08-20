@@ -15,6 +15,7 @@ TagManager:
   - MachineGun
   - Rotation
   - EnemyShip
+  - Buoy
   layers:
   - Default
   - TransparentFX
@@ -27,8 +28,8 @@ TagManager:
   - Enemy
   - Sky
   - ToFindRenderLimit
-  - 
-  - 
+  - Effect
+  - MiniMap
   - 
   - 
   - 
@@ -51,4 +52,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Effect
+    uniqueID: 3167170889
+    locked: 0
+  - name: 
+    uniqueID: 3150844725
     locked: 0

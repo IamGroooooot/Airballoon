@@ -76,60 +76,62 @@ public class OnShopItemClicked : MonoBehaviour {
 	public void OnItem1Clicked()
 	{
 		int cost = 1;
-		if (PlayerDB.gold >= cost) {
+		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (0);
-			PlayerDB.gold -= cost;
+			PlayerDB.DB.gold -= cost;
+		} else {
+			Debug.Log ("No Money");
 		}
 
 	}
 	public void OnItem2Clicked()
 	{
 		int cost = 1;
-		if (PlayerDB.gold >= cost) {
+		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (1);
-			PlayerDB.gold -= cost;
+            PlayerDB.DB.gold -= cost;
 		}
 
 	}
 	public void OnItem3Clicked()
 	{
 		int cost = 1;
-		if (PlayerDB.gold >= cost) {
+		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (2);
-			PlayerDB.gold -= cost;
+            PlayerDB.DB.gold -= cost;
 		}
 	}
 	public void OnItem4Clicked()
 	{
 		int cost = 1;
-		if (PlayerDB.gold >= cost) {
+		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (3);
-			PlayerDB.gold -= cost;
+            PlayerDB.DB.gold -= cost;
 		}
 
 	}
 	public void OnItem5Clicked()
 	{
 		int cost = 1;
-		if (PlayerDB.gold >= cost) {
+		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (4);
-			PlayerDB.gold -= cost;
+            PlayerDB.DB.gold -= cost;
 		}
 	}
 	public void OnItem6Clicked()
 	{
 		int cost = 1;
-		if (PlayerDB.gold >= cost) {
+		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (5);
-			PlayerDB.gold -= cost;
+            PlayerDB.DB.gold -= cost;
 		}
 	}
 	public void OnItem7Clicked()
 	{
 		int cost = 1;
-		if (PlayerDB.gold >= cost) {
+		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (6);
-			PlayerDB.gold -= cost;
+            PlayerDB.DB.gold -= cost;
 		}
 
 
@@ -137,44 +139,44 @@ public class OnShopItemClicked : MonoBehaviour {
 	public void OnItem8Clicked()
 	{
 		int cost = 1;
-		if (PlayerDB.gold >= cost) {
+		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (7);
-			PlayerDB.gold -= cost;
+            PlayerDB.DB.gold -= cost;
 		}
 
 	}
 	public void OnItem9Clicked()
 	{
 		int cost = 1;
-		if (PlayerDB.gold >= cost) {
+		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (8);
-			PlayerDB.gold -= cost;
+            PlayerDB.DB.gold -= cost;
 		}
 
 	}
 	public void OnItem10Clicked()
 	{
 		int cost = 1;
-		if (PlayerDB.gold >= cost) {
+		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (9);
-			PlayerDB.gold -= cost;
+            PlayerDB.DB.gold -= cost;
 		}
 
 	}
 	public void OnItem11Clicked()
 	{
 		int cost = 1;
-		if (PlayerDB.gold >= cost) {
+		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (10);
-			PlayerDB.gold -= cost;
+            PlayerDB.DB.gold -= cost;
 		}
 	}
 	public void OnItem12Clicked()
 	{
 		int cost = 1;
-		if (PlayerDB.gold >= cost) {
+		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (11);
-			PlayerDB.gold -= cost;
+            PlayerDB.DB.gold -= cost;
 		}
 
 	}

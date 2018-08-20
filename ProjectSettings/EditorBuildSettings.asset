@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scene/Store.unity
+    guid: 517f3ffe117808b45986d5971cf4bce1
+  - enabled: 1
     path: Assets/Scene/Main.unity
     guid: d678cf9d83843db42bd93d9ea529b1eb
   - enabled: 1
@@ -20,9 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/ShipYard/Remodeling.unity
     guid: 803b7b47b75422b409d9022a448ef1f8
-  - enabled: 1
-    path: Assets/Scene/Store.unity
-    guid: 517f3ffe117808b45986d5971cf4bce1
   - enabled: 1
     path: Assets/Scene/WorldMap.unity
     guid: a51258392dd7fcf429e155173559e62c

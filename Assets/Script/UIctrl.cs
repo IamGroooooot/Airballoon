@@ -27,9 +27,9 @@ public class UIctrl : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		gold.text = PlayerDB.gold.ToString ();
-		log.text = PlayerDB.log.ToString ();
-		steel.text = PlayerDB.steel.ToString ();
+		gold.text = PlayerDB.DB.gold.ToString ();
+		log.text = PlayerDB.DB.log.ToString ();
+		steel.text = PlayerDB.DB.steel.ToString ();
 	}
 
 	public void AztecButton(){

@@ -12,8 +12,8 @@ public class Spawner : MonoBehaviour
     {
         public string name;
         public Transform enemy;
-        public int count;
-        public float delay; //delay
+        public int count; //적 생성수
+        public float delay; //생성 간격시간
     }
 
     public Wave[] waves;
@@ -122,6 +122,7 @@ public class Spawner : MonoBehaviour
     {
         //Spawn Enemy
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        //오브젝트 풀링으로 바꿔야함
         Instantiate(_enemy, _sp.position, _sp.rotation);
     }
 }

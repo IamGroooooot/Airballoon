@@ -43,8 +43,7 @@ public class SkillList : MonoBehaviour{
 	public void Repair () //0 쿨20초
 	{
 		//소모품:(Item갯수 -1)
-		string Description = "설명적기";
-
+	
 		HP_Bar.IsHeal = true;
 		Debug.Log ("Repair성공");
 	}

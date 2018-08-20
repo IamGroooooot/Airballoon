@@ -17,15 +17,18 @@ public class Tuto : MonoBehaviour {
     public GameObject Explain1;
     public GameObject Explain2;
     public GameObject Explain3;
+    public GameObject Explain4;
     public GameObject BlueCircle;
     public GameObject RedCircle;
     public GameObject Circle3;
+    public GameObject Exit;
 
     public GameObject Blueball;
     public GameObject Buoy;
     public GameObject Balloon;
 
     public bool Obj_dead;
+    public bool Skull_dead;
 
     public Text explain;
 
@@ -33,6 +36,7 @@ public class Tuto : MonoBehaviour {
     {      
         Explain2.gameObject.SetActive(false);
         Explain3.gameObject.SetActive(false);
+        Explain4.gameObject.SetActive(false);
         Tutorial = this;
     }
 
@@ -59,7 +63,11 @@ public class Tuto : MonoBehaviour {
         {
             Level3();
         }
-		
+
+        if (Skull_dead)
+        {
+            Level4();
+        }
 	}
 
     void ReGame() {
@@ -91,7 +99,7 @@ public class Tuto : MonoBehaviour {
         Blueball.gameObject.SetActive(true);
     }
 
-    //해골비행선 죽이면 튜토리얼 끝남 -> 보상창 나타남(UI)
+   //검은공 파괴시
     public void Level3() {
 
         RedCircle.gameObject.SetActive(false);
@@ -107,5 +115,25 @@ public class Tuto : MonoBehaviour {
         Circle3.gameObject.SetActive(true);
         Balloon.gameObject.SetActive(true);
         Obj_dead = false;
+    }
+
+    //해골비행선 죽이면 튜토리얼 끝남 -> 보상창 나타남(UI)
+    public void Level4() {
+
+        Circle3.gameObject.SetActive(false);
+        Explain3.gameObject.SetActive(false);
+
+        //대화 UI창 ON, Battle UI창 OFF
+        BattleUI.gameObject.SetActive(false);
+        Officer.gameObject.SetActive(true);;
+        Explain4.gameObject.SetActive(true);
+
+        Exit.gameObject.SetActive(true);
+        Skull_dead = false;
+    }
+
+    public void TUtoOK()
+    {
+        PlayerDB.DB.Tuto = 1;
     }
 }

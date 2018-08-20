@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198125395967863910}
   - component: {fileID: 199376009712114414}
   - component: {fileID: 114537003450749166}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807333a5c6ccb6f4ba1ed4d1cfda4e6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroyTime: 1
 --- !u!198 &198125395967863910
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3447,11 +3448,11 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1127796407
+  m_SortingLayer: 1
+  m_SortingOrder: -1
   m_RenderMode: 0
-  m_SortMode: 0
+  m_SortMode: 3
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
