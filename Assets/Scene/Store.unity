@@ -519,6 +519,7 @@ MonoBehaviour:
     type: 2}
   BuyByTouch: {fileID: 1510843237032934, guid: 163088f49277d9c47bc4f54da39ef670, type: 2}
   canvas: {fileID: 1430817791}
+  items: []
   slots: []
 --- !u!114 &376751887
 MonoBehaviour:
@@ -1303,7 +1304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 262.6, y: -218}
+  m_AnchoredPosition: {x: 258, y: -117}
   m_SizeDelta: {x: 174, y: 62}
   m_Pivot: {x: -0.1, y: 1}
 --- !u!225 &1009698256
@@ -2382,7 +2383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2669,6 +2670,7 @@ MonoBehaviour:
   SellByTouch: {fileID: 1239016284195126, guid: 0eacbacc75ea60f4481f4a513dcc1258,
     type: 2}
   canvas: {fileID: 1285145789}
+  items: []
   slots: []
 --- !u!114 &2069832397
 MonoBehaviour:
