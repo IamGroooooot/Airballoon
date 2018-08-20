@@ -168,6 +168,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4382088205535334}
+  - component: {fileID: 114496175335145122}
   m_Layer: 0
   m_Name: Palm Island (4)
   m_TagString: Untagged
@@ -601,3 +602,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1758460657662066}
   m_Mesh: {fileID: 4300000, guid: b9d79ecc61d82204e82d10316a4d22b1, type: 3}
+--- !u!114 &114496175335145122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1796372318710518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27e81c7e600f554f84f67f323b6e889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IslandSpeed: 100

@@ -43,7 +43,7 @@ public class MoveIsland : MonoBehaviour {
 
 	IEnumerator Move(){
 		while (true) {
-			transform.Translate (new Vector3 (X, 0, Z));
+			transform.Translate (new Vector3 (-X, 0, -Z));
 			yield return new WaitForSeconds (Time.deltaTime);
 		}
 	}

@@ -22,14 +22,21 @@ public class ObjectPooling : MonoBehaviour {
 	public GameObject Island7;
 	public GameObject Island8;
 
-	//Pooled Obj 폴더
-	public GameObject Skel_Parent;
+    //잡몹
+    public GameObject Skull;
+    public GameObject Destructer;
+    public GameObject Kanu;
+    public GameObject weakBattleShip; //스테이지별 고유몹
+
+    //Pooled Obj 폴더
+    public GameObject Skel_Parent;
 	public GameObject Player_Bullet;
 	public GameObject Hit_Folder;
 	public GameObject SmallBullet_Folder;
 	public GameObject EnemyBullet_Folder;
+    public GameObject Unit_Folder;
 
-	public GameObject Island1_Folder;
+    public GameObject Island1_Folder;
 	public GameObject Island2_Folder;
 	public GameObject Island3_Folder;
 	public GameObject Island4_Folder;
@@ -45,7 +52,12 @@ public class ObjectPooling : MonoBehaviour {
 	public int PoolAmount_SmallBullet;
 	public int PoolAmount_EnemyBullet;
 
-	public int PoolAmount_Island1;
+    public int PoolAmount_Skull;
+    public int PoolAmount_Destructer;
+    public int PoolAmount_Kanu;
+    public int PoolAmount_weakBattleShip;
+
+    public int PoolAmount_Island1;
 	public int PoolAmount_Island2;
 	public int PoolAmount_Island3;
 	public int PoolAmount_Island4;
@@ -62,7 +74,12 @@ public class ObjectPooling : MonoBehaviour {
 	public List<GameObject> PoolObjs_SmallBullet;
 	public List<GameObject> PoolObjs_EnemyBullet;
 
-	public List<GameObject> PoolObjs_Island1;
+    public List<GameObject> PoolObjs_Skull;
+    public List<GameObject> PoolObjs_Destructer;
+    public List<GameObject> PoolObjs_Kanu;
+    public List<GameObject> PoolObjs_weakBattleShip;
+
+    public List<GameObject> PoolObjs_Island1;
 	public List<GameObject> PoolObjs_Island2;
 	public List<GameObject> PoolObjs_Island3;
 	public List<GameObject> PoolObjs_Island4;
@@ -92,8 +109,13 @@ public class ObjectPooling : MonoBehaviour {
 		PoolObjs_Island7= new List<GameObject> ();
 		PoolObjs_Island8= new List<GameObject> ();
 
-		//Islands
-		for (int i = 0; i < PoolAmount_Island1; i++) {
+        PoolObjs_Skull = new List<GameObject>();
+        PoolObjs_Destructer = new List<GameObject>();
+        PoolObjs_Kanu = new List<GameObject>();
+        PoolObjs_weakBattleShip = new List<GameObject>();
+
+        //Islands
+        for (int i = 0; i < PoolAmount_Island1; i++) {
 			// 생성후 차곡차곡 넣기
 			GameObject Island = (GameObject)Instantiate (Island1);
 
@@ -233,7 +255,51 @@ public class ObjectPooling : MonoBehaviour {
 			Obj_EnemyBullet.SetActive (false);
 			PoolObjs_EnemyBullet.Add (Obj_EnemyBullet);
 		}
-	}
+
+        for (int i = 0; i < PoolAmount_Skull; i++)
+        {
+            // 생성후 Pool에 차곡차곡 넣기
+            GameObject Obj_Skull = (GameObject)Instantiate(Skull);
+
+            Obj_Skull.transform.parent = Unit_Folder.transform;
+
+            Obj_Skull.SetActive(false);
+            PoolObjs_EnemyBullet.Add(Obj_Skull);
+        }
+
+        for (int i = 0; i < PoolAmount_Kanu; i++)
+        {
+            // 생성후 Pool에 차곡차곡 넣기
+            GameObject Obj_Kanu = (GameObject)Instantiate(Kanu);
+
+            Obj_Kanu.transform.parent = Unit_Folder.transform;
+
+            Obj_Kanu.SetActive(false);
+            PoolObjs_EnemyBullet.Add(Obj_Kanu);
+        }
+
+        for (int i = 0; i < PoolAmount_Destructer; i++)
+        {
+            // 생성후 Pool에 차곡차곡 넣기
+            GameObject Obj_Destructer = (GameObject)Instantiate(Destructer);
+
+            Obj_Destructer.transform.parent = Unit_Folder.transform;
+
+            Obj_Destructer.SetActive(false);
+            PoolObjs_EnemyBullet.Add(Obj_Destructer);
+        }
+
+        for (int i = 0; i < PoolAmount_weakBattleShip; i++)
+        {
+            // 생성후 Pool에 차곡차곡 넣기
+            GameObject Obj_weakBattleShip = (GameObject)Instantiate(weakBattleShip);
+
+            Obj_weakBattleShip.transform.parent = Unit_Folder.transform;
+
+            Obj_weakBattleShip.SetActive(false);
+            PoolObjs_EnemyBullet.Add(Obj_weakBattleShip);
+        }
+    }
 
 	//Island
 
@@ -511,4 +577,105 @@ public class ObjectPooling : MonoBehaviour {
 		}
 		return null;
 	}
+
+    public GameObject GetPoolObject_Skull()
+    {
+
+        if (PoolObjs_Skull.Count == 0)
+        {
+            GameObject Obj_Skull = Instantiate(Skull);
+            return Obj_Skull;
+
+            //PoolObjs_SkelBomb.Add(SkelBomb);
+        }
+
+        // obj.SetActive false이면 실행할것이다.
+        for (int i = 0; i < PoolObjs_Skull.Count; i++)
+        {
+
+
+            if (!PoolObjs_Skull[i].activeInHierarchy)
+            {
+                return PoolObjs_Skull[i];// SetActive(true)된 Pooled Obj 호출
+            }
+
+        }
+        return null;
+    }
+
+    public GameObject GetPoolObject_Kanu()
+    {
+
+        if (PoolObjs_Kanu.Count == 0)
+        {
+            GameObject Obj_Kanu = Instantiate(Kanu);
+            return Obj_Kanu;
+
+            //PoolObjs_SkelBomb.Add(SkelBomb);
+        }
+
+        // obj.SetActive false이면 실행할것이다.
+        for (int i = 0; i < PoolObjs_Kanu.Count; i++)
+        {
+
+
+            if (!PoolObjs_Kanu[i].activeInHierarchy)
+            {
+                return PoolObjs_Kanu[i];// SetActive(true)된 Pooled Obj 호출
+            }
+
+        }
+        return null;
+    }
+
+    public GameObject GetPoolObject_Destructer()
+    {
+
+        if (PoolObjs_Kanu.Count == 0)
+        {
+            GameObject Obj_Destructer = Instantiate(Destructer);
+            return Obj_Destructer;
+
+            //PoolObjs_SkelBomb.Add(SkelBomb);
+        }
+
+        // obj.SetActive false이면 실행할것이다.
+        for (int i = 0; i < PoolObjs_Destructer.Count; i++)
+        {
+
+
+            if (!PoolObjs_Destructer[i].activeInHierarchy)
+            {
+                return PoolObjs_Destructer[i];// SetActive(true)된 Pooled Obj 호출
+            }
+
+        }
+        return null;
+    }
+
+    public GameObject GetPoolObject_weakBattleShip()
+    {
+
+        if (PoolObjs_Kanu.Count == 0)
+        {
+            GameObject Obj_weakBattleShip = Instantiate(weakBattleShip);
+            return Obj_weakBattleShip;
+
+            //PoolObjs_SkelBomb.Add(SkelBomb);
+        }
+
+        // obj.SetActive false이면 실행할것이다.
+        for (int i = 0; i < PoolObjs_weakBattleShip.Count; i++)
+        {
+
+
+            if (!PoolObjs_weakBattleShip[i].activeInHierarchy)
+            {
+                return PoolObjs_weakBattleShip[i];// SetActive(true)된 Pooled Obj 호출
+            }
+
+        }
+        return null;
+    }
+
 }

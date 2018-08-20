@@ -13,8 +13,9 @@ public class SelfDestrucer : MonoBehaviour {
 	private Transform PlayerTr;
 	private Vector3 direction;
 	public float velocity = 4.0f;
-	//public float acceleration;
+    //public float acceleration;
 
+    public int HP = 25; //대포업그레이드 추가하면 HP높아짐 (박쥐<유령<오징어)
 	public float attackDist = 30.0f;
 	public float traceDist = 1000.0f;
 	public bool isDie = false;
@@ -34,7 +35,35 @@ public class SelfDestrucer : MonoBehaviour {
 
 	}
 
-	IEnumerator CheckState()
+    void OnTriggerEnter(Collider Col)
+    {
+        if (Col.CompareTag("Bullet"))
+        {
+            HP -= 10;
+        }
+
+        if (Col.CompareTag("SmallBullet"))
+        {
+            HP -= 1;
+        }
+    }
+
+    void Update()
+    {
+        if (HP <= 0)
+        {
+            isDie = true;
+            gameObject.transform.parent.gameObject.SetActive(false); //비활
+        }
+
+        if (isDie == true)
+        {
+            explosion.gameObject.SetActive(true);
+            explosion.transform.position = Tr.position;
+        }
+    }
+
+    IEnumerator CheckState()
 	{
 		while (!isDie) 
 		{
