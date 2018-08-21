@@ -76,7 +76,7 @@ public class PlayerDB : MonoBehaviour
 
         CannonDamage = PlayerPrefs.GetFloat("CannonDamage");
         max_Health = PlayerPrefs.GetFloat("MAX_HP");
-        cur_Health = PlayerPrefs.GetFloat("Cur_HP");
+        //cur_Health = PlayerPrefs.GetFloat("Cur_HP");
         max_Speed = PlayerPrefs.GetFloat("MAX_SPEED");
         rotationSpeed = PlayerPrefs.GetFloat("Rotation_SPEED");
         Fire = PlayerPrefs.GetFloat("Fire");
@@ -101,7 +101,7 @@ public class PlayerDB : MonoBehaviour
 
         CannonDamage = PlayerPrefs.GetFloat("CannonDamage");
         max_Health = PlayerPrefs.GetFloat("MAX_HP");
-        cur_Health = PlayerPrefs.GetFloat("Cur_HP");
+        //cur_Health = PlayerPrefs.GetFloat("Cur_HP");
         max_Speed = PlayerPrefs.GetFloat("MAX_SPEED");
         rotationSpeed = PlayerPrefs.GetFloat("Rotation_SPEED");
         Fire = PlayerPrefs.GetFloat("Fire");
@@ -412,7 +412,7 @@ public class PlayerDB : MonoBehaviour
     {
         //값 저장(Set)
         PlayerPrefs.SetFloat("MAX_HP", max_Health);
-        PlayerPrefs.SetFloat("Cur_HP", cur_Health);
+        //PlayerPrefs.SetFloat("Cur_HP", cur_Health);
         PlayerPrefs.SetFloat("MAX_SPEED", max_Speed);
         PlayerPrefs.SetFloat("Rotation_SPEED", rotationSpeed);
         PlayerPrefs.SetFloat("CannonDamage", CannonDamage);

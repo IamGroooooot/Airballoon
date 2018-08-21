@@ -8,10 +8,22 @@ public class BonusCtrl : MonoBehaviour {
     public static BonusCtrl Instance2 = null;
     public GameObject BonusBubble;
     public int Bonus;
+    public Text BonusText;
 
     private void Awake()
     {
         Instance2 = this;
+    }
+
+    private void Start()
+    {
+        //Debug.Log(Bonus);
+        BonusText.text = "";
+    }
+
+    private void Update()
+    {
+        BonusText.text = "+ " + Bonus.ToString();
     }
 
     private void OnTriggerEnter(Collider ColEnter)

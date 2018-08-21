@@ -31,7 +31,7 @@ public class TimerShip : MonoBehaviour {
     public Text amount;
     private int plus;
     private int Amount;
-    public Text BonusText;
+
 
     private void Awake()
     {
@@ -54,7 +54,7 @@ public class TimerShip : MonoBehaviour {
         Amount = 100 + Compensation; //총 얻은 돈
                                      //보상
 
-        BonusText.text = "";
+        
     }
 
     private void FixedUpdate()
@@ -72,7 +72,8 @@ public class TimerShip : MonoBehaviour {
 
         compen.text = " + " + plus.ToString();
         amount.text = Amount.ToString();
-        BonusText.text = "+ " +BonusCtrl.Instance2.Bonus.ToString();
+       
+
     }
 
 	IEnumerator ShipTimerStart(){

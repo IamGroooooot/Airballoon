@@ -53,9 +53,9 @@ public class EnemyAitshipCannonR : MonoBehaviour {
 				if (enemyBullet == null) return;
 
 				enemyBullet.transform.position = transform.position;
-				enemyBullet.GetComponent <TrailRenderer> ().Clear();
+                enemyBullet.transform.GetChild(0).GetComponent<TrailRenderer>().Clear();
 
-				enemyBullet.SetActive (true);
+                enemyBullet.SetActive (true);
 
 				enemyBullet.GetComponent<Rigidbody> ().velocity =  WhereToFireRC1.normalized* bullectRSpeed;
 			}
