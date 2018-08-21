@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyBulletCtrl2 : MonoBehaviour {
 
-	public GameObject Hit;
-	public Transform CollPos;
+	private GameObject Hit;
+    private Transform CollPos;
 
 	//포탄 공격력
 	public int damage = 10;

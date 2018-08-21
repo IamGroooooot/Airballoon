@@ -15,7 +15,7 @@ public class SelfDestrucer : MonoBehaviour {
 	public float velocity = 4.0f;
     //public float acceleration;
 
-    public int HP = 25; //대포업그레이드 추가하면 HP높아짐 (박쥐<유령<오징어)
+    public float HP = 25; //대포업그레이드 추가하면 HP높아짐 (박쥐<유령<오징어)
 	public float attackDist = 30.0f;
 	public float traceDist = 1000.0f;
 	public bool isDie = false;
@@ -39,7 +39,7 @@ public class SelfDestrucer : MonoBehaviour {
     {
         if (Col.CompareTag("Bullet"))
         {
-            HP -= 10;
+            HP -= PlayerDB.DB.CannonDamage;
         }
 
         if (Col.CompareTag("SmallBullet"))

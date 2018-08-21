@@ -7,13 +7,25 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     100002: Sphere03
+    100004: Duplicate05
+    100006: Sphere07
     400000: //RootNode
     400002: Sphere03
+    400004: Duplicate05
+    400006: Sphere07
     2100000: Material01
     2100002: Sphere03Mat
+    2100004: Duplicate05Mat
+    2100006: Sphere07Mat
     2300000: Sphere03
+    2300002: Duplicate05
+    2300004: Sphere07
     3300000: Sphere03
+    3300002: Duplicate05
+    3300004: Sphere07
     4300000: Sphere03
+    4300002: Duplicate05
+    4300004: Sphere07
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -45,7 +57,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 3
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1

@@ -29,7 +29,7 @@ public class ObjectPooling : MonoBehaviour {
     public GameObject weakBattleShip; //스테이지별 고유몹
 
     //Pooled Obj 폴더
-    public GameObject Skel_Parent;
+    public GameObject SkullBomb_Folder;
 	public GameObject Player_Bullet;
 	public GameObject Hit_Folder;
 	public GameObject SmallBullet_Folder;
@@ -209,7 +209,7 @@ public class ObjectPooling : MonoBehaviour {
 			// 생성후 차곡차곡 넣기
 			GameObject Obj_SkelBomb = (GameObject)Instantiate (SkelBomb);
 
-			Obj_SkelBomb.transform.parent = Skel_Parent.transform;
+			Obj_SkelBomb.transform.parent = SkullBomb_Folder.transform;
 
 
 			Obj_SkelBomb.SetActive (false);
@@ -264,7 +264,7 @@ public class ObjectPooling : MonoBehaviour {
             Obj_Skull.transform.parent = Unit_Folder.transform;
 
             Obj_Skull.SetActive(false);
-            PoolObjs_EnemyBullet.Add(Obj_Skull);
+            PoolObjs_Skull.Add(Obj_Skull);
         }
 
         for (int i = 0; i < PoolAmount_Kanu; i++)
@@ -275,7 +275,7 @@ public class ObjectPooling : MonoBehaviour {
             Obj_Kanu.transform.parent = Unit_Folder.transform;
 
             Obj_Kanu.SetActive(false);
-            PoolObjs_EnemyBullet.Add(Obj_Kanu);
+            PoolObjs_Kanu.Add(Obj_Kanu);
         }
 
         for (int i = 0; i < PoolAmount_Destructer; i++)
@@ -286,7 +286,7 @@ public class ObjectPooling : MonoBehaviour {
             Obj_Destructer.transform.parent = Unit_Folder.transform;
 
             Obj_Destructer.SetActive(false);
-            PoolObjs_EnemyBullet.Add(Obj_Destructer);
+            PoolObjs_Destructer.Add(Obj_Destructer);
         }
 
         for (int i = 0; i < PoolAmount_weakBattleShip; i++)
@@ -297,7 +297,7 @@ public class ObjectPooling : MonoBehaviour {
             Obj_weakBattleShip.transform.parent = Unit_Folder.transform;
 
             Obj_weakBattleShip.SetActive(false);
-            PoolObjs_EnemyBullet.Add(Obj_weakBattleShip);
+            PoolObjs_weakBattleShip.Add(Obj_weakBattleShip);
         }
     }
 

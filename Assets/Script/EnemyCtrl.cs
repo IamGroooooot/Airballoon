@@ -8,8 +8,8 @@ public class EnemyCtrl : MonoBehaviour {
 
 	public static EnemyCtrl Instance;
 	float WhereY;
-	public int Max_Hp;
-	public int HP;
+    public float Max_Hp;
+    public float HP;
 	public bool is_dead;
 	int count;
 	public GameObject explosion;
@@ -33,8 +33,8 @@ public class EnemyCtrl : MonoBehaviour {
 	void OnTriggerEnter(Collider Col)
 	{
 		if (Col.CompareTag("Bullet")) {
-			HP -= 10;
-		}
+            HP -= PlayerDB.DB.CannonDamage;
+        }
 
 		if (Col.CompareTag("SmallBullet")) {
 			HP -= 1;

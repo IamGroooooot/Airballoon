@@ -20,6 +20,9 @@ public class PlayerDB : MonoBehaviour
     public float Ice;
     public float Water;
 
+    //대포 데미지
+    public float CannonDamage = 10;
+
     //State
     public enum State { NONE, Thundered };
 
@@ -71,6 +74,7 @@ public class PlayerDB : MonoBehaviour
 
         cur_Health = max_Health;
 
+        CannonDamage = PlayerPrefs.GetFloat("CannonDamage");
         max_Health = PlayerPrefs.GetFloat("MAX_HP");
         cur_Health = PlayerPrefs.GetFloat("Cur_HP");
         max_Speed = PlayerPrefs.GetFloat("MAX_SPEED");
@@ -95,6 +99,7 @@ public class PlayerDB : MonoBehaviour
     {
         cur_Health = max_Health;
 
+        CannonDamage = PlayerPrefs.GetFloat("CannonDamage");
         max_Health = PlayerPrefs.GetFloat("MAX_HP");
         cur_Health = PlayerPrefs.GetFloat("Cur_HP");
         max_Speed = PlayerPrefs.GetFloat("MAX_SPEED");
@@ -410,6 +415,7 @@ public class PlayerDB : MonoBehaviour
         PlayerPrefs.SetFloat("Cur_HP", cur_Health);
         PlayerPrefs.SetFloat("MAX_SPEED", max_Speed);
         PlayerPrefs.SetFloat("Rotation_SPEED", rotationSpeed);
+        PlayerPrefs.SetFloat("CannonDamage", CannonDamage);
         PlayerPrefs.SetFloat("Fire", Fire);
         PlayerPrefs.SetFloat("Ice", Ice);
         PlayerPrefs.SetFloat("Water", Water);
