@@ -43,6 +43,10 @@ public class EnemyBulletCtrl2 : MonoBehaviour {
 			HP_Bar.MyHealthBarSetIsTrue = true;
 			this.gameObject.SetActive (false);
 		}
+		if (CollStay.gameObject.CompareTag ("Shield")) {
+			this.gameObject.SetActive (false);
+
+		}
 	}
 
 	IEnumerator Disable(float waitTime){

@@ -31,6 +31,10 @@ public class SkillList : MonoBehaviour{
 	public float cool9 = 15f;
 	public float cool10 = 15f;
 
+	public float RainLastTime = 15;
+	public float ThunderLastTime = 15;
+
+
 
 	void Awake(){
 		
@@ -42,66 +46,68 @@ public class SkillList : MonoBehaviour{
 	//Using Skill List
 	public void Repair () //0 쿨20초
 	{
-		//소모품:(Item갯수 -1)
-	
 		HP_Bar.IsHeal = true;
 		Debug.Log ("Repair성공");
+
+        //string DescriptionKor = "10% 회복한다";
 	}
 
 	public void Booster () //1 쿨20초
 	{
-		// 소모품
 		Joystick2.max_Speed = PlayerDB.DB.max_Speed;
-		Joystick2.BoostRate = 1.5f; // 150%증가
-		Joystick2.BoostTime = 2f;
+		Joystick2.BoostRate = 2.0f; // 200%증가
+		Joystick2.BoostTime = 3f;
 		Joystick2.BoostTimerOn = true;
-
-	}
+        //string DescriptionKor = "일시적으로 속도가 증가한다";
+    }
 
 	public void Shield() //2 쿨2초
 	{
-		//임시 방어막을 생성한다, 소모품
 		shield.gameObject.SetActive(true);
-		//(Code) Lasting Time(2sec)이후 비활성화 : 스크립트달아야할듯
-
-	}
+		StartCoroutine(LastTime(shield,2f));
+        //string DescriptionKor = "방어막을 생성한다";
+    }
 
 	//Instantiate Skill List
 	public void Drone() //3
 	{
-		//드론을 생성한다,소모품
-		Instantiate(drone,PlayerTr);
-		//드론은 10초 후에 자동 소멸(SetActive(false)) : Drone Script참조
-
-	}
+		GameObject myDrone = Instantiate(drone,PlayerTr);
+		myDrone.SetActive (true);
+		StartCoroutine(LastTime(myDrone,15f));
+        //string DescriptionKor = "드론을 생성한다";
+    }
 
 	public void Balloon() //4
 	{
-		//풍선을 생성한다, 소모품
-		Instantiate(balloon,PlayerTr);
+		GameObject myBalloon = Instantiate(balloon,PlayerTr);
+		myBalloon.SetActive (true);
+        //string DescriptionKor = "풍선 폭탄을 생성한다";
+    }
 
-	}
-
-	public void Rain() //5
+	public void Rain() //5 비구름
 	{
-		//비구름 생성, 소모품
-		Instantiate(rain,PlayerTr2);
-
-	}
+		GameObject myRain = Instantiate(rain,PlayerTr2);
+		myRain.SetActive (true);
+		//SlowParticle.play()
+		StartCoroutine(LastTime(myRain,RainLastTime));
+       // string DescriptionKor = "적을 느려지게 하는 비구름을 생성한다";
+    }
 
 	public void SpeedCloud() //6
 	{
-		//근두운 생성, 소모품
-		Instantiate(speed,PlayerTr2);
-
-	}
+		GameObject mySpeed = Instantiate(speed,PlayerTr2);
+		mySpeed.SetActive (true);
+        //string DescriptionKor = "?";
+    }
 
 	public void Thunder() //7
 	{
-		//번개구름생성, 소모품
-		Instantiate(thunder,PlayerTr2);
+		GameObject myThunder = Instantiate(thunder,PlayerTr2);
+		myThunder.SetActive (true);
 
-	}
+		StartCoroutine(LastTime(myThunder,ThunderLastTime));
+        //string DescriptionKor = "적을 감전시키는 번개구름을 생성한다";
+    }
 		
 	//Fire Skill List - ReadyFire Obj생성 후 위치 선정되면 스킬 구현
 	public void Anchor() //8
@@ -123,5 +129,13 @@ public class SkillList : MonoBehaviour{
 
 	}
 
+
+	IEnumerator LastTime(GameObject go,float lastingTime)
+	{
+		yield return new WaitForSeconds (lastingTime);
+		Debug.Log (go.name + "나 소멸");
+		go.SetActive (false);
+
+	}
 
 }

@@ -42,6 +42,10 @@ public class EnemyBullet : MonoBehaviour {
 
             this.gameObject.SetActive(false);
         }
+		if (CollEnter.gameObject.CompareTag ("Shield")) {
+			this.gameObject.SetActive (false);
+
+		}
         //Hit Particle생성
     }
 
