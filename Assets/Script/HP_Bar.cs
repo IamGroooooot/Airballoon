@@ -26,6 +26,7 @@ public class HP_Bar : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		StartCoroutine (SetHealthbar ());
 		//max_Health = PlayerDB.DB.max_Health;
 		//cur_Health = PlayerDB.DB.cur_Health;
 
@@ -91,6 +92,14 @@ public class HP_Bar : MonoBehaviour
 
 
     }
+
+	IEnumerator SetHealthbar(){
+		while (true) {
+			float calc_Health = PlayerDB.DB.cur_Health / PlayerDB.DB.max_Health;
+			MyHealthBarSet (calc_Health);
+			yield return new WaitForSeconds (0.5f);
+		}
+	}
 
     void HealthDecrease()
     {

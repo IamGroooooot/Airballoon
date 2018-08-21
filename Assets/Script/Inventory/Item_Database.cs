@@ -74,7 +74,7 @@ public class Item
 		this.Value = value;
 		this.Description = description;
 		this.Stackable = stackable;
-		this.Purpose = purpose;
+		this.Purpose = purpose;//0: 1회용 1: 무제한 2: 퀘스트 템
 		this.Slug = slug;
 	}
 

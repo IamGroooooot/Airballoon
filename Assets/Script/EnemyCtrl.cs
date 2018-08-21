@@ -32,6 +32,7 @@ public class EnemyCtrl : MonoBehaviour {
 
 	void OnTriggerEnter(Collider Col)
 	{
+
 		if (Col.CompareTag("Bullet")) {
             HP -= PlayerDB.DB.CannonDamage;
         }

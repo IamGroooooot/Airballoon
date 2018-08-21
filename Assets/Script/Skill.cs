@@ -21,7 +21,7 @@ public class Skill : MonoBehaviour {
 	bool timer2On;
 	bool timer3On;
 
-
+	Inventory MyInvScript;
 
 
     void Start()
@@ -39,6 +39,8 @@ public class Skill : MonoBehaviour {
 		coolTimeText1.SetActive (false);
 		coolTimeText2.SetActive (false);
 		coolTimeText3.SetActive (false);
+
+		MyInvScript = GameObject.Find ("Inventory").GetComponent<Inventory>();
     }
 	void Update()
 	{
@@ -53,6 +55,8 @@ public class Skill : MonoBehaviour {
 				coolTimeText1.SetActive (false);
 				Btn1.GetComponent<Button> ().interactable = true;
 				timer1On = false;
+
+
 			}
 		} 
 		if (timer2On == true) 
@@ -86,43 +90,94 @@ public class Skill : MonoBehaviour {
     public void Skill1()//slot 9번 스킬눌렀을때 
     {
         
-        if(skillPanel.transform.GetChild(0).childCount == 1)//스킬있다는 말임
+        if(skillPanel.transform.GetChild(1).childCount == 1)//스킬있다는 말임
         {
-            GameObject skill1 = skillPanel.transform.GetChild(0).GetChild(0).gameObject;
+            GameObject skill1 = skillPanel.transform.GetChild(1).GetChild(0).gameObject;
 			Item mySkill1 = skill1.GetComponent<ItemData> ().item;
+
 			ExecuteSkill (mySkill1.ID,1);
 
 			Debug.Log(skill1.name+"발동!");
-			Btn1.GetComponent<Button> ().interactable = false;
-			//버튼 비활성화
+			if (mySkill1.Stackable && (skill1.GetComponent<ItemData> ().amount > 1) && (mySkill1.Purpose == 0)) {//스택가능, 갯수 2이상, 일회용임
+				skill1.GetComponent<ItemData> ().amount -= 1;
+				Btn1.GetComponent<Button> ().interactable = false;
+
+			} else if ((mySkill1.Purpose == 1)) { //무제한임
+				Btn1.GetComponent<Button> ().interactable = false;
+				//버튼 비활성화
+			} else if ((mySkill1.Stackable && (skill1.GetComponent<ItemData> ().amount == 1) && (mySkill1.Purpose == 0))) {//스택가능, 갯수 1개, 일회용임
+				Destroy (skill1);
+				timer1On = false;
+				MyInvScript.items [9] = new Item ();
+				MyInvScript.save ();
+			} else if (!mySkill1.Stackable && (mySkill1.Purpose == 0)) { //스택 ㄴㄴ, 일회용
+				Destroy (skill1);
+				timer1On = false;
+				MyInvScript.items [9] = new Item ();
+				MyInvScript.save ();
+			}
         }
     }
 
 	public void Skill2()//slot 10번 스킬눌렀을때
     {
-        if (skillPanel.transform.GetChild(1).childCount == 1)//스킬있다는 말임
+        if (skillPanel.transform.GetChild(2).childCount == 1)//스킬있다는 말임
         {
-            GameObject skill2 = skillPanel.transform.GetChild(1).GetChild(0).gameObject;
+            GameObject skill2 = skillPanel.transform.GetChild(2).GetChild(0).gameObject;
 			Item mySkill2 = skill2.GetComponent<ItemData> ().item;
 			ExecuteSkill (mySkill2.ID,2);
 
             Debug.Log(skill2.name + "발동!");
-			Btn2.GetComponent<Button> ().interactable = false;
-			//버튼 비활성화
+			if (mySkill2.Stackable && (skill2.GetComponent<ItemData> ().amount > 1) && (mySkill2.Purpose == 0)) {//스택가능, 갯수 2이상, 일회용임
+				skill2.GetComponent<ItemData> ().amount -= 1;
+				Btn2.GetComponent<Button> ().interactable = false;
+
+			} else if ((mySkill2.Purpose == 1)) { //무제한임
+				Btn2.GetComponent<Button> ().interactable = false;
+				//버튼 비활성화
+			} else if ((mySkill2.Stackable && (skill2.GetComponent<ItemData> ().amount == 1) && (mySkill2.Purpose == 0))) {//스택가능, 갯수 1개, 일회용임
+				Destroy(skill2);
+				timer2On = false;
+				MyInvScript.items [10] = new Item ();
+				MyInvScript.save ();
+			}
+			else if (!mySkill2.Stackable && (mySkill2.Purpose == 0)) { //스택 ㄴㄴ, 일회용
+				Destroy (skill2);
+				timer2On = false;
+				MyInvScript.items [10] = new Item ();
+				MyInvScript.save ();
+			}
         }
     }
 
 	public void Skill3()//slot 11번 스킬눌렀을때
     {
-        if (skillPanel.transform.GetChild(2).childCount == 1)//스킬있다는 말임
+        if (skillPanel.transform.GetChild(3).childCount == 1)//스킬있다는 말임
         {
-            GameObject skill3 = skillPanel.transform.GetChild(2).GetChild(0).gameObject;
+            GameObject skill3 = skillPanel.transform.GetChild(3).GetChild(0).gameObject;
 			Item mySkill3 = skill3.GetComponent<ItemData> ().item;
 			ExecuteSkill (mySkill3.ID,3);
 
             Debug.Log(skill3.name + "발동!");
-			Btn3.GetComponent<Button> ().interactable = false;
-			//버튼 비활성화
+			if (mySkill3.Stackable && (skill3.GetComponent<ItemData> ().amount > 1) && (mySkill3.Purpose == 0)) {//스택가능, 갯수 2이상, 일회용임
+				skill3.GetComponent<ItemData> ().amount -= 1;
+				Btn3.GetComponent<Button> ().interactable = false;
+
+			} else if ((mySkill3.Purpose == 1)) { //무제한임
+				Btn3.GetComponent<Button> ().interactable = false;
+				//버튼 비활성화
+			} else if ((mySkill3.Stackable && (skill3.GetComponent<ItemData> ().amount == 1) && (mySkill3.Purpose == 0))) {//스택가능, 갯수 1개, 일회용임
+				Destroy(skill3);
+				timer3On = false;
+				MyInvScript.items [11] = new Item ();
+				MyInvScript.save ();
+			}
+			else if (!mySkill3.Stackable && (mySkill3.Purpose == 0)) { //스택 ㄴㄴ, 일회용
+				Destroy (skill3);
+				timer3On = false;
+				MyInvScript.items [11] = new Item ();
+				MyInvScript.save ();
+			}
         }
     }
 
@@ -164,7 +219,8 @@ public class Skill : MonoBehaviour {
 			break;
 
 		case 2:
-			mySkillList.Drone ();
+			mySkillList.Shield ();
+
 			cool = mySkillList.cool2;
 			if (WhichBtn == 1) {
 				coolTime1 = cool;
@@ -179,7 +235,7 @@ public class Skill : MonoBehaviour {
 			break;
 
 		case 3:
-			mySkillList.Shield ();
+			mySkillList.Drone ();
 			cool = mySkillList.cool3;
 			if (WhichBtn == 1) {
 				coolTime1 = cool;

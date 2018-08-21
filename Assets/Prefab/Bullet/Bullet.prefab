@@ -207,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Hit: {fileID: 1743833414384684, guid: 55d5971c0d2a4054aa2311d509d05777, type: 2}
   CollPos: {fileID: 0}
+  Enemy: {fileID: 0}
   damage: 20
 --- !u!135 &135963326943221472
 SphereCollider:
@@ -215,7 +216,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377871989178600}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 14.222188

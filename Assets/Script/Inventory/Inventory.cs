@@ -184,10 +184,9 @@ public class Inventory : MonoBehaviour {
 			foreach(Item Myitem in Loadeditems) 
 			{
 				if (Myitem.ID == -1) {
-					Debug.Log (Myitem.ID);
 					continue;
 				}
-				Debug.Log (Myitem.ID);
+
 				AddItem (Myitem.ID);
 
 			}
