@@ -123,7 +123,7 @@ public class inventoryInStore : MonoBehaviour {
 			foreach(Item Myitem in Loadeditems) 
 			{
 				if (Myitem.ID == -1) {
-					Debug.Log (Myitem.ID);
+
 					continue;
 				}
 
