@@ -126,7 +126,6 @@ public class inventoryInStore : MonoBehaviour {
 					Debug.Log (Myitem.ID);
 					continue;
 				}
-				Debug.Log (Myitem.ID);
 				AddItem (Myitem.ID);
 
 			}
