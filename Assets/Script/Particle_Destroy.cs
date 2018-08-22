@@ -6,6 +6,12 @@ public class Particle_Destroy : MonoBehaviour {
 	//다중사용 가능하도록
 	public float DestroyTime = 1.0f;
 
+
+    void Start()
+    {
+        this.gameObject.SetActive(false);
+
+    }
     //private ParticleSystem ps;
     // Use this for initialization
     void OnEnable () {

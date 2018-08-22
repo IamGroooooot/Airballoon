@@ -81,7 +81,7 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
         else
         {
 
-            //PlayerFollower(); //여기에 빨로빨로미
+            PlayerFollower(); //여기에 빨로빨로미
 
             TimerOn = false;
             time1 = 0;
@@ -120,7 +120,7 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
 
     void PlayerFollower() //플레이어 빨로우 하는 함수
     {
-        Skel.GetComponent<Rigidbody>().AddForce((PlayerTrans.position - Skel.transform.position).normalized * followSpeed);
+        Skel.GetComponent<Rigidbody>().velocity = (PlayerTrans.position - Skel.transform.position).normalized * followSpeed;
     }
 
     void OnTriggerStay(Collider C){

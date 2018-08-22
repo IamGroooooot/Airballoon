@@ -49,9 +49,9 @@ public class TimerShip : MonoBehaviour {
         StartCoroutine(CheckTime());
         StartCoroutine(EventAction());
 
-        plus = (int)(Compensation * kills * 0.03) + (int)(Compensation * bounus * 0.05);
-        Compensation = Compensation + plus;
-        Amount = 100 + Compensation; //총 얻은 돈
+        //plus = (int)(Compensation * kills * 0.03) + (int)(Compensation * bounus * 0.05);
+        //Compensation = Compensation + plus;
+        //Amount = 100 + Compensation; //총 얻은 돈
                                      //보상
 
         
@@ -84,9 +84,7 @@ public class TimerShip : MonoBehaviour {
 				yield return new WaitForEndOfFrame ();
 			} else {
 				WaveStart = false;
-			}
-
-
+			}         
 		}
 	}
     IEnumerator CheckTime()
@@ -107,10 +105,14 @@ public class TimerShip : MonoBehaviour {
             switch (eventState)
             {
                 case EventState.Playing: //아무일도 없음 계속 진행
+
                     break;
 
                 case EventState.Ending: //보상창 나옴
                     //보상창 ON
+                    plus = (int)(Compensation * kills * 0.03) + (int)(Compensation * bounus * 0.05);
+                    Compensation = Compensation + plus;
+                    Amount = 100 + Compensation;
                     End.gameObject.SetActive(true);
                     PlayerDB.DB.gold += Amount;
                     TimerEnd = true;
@@ -118,5 +120,5 @@ public class TimerShip : MonoBehaviour {
             }
             yield return null;
         }
-        }    
+    }    
 }
