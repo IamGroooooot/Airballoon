@@ -33,10 +33,11 @@ public class SkillList : MonoBehaviour{
 
 	public float RainLastTime = 15;
 	public float ThunderLastTime = 15;
+    public float SpeedCloudLastTime = 15f;
 
 
 
-	void Awake(){
+    void Awake(){
 		
 		Skill_List = this;
 	}
@@ -113,8 +114,12 @@ public class SkillList : MonoBehaviour{
 
 	public void SpeedCloud() //6
 	{
-		GameObject mySpeed = Instantiate(speed,PlayerTr2);
-		mySpeed.SetActive (true);
+        GameObject mySpeed = ObjectPooling.pool.GetPoolObject_Cloud();
+        if (mySpeed == null) return;
+        mySpeed.transform.position = PlayerTr2.position;
+        mySpeed.transform.rotation = PlayerTr2.rotation;
+
+        StartCoroutine(LastTime(mySpeed, SpeedCloudLastTime));
         //string DescriptionKor = "?";
     }
 
