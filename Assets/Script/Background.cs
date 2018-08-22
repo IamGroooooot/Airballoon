@@ -22,7 +22,7 @@ public class Background : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //transform.position = player.transform.position;
-        BgUlDir_X +=mWindArea.direction.x*BgUlSpeed*Time.deltaTime; //-player.GetComponent<Rigidbody>().velocity.x/ (2*playerMaxSpeed); 
+        BgUlDir_X -=mWindArea.direction.x*BgUlSpeed*Time.deltaTime; //-player.GetComponent<Rigidbody>().velocity.x/ (2*playerMaxSpeed); 
         BgUlDir_Y +=mWindArea.direction.z*BgUlSpeed*Time.deltaTime; //-player.GetComponent<Rigidbody>().velocity.z/ (2*playerMaxSpeed)//*주의*//WindArea의 Z성분을 Y로 설정함
         foreach (GameObject go in Backgroound_UL)
         {

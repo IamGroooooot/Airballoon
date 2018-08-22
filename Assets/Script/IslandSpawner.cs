@@ -30,7 +30,7 @@ public class IslandSpawner : MonoBehaviour {
 		{
 			yield return new WaitForSeconds (createTime);
 
-			RadomNum = Random.Range (1, 8);
+			RadomNum = Random.Range (1, 9);
 			GameObject Island = null;
 			if (RadomNum == 1) {
 				Island = ObjectPooling.pool.GetPoolObject_Island1 ();

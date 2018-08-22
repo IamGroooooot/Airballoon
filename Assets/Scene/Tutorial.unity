@@ -3048,18 +3048,18 @@ MonoBehaviour:
   Island4: {fileID: 1804967050}
   Island5: {fileID: 1804967050}
   Island6: {fileID: 1804967050}
-  Island7: {fileID: 0}
-  Island8: {fileID: 0}
+  Island7: {fileID: 1446106988}
+  Island8: {fileID: 1446106988}
   Skull: {fileID: 2118311475}
   Destructer: {fileID: 0}
   Kanu: {fileID: 0}
   weakBattleShip: {fileID: 0}
   Itembox: {fileID: 0}
   Cloud: {fileID: 0}
-  Drone_skill: {fileID: 0}
-  Rain_skill: {fileID: 0}
-  Thunder_skill: {fileID: 0}
-  AirBomb: {fileID: 0}
+  Drone_skill: {fileID: 360703651}
+  Rain_skill: {fileID: 2050211671}
+  Thunder_skill: {fileID: 555924992}
+  AirBomb: {fileID: 2072252764}
   SkullBomb_Folder: {fileID: 1808347507}
   Player_Bullet: {fileID: 450510120}
   Hit_Folder: {fileID: 1992235298}
@@ -5692,9 +5692,53 @@ Prefab:
       propertyPath: none
       value: 
       objectReference: {fileID: 1804967050}
+    - target: {fileID: 114491526209387934, guid: 7f594e0dcbb49a544a135ee323b15567,
+        type: 2}
+      propertyPath: heal
+      value: 
+      objectReference: {fileID: 955882241}
+    - target: {fileID: 114491526209387934, guid: 7f594e0dcbb49a544a135ee323b15567,
+        type: 2}
+      propertyPath: booster
+      value: 
+      objectReference: {fileID: 955882240}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f594e0dcbb49a544a135ee323b15567, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &955882240 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1590773101789026, guid: 7f594e0dcbb49a544a135ee323b15567,
+    type: 2}
+  m_PrefabInternal: {fileID: 955882239}
+--- !u!1 &955882241 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1505479372275986, guid: 7f594e0dcbb49a544a135ee323b15567,
+    type: 2}
+  m_PrefabInternal: {fileID: 955882239}
+--- !u!114 &955882242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 955882240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807333a5c6ccb6f4ba1ed4d1cfda4e6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyTime: 5
+--- !u!114 &955882243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 955882241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807333a5c6ccb6f4ba1ed4d1cfda4e6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyTime: 3
 --- !u!1 &959794198
 GameObject:
   m_ObjectHideFlags: 0
@@ -11388,6 +11432,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2072252764 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1778274805769648, guid: 7f594e0dcbb49a544a135ee323b15567,
+    type: 2}
+  m_PrefabInternal: {fileID: 955882239}
 --- !u!1 &2086206887
 GameObject:
   m_ObjectHideFlags: 0

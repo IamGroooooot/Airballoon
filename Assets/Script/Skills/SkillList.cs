@@ -6,6 +6,8 @@ public class SkillList : MonoBehaviour{
 
 	public static SkillList Skill_List;
 
+    public GameObject heal;
+    public GameObject booster;
 	public GameObject shield;
 	public GameObject anchor;
 	public GameObject drone;
@@ -49,6 +51,7 @@ public class SkillList : MonoBehaviour{
 	{
 		HP_Bar.IsHeal = true;
 		Debug.Log ("Repair성공");
+        heal.gameObject.SetActive(true);
 
         //string DescriptionKor = "10% 회복한다";
 	}
@@ -59,6 +62,7 @@ public class SkillList : MonoBehaviour{
 		Joystick2.BoostRate = 2.0f; // 200%증가
 		Joystick2.BoostTime = 3f;
 		Joystick2.BoostTimerOn = true;
+        booster.gameObject.SetActive(true);
         //string DescriptionKor = "일시적으로 속도가 증가한다";
     }
 
