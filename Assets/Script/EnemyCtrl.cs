@@ -17,9 +17,12 @@ public class EnemyCtrl : MonoBehaviour {
 	private Transform Tr;
 	private Rigidbody Rb;
 
+    bool YPositionSet;
+
 	void Awake(){
 		Instance = this;
-	}
+        YPositionSet = true;
+    }
 
 	void Start()
 	{
@@ -28,7 +31,9 @@ public class EnemyCtrl : MonoBehaviour {
 		Max_Hp = HP;
 		Rb = this.GetComponent<Rigidbody> ();
 		is_dead = false;
-	}
+        YPositionSet = true;
+
+    }
 
 	void OnTriggerEnter(Collider Col)
 	{
@@ -43,11 +48,14 @@ public class EnemyCtrl : MonoBehaviour {
 	}
 	void FixedUpdate()
 	{
-		
+        if (YPositionSet)
+        {
+            Tr.position = new Vector3(transform.position.x, PlayerManager.instance.player.transform.position.y, transform.position.z);
+            YPositionSet = false;
+        }
 
 
-
-		if (WhereY < -2000f) {
+        if (WhereY < -2000f) {
 			OnBecameInvisible ();
 		}
 	}

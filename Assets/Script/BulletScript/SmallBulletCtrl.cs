@@ -5,11 +5,11 @@ using UnityEngine;
 public class SmallBulletCtrl : MonoBehaviour {
 	public GameObject Hit;
 	public Transform CollPos;
-
+    private GameObject myMachineGun;
 	//포탄 공격력
 	public int damage = 2;
 
-	public float speed = 800f;
+	public float speed = 400f;
 
 	private Rigidbody Rb;
 
@@ -17,7 +17,9 @@ public class SmallBulletCtrl : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Rb = GetComponent<Rigidbody> ();
-	}
+        myMachineGun = GameObject.Find("Machine Gun");
+
+    }
 
 	void OnEnable(){
 		Rb = GetComponent<Rigidbody> ();
@@ -25,7 +27,7 @@ public class SmallBulletCtrl : MonoBehaviour {
 	}
 
 	void Update(){
-		this.Rb.velocity = new Vector3(0,0,1) * speed;
+		this.Rb.velocity = myMachineGun.transform.forward.normalized * speed;
 	}
 
 	private void OnBecameInvisible()

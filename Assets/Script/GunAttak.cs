@@ -21,7 +21,8 @@ public class GunAttak : MonoBehaviour {
 	void Update () {
 
 		if (TimerOn) {
-			time ++;
+            FaceTarget();
+            time ++;
 
 			if (Target!=null) {
 
@@ -93,7 +94,9 @@ public class GunAttak : MonoBehaviour {
 	void OnTriggerEnter(Collider ColEnter)
 	{
 		OnTriggerStay(ColEnter);
-	}
+
+
+    }
 
 	void OnTriggerStay(Collider other)
 	{
@@ -115,6 +118,7 @@ public class GunAttak : MonoBehaviour {
 
 	IEnumerator Fire()
 	{
+        Debug.Log("Fire!!!");
 		//처음에 CanShoot을 false로 만들고(발사불가 시간)
 		CanShoot = false;
 		Flash.gameObject.SetActive (false);
@@ -128,5 +132,16 @@ public class GunAttak : MonoBehaviour {
 	
 		//Target = null;
 	}
+
+    void FaceTarget()
+    {
+        Vector3 direction = (Target.transform.position - transform.position).normalized;
+
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, direction.y, direction.z));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, Time.deltaTime * 200f);
+
+
+    }
+
 		
 }
