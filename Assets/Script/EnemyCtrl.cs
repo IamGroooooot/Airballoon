@@ -48,7 +48,10 @@ public class EnemyCtrl : MonoBehaviour
 
         if (Col.CompareTag("Bullet"))
         {
-            HP -= PlayerDB.DB.CannonDamage;
+            //if (PlayerDB.DB.CannonDamage == 0)
+           //     HP -= 10;
+           // else
+                HP -= PlayerDB.DB.CannonDamage;
         }
 
         if (Col.CompareTag("SmallBullet"))

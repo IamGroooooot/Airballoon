@@ -100,6 +100,10 @@ public class PlayerDB : MonoBehaviour
         cur_Health = max_Health;
 
         CannonDamage = PlayerPrefs.GetFloat("CannonDamage");
+        if(PlayerPrefs.GetFloat("CannonDamage") == 0)
+        {
+            CannonDamage = 10f;
+        }
         max_Health = PlayerPrefs.GetFloat("MAX_HP");
         //cur_Health = PlayerPrefs.GetFloat("Cur_HP");
         max_Speed = PlayerPrefs.GetFloat("MAX_SPEED");
