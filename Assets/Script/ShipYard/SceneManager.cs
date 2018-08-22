@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneManager : MonoBehaviour
 {
+    public GameObject sure;
+    public GameObject scar;
 
     //ShipYard
     public void Scene_main()
@@ -14,7 +16,7 @@ public class SceneManager : MonoBehaviour
 
     public void Scene_shipyardstore()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("ShipStore");
+        sure.gameObject.SetActive(true);
     }
 
     public void Scene_remodeling()
@@ -45,5 +47,25 @@ public class SceneManager : MonoBehaviour
     public void Tutorial()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial");
+    }
+
+    public void ShipStoreYes()
+    {
+        if (PlayerDB.DB.gold >= 3000)
+        {
+            PlayerDB.DB.gold -= 3000;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("ShipStore");
+        }
+        else { scar.gameObject.SetActive(true); }
+    }
+
+    public void ShipStoreNo()
+    {
+        sure.gameObject.SetActive(false);
+    }
+
+    public void Pub()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Pub");
     }
 }

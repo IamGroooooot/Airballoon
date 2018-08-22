@@ -709,9 +709,9 @@ MonoBehaviour:
   FirePos: {fileID: 4500396336907500}
   HP: 30
   velocity: 2
-  damping: 2
+  damping: 10
   BulletSpeed: 250
-  attackDist: 200
+  attackDist: 300
   traceDist: 1000
   isDie: 0
   fireDelay: 3

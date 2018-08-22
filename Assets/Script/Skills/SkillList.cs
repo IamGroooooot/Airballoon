@@ -71,25 +71,43 @@ public class SkillList : MonoBehaviour{
 	//Instantiate Skill List
 	public void Drone() //3
 	{
-		GameObject myDrone = Instantiate(drone,PlayerTr);
-		myDrone.SetActive (true);
-		StartCoroutine(LastTime(myDrone,15f));
+        //GameObject myDrone = Instantiate(drone,PlayerTr);
+        GameObject Drone = ObjectPooling.pool.GetPoolObject_Drone_skill();
+        if (Drone == null) return;
+
+        Drone.transform.position = PlayerTr.position;
+        Drone.transform.rotation = PlayerTr.rotation;
+
+        Drone.SetActive(true);
+		StartCoroutine(LastTime(Drone, 15f));
         //string DescriptionKor = "드론을 생성한다";
     }
 
 	public void Balloon() //4
 	{
-		GameObject myBalloon = Instantiate(balloon,PlayerTr);
-		myBalloon.SetActive (true);
+        //GameObject myBalloon = Instantiate(balloon,PlayerTr);
+        //myBalloon.SetActive (true);
+
+        GameObject Bomb = ObjectPooling.pool.GetPoolObject_AirBomb();
+        if (Bomb == null) return;
+        Bomb.transform.position = PlayerTr.position;
+        Bomb.transform.rotation = PlayerTr.rotation;
+
+        Bomb.SetActive(true);
         //string DescriptionKor = "풍선 폭탄을 생성한다";
     }
 
 	public void Rain() //5 비구름
 	{
-		GameObject myRain = Instantiate(rain,PlayerTr2);
-		myRain.SetActive (true);
-		//SlowParticle.play()
-		StartCoroutine(LastTime(myRain,RainLastTime));
+        //GameObject myRain = Instantiate(rain,PlayerTr2);
+        //myRain.SetActive (true);
+        //SlowParticle.play()
+        GameObject myRain = ObjectPooling.pool.GetPoolObject_Rain_skill();
+        if (myRain == null) return;
+        myRain.transform.position = PlayerTr2.position;
+        myRain.transform.rotation = PlayerTr2.rotation;
+
+        StartCoroutine(LastTime(myRain,RainLastTime));
        // string DescriptionKor = "적을 느려지게 하는 비구름을 생성한다";
     }
 
@@ -102,10 +120,14 @@ public class SkillList : MonoBehaviour{
 
 	public void Thunder() //7
 	{
-		GameObject myThunder = Instantiate(thunder,PlayerTr2);
-		myThunder.SetActive (true);
+        //GameObject myThunder = Instantiate(thunder,PlayerTr2);
+        //myThunder.SetActive (true);
+        GameObject myThunder = ObjectPooling.pool.GetPoolObject_Thunder_skill();
+        if (myThunder == null) return;
+        myThunder.transform.position = PlayerTr2.position;
+        myThunder.transform.rotation = PlayerTr2.rotation;
 
-		StartCoroutine(LastTime(myThunder,ThunderLastTime));
+        StartCoroutine(LastTime(myThunder,ThunderLastTime));
         //string DescriptionKor = "적을 감전시키는 번개구름을 생성한다";
     }
 		

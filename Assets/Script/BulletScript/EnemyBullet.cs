@@ -9,8 +9,8 @@ public class EnemyBullet : MonoBehaviour {
 
     public bool isDie = false;
 
-	//포탄 공격력
-	public int damage = 10;
+	//포탄 공격력 (기본공격력 3)
+	public int damage = 3;
 
     void OnEnable () {
         //Rb.AddForce(transform.forward * speed);

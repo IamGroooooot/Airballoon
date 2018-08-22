@@ -1894,6 +1894,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114222397763707356, guid: f9690d424e286b244a38978322b17530,
+        type: 2}
+      propertyPath: sure
+      value: 
+      objectReference: {fileID: 1804967050}
+    - target: {fileID: 114222397763707356, guid: f9690d424e286b244a38978322b17530,
+        type: 2}
+      propertyPath: scar
+      value: 
+      objectReference: {fileID: 1804967050}
     m_RemovedComponents:
     - {fileID: 114148938861920496, guid: f9690d424e286b244a38978322b17530, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: f9690d424e286b244a38978322b17530, type: 2}
@@ -3044,6 +3054,12 @@ MonoBehaviour:
   Destructer: {fileID: 0}
   Kanu: {fileID: 0}
   weakBattleShip: {fileID: 0}
+  Itembox: {fileID: 0}
+  Cloud: {fileID: 0}
+  Drone_skill: {fileID: 0}
+  Rain_skill: {fileID: 0}
+  Thunder_skill: {fileID: 0}
+  AirBomb: {fileID: 0}
   SkullBomb_Folder: {fileID: 1808347507}
   Player_Bullet: {fileID: 450510120}
   Hit_Folder: {fileID: 1992235298}
@@ -3067,6 +3083,12 @@ MonoBehaviour:
   PoolAmount_Destructer: 0
   PoolAmount_Kanu: 0
   PoolAmount_weakBattleShip: 0
+  PoolAmount_Itembox: 0
+  PoolAmount_Cloud: 0
+  PoolAmount_Drone_skill: 0
+  PoolAmount_Rain_skill: 0
+  PoolAmount_Thunder_skill: 0
+  PoolAmount_AirBomb: 0
   PoolAmount_Island1: 0
   PoolAmount_Island2: 0
   PoolAmount_Island3: 0
@@ -3092,6 +3114,12 @@ MonoBehaviour:
   PoolObjs_Island6: []
   PoolObjs_Island7: []
   PoolObjs_Island8: []
+  PoolObjs_Itembox: []
+  PoolObjs_Cloud: []
+  PoolObjs_Drone_skill: []
+  PoolObjs_Rain_skill: []
+  PoolObjs_Thunder_skill: []
+  PoolObjs_AirBomb: []
 --- !u!1 &555924992 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1898315924079648, guid: 37ccfa156e95ca24cbaf69ab44eb350b,
@@ -5659,6 +5687,11 @@ Prefab:
       propertyPath: randomSeed
       value: 1671931032
       objectReference: {fileID: 0}
+    - target: {fileID: 114999525840759252, guid: 7f594e0dcbb49a544a135ee323b15567,
+        type: 2}
+      propertyPath: none
+      value: 
+      objectReference: {fileID: 1804967050}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f594e0dcbb49a544a135ee323b15567, type: 2}
   m_IsPrefabParent: 0

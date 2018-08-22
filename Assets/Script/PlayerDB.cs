@@ -123,7 +123,7 @@ public class PlayerDB : MonoBehaviour
         {
 
             case -1:
-                none.gameObject.SetActive(true);
+    
                 TopList[0].gameObject.SetActive(false);
                 TopList[1].gameObject.SetActive(false);
                 TopList[2].gameObject.SetActive(false);

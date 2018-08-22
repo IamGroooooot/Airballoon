@@ -74,7 +74,7 @@ public class ItemList : MonoBehaviour
 
     void Update()
     {
-        HP.text = "체력 " + PlayerDB.DB.max_Health.ToString();
+        HP.text = "내구력 " + PlayerDB.DB.max_Health.ToString();
         SPEED.text = "항해속도 " + PlayerDB.DB.max_Speed.ToString();
     }
 
@@ -215,13 +215,13 @@ public class ItemList : MonoBehaviour
             switch (page)
             {
                 case 0:
-                    PlayerDB.DB.max_Health -= 20;
+                    PlayerDB.DB.max_Health -= 10;
                     PlayerDB.DB.max_Speed += 50;
                     break;
                 case 1:
                     break;
                 case 2:
-                    PlayerDB.DB.max_Health += 20;
+                    PlayerDB.DB.max_Health += 10;
                     PlayerDB.DB.max_Speed -= 50;
                     break;
             }
@@ -237,13 +237,13 @@ public class ItemList : MonoBehaviour
             switch (page)
             {
                 case 0:
-                    PlayerDB.DB.max_Health += 20;
+                    PlayerDB.DB.max_Health += 10;
                     PlayerDB.DB.max_Speed -= 50;
                     break;
                 case 1:
                     break;
                 case 2:
-                    PlayerDB.DB.max_Health -= 20;
+                    PlayerDB.DB.max_Health -= 10;
                     PlayerDB.DB.max_Speed += 50;
                     break;
             }
@@ -278,7 +278,7 @@ public class ItemList : MonoBehaviour
             switch (page)
             {
                 case 0:
-                    PlayerDB.DB.max_Health += 50;
+                    PlayerDB.DB.max_Health += 10;
                     break;
                 case 1:
                     break;

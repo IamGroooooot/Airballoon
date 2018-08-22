@@ -21,7 +21,7 @@ public class Skel_Bomb : MonoBehaviour
 		if (Coll.CompareTag ("Player"))
         {
             HP_Bar.IsDamaged = true;
-
+            PlayerDB.DB.cur_Health -= 10;
 			GameObject Hit = ObjectPooling.pool.GetPoolObject_Hit ();
 			if (Hit == null) return;
 

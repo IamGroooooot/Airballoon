@@ -11,8 +11,8 @@ public class ObjectPooling : MonoBehaviour {
 	public GameObject Bullet;
 	public GameObject Hit;
 	public GameObject SmallBullet;
-	public GameObject EnemyBullet;
-
+	
+public GameObject EnemyBullet;
 	public GameObject Island1;
 	public GameObject Island2;
 	public GameObject Island3;
@@ -27,6 +27,14 @@ public class ObjectPooling : MonoBehaviour {
     public GameObject Destructer;
     public GameObject Kanu;
     public GameObject weakBattleShip; //스테이지별 고유몹
+
+    public GameObject Itembox;
+    public GameObject Cloud; //자연물
+    //스킬
+    public GameObject Drone_skill;
+    public GameObject Rain_skill;
+    public GameObject Thunder_skill;
+    public GameObject AirBomb;
 
     //Pooled Obj 폴더
     public GameObject SkullBomb_Folder;
@@ -56,6 +64,14 @@ public class ObjectPooling : MonoBehaviour {
     public int PoolAmount_Destructer;
     public int PoolAmount_Kanu;
     public int PoolAmount_weakBattleShip;
+
+    public int PoolAmount_Itembox;
+    public int PoolAmount_Cloud;
+    public int PoolAmount_Drone_skill;
+    public int PoolAmount_Rain_skill;
+    public int PoolAmount_Thunder_skill;
+    public int PoolAmount_AirBomb;
+
 
     public int PoolAmount_Island1;
 	public int PoolAmount_Island2;
@@ -88,8 +104,14 @@ public class ObjectPooling : MonoBehaviour {
 	public List<GameObject> PoolObjs_Island7;
 	public List<GameObject> PoolObjs_Island8;
 
+    public List<GameObject> PoolObjs_Itembox;
+    public List<GameObject> PoolObjs_Cloud;
+    public List<GameObject> PoolObjs_Drone_skill;
+    public List<GameObject> PoolObjs_Rain_skill;
+    public List<GameObject> PoolObjs_Thunder_skill;
+    public List<GameObject> PoolObjs_AirBomb;
 
-	void Awake(){
+    void Awake(){
 		pool = this;
 	}
 
@@ -113,6 +135,13 @@ public class ObjectPooling : MonoBehaviour {
         PoolObjs_Destructer = new List<GameObject>();
         PoolObjs_Kanu = new List<GameObject>();
         PoolObjs_weakBattleShip = new List<GameObject>();
+
+        PoolObjs_Itembox = new List<GameObject>();
+        PoolObjs_Cloud = new List<GameObject>();
+        PoolObjs_Drone_skill = new List<GameObject>();
+        PoolObjs_Rain_skill = new List<GameObject>();
+        PoolObjs_Thunder_skill = new List<GameObject>();
+        PoolObjs_AirBomb = new List<GameObject>();
 
         //Islands
         for (int i = 0; i < PoolAmount_Island1; i++) {
@@ -298,6 +327,72 @@ public class ObjectPooling : MonoBehaviour {
 
             Obj_weakBattleShip.SetActive(false);
             PoolObjs_weakBattleShip.Add(Obj_weakBattleShip);
+        }
+
+        for (int i = 0; i < PoolAmount_Itembox; i++)
+        {
+            // 생성후 Pool에 차곡차곡 넣기
+            GameObject Obj_Itembox = (GameObject)Instantiate(Itembox);
+
+            Obj_Itembox.transform.parent = Unit_Folder.transform;
+
+            Obj_Itembox.SetActive(false);
+            PoolObjs_weakBattleShip.Add(Obj_Itembox);
+        }
+
+        for (int i = 0; i < PoolAmount_Cloud; i++)
+        {
+            // 생성후 Pool에 차곡차곡 넣기
+            GameObject Obj_Cloud = (GameObject)Instantiate(Cloud);
+
+            Obj_Cloud.transform.parent = Unit_Folder.transform;
+
+            Obj_Cloud.SetActive(false);
+            PoolObjs_weakBattleShip.Add(Obj_Cloud);
+        }
+
+        for (int i = 0; i < PoolAmount_Drone_skill; i++)
+        {
+            // 생성후 Pool에 차곡차곡 넣기
+            GameObject Obj_Drone_skill = (GameObject)Instantiate(Drone_skill);
+
+            Obj_Drone_skill.transform.parent = Unit_Folder.transform;
+
+            Obj_Drone_skill.SetActive(false);
+            PoolObjs_weakBattleShip.Add(Obj_Drone_skill);
+        }
+
+        for (int i = 0; i < PoolAmount_Rain_skill; i++)
+        {
+            // 생성후 Pool에 차곡차곡 넣기
+            GameObject Obj_Rain_skill = (GameObject)Instantiate(Rain_skill);
+
+            Obj_Rain_skill.transform.parent = Unit_Folder.transform;
+
+            Obj_Rain_skill.SetActive(false);
+            PoolObjs_weakBattleShip.Add(Obj_Rain_skill);
+        }
+
+        for (int i = 0; i < PoolAmount_Thunder_skill; i++)
+        {
+            // 생성후 Pool에 차곡차곡 넣기
+            GameObject Obj_Thunder_skill = (GameObject)Instantiate(Thunder_skill);
+
+            Obj_Thunder_skill.transform.parent = Unit_Folder.transform;
+
+            Obj_Thunder_skill.SetActive(false);
+            PoolObjs_weakBattleShip.Add(Obj_Thunder_skill);
+        }
+
+        for (int i = 0; i < PoolAmount_AirBomb; i++)
+        {
+            // 생성후 Pool에 차곡차곡 넣기
+            GameObject Obj_AirBomb = (GameObject)Instantiate(AirBomb);
+
+            Obj_AirBomb.transform.parent = Unit_Folder.transform;
+
+            Obj_AirBomb.SetActive(false);
+            PoolObjs_weakBattleShip.Add(Obj_AirBomb);
         }
     }
 
@@ -672,6 +767,139 @@ public class ObjectPooling : MonoBehaviour {
             if (!PoolObjs_weakBattleShip[i].activeInHierarchy)
             {
                 return PoolObjs_weakBattleShip[i];// SetActive(true)된 Pooled Obj 호출
+            }
+
+        }
+        return null;
+    }
+
+    public GameObject GetPoolObject_()
+    {
+
+        if (PoolObjs_Itembox.Count == 0)
+        {
+            GameObject Obj_Itembox = Instantiate(Itembox);
+            return Obj_Itembox;
+
+        }
+
+        for (int i = 0; i < PoolObjs_Itembox.Count; i++)
+        {
+
+
+            if (!PoolObjs_Itembox[i].activeInHierarchy)
+            {
+                return PoolObjs_Itembox[i];
+            }
+
+        }
+        return null;
+    }
+    public GameObject GetPoolObject_Cloud()
+    {
+
+        if (PoolObjs_Cloud.Count == 0)
+        {
+            GameObject Obj_Cloud = Instantiate(Cloud);
+            return Obj_Cloud;
+
+        }
+
+        for (int i = 0; i < PoolObjs_Cloud.Count; i++)
+        {
+
+
+            if (!PoolObjs_Cloud[i].activeInHierarchy)
+            {
+                return PoolObjs_Cloud[i];
+            }
+
+        }
+        return null;
+    }
+    public GameObject GetPoolObject_Drone_skill()
+    {
+
+        if (PoolObjs_Drone_skill.Count == 0)
+        {
+            GameObject Obj_Drone_skill = Instantiate(Drone_skill);
+            return Obj_Drone_skill;
+
+        }
+
+        for (int i = 0; i < PoolObjs_Drone_skill.Count; i++)
+        {
+
+
+            if (!PoolObjs_Drone_skill[i].activeInHierarchy)
+            {
+                return PoolObjs_Drone_skill[i];
+            }
+
+        }
+        return null;
+    }
+    public GameObject GetPoolObject_Rain_skill()
+    {
+
+        if (PoolObjs_Rain_skill.Count == 0)
+        {
+            GameObject Obj_Rain_skill = Instantiate(Rain_skill);
+            return Obj_Rain_skill;
+
+        }
+
+        for (int i = 0; i < PoolObjs_Rain_skill.Count; i++)
+        {
+
+
+            if (!PoolObjs_Rain_skill[i].activeInHierarchy)
+            {
+                return PoolObjs_Rain_skill[i];
+            }
+
+        }
+        return null;
+    }
+    public GameObject GetPoolObject_Thunder_skill()
+    {
+
+        if (PoolObjs_Thunder_skill.Count == 0)
+        {
+            GameObject Obj_Thunder_skill = Instantiate(Thunder_skill);
+            return Obj_Thunder_skill;
+
+        }
+
+        for (int i = 0; i < PoolObjs_Thunder_skill.Count; i++)
+        {
+
+
+            if (!PoolObjs_Thunder_skill[i].activeInHierarchy)
+            {
+                return PoolObjs_Thunder_skill[i];
+            }
+
+        }
+        return null;
+    }
+    public GameObject GetPoolObject_AirBomb()
+    {
+
+        if (PoolObjs_AirBomb.Count == 0)
+        {
+            GameObject Obj_AirBomb = Instantiate(AirBomb);
+            return Obj_AirBomb;
+
+        }
+
+        for (int i = 0; i < PoolObjs_AirBomb.Count; i++)
+        {
+
+
+            if (!PoolObjs_AirBomb[i].activeInHierarchy)
+            {
+                return PoolObjs_AirBomb[i];
             }
 
         }

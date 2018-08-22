@@ -20,7 +20,7 @@ public class SelfDestrucer : MonoBehaviour {
 	public float traceDist = 1000.0f;
 	public bool isDie = false;
 
-	public float damage;
+	public float damage = 10f;
 
 	//private Rigidbody Rb;
 
@@ -45,6 +45,11 @@ public class SelfDestrucer : MonoBehaviour {
         if (Col.CompareTag("SmallBullet"))
         {
             HP -= 1;
+        }
+
+        if (Col.CompareTag("Player"))
+        {
+            PlayerDB.DB.cur_Health -= damage;
         }
     }
 
