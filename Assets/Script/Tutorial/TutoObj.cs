@@ -35,7 +35,7 @@ public class TutoObj : MonoBehaviour {
     {
         if (Col.CompareTag("Bullet"))
         {
-             HP -= 10;
+             HP -= PlayerDB.DB.CannonDamage;
         }
     }
     void Die() {

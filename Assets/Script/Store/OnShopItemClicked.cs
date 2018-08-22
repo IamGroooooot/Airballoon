@@ -9,20 +9,17 @@ public class OnShopItemClicked : MonoBehaviour {
 	public int WhichSlot;
 	//GameObject MyStore;
 	GameObject MyInv;
-    StoreToolTip Tooltip;
-    Item_Database Myitem_Database;
-    inventoryInStore MyInvScript;
+
+	inventoryInStore MyInvScript;
 
 	void Start()
 	{
 		//MyStore = GameObject.Find ("Store");
 		MyInv = GameObject.Find ("Inventory");
-        
-        Tooltip = GameObject.Find("Store").GetComponent<StoreToolTip>();
-        MyInvScript = MyInv.GetComponent<inventoryInStore> ();
-        Myitem_Database = GameObject.Find("Store").GetComponent<Item_Database>();
 
-    }
+		MyInvScript = MyInv.GetComponent<inventoryInStore> ();
+
+	}
 
 	public void OnBtnClick()
 	{
@@ -184,15 +181,7 @@ public class OnShopItemClicked : MonoBehaviour {
 
 	}
 
-    public void OnLongClicked()
-    {
-        Item myItem;
-        myItem = Myitem_Database.FindItemByID(WhichSlot);
-        Tooltip.Activate(myItem);
 
-
-
-    }
 
 
 

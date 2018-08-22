@@ -50,7 +50,7 @@ public class SkillList : MonoBehaviour{
 	public void Repair () //0 쿨20초
 	{
 		HP_Bar.IsHeal = true;
-		Debug.Log ("Repair성공");
+		//Debug.Log ("Repair성공");
         heal.gameObject.SetActive(true);
 
         //string DescriptionKor = "10% 회복한다";

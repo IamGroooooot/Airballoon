@@ -112,7 +112,7 @@ public class TimerShip : MonoBehaviour {
                     //보상창 ON
                     plus = (int)(Compensation * kills * 0.03) + (int)(Compensation * bounus * 0.05);
                     Compensation = Compensation + plus;
-                    Amount = 100 + Compensation;
+                    Amount = Compensation;
                     End.gameObject.SetActive(true);
                     PlayerDB.DB.gold += Amount;
                     TimerEnd = true;

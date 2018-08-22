@@ -68,4 +68,10 @@ public class SceneManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Pub");
     }
+
+    //항해
+    public void AztecGo()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
+    }
 }

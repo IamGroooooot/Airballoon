@@ -99,10 +99,13 @@ public class PlayerDB : MonoBehaviour
     {
         cur_Health = max_Health;
 
-        CannonDamage = PlayerPrefs.GetFloat("CannonDamage");
-        if(PlayerPrefs.GetFloat("CannonDamage") == 0)
+        
+        if (PlayerPrefs.GetFloat("CannonDamage") == 0)
         {
             CannonDamage = 10f;
+        }else
+        {
+            CannonDamage = PlayerPrefs.GetFloat("CannonDamage");
         }
         max_Health = PlayerPrefs.GetFloat("MAX_HP");
         //cur_Health = PlayerPrefs.GetFloat("Cur_HP");

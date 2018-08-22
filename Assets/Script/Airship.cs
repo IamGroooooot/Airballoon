@@ -16,13 +16,6 @@ public class Airship : MonoBehaviour {
 		Airship_rb = gameObject.GetComponent<Rigidbody> ();
 	}
 	
-	// Update is called once per frame
-	void Update ()
-    {
-
-
-	}
-
 	private void FixedUpdate()
     {
 		//바람 방향으로 ADDFORCE
