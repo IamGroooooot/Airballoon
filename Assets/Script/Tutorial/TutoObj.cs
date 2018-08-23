@@ -9,10 +9,10 @@ public class TutoObj : MonoBehaviour {
     public bool is_dead;
 
     private Transform Tr;
-
+    int once;
 	// Use this for initialization
 	void Start () {
-
+        once = 0;
         Tr = this.GetComponent<Transform>();
         HP = 50;
 	}
@@ -23,6 +23,12 @@ public class TutoObj : MonoBehaviour {
         if (HP <= 0)
         {
             is_dead = true;
+        }
+
+        if(HP<=0 && once == 0)
+        {
+            transform.parent.parent.parent.GetComponent<AudioSource>().Play();
+            once++;
         }
 
         if (is_dead)
