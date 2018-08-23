@@ -39,6 +39,26 @@ public class SceneManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main");
     }
 
+    public void Scene_Ghost()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Ghost");
+    }
+
+    public void Scene_Pirate()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Pirate");
+    }
+
+    public void Scene_Mask()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Mask");
+    }
+
+    public void Scene_Scholar()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main_Scholar");
+    }
+
     public void Scene_Store()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Store");

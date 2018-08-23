@@ -51,7 +51,7 @@ public class UIctrl : MonoBehaviour
         Scroll.gameObject.SetActive(true);
         Figure_image.gameObject.GetComponent<Image>().sprite = Aztec;
         Weather.gameObject.GetComponent<Image>().sprite = rain;
-        explain.text = "대언이가 쓸겁니다.\n 이 악당을 퇴치하기 위해선 큰 각오를 해야합니다.\n끔찍하고 어두운 기운이 섬을 감싸고 있어 천둥 번개가 내립니다.\n\n벼락에 맞으면 배가 파손되니 주의하세요!";
+        explain.text = "아즈텍 권역에 사는 사람들은 모두 여자로 구성되어 있습니다.\n 기대는 하지마세요!\n왜냐고요? 이들은 다들 강인하게 생겼습니다!.\n\n당신의 눈물이 흐르듯 비가 올겁니다! 비는 피하는게 좋아요!";
         Sail_Buttons[0].gameObject.SetActive(true);
         Sail_Buttons[1].gameObject.SetActive(false);
         Sail_Buttons[2].gameObject.SetActive(false);
