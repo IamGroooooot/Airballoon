@@ -32,7 +32,7 @@ public class EnemyBullet : MonoBehaviour {
     {
         if (CollEnter.CompareTag("Player"))
         {
-
+            Airship.playerOnHit = true;
             PlayerDB.DB.cur_Health -= damage;
             GameObject Hit = ObjectPooling.pool.GetPoolObject_Hit();
             if (Hit == null) return;

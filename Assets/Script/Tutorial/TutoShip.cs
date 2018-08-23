@@ -131,7 +131,7 @@ public class TutoShip : MonoBehaviour
 
     void Die() {
         explosion.gameObject.SetActive(true);
-        this.gameObject.SetActive(false);
+        this.gameObject.transform.parent.gameObject.SetActive(false);
         Tuto.Tutorial.Skull_dead = true;
         is_die = true;
     }

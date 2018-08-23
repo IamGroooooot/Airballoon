@@ -47,7 +47,12 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
         time2 = 0;
         angle_degr = angle_degr * Mathf.Deg2Rad;// Deg2Rad
     }
-	
+	void OnEnable()
+    {
+        canAttack = false;
+
+
+    }
 	// Update is called once per frame
 	void Update () { 
         myPosition = Skel.transform.position;

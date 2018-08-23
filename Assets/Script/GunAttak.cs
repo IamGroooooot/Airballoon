@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GunAttak : MonoBehaviour {
-
+    AudioSource MachineGunSound;
 	public GameObject Flash;
 	private GameObject Target;
 	public Transform FirePos;
@@ -14,7 +14,8 @@ public class GunAttak : MonoBehaviour {
 	int time;
 
 	void Start(){
-		CanShoot = true;
+        MachineGunSound = gameObject.GetComponent<AudioSource>();
+        CanShoot = true;
 		time = 0;
 	}
 
@@ -33,50 +34,61 @@ public class GunAttak : MonoBehaviour {
 					if (SmallBullet1 == null) return;
 					SmallBullet1.transform.position = FirePos.position;
 					SmallBullet1.SetActive (true);
-					//Debug.Log ("Fire1");
+                    //Debug.Log ("Fire1");
+                    MachineGunSound.Play();
 
-				}else if (time == reload * 1.5f)
+                }
+                else if (time == reload * 1.5f)
 				{
 					Flash.gameObject.SetActive (true);
 					GameObject SmallBullet2 = ObjectPooling.pool.GetPoolObject_SmallBullet ();
 					if (SmallBullet2 == null) return;
 					SmallBullet2.transform.position = FirePos.position;
 					SmallBullet2.SetActive (true);
-					//Debug.Log ("Fire2");
-				}else if (time == reload * 2f)
+                    MachineGunSound.Play();
+                    //Debug.Log ("Fire2");
+                }
+                else if (time == reload * 2f)
 				{
 					Flash.gameObject.SetActive (true);
 					GameObject SmallBullet3 = ObjectPooling.pool.GetPoolObject_SmallBullet ();
 					if (SmallBullet3 == null) return;
 					SmallBullet3.transform.position = FirePos.position;
 					SmallBullet3.SetActive (true);
-					//Debug.Log ("Fire3");
+                    MachineGunSound.Play();
+                    //Debug.Log ("Fire3");
 
-				}else if (time == reload * 2.5f)
+                }
+                else if (time == reload * 2.5f)
 				{
 					Flash.gameObject.SetActive (true);
 					GameObject SmallBullet4 = ObjectPooling.pool.GetPoolObject_SmallBullet ();
 					if (SmallBullet4 == null) return;
 					SmallBullet4.transform.position = FirePos.position;
 					SmallBullet4.SetActive (true);
-					//Debug.Log ("Fire4");
+                    MachineGunSound.Play();
+                    //Debug.Log ("Fire4");
 
-				}else if (time == reload * 3f)
+                }
+                else if (time == reload * 3f)
 				{
 					Flash.gameObject.SetActive (true);
 					GameObject SmallBullet5 = ObjectPooling.pool.GetPoolObject_SmallBullet ();
 					if (SmallBullet5 == null) return;
 					SmallBullet5.transform.position = FirePos.position;
 					SmallBullet5.SetActive (true);
-					//Debug.Log ("Fire5");
-				}else if (time == reload * 3.5f)
+                    MachineGunSound.Play();
+                    //Debug.Log ("Fire5");
+                }
+                else if (time == reload * 3.5f)
 				{
 					Flash.gameObject.SetActive (true);
 					GameObject SmallBullet6 = ObjectPooling.pool.GetPoolObject_SmallBullet ();
 					if (SmallBullet6 == null) return;
 					SmallBullet6.transform.position = FirePos.position;
 					SmallBullet6.SetActive (true);
-					time = 0;
+                    MachineGunSound.Play();
+                    time = 0;
 					TimerOn = false;
 					Flash.gameObject.SetActive (false);
 					//Debug.Log ("Fire6");

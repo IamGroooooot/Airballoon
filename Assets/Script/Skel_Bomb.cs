@@ -20,7 +20,7 @@ public class Skel_Bomb : MonoBehaviour
     {
 		if (Coll.CompareTag ("Player"))
         {
-            HP_Bar.IsDamaged = true;
+            Airship.playerOnHit = true;
             PlayerDB.DB.cur_Health -= 10;
 			GameObject Hit = ObjectPooling.pool.GetPoolObject_Hit ();
 			if (Hit == null) return;
@@ -32,6 +32,11 @@ public class Skel_Bomb : MonoBehaviour
 
 			//Bullet Active False
 			this.gameObject.SetActive (false);
+        }
+        if (Coll.gameObject.CompareTag("Shield"))
+        {
+            this.gameObject.SetActive(false);
+
         }
     }
     void OnTriggerStay(Collider CollStay)

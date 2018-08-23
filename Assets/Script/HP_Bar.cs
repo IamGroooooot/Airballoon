@@ -16,6 +16,7 @@ public class HP_Bar : MonoBehaviour
     public static bool IsHeal = false;
 	public static bool MyHealthBarSetIsTrue= false;
 
+    public GameObject FireSound;
     //Effects
     public GameObject Fire1;
     public GameObject Fire2;
@@ -39,6 +40,7 @@ public class HP_Bar : MonoBehaviour
         //화염 이펙트
 		if (PlayerDB.DB.cur_Health/100 <= 0.6)
         {
+            FireSound.SetActive(true);
             Fire1.gameObject.SetActive(true);
 
 			if (PlayerDB.DB.cur_Health / 100 <= 0.4)
@@ -58,6 +60,7 @@ public class HP_Bar : MonoBehaviour
             Fire2.gameObject.SetActive(false);
             Fire3.gameObject.SetActive(false);
             Smoke.gameObject.SetActive(false);
+            FireSound.SetActive(false);
         }
 
 		if (PlayerDB.DB.cur_Health < 0)

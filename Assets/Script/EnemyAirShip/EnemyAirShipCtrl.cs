@@ -12,17 +12,27 @@ public class EnemyAirShipCtrl : MonoBehaviour {
     public GameObject explosion;
     public Animator ani;
 
+    int OnlyOnce, random;
+    public float MAX_HP;
+    public float damping = 20f; //선회속도
+    public float Speed = 100f;
+
+    public bool onHit;
     //Effects
     public GameObject Fire1;
 
     // Use this for initialization
     void Start () {
+        onHit = false;
+        OnlyOnce = 0;
+        random = 0;
 		target = PlayerManager.instance.player.transform;
         Tr = GetComponent<Transform>();
 	}
 
     private void OnEnable()
     {
+        onHit = false;
         is_dead = false;
         HP = 1000;
         ani.SetBool("isDie", false);
@@ -35,10 +45,19 @@ public class EnemyAirShipCtrl : MonoBehaviour {
         if (HP <= 0 && is_dead == false)
         {
             explosion.gameObject.SetActive(true);
+            
             explosion.transform.position = Tr.position;
             ani.SetBool("isDie", true);
             StartCoroutine(Die());
         }
+
+        if((HP<=0) && OnlyOnce == 0)
+        {
+
+            gameObject.GetComponent<AudioSource>().Play();
+            OnlyOnce++;
+        }
+
 
         if (HP / 1000 <= 0.5)
         {
@@ -63,8 +82,28 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 
 			FaceTargetForRotation ();
 
-			GetComponent<Rigidbody> ().velocity= transform.forward*30f;
+			GetComponent<Rigidbody> ().velocity= transform.forward*0.3f;
 		}
+        if (onHit)
+        {
+            if (random == 0)
+            {
+                transform.GetChild(2).GetChild(6).GetComponent<AudioSource>().Play();
+                
+                random = Random.Range(0, 2);
+                onHit = false;
+            }
+            else
+            {
+                transform.GetChild(2).GetChild(7).GetComponent<AudioSource>().Play();
+
+                random = Random.Range(0, 2);
+                onHit = false;
+            }
+
+
+        }
+
 	}
 
     void OnTriggerEnter(Collider Col)
@@ -105,7 +144,7 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 		Vector3 direction = (target.position - transform.position).normalized;
 
 		Quaternion lookRotation = Quaternion.LookRotation (new Vector3(direction.x,0,direction.z));
-		transform.rotation = Quaternion.RotateTowards (transform.rotation,lookRotation,Time.deltaTime *70f);
+		transform.rotation = Quaternion.RotateTowards (transform.rotation,lookRotation,Time.deltaTime *damping);
 	}
 
 	void FaceTargetForRotation()
@@ -130,7 +169,7 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 			Debug.Log("돌아라");
 		} else { //거의 수평 방향 볼 때
 			Quaternion lookRotation = Quaternion.LookRotation (new Vector3(direction.x,0,direction.z));
-			transform.rotation = Quaternion.RotateTowards (transform.rotation,lookRotation,Time.deltaTime *35f);
+			transform.rotation = Quaternion.RotateTowards (transform.rotation,lookRotation,Time.deltaTime *damping);
 		}
 
 
@@ -142,7 +181,7 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 		Vector3 Turndirection = target.transform.forward.normalized;
 
 		Quaternion lookRotation = Quaternion.LookRotation (new Vector3(Turndirection.x,0,Turndirection.z));
-		transform.rotation = Quaternion.RotateTowards (transform.rotation,lookRotation,Time.deltaTime *200f);
+		transform.rotation = Quaternion.RotateTowards (transform.rotation,lookRotation,Time.deltaTime *damping);
 	}
 
     IEnumerator Die() {
@@ -160,6 +199,8 @@ public class EnemyAirShipCtrl : MonoBehaviour {
         is_dead = false;
         HP = 1000;
         ani.SetBool("isDie", false);
+        OnlyOnce = 0;
+        onHit = false;
     }
     void Kills()
     {

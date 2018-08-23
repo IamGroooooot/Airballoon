@@ -15,7 +15,7 @@ public class EnemyAI_Basic : MonoBehaviour
     private Transform PlayerTr;
     private Vector3 direction;
 
-    private Rigidbody Rb;
+    //private Rigidbody Rb;
     private Vector3 WhereToFire;
     //public float acceleration;
     public float HP = 50;
@@ -39,7 +39,7 @@ public class EnemyAI_Basic : MonoBehaviour
     {
 
         Tr = this.gameObject.GetComponent<Transform>();
-        Rb = this.GetComponent<Rigidbody>();
+        //Rb = this.GetComponent<Rigidbody>();
         onFire = false;
         timer = 0f;
     }
@@ -70,6 +70,8 @@ public class EnemyAI_Basic : MonoBehaviour
 
         }
 
+        
+
 
     }
 
@@ -96,7 +98,9 @@ public class EnemyAI_Basic : MonoBehaviour
 
             if (HP <= 0)
             {
+                
                 explosion.gameObject.SetActive(true);
+                explosion.GetComponent<AudioSource>().Play();
                 explosion.transform.position = this.transform.position;
                 state = State.die;
             }
@@ -148,7 +152,6 @@ public class EnemyAI_Basic : MonoBehaviour
 
                 case State.die:
                     //사망루틴(SetActive(false)-변수 초기화)	
-
                     gameObject.transform.parent.gameObject.SetActive(false); //패런츠를 비활성화
                     HP = 50f;
                     state = State.idle;

@@ -414,6 +414,7 @@ public class PlayerDB : MonoBehaviour
                 ItemList[2].gameObject.SetActive(false);
                 break;
         }
+
     }
 
     void OnDisable()

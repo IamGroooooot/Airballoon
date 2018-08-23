@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class CannonCtrlL : MonoBehaviour
 {
+    GameObject playerSound;
+    AudioSource L1, L2, L3;
 
     //포탄 발사 딜레이
     public float delay = 3f;
@@ -32,6 +34,10 @@ public class CannonCtrlL : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        playerSound = PlayerManager.instance.player.transform.GetChild(6).gameObject;
+        L1 = playerSound.transform.GetChild(3).GetComponent<AudioSource>();
+        L2 = playerSound.transform.GetChild(4).GetComponent<AudioSource>();
+        L3 = playerSound.transform.GetChild(5).GetComponent<AudioSource>();
         CanShoot = true;
         time = 0;
 		WhereToFireLC1= new Vector3(0,0,0);
@@ -87,8 +93,8 @@ public class CannonCtrlL : MonoBehaviour
 
 
 				Bullet.SetActive (true);
-
-				Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireLC1.normalized* bullectLSpeed;
+                L1.Play();
+                Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireLC1.normalized* bullectLSpeed;
 
 				Bullet.GetComponent<TrailRenderer> ().Clear();
 
@@ -106,8 +112,8 @@ public class CannonCtrlL : MonoBehaviour
 				Bullet.transform.position = FirePos_2;
 
 				Bullet.SetActive (true);
-                
-				Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireLC2.normalized*bullectLSpeed;
+                L2.Play();
+                Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireLC2.normalized*bullectLSpeed;
 
 				Bullet.GetComponent<TrailRenderer> ().Clear();
 
@@ -125,8 +131,8 @@ public class CannonCtrlL : MonoBehaviour
 				Bullet.transform.position = FirePos_3;
 
 				Bullet.SetActive (true);
-
-				Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireLC3.normalized*bullectLSpeed;
+                L3.Play();
+                Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireLC3.normalized*bullectLSpeed;
 
 				Bullet.GetComponent<TrailRenderer> ().Clear();
 				time = 0;

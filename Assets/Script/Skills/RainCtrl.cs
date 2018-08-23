@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RainCtrl : MonoBehaviour {
 
-    public float WhenToDestroy;
+    float WhenToDestroy = 15f;
     Vector3 RandomPos;
 
     public static bool makeThemSlow;

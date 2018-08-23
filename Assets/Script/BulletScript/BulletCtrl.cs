@@ -50,7 +50,10 @@ public class BulletCtrl : MonoBehaviour {
 
             Hit.transform.position = CollEnter.transform.position;
             Hit.SetActive(true);
-
+            if (CollEnter.GetComponent<EnemyAirShipCtrl>() != null)
+            {
+                CollEnter.GetComponent<EnemyAirShipCtrl>().onHit = true;
+            }
             OnTriggerStay(CollEnter);
         }
 

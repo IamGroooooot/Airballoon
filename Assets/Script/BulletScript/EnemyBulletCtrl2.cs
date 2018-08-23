@@ -38,8 +38,8 @@ public class EnemyBulletCtrl2 : MonoBehaviour {
 	{
 		if (CollStay.gameObject.tag == "Player")
 		{
-
-			PlayerDB.DB.cur_Health -= 10;
+            Airship.playerOnHit = true;
+            PlayerDB.DB.cur_Health -= 10;
 			HP_Bar.MyHealthBarSetIsTrue = true;
 			this.gameObject.SetActive (false);
 		}

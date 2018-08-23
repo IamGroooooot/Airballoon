@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class CannonCtrlR : MonoBehaviour
 {
+    GameObject playerSound;
+    AudioSource R1,R2,R3;
 
 	//포탄 발사 딜레이
 	public float delay = 3f;
@@ -31,7 +33,11 @@ public class CannonCtrlR : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		CanShoot = true;
+        playerSound = PlayerManager.instance.player.transform.GetChild(6).gameObject;
+        R1= playerSound.transform.GetChild(0).GetComponent<AudioSource>();
+        R2 = playerSound.transform.GetChild(1).GetComponent<AudioSource>();
+        R3 = playerSound.transform.GetChild(2).GetComponent<AudioSource>();
+        CanShoot = true;
 		time = 0;
 		WhereToFireRC1= new Vector3(0,0,0);
 		WhereToFireRC2= new Vector3(0,0,0);
@@ -68,7 +74,7 @@ public class CannonCtrlR : MonoBehaviour
 		if (TimerOn) {
 			time++;
 			if (time == reload) {
-				Debug.Log ("대포 발사1");
+
 				Vector3 FirePos_1 = Fire_1.position;
 				//TempBulletRC1 = Instantiate (BulletRC1, FirePos_1, BulletRC1.transform.rotation) as GameObject;
                 
@@ -81,12 +87,12 @@ public class CannonCtrlR : MonoBehaviour
 
 
 				Bullet.SetActive (true);
-
+                R1.Play();
 				Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireRC1.normalized*bullectRSpeed;
 				Bullet.GetComponent<TrailRenderer> ().Clear();
 
 			} else if (time == reload * 2) {
-				Debug.Log ("대포 발사2");
+
 				Vector3 FirePos_2 = Fire_2.position;
 			
 				//TempBulletRC2 = Instantiate (BulletRC2, FirePos_2, BulletRC2.transform.rotation);
@@ -99,11 +105,12 @@ public class CannonCtrlR : MonoBehaviour
 
 
 				Bullet.SetActive (true);
-				Bullet.GetComponent<Rigidbody> ().velocity =WhereToFireRC2.normalized*bullectRSpeed;
+                R2.Play();
+                Bullet.GetComponent<Rigidbody> ().velocity =WhereToFireRC2.normalized*bullectRSpeed;
 				Bullet.GetComponent<TrailRenderer> ().Clear();
 			
 			} else if (time == reload * 3) {
-				Debug.Log ("대포 발사3");
+
 				Vector3 FirePos_3 = Fire_3.position;
 				//TempBulletRC3 = Instantiate (BulletRC3, FirePos_3, BulletRC3.transform.rotation);
 				GameObject Bullet = ObjectPooling.pool.GetPoolObject_Bullet ();
@@ -114,6 +121,7 @@ public class CannonCtrlR : MonoBehaviour
 				Bullet.transform.position = FirePos_3;
 
                 Bullet.SetActive(true);
+                R3.Play();
                 Bullet.GetComponent<Rigidbody> ().velocity = WhereToFireRC3.normalized*bullectRSpeed;
 				Bullet.GetComponent<TrailRenderer> ().Clear();
 

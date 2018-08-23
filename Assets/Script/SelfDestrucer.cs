@@ -16,6 +16,7 @@ public class SelfDestrucer : MonoBehaviour
     public float velocity = 4.0f;
     //public float acceleration;
 
+    public float MAX_HP = 25;
     public float HP = 25; //대포업그레이드 추가하면 HP높아짐 (박쥐<유령<오징어)
     public float attackDist = 30.0f;
     public float traceDist = 1000.0f;
@@ -121,7 +122,7 @@ public class SelfDestrucer : MonoBehaviour
                     break;
 
                 case State.attak:
-
+                    //explosion.GetComponent<AudioSource>().Play();
                     explosion.gameObject.SetActive(true);
                     explosion.transform.position = Tr.position;
                     StartCoroutine(Attacking());
@@ -135,7 +136,8 @@ public class SelfDestrucer : MonoBehaviour
     private void OnDisable()
     {
         isDie = false;
-        gameObject.transform.parent.gameObject.SetActive(false); //비활
+        state = State.idle;
+        HP = MAX_HP;
     }
     void Kills()
     {
@@ -144,7 +146,8 @@ public class SelfDestrucer : MonoBehaviour
 
     IEnumerator Die()
     {
-        yield return new WaitForSeconds(1f);
+        gameObject.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(0.1f);
         Kills();
         isDie = true;
 

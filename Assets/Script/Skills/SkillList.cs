@@ -21,6 +21,8 @@ public class SkillList : MonoBehaviour{
 	public Transform PlayerTr;
 	public Transform PlayerTr2;
 
+    AudioSource BoosterSound;
+
 	public float cool0 = 20f;
 	public float cool1 = 20f;
 	public float cool2 =2f;
@@ -37,7 +39,12 @@ public class SkillList : MonoBehaviour{
 	public float ThunderLastTime = 15;
     public float SpeedCloudLastTime = 15f;
 
+    void Start()
+    {
+        BoosterSound = PlayerManager.instance.player.transform.GetChild(6).GetChild(6).GetComponent<AudioSource>();
 
+
+    }
 
     void Awake(){
 		
@@ -58,7 +65,9 @@ public class SkillList : MonoBehaviour{
 
 	public void Booster () //1 쿨20초
 	{
-		Joystick2.max_Speed = PlayerDB.DB.max_Speed;
+        BoosterSound.Play();
+
+        Joystick2.max_Speed = PlayerDB.DB.max_Speed;
 		Joystick2.BoostRate = 2.0f; // 200%증가
 		Joystick2.BoostTime = 3f;
 		Joystick2.BoostTimerOn = true;

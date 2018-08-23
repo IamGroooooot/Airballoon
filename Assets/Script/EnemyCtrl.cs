@@ -9,17 +9,16 @@ public class EnemyCtrl : MonoBehaviour
 
     public static EnemyCtrl Instance;
 
-    float WhereY;
     public float Max_Hp;
     public float HP;
     public bool is_dead;
-    int count;
+    int OnlyOnce=0;
 
     public GameObject explosion;
-    private Transform PlayerTr;
+
 
     private Transform Tr;
-    private Rigidbody Rb;
+
 
     public Animator ani;
 
@@ -32,6 +31,7 @@ public class EnemyCtrl : MonoBehaviour
 
     private void OnEnable()
     {
+        OnlyOnce = 0;
         is_dead = false;
         HP = 100;
         ani.SetBool("isDie", false);
@@ -40,11 +40,10 @@ public class EnemyCtrl : MonoBehaviour
 
     void Start()
     {
-        PlayerTr = PlayerManager.instance.player.transform;
-        count = 0;
+
+
         Tr = this.GetComponent<Transform>();
         Max_Hp = HP;
-        Rb = this.GetComponent<Rigidbody>();
         is_dead = false;
     }
 
@@ -65,12 +64,6 @@ public class EnemyCtrl : MonoBehaviour
     void FixedUpdate()
     {
 
-
-        if (WhereY < -2000f)
-        {
-            OnBecameInvisible();
-        }
-
     }
 
     void Update()
@@ -82,6 +75,13 @@ public class EnemyCtrl : MonoBehaviour
             explosion.transform.position = Tr.position;
             ani.SetBool("isDie", true);
             StartCoroutine(Die());           
+        }
+
+        if((HP<=0) && OnlyOnce ==0)
+        {
+            gameObject.GetComponent<AudioSource>().Play();
+            OnlyOnce++;
+
         }
 
     }
@@ -100,8 +100,10 @@ public class EnemyCtrl : MonoBehaviour
 
     private void OnDisable()
     {
+        
         is_dead = false;
         HP = Max_Hp;
+        OnlyOnce = 0;
         ani.SetBool("isDie", false);
         explosion.gameObject.SetActive(false);
     }
@@ -116,7 +118,7 @@ public class EnemyCtrl : MonoBehaviour
         yield return new WaitForSeconds(1.2f);
         Kills();
         is_dead = true;
-
+        
         gameObject.transform.parent.gameObject.SetActive(false); //비활
 
     }
