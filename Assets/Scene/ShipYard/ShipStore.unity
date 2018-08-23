@@ -182,6 +182,53 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 6551821}
+--- !u!1001 &45693570
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4114482269334708, guid: 70223e3c2bc17cb48813969bdc87829f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 188.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114482269334708, guid: 70223e3c2bc17cb48813969bdc87829f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 18.060005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114482269334708, guid: 70223e3c2bc17cb48813969bdc87829f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114482269334708, guid: 70223e3c2bc17cb48813969bdc87829f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114482269334708, guid: 70223e3c2bc17cb48813969bdc87829f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114482269334708, guid: 70223e3c2bc17cb48813969bdc87829f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114482269334708, guid: 70223e3c2bc17cb48813969bdc87829f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114482269334708, guid: 70223e3c2bc17cb48813969bdc87829f, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 82989405866558898, guid: 70223e3c2bc17cb48813969bdc87829f,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 21cea5b412dd23f4396c7ac5047b0c0c, type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 70223e3c2bc17cb48813969bdc87829f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &62806321
 GameObject:
   m_ObjectHideFlags: 0
@@ -8846,6 +8893,11 @@ Prefab:
         type: 2}
       propertyPath: InitialModule.startSpeed.scalar
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 198566668183168172, guid: 965ab73015f3e7847a3d5705ca03c66b,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198566668183168172, guid: 965ab73015f3e7847a3d5705ca03c66b,
         type: 2}

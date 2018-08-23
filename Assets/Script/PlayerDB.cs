@@ -53,7 +53,7 @@ public class PlayerDB : MonoBehaviour
     public GameObject none; //-1
 
     public int Tuto; // 0:미완료 1:완료
-    public int ShipYard; //0:미완료 1:완료
+    public int ShipYard = 0; //0:미완료 1:완료
 
     //Public Player (싱글턴 참조용)
     public GameObject Player;

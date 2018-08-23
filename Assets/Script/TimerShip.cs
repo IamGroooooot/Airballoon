@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimerShip : MonoBehaviour {
     //GameManager 게임 시스템을 전체 관리하는 스크립트
 
     public static TimerShip Instance = null;
+    //public GameObject GameOver;
 
     //전체 시간, 웨이브 관리, 이벤트
     bool WaveStart, StartTimer, TimerEnd = false;
@@ -32,6 +34,7 @@ public class TimerShip : MonoBehaviour {
     private int plus;
     private int Amount;
 
+    bool over = false;
 
     private void Awake()
     {
@@ -40,7 +43,8 @@ public class TimerShip : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
+
+        //GameOver.gameObject.SetActive(false);
 		X = GetComponent<RectTransform> ().anchoredPosition.x;
 		Distance = X;
 		Velocity = Mathf.Abs(Distance / PerStageTime);
@@ -65,6 +69,14 @@ public class TimerShip : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (PlayerDB.DB.cur_Health <=0 && over == false)
+        {
+            //실패문구, 사운드 추가
+            over = true;
+            StartCoroutine(Gameover());
+
+        }
+
 		if (StartTimer) {
 			StartCoroutine (ShipTimerStart());
 			StartTimer = false;
@@ -111,6 +123,7 @@ public class TimerShip : MonoBehaviour {
 
                 case EventState.Ending: //보상창 나옴
                     //보상창 ON
+                    PlayerDB.DB.cur_Health = PlayerDB.DB.max_Health;
                     plus = (int)(Compensation * kills * 0.03) + (int)(Compensation * bounus * 0.05);
                     Compensation = Compensation + plus;
                     Amount = Compensation;
@@ -121,5 +134,10 @@ public class TimerShip : MonoBehaviour {
             }
             yield return null;
         }
-    }    
+    }
+    IEnumerator Gameover() {
+        yield return new WaitForSeconds(2.0f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("WorldMap");
+    }
+
 }

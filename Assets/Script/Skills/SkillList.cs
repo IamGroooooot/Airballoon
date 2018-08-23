@@ -69,7 +69,7 @@ public class SkillList : MonoBehaviour{
 
         Joystick2.max_Speed = PlayerDB.DB.max_Speed;
 		Joystick2.BoostRate = 2.0f; // 200%증가
-		Joystick2.BoostTime = 3f;
+		Joystick2.BoostTime = 5f;
 		Joystick2.BoostTimerOn = true;
         booster.gameObject.SetActive(true);
         //string DescriptionKor = "일시적으로 속도가 증가한다";
@@ -78,7 +78,7 @@ public class SkillList : MonoBehaviour{
 	public void Shield() //2 쿨2초
 	{
 		shield.gameObject.SetActive(true);
-		StartCoroutine(LastTime(shield,2f));
+		StartCoroutine(LastTime(shield,4f));
         //string DescriptionKor = "방어막을 생성한다";
     }
 
@@ -93,7 +93,7 @@ public class SkillList : MonoBehaviour{
         Drone.transform.rotation = PlayerTr.rotation;
 
         Drone.SetActive(true);
-		StartCoroutine(LastTime(Drone, 15f));
+		StartCoroutine(LastTime(Drone, 30f));
         //string DescriptionKor = "드론을 생성한다";
     }
 

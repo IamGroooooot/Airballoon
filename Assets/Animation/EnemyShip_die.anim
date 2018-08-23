@@ -117,14 +117,20 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.25
         value: {x: -0.001, y: -109.33101, z: -0.006}
-        inSlope: {x: -0.0225, y: -453.9975, z: 0}
-        outSlope: {x: -0.0225, y: -453.9975, z: 0}
+        inSlope: {x: 0, y: -514.00995, z: 0}
+        outSlope: {x: 0, y: -514.00995, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.3
+        value: {x: 27.891, y: -147.789, z: 1.6470001}
+        inSlope: {x: 0, y: -469.01996, z: 0}
+        outSlope: {x: 0, y: -469.01996, z: 0}
         tangentMode: 0
       - serializedVersion: 2
         time: 0.5
         value: {x: -0.004, y: -226.586, z: 0.003}
-        inSlope: {x: -0.008, y: 0, z: 0}
-        outSlope: {x: -0.008, y: 0, z: 0}
+        inSlope: {x: -0.008893765, y: 0, z: -0.053333726}
+        outSlope: {x: -0.008893765, y: 0, z: -0.053333726}
         tangentMode: 0
       - serializedVersion: 2
         time: 0.75
@@ -259,6 +265,87 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     path: Iron Body
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.1
+        value: {x: -33.45, y: -18.890001, z: 12.791}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.25
+        value: {x: -6.57, y: 85.147, z: -38.022003}
+        inSlope: {x: 97.59295, y: 0, z: -172.93413}
+        outSlope: {x: 97.59295, y: 0, z: -172.93413}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.525
+        value: {x: 8.027, y: 68.698006, z: -60.706}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Enemy_Sail/Cannon_Left (1)
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 1.7210001, y: 180.31, z: -0.423}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.1
+        value: {x: 35.197002, y: 161.014, z: -13.272}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.25
+        value: {x: 7.7330003, y: 266.464, z: 37.759003}
+        inSlope: {x: -100.35295, y: 0, z: 172.53413}
+        outSlope: {x: -100.35295, y: 0, z: 172.53413}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.525
+        value: {x: -7.4530005, y: 250.36499, z: 60.055004}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Enemy_Sail/Cannon_Right (1)
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.3
+        value: {x: -20.763, y: -15.68, z: 19.123001}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Enemy_Sail/Quick BodyShip
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -303,13 +390,19 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: {x: 7, y: -54.936, z: -23.9}
+        value: {x: 7, y: -69, z: -23.9}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
       - serializedVersion: 2
+        time: 0.3
+        value: {x: 24.283003, y: -275.12042, z: 14.864019}
+        inSlope: {x: 0, y: -659.5853, z: 0}
+        outSlope: {x: 0, y: -659.5853, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
         time: 1.25
-        value: {x: 7, y: -550.936, z: -23.9}
+        value: {x: 7, y: -1617, z: -23.9}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -374,6 +467,105 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     path: Iron Body
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: -16, y: -58, z: -58}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.1
+        value: {x: -5.7300076, y: -88.73537, z: -48.103}
+        inSlope: {x: 0, y: -199.45972, z: 158.35199}
+        outSlope: {x: 0, y: -199.45972, z: 158.35199}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.25
+        value: {x: -51.19632, y: -107.86493, z: -16.733757}
+        inSlope: {x: 0, y: -180.04295, z: 0}
+        outSlope: {x: 0, y: -180.04295, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.525
+        value: {x: -38.93743, y: -215.78389, z: -31.515778}
+        inSlope: {x: 49.035553, y: -431.67584, z: -30.266243}
+        outSlope: {x: 49.035553, y: -431.67584, z: -30.266243}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.25
+        value: {x: 2, y: -683, z: -47}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Enemy_Sail/Cannon_Left (1)
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: -13.170042, y: -55.637005, z: 14.508957}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.1
+        value: {x: -22.67889, y: -46.32251, z: 8.333366}
+        inSlope: {x: 0, y: 0, z: -98.80945}
+        outSlope: {x: 0, y: 0, z: -98.80945}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.25
+        value: {x: 26.281488, y: -93.70839, z: -19.286339}
+        inSlope: {x: 0, y: -434.9432, z: 0}
+        outSlope: {x: 0, y: -434.9432, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.525
+        value: {x: 15.64566, y: -231.17337, z: -0.39136505}
+        inSlope: {x: -21.451477, y: -549.8599, z: 44.79536}
+        outSlope: {x: -21.451477, y: -549.8599, z: 44.79536}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.25
+        value: {x: 4.8300114, y: -680.637, z: 25.509022}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Enemy_Sail/Cannon_Right (1)
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: {x: 0.1, y: -66.464, z: -19.3}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 0.3
+        value: {x: 0.3260775, y: -211.56116, z: -11.779667}
+        inSlope: {x: 0, y: -464.31094, z: 0}
+        outSlope: {x: 0, y: -464.31094, z: 0}
+        tangentMode: 0
+      - serializedVersion: 2
+        time: 1.25
+        value: {x: 0.1, y: -1132.528, z: -19.3}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Enemy_Sail/Quick BodyShip
   m_ScaleCurves: []
   m_FloatCurves: []
   m_PPtrCurves: []
@@ -427,6 +619,27 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
+      path: 1874006197
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1406240584
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 3289013379
+      attribute: 1
+      script: {fileID: 0}
+      typeID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - serializedVersion: 2
       path: 2498869303
       attribute: 4
       script: {fileID: 0}
@@ -463,6 +676,27 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 2924622253
+      attribute: 4
+      script: {fileID: 0}
+      typeID: 4
+      customType: 4
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1874006197
+      attribute: 4
+      script: {fileID: 0}
+      typeID: 4
+      customType: 4
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 1406240584
+      attribute: 4
+      script: {fileID: 0}
+      typeID: 4
+      customType: 4
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 3289013379
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -784,14 +1018,20 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.25
         value: -0.001
-        inSlope: -0.0225
-        outSlope: -0.0225
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.3
+        value: 27.891
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
         time: 0.5
         value: -0.004
-        inSlope: -0.008
-        outSlope: -0.008
+        inSlope: -0.008893765
+        outSlope: -0.008893765
         tangentMode: 136
       - serializedVersion: 2
         time: 0.75
@@ -830,8 +1070,14 @@ AnimationClip:
       - serializedVersion: 2
         time: 0.25
         value: -109.33101
-        inSlope: -453.9975
-        outSlope: -453.9975
+        inSlope: -514.00995
+        outSlope: -514.00995
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.3
+        value: -147.789
+        inSlope: -469.01996
+        outSlope: -469.01996
         tangentMode: 136
       - serializedVersion: 2
         time: 0.5
@@ -880,10 +1126,16 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.5
-        value: 0.003
+        time: 0.3
+        value: 1.6470001
         inSlope: 0
         outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.5
+        value: 0.003
+        inSlope: -0.053333726
+        outSlope: -0.053333726
         tangentMode: 136
       - serializedVersion: 2
         time: 0.75
@@ -1184,6 +1436,12 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
+        time: 0.3
+        value: 24.283003
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
         time: 1.25
         value: 7
         inSlope: 0
@@ -1201,13 +1459,19 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: -54.936
+        value: -69
         inSlope: 0
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
+        time: 0.3
+        value: -275.12042
+        inSlope: -659.5853
+        outSlope: -659.5853
+        tangentMode: 136
+      - serializedVersion: 2
         time: 1.25
-        value: -550.936
+        value: -1617
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1224,6 +1488,12 @@ AnimationClip:
       - serializedVersion: 2
         time: 0
         value: -23.9
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.3
+        value: 14.864019
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1678,6 +1948,600 @@ AnimationClip:
     path: Iron Body
     classID: 4
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -16
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.1
+        value: -5.7300076
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.25
+        value: -51.19632
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.525
+        value: -38.93743
+        inSlope: 49.035553
+        outSlope: 49.035553
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1.25
+        value: 2
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: Enemy_Sail/Cannon_Left (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -58
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.1
+        value: -88.73537
+        inSlope: -199.45972
+        outSlope: -199.45972
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.25
+        value: -107.86493
+        inSlope: -180.04295
+        outSlope: -180.04295
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.525
+        value: -215.78389
+        inSlope: -431.67584
+        outSlope: -431.67584
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1.25
+        value: -683
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: Enemy_Sail/Cannon_Left (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -58
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.1
+        value: -48.103
+        inSlope: 158.35199
+        outSlope: 158.35199
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.25
+        value: -16.733757
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.525
+        value: -31.515778
+        inSlope: -30.266243
+        outSlope: -30.266243
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1.25
+        value: -47
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: Enemy_Sail/Cannon_Left (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -13.170042
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.1
+        value: -22.67889
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.25
+        value: 26.281488
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.525
+        value: 15.64566
+        inSlope: -21.451477
+        outSlope: -21.451477
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1.25
+        value: 4.8300114
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: Enemy_Sail/Cannon_Right (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -55.637005
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.1
+        value: -46.32251
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.25
+        value: -93.70839
+        inSlope: -434.9432
+        outSlope: -434.9432
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.525
+        value: -231.17337
+        inSlope: -549.8599
+        outSlope: -549.8599
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1.25
+        value: -680.637
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: Enemy_Sail/Cannon_Right (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 14.508957
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.1
+        value: 8.333366
+        inSlope: -98.80945
+        outSlope: -98.80945
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.25
+        value: -19.286339
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.525
+        value: -0.39136505
+        inSlope: 44.79536
+        outSlope: 44.79536
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1.25
+        value: 25.509022
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: Enemy_Sail/Cannon_Right (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.1
+        value: -33.45
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.25
+        value: -6.57
+        inSlope: 97.59295
+        outSlope: 97.59295
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.525
+        value: 8.027
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Enemy_Sail/Cannon_Left (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.1
+        value: -18.890001
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.25
+        value: 85.147
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.525
+        value: 68.698006
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Enemy_Sail/Cannon_Left (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.1
+        value: 12.791
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.25
+        value: -38.022003
+        inSlope: -172.93413
+        outSlope: -172.93413
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.525
+        value: -60.706
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Enemy_Sail/Cannon_Left (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 1.7210001
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.1
+        value: 35.197002
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.25
+        value: 7.7330003
+        inSlope: -100.35295
+        outSlope: -100.35295
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.525
+        value: -7.4530005
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Enemy_Sail/Cannon_Right (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 180.31
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.1
+        value: 161.014
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.25
+        value: 266.464
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.525
+        value: 250.36499
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Enemy_Sail/Cannon_Right (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -0.423
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.1
+        value: -13.272
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.25
+        value: 37.759003
+        inSlope: 172.53413
+        outSlope: 172.53413
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.525
+        value: 60.055004
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Enemy_Sail/Cannon_Right (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0.1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.3
+        value: 0.3260775
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1.25
+        value: 0.1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.x
+    path: Enemy_Sail/Quick BodyShip
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -66.464
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.3
+        value: -211.56116
+        inSlope: -464.31094
+        outSlope: -464.31094
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1.25
+        value: -1132.528
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.y
+    path: Enemy_Sail/Quick BodyShip
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: -19.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.3
+        value: -11.779667
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 1.25
+        value: -19.3
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalPosition.z
+    path: Enemy_Sail/Quick BodyShip
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.3
+        value: -20.763
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: Enemy_Sail/Quick BodyShip
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.3
+        value: -15.68
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: Enemy_Sail/Quick BodyShip
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.3
+        value: 19.123001
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: Enemy_Sail/Quick BodyShip
+    classID: 4
+    script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
       serializedVersion: 2
@@ -1686,7 +2550,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Enemy_Sail/Enemy_sail
+    path: Enemy_Sail/Cannon_Right (1)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1696,7 +2560,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Enemy_Sail/Enemy_sail
+    path: Enemy_Sail/Cannon_Right (1)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1706,7 +2570,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Enemy_Sail/Enemy_sail
+    path: Enemy_Sail/Cannon_Right (1)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1857,6 +2721,96 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
     path: Iron Body
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Enemy_Sail/Cannon_Left (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Enemy_Sail/Cannon_Left (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Enemy_Sail/Cannon_Left (1)
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Enemy_Sail/Enemy_sail
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Enemy_Sail/Enemy_sail
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Enemy_Sail/Enemy_sail
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: Enemy_Sail/Quick BodyShip
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: Enemy_Sail/Quick BodyShip
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: Enemy_Sail/Quick BodyShip
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

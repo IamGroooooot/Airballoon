@@ -181,7 +181,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 100
+  m_Text: 130
 --- !u!222 &9379349
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -575,7 +575,7 @@ MonoBehaviour:
   eventState: 0
   kills: 0
   bounus: 0
-  Compensation: 100
+  Compensation: 130
   End: {fileID: 1612565430}
   compen: {fileID: 636698494}
   amount: {fileID: 1334634054}
@@ -2341,13 +2341,13 @@ MonoBehaviour:
   Island7: {fileID: 1077029763614546, guid: e83dd156a06861d40bf452a4eb85fd94, type: 2}
   Island8: {fileID: 1800695365475870, guid: 42e432db4be4afb4a980167c2189d4e1, type: 2}
   Skull: {fileID: 1690624807845288, guid: 9685ac87bd59d914d8862b3497b8385f, type: 2}
-  Destructer: {fileID: 1128188643280802, guid: b7a4e431323039c48be6786a36cbb485, type: 2}
+  Destructer: {fileID: 1966204739274220, guid: b7a4e431323039c48be6786a36cbb485, type: 2}
   Kanu: {fileID: 1265231136994758, guid: fc3d097b3e5a55c4aa6631be81927f6c, type: 2}
-  weakBattleShip: {fileID: 1196636673345708, guid: 777fe8d8c82b25a4bb7ba67e582d3ca4,
+  weakBattleShip: {fileID: 1685475214185388, guid: d4263c027aa859c449a0b46caebefe70,
     type: 2}
   Itembox: {fileID: 1659897599397924, guid: f453e46fea11cb749b88ca473c3671e7, type: 2}
   Cloud: {fileID: 1770288129031126, guid: f8c7d0ee98eaac64ba9d5018003e7b13, type: 2}
-  Drone_skill: {fileID: 1307806930360080, guid: 9a424b24e6ee6c5419327c37ca05469d,
+  Drone_skill: {fileID: 1192919578911756, guid: e92b66f8912234947bc29248acae8067,
     type: 2}
   Rain_skill: {fileID: 1879759671036974, guid: 60206d82bc386054b8651d8397b9e0b3, type: 2}
   Thunder_skill: {fileID: 1590137640347260, guid: 4fb8e47c31f2d904e946240e4161b1ab,
@@ -4500,7 +4500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
-  createTime: 15
+  createTime: 40
 --- !u!1 &1291398364
 GameObject:
   m_ObjectHideFlags: 0
@@ -4915,6 +4915,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114570070365899762, guid: 3a79587b9f65b39468b4671ee3146ad1,
+        type: 2}
+      propertyPath: Gull_Prefab1
+      value: 
+      objectReference: {fileID: 1283939986476000, guid: 114c89b65f311e345b73446c9ac412e6,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3a79587b9f65b39468b4671ee3146ad1, type: 2}
   m_IsPrefabParent: 0
@@ -6307,6 +6313,11 @@ Prefab:
       propertyPath: myHealthBar
       value: 
       objectReference: {fileID: 1638984392}
+    - target: {fileID: 81470399369470336, guid: 13b6aaf0fa7c286459263f6346596b24,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13b6aaf0fa7c286459263f6346596b24, type: 2}
   m_IsPrefabParent: 0

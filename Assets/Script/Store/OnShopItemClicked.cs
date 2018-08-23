@@ -78,7 +78,7 @@ public class OnShopItemClicked : MonoBehaviour {
 
 	public void OnItem1Clicked()
 	{
-		int cost = 1;
+		int cost = 3;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (0);
 			PlayerDB.DB.gold -= cost;
@@ -89,7 +89,7 @@ public class OnShopItemClicked : MonoBehaviour {
 	}
 	public void OnItem2Clicked()
 	{
-		int cost = 1;
+		int cost = 2;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (1);
             PlayerDB.DB.gold -= cost;
@@ -98,7 +98,7 @@ public class OnShopItemClicked : MonoBehaviour {
 	}
 	public void OnItem3Clicked()
 	{
-		int cost = 1;
+		int cost = 4;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (2);
             PlayerDB.DB.gold -= cost;
@@ -106,7 +106,7 @@ public class OnShopItemClicked : MonoBehaviour {
 	}
 	public void OnItem4Clicked()
 	{
-		int cost = 1;
+		int cost = 5;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (3);
             PlayerDB.DB.gold -= cost;
@@ -115,7 +115,7 @@ public class OnShopItemClicked : MonoBehaviour {
 	}
 	public void OnItem5Clicked()
 	{
-		int cost = 1;
+		int cost = 3;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (4);
             PlayerDB.DB.gold -= cost;
@@ -131,7 +131,7 @@ public class OnShopItemClicked : MonoBehaviour {
 	}
 	public void OnItem7Clicked()
 	{
-		int cost = 1;
+		int cost = 1000000;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (6);
             PlayerDB.DB.gold -= cost;
@@ -141,7 +141,7 @@ public class OnShopItemClicked : MonoBehaviour {
 	}
 	public void OnItem8Clicked()
 	{
-		int cost = 1;
+		int cost = 1000000;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (7);
             PlayerDB.DB.gold -= cost;
@@ -150,7 +150,7 @@ public class OnShopItemClicked : MonoBehaviour {
 	}
 	public void OnItem9Clicked()
 	{
-		int cost = 1;
+		int cost = 1000000;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (8);
             PlayerDB.DB.gold -= cost;
@@ -159,7 +159,7 @@ public class OnShopItemClicked : MonoBehaviour {
 	}
 	public void OnItem10Clicked()
 	{
-		int cost = 1;
+		int cost = 1000000;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (9);
             PlayerDB.DB.gold -= cost;
@@ -168,7 +168,7 @@ public class OnShopItemClicked : MonoBehaviour {
 	}
 	public void OnItem11Clicked()
 	{
-		int cost = 1;
+		int cost = 1000000;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (10);
             PlayerDB.DB.gold -= cost;
@@ -176,7 +176,7 @@ public class OnShopItemClicked : MonoBehaviour {
 	}
 	public void OnItem12Clicked()
 	{
-		int cost = 1;
+		int cost = 1000000;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (11);
             PlayerDB.DB.gold -= cost;

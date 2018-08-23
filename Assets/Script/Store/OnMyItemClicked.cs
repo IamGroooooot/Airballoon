@@ -156,7 +156,7 @@ public class OnMyItemClicked : MonoBehaviour {
 	public void OnSellId1()
 	{
 		
-		int cost = 1;
+		int cost = 3;
 
 		MyInvScript.items [WhichSlot] = new Item ();
 		if (transform.parent.childCount == 2)
@@ -171,7 +171,7 @@ public class OnMyItemClicked : MonoBehaviour {
 	}
 	public void OnSellId2()
 	{
-		int cost = 1;
+		int cost = 2;
 		MyInvScript.items [WhichSlot] = new Item ();
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
@@ -185,7 +185,7 @@ public class OnMyItemClicked : MonoBehaviour {
 	}
 	public void OnSellId3()
 	{
-		int cost = 1;
+		int cost = 4;
 		MyInvScript.items [WhichSlot] = new Item ();
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
@@ -198,7 +198,7 @@ public class OnMyItemClicked : MonoBehaviour {
 	}
 	public void OnSellId4()
 	{
-		int cost = 1;
+		int cost = 5;
 		MyInvScript.items [WhichSlot] = new Item ();
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
@@ -212,7 +212,7 @@ public class OnMyItemClicked : MonoBehaviour {
     }
 	public void OnSellId5()
 	{
-		int cost = 1;
+		int cost = 3;
 		MyInvScript.items [WhichSlot] = new Item ();
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)

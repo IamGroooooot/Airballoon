@@ -48,8 +48,32 @@ public class Item_Database : MonoBehaviour {
 				itemData[i]["slug"].ToString()
 			));
 		}
+        database[0].Description = "체력 15% 회복( 가격 3G )";
 
-	}
+        database[1].Description = "최대 속력 200%( 가격 2G )";
+
+        database[2].Description = "적의 총알로부터 방어해주는 방어막 생성( 가격 4G )";
+
+        database[3].Description = "적들을 공격하는 드론 생성( 가격 5G )";
+
+        database[4].Description = "적들에게 접근하여 터지는 폭탄( 가격 3G )";
+
+        database[5].Description = "비가 내리는 구름 생성( 가격 1G )";
+
+        database[6].Description = " ";
+
+        database[7].Description = "적들을 공격하는 구름 생성( 가격 1G )";
+
+        database[8].Description = " ";
+
+        database[9].Description = " ";
+
+        database[10].Description = " ";
+
+        database[11].Description = " ";
+
+        database[12].Description = " ";
+    }
 
 
 

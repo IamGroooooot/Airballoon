@@ -8,6 +8,17 @@ public class SceneManager : MonoBehaviour
     public GameObject sure;
     public GameObject scar;
 
+    //Start
+    public void GameStart()
+    {
+        if (PlayerDB.DB.ShipYard == 1)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("WorldMap");
+        }
+        else if (PlayerDB.DB.ShipYard == 0)
+        { UnityEngine.SceneManagement.SceneManager.LoadScene("ShipStore"); }
+    }
+
     //ShipYard
     public void Scene_main()
     {

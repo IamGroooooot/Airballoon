@@ -101,7 +101,7 @@ public class Tuto : MonoBehaviour {
 
    //검은공 파괴시
     public void Level3() {
-
+        GameObject.Find("Inventory").GetComponent<Inventory>().AddItem(0);
         RedCircle.gameObject.SetActive(false);
         Blueball.gameObject.SetActive(false);
 
@@ -125,6 +125,7 @@ public class Tuto : MonoBehaviour {
 
         //대화 UI창 ON, Battle UI창 OFF
         BattleUI.gameObject.SetActive(false);
+       
         Officer.gameObject.SetActive(true);;
         Explain4.gameObject.SetActive(true);
 

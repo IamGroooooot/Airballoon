@@ -6,7 +6,7 @@ public class EnemyAitshipCannonR : MonoBehaviour {
     AudioSource R1, R2, R3;
 
 	//포탄 발사 딜레이
-	public float delay = 3f;
+	public float delay = 4f;
 	public int reload = 30;
 	public bool CanShoot, TimerOn,FindPlayerR;
 	int time;
@@ -23,10 +23,10 @@ public class EnemyAitshipCannonR : MonoBehaviour {
     //복제할 총알 오브젝트
     //public GameObject BulletRC1;
 
-	
 
-	// Use this for initialization
-	void Start()
+
+    // Use this for initialization
+    void Start()
 	{
         R1 = transform.parent.parent.GetChild(2).GetChild(0).GetComponent<AudioSource>();
         R2 = transform.parent.parent.GetChild(2).GetChild(1).GetComponent<AudioSource>();

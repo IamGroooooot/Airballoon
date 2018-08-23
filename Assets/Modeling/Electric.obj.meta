@@ -1,18 +1,30 @@
 fileFormatVersion: 2
-guid: 443cc80faf96ff04fa4c571efd2c23b0
-timeCreated: 1534837908
+guid: 02447ccda9fa8b34881a1cd7d178acd8
+timeCreated: 1535033620
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Regroup02
-    400000: //RootNode
-    400002: Regroup02
-    2100000: Regroup02Mat
-    2300000: Regroup02
-    3300000: Regroup02
-    4300000: Regroup02
+    100000: Box03
+    100002: //RootNode
+    100004: Regroup09
+    100006: Regroup10
+    400000: Box03
+    400002: //RootNode
+    400004: Regroup09
+    400006: Regroup10
+    2100000: Box03Mat
+    2100002: Regroup09Mat
+    2100004: Regroup10Mat
+    2300000: Box03
+    2300002: Regroup09
+    2300004: Regroup10
+    3300000: Box03
+    3300002: Regroup09
+    3300004: Regroup10
+    4300000: Box03
+    4300002: Regroup09
+    4300004: Regroup10
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -44,7 +56,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 3
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
@@ -64,8 +76,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
+    normalSmoothAngle: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1

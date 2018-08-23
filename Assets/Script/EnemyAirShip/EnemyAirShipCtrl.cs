@@ -74,7 +74,7 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 		//Debug.Log (DistanceIS);
 		if (DistanceIS > 600f) { 
 			FaceTarget ();
-			GetComponent<Rigidbody> ().velocity= transform.forward*100f;
+			GetComponent<Rigidbody> ().velocity= transform.forward*Speed;
 		}
 		else 
 		{
@@ -82,7 +82,7 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 
 			FaceTargetForRotation ();
 
-			GetComponent<Rigidbody> ().velocity= transform.forward*0.3f;
+			GetComponent<Rigidbody> ().velocity= transform.forward*Speed*0.3f;
 		}
         if (onHit)
         {
@@ -152,7 +152,7 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 		Vector3 direction = (targetForRotation.position - transform.position).normalized;
 
 		Quaternion lookRotation = Quaternion.LookRotation (new Vector3(direction.x,0,direction.z));
-		transform.rotation = Quaternion.RotateTowards (transform.rotation,lookRotation,Time.deltaTime *100f);
+		transform.rotation = Quaternion.RotateTowards (transform.rotation,lookRotation,Time.deltaTime *damping);
 	}
 
 

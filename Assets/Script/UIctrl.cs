@@ -37,6 +37,7 @@ public class UIctrl : MonoBehaviour
     public GameObject[] Sail_Buttons = new GameObject[5];
 
     public GameObject Resource;
+    public GameObject Info;
 
     // Update is called once per frame
     void Update()
@@ -44,6 +45,16 @@ public class UIctrl : MonoBehaviour
         gold.text = PlayerDB.DB.gold.ToString();
         log.text = PlayerDB.DB.log.ToString();
         steel.text = PlayerDB.DB.steel.ToString();
+    }
+
+    public void InfoButton()
+    {
+        Info.gameObject.SetActive(true);
+    }
+
+    public void InfoExit()
+    {
+        Info.gameObject.SetActive(false);
     }
 
     public void AztecButton()

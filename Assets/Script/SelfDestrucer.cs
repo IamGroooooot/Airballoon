@@ -146,11 +146,11 @@ public class SelfDestrucer : MonoBehaviour
 
     IEnumerator Die()
     {
-        gameObject.GetComponent<AudioSource>().Play();
+
         yield return new WaitForSeconds(0.1f);
         Kills();
         isDie = true;
-
+        gameObject.GetComponent<AudioSource>().Play();
         gameObject.transform.parent.gameObject.SetActive(false); //비활
 
     }
