@@ -10,16 +10,16 @@ public class CamCtrl : MonoBehaviour {
     private Vector3 offset;
 
 	public GameObject MainCam;
-	public GameObject SubCam;
-	public GameObject ZoomInButton;
-	public GameObject InBattleUI;
-	public GameObject InIslandUI;
+	//public GameObject SubCam;
+	//public GameObject ZoomInButton;
+	//public GameObject InBattleUI;
+	//public GameObject InIslandUI;
 
 	// Use this for initialization
 	void Start () {
 		Player = PlayerManager.instance.player;
 
-		mainCamOn ();
+		//mainCamOn ();
 
 		offset = transform.position - Player.transform.position;
 
@@ -32,7 +32,7 @@ public class CamCtrl : MonoBehaviour {
 
     }
 
-	public void ZoomClick()
+	/*public void ZoomClick()
 	{
 		//Debug.Log ("Zoom in");
 		subCamOn ();
@@ -51,5 +51,5 @@ public class CamCtrl : MonoBehaviour {
 	{
 		SubCam.gameObject.SetActive(true);
 		MainCam.gameObject.SetActive(false);
-	}
+	}*/
 }

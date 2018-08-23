@@ -53,7 +53,7 @@ public class PlayerDB : MonoBehaviour
     public GameObject none; //-1
 
     public int Tuto; // 0:미완료 1:완료
-    public int friend; //0: 1: 2:
+    public int ShipYard; //0:미완료 1:완료
 
     //Public Player (싱글턴 참조용)
     public GameObject Player;
@@ -84,6 +84,7 @@ public class PlayerDB : MonoBehaviour
         Water = PlayerPrefs.GetFloat("Water");
 
         Tuto = PlayerPrefs.GetInt("Tuto");
+        ShipYard = PlayerPrefs.GetInt("ShipYard");
 
         Top = PlayerPrefs.GetInt("Top");
         Body = PlayerPrefs.GetInt("Body");
@@ -98,12 +99,11 @@ public class PlayerDB : MonoBehaviour
     void OnEnable()
     {
         cur_Health = max_Health;
-
-        
         if (PlayerPrefs.GetFloat("CannonDamage") == 0)
         {
             CannonDamage = 10f;
-        }else
+        }
+        else
         {
             CannonDamage = PlayerPrefs.GetFloat("CannonDamage");
         }
@@ -116,6 +116,7 @@ public class PlayerDB : MonoBehaviour
         Water = PlayerPrefs.GetFloat("Water");
 
         Tuto = PlayerPrefs.GetInt("Tuto");
+        ShipYard = PlayerPrefs.GetInt("ShipYard");
 
         Top = PlayerPrefs.GetInt("Top");
         Body = PlayerPrefs.GetInt("Body");
@@ -431,7 +432,9 @@ public class PlayerDB : MonoBehaviour
         PlayerPrefs.HasKey("is_body");
         PlayerPrefs.HasKey("is_head");
         PlayerPrefs.HasKey("is_gun");
+
         PlayerPrefs.SetInt("Tuto",Tuto);
+        PlayerPrefs.SetInt("ShipYard", ShipYard);
 
         PlayerPrefs.SetInt("Top", Top);
         PlayerPrefs.SetInt("Body", Body);

@@ -19,7 +19,7 @@ public class EnemyBullet : MonoBehaviour {
 		//Debug.Log (ImEnemy.transform.GetChild(0).name);
 		
 		
-		StartCoroutine (Disable (2.0f));
+		StartCoroutine (Disable (5.0f));
 	}
 
     private void OnBecameInvisible()

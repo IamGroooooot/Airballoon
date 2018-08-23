@@ -6,14 +6,51 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 	Transform target;
 	Transform targetForRotation;
 	float DistanceIS;
-	// Use this for initialization
-	void Start () {
+    private Transform Tr;
+    public float HP = 1000;
+    public bool is_dead;
+    public GameObject explosion;
+    public Animator ani;
+
+    //Effects
+    public GameObject Fire1;
+
+    // Use this for initialization
+    void Start () {
 		target = PlayerManager.instance.player.transform;
+        Tr = GetComponent<Transform>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		DistanceIS = Vector3.Distance (target.position,transform.position);
+
+    private void OnEnable()
+    {
+        is_dead = false;
+        HP = 1000;
+        ani.SetBool("isDie", false);
+        explosion.gameObject.SetActive(false);
+    }
+
+    // Update is called once per frame
+    void Update () {
+
+        if (HP <= 0 && is_dead == false)
+        {
+            explosion.gameObject.SetActive(true);
+            explosion.transform.position = Tr.position;
+            ani.SetBool("isDie", true);
+            StartCoroutine(Die());
+        }
+
+        if (HP / 1000 <= 0.5)
+        {
+            Fire1.gameObject.SetActive(true);
+
+        }
+        else
+        {
+            Fire1.gameObject.SetActive(false);
+        }
+
+        DistanceIS = Vector3.Distance (target.position,transform.position);
 
 		//Debug.Log (DistanceIS);
 		if (DistanceIS > 600f) { 
@@ -28,14 +65,23 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 
 			GetComponent<Rigidbody> ().velocity= transform.forward*30f;
 		}
-
-
-
 	}
 
+    void OnTriggerEnter(Collider Col)
+    {
+        if (Col.CompareTag("Bullet"))
+        {
+            HP -= PlayerDB.DB.CannonDamage;
+        }
+
+        if (Col.CompareTag("SmallBullet"))
+        {
+            HP -= 1;
+        }
+    }
 
 
-	public GameObject FindClosest(){
+    public GameObject FindClosest(){
 		GameObject[] gos;
 		gos = GameObject.FindGameObjectsWithTag ("Rotation");
 		GameObject closest = null;
@@ -97,7 +143,26 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 
 		Quaternion lookRotation = Quaternion.LookRotation (new Vector3(Turndirection.x,0,Turndirection.z));
 		transform.rotation = Quaternion.RotateTowards (transform.rotation,lookRotation,Time.deltaTime *200f);
-
-
 	}
+
+    IEnumerator Die() {
+        yield return new WaitForSeconds(1.2f);
+        Kills();
+        is_dead = true;
+        Fire1.gameObject.SetActive(false);
+
+        gameObject.transform.parent.gameObject.SetActive(false); //비활
+
+    }
+
+    private void OnDisable()
+    {
+        is_dead = false;
+        HP = 1000;
+        ani.SetBool("isDie", false);
+    }
+    void Kills()
+    {
+        TimerShip.Instance.kills++;
+    }
 }

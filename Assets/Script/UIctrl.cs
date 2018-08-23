@@ -51,7 +51,7 @@ public class UIctrl : MonoBehaviour
         Scroll.gameObject.SetActive(true);
         Figure_image.gameObject.GetComponent<Image>().sprite = Aztec;
         Weather.gameObject.GetComponent<Image>().sprite = rain;
-        explain.text = "";
+        explain.text = "대언이가 쓸겁니다.\n 이 악당을 퇴치하기 위해선 큰 각오를 해야합니다.\n끔찍하고 어두운 기운이 섬을 감싸고 있어 천둥 번개가 내립니다.\n\n벼락에 맞으면 배가 파손되니 주의하세요!";
         Sail_Buttons[0].gameObject.SetActive(true);
         Sail_Buttons[1].gameObject.SetActive(false);
         Sail_Buttons[2].gameObject.SetActive(false);
@@ -99,7 +99,7 @@ public class UIctrl : MonoBehaviour
         Scroll.gameObject.SetActive(true);
         Figure_image.gameObject.GetComponent<Image>().sprite = Scholar;
         Weather.gameObject.GetComponent<Image>().sprite = snowy;
-        explain.text = "";
+        explain.text = "열권의 건조한 사막섬은 오로라로 둘러싸여있습니다.\n사막섬의 주민들은 아름다운 하늘을 지키기 위해 필사적입니다.\n\n열권의 아름다운 환경은 날카로운 이빨을 숨기고 있습니다.유성이 떨어집니다.\n유성에 피격되면 큰 충격을 받습니다.";
         Sail_Buttons[4].gameObject.SetActive(true);
         Sail_Buttons[1].gameObject.SetActive(false);
         Sail_Buttons[2].gameObject.SetActive(false);

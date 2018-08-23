@@ -5,7 +5,7 @@ using UnityEngine;
 public class Optimizing : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         Application.targetFrameRate = 60;
         QualitySettings.vSyncCount = 0;
     }

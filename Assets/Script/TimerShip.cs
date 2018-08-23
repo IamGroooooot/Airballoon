@@ -40,6 +40,7 @@ public class TimerShip : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        
 		X = GetComponent<RectTransform> ().anchoredPosition.x;
 		Distance = X;
 		Velocity = Mathf.Abs(Distance / PerStageTime);

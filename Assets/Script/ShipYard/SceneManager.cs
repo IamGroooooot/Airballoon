@@ -29,6 +29,11 @@ public class SceneManager : MonoBehaviour
     }
 
     //MainGame
+    public void Scene_ShipYardstore_Back()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("ShipStore");
+    }
+
     public void Scene_MainGame()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main");

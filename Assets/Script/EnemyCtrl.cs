@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //OnBecameInvisible 적이 사라지게 한다.
-
+//SKull Balloon용 스크립트
 public class EnemyCtrl : MonoBehaviour
 {
 
@@ -21,14 +21,21 @@ public class EnemyCtrl : MonoBehaviour
     private Transform Tr;
     private Rigidbody Rb;
 
-    bool setAirshipPos = false;
-    
+    public Animator ani;
 
     void Awake()
     {
         Instance = this;
 
         //setAirshipPos = true;
+    }
+
+    private void OnEnable()
+    {
+        is_dead = false;
+        HP = 100;
+        ani.SetBool("isDie", false);
+        explosion.gameObject.SetActive(false);
     }
 
     void Start()
@@ -39,7 +46,6 @@ public class EnemyCtrl : MonoBehaviour
         Max_Hp = HP;
         Rb = this.GetComponent<Rigidbody>();
         is_dead = false;
-        setAirshipPos = true;
     }
 
 
@@ -58,11 +64,7 @@ public class EnemyCtrl : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if(setAirshipPos)
-        {
-            transform.position = new Vector3(transform.position.x,PlayerTr.position.y,transform.position.z);
 
-        }
 
         if (WhereY < -2000f)
         {
@@ -73,29 +75,13 @@ public class EnemyCtrl : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(TimerShip.Instance.kills);
         
         if (HP <= 0 )
         {
-            is_dead = true;
-
-
-            WhereY = Tr.position.y;
-            this.Rb.AddForce(0, -10000, 0);
-            gameObject.transform.GetChild(1).gameObject.SetActive(false); //BallCtlOnDetect비활
-            this.Rb.useGravity = true;
-            
-        }
-
-        if (is_dead == true && count == 0)
-        {
-            //Explosion Effect 왜 실행이 안되는거지 ㅠㅠ
             explosion.gameObject.SetActive(true);
             explosion.transform.position = Tr.position;
-            count = 1;
-
-            Kills();
-
+            ani.SetBool("isDie", true);
+            StartCoroutine(Die());           
         }
 
     }
@@ -106,24 +92,32 @@ public class EnemyCtrl : MonoBehaviour
         gameObject.transform.GetChild(1).GetComponent<Ball_CtrlOnDetact>().canAttack = false;
         gameObject.transform.GetChild(1).gameObject.SetActive(true);
 
-        this.Rb.velocity = Vector3.zero;
         is_dead = false;
-        this.Rb.useGravity = false;
         HP = Max_Hp;
-        WhereY = 100;
-        count = 0;
         gameObject.transform.parent.gameObject.SetActive(false);//얘가 아니라 얘의 부모를 SetActive(false)해야됨
-        setAirshipPos = true;
 
     }
 
     private void OnDisable()
     {
         is_dead = false;
+        HP = Max_Hp;
+        ani.SetBool("isDie", false);
+        explosion.gameObject.SetActive(false);
     }
 
     void Kills()
     {
         TimerShip.Instance.kills++;
+    }
+
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(1.2f);
+        Kills();
+        is_dead = true;
+
+        gameObject.transform.parent.gameObject.SetActive(false); //비활
+
     }
 }

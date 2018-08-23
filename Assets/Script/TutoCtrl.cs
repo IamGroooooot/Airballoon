@@ -7,8 +7,14 @@ public class TutoCtrl : MonoBehaviour {
 	public GameObject Tuto;
     public GameObject Tuto_complete;
 
-	// Update is called once per frame
-	void Update () {
+    private void Start()
+        //게임 시작하고 조립 후 월드맵 들어오면 ShipYard 완료
+    {
+        PlayerDB.DB.ShipYard = 1;
+    }
+
+    // Update is called once per frame
+    void Update () {
 		switch (PlayerDB.DB.Tuto) {
             case 0: //튜토리얼 미완료시
 			Tuto.gameObject.SetActive (true);

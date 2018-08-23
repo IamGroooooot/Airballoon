@@ -6,7 +6,12 @@ public class WallCtrl : MonoBehaviour {
 
     public GameObject warning;
 
-	void OnTriggerEnter(Collider CollEnter)
+    private void Start()
+    {
+        warning.gameObject.SetActive(false);
+    }
+
+    void OnTriggerEnter(Collider CollEnter)
 	{
         if (CollEnter.gameObject.tag == "Player")
         {

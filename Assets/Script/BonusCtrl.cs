@@ -18,12 +18,12 @@ public class BonusCtrl : MonoBehaviour {
     private void Start()
     {
         //Debug.Log(Bonus);
-        BonusText.text = "";
+        //BonusText.text = "";
     }
 
     private void Update()
     {
-        BonusText.text = "+ " + Bonus.ToString();
+        //BonusText.text = "+ " + Bonus.ToString();
     }
 
     private void OnTriggerEnter(Collider ColEnter)

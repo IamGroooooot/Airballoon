@@ -26,6 +26,11 @@ public class SelfDestrucer : MonoBehaviour
     //private Rigidbody Rb;
 
     // Use this for initialization
+    private void OnEnable()
+    {
+        explosion.gameObject.SetActive(false);
+    }
+
     void Start()
     {
         //Rb = this.GetComponent<Rigidbody> ();
@@ -59,15 +64,12 @@ public class SelfDestrucer : MonoBehaviour
     {
         if (HP <= 0 && isDie == false)
         {
-            Kills();
-            isDie = true;
-            gameObject.transform.parent.gameObject.SetActive(false); //비활
-        }
-
-        if (isDie == true)
-        {
+            
             explosion.gameObject.SetActive(true);
             explosion.transform.position = Tr.position;
+
+            StartCoroutine(Die());
+
         }
     }
 
@@ -120,12 +122,10 @@ public class SelfDestrucer : MonoBehaviour
 
                 case State.attak:
 
-                    PlayerDB.DB.cur_Health -= damage;
-                    HP_Bar.MyHealthBarSetIsTrue = true;
                     explosion.gameObject.SetActive(true);
                     explosion.transform.position = Tr.position;
-                    this.gameObject.SetActive(false);
-                    //this.Rb.AddForce (new Vector3 (0, 0, 1) * velocity);
+                    StartCoroutine(Attacking());
+
                     break;
             }
             yield return null;
@@ -135,9 +135,27 @@ public class SelfDestrucer : MonoBehaviour
     private void OnDisable()
     {
         isDie = false;
+        gameObject.transform.parent.gameObject.SetActive(false); //비활
     }
     void Kills()
     {
         TimerShip.Instance.kills++;
+    }
+
+    IEnumerator Die()
+    {
+        yield return new WaitForSeconds(1f);
+        Kills();
+        isDie = true;
+
+        gameObject.transform.parent.gameObject.SetActive(false); //비활
+
+    }
+
+    IEnumerator Attacking() {
+        yield return new WaitForSeconds(1f);
+        PlayerDB.DB.cur_Health -= damage;
+        HP_Bar.MyHealthBarSetIsTrue = true;
+        gameObject.transform.parent.gameObject.SetActive(false); //비활
     }
 }
