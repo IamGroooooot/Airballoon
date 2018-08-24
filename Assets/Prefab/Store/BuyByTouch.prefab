@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed1e8cd30a28352459663548c86e6bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredHoldTime: 0.5
+  requiredHoldTime: 0.2
   onLongClick:
     m_PersistentCalls:
       m_Calls:
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.441}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

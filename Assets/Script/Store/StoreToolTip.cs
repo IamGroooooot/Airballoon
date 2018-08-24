@@ -8,6 +8,7 @@ public class StoreToolTip : MonoBehaviour
     private Item item;
     private string data;
     private GameObject tooltip;
+    public GameObject tooltipPosition;
 
     void Start()
     {
@@ -19,7 +20,8 @@ public class StoreToolTip : MonoBehaviour
     {
         if (tooltip.activeSelf)
         {
-            tooltip.transform.position = Input.mousePosition;
+            tooltip.transform.position = tooltipPosition.transform.position;
+            //tooltip.transform.position = Input.mousePosition; //설명칸을 만들어야할듯
         }
 
     }

@@ -3318,11 +3318,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e1ed88bf2a5114fb4af3b035ac2704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 300
+  HP: 250
   is_dead: 0
   explosion: {fileID: 1042059393765660}
   ani: {fileID: 95189676393908702}
-  MAX_HP: 300
+  MAX_HP: 250
   damping: 20
   Speed: 100
   onHit: 0

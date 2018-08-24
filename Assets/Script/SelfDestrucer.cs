@@ -29,6 +29,8 @@ public class SelfDestrucer : MonoBehaviour
     // Use this for initialization
     private void OnEnable()
     {
+        isDie = false;
+        HP = MAX_HP;
         explosion.gameObject.SetActive(false);
     }
 
@@ -136,7 +138,6 @@ public class SelfDestrucer : MonoBehaviour
     private void OnDisable()
     {
         isDie = false;
-        state = State.idle;
         HP = MAX_HP;
     }
     void Kills()
@@ -156,7 +157,8 @@ public class SelfDestrucer : MonoBehaviour
     }
 
     IEnumerator Attacking() {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<AudioSource>().Play();
         PlayerDB.DB.cur_Health -= damage;
         HP_Bar.MyHealthBarSetIsTrue = true;
         gameObject.transform.parent.gameObject.SetActive(false); //비활

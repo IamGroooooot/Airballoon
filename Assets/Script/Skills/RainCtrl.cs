@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RainCtrl : MonoBehaviour {
 
-    float WhenToDestroy = 15f;
+    float WhenToDestroy = 40f;
     Vector3 RandomPos;
 
     public static bool makeThemSlow;
@@ -29,11 +29,14 @@ public class RainCtrl : MonoBehaviour {
     {
         makeThemSlow = true;
         //Slow Particle효과 ㅡ 온
-
     }
-        
-        // Update is called once per frame
-	IEnumerator MoveRandom()
+    void OnTriggerExit(Collider other)
+    {
+        makeThemSlow = false;
+    }
+
+    // Update is called once per frame
+    IEnumerator MoveRandom()
     {
         while (true)
         {

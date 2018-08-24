@@ -141,7 +141,7 @@ public class OnShopItemClicked : MonoBehaviour {
 	}
 	public void OnItem8Clicked()
 	{
-		int cost = 1000000;
+		int cost = 1;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (7);
             PlayerDB.DB.gold -= cost;

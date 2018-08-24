@@ -12,10 +12,28 @@ public class TutoShip : MonoBehaviour
     public bool is_die = false;
     public GameObject explosion;
 
+    public bool onHit;
+    int random;
+
+    float lastHp;
+    float curHp;
+
     // Use this for initialization
     void Start()
     {
+        lastHp = 300f;
+        curHp = 300f;
+        onHit = false;
+        random = 0;
         target = PlayerManager.instance.player.transform;
+    }
+
+    void OnEnable()
+    {
+        lastHp = 300f;
+        curHp = 300f;
+        onHit = false;
+        random = 0;
     }
 
     // Update is called once per frame
@@ -41,6 +59,33 @@ public class TutoShip : MonoBehaviour
         if (HP<=0 && is_die==false)
         {
             Die();
+        }
+
+        curHp = HP;
+        if(curHp < lastHp)
+        {
+            onHit = true;
+            lastHp = curHp;
+        }
+        
+        if (onHit)
+        {
+            if (random == 0)
+            {
+                transform.GetChild(2).GetChild(6).GetComponent<AudioSource>().Play();
+
+                random = Random.Range(0, 2);
+                onHit = false;
+            }
+            else
+            {
+                transform.GetChild(2).GetChild(7).GetComponent<AudioSource>().Play();
+
+                random = Random.Range(0, 2);
+                onHit = false;
+            }
+
+
         }
 
     }
@@ -133,6 +178,7 @@ public class TutoShip : MonoBehaviour
         explosion.gameObject.SetActive(true);
         this.gameObject.transform.parent.gameObject.SetActive(false);
         Tuto.Tutorial.Skull_dead = true;
+        GetComponent<AudioSource>().Play();
         is_die = true;
     }
 }

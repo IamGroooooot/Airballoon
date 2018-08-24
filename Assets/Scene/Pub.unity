@@ -460,8 +460,8 @@ GameObject:
   - component: {fileID: 90111601}
   - component: {fileID: 90111605}
   - component: {fileID: 90111604}
-  - component: {fileID: 90111603}
   - component: {fileID: 90111602}
+  - component: {fileID: 90111603}
   m_Layer: 5
   m_Name: Dialog
   m_TagString: Untagged
@@ -510,16 +510,15 @@ Animator:
 --- !u!114 &90111603
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114436423927623800, guid: 3f2d991ee557f0742bb8dc6810bdb925,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 90111600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807333a5c6ccb6f4ba1ed4d1cfda4e6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 74a69c456046927468071e37ab4243cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyTime: 1.5
+  DestroyTime: 1.2
 --- !u!114 &90111604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4552,8 +4551,8 @@ GameObject:
   - component: {fileID: 1971364900}
   - component: {fileID: 1971364904}
   - component: {fileID: 1971364903}
-  - component: {fileID: 1971364902}
   - component: {fileID: 1971364901}
+  - component: {fileID: 1971364902}
   m_Layer: 5
   m_Name: Dialog
   m_TagString: Untagged
@@ -4602,16 +4601,15 @@ Animator:
 --- !u!114 &1971364902
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114436423927623800, guid: 3f2d991ee557f0742bb8dc6810bdb925,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1971364899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807333a5c6ccb6f4ba1ed4d1cfda4e6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 74a69c456046927468071e37ab4243cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyTime: 1.5
+  DestroyTime: 1.2
 --- !u!114 &1971364903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4732,8 +4730,8 @@ GameObject:
   - component: {fileID: 2027020956}
   - component: {fileID: 2027020960}
   - component: {fileID: 2027020959}
-  - component: {fileID: 2027020958}
   - component: {fileID: 2027020957}
+  - component: {fileID: 2027020958}
   m_Layer: 5
   m_Name: Dialog
   m_TagString: Untagged
@@ -4782,16 +4780,15 @@ Animator:
 --- !u!114 &2027020958
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114436423927623800, guid: 3f2d991ee557f0742bb8dc6810bdb925,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2027020955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807333a5c6ccb6f4ba1ed4d1cfda4e6f, type: 3}
+  m_Script: {fileID: 11500000, guid: 74a69c456046927468071e37ab4243cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyTime: 1.5
+  DestroyTime: 1.2
 --- !u!114 &2027020959
 MonoBehaviour:
   m_ObjectHideFlags: 0
