@@ -60,6 +60,10 @@ public class EnemyCtrl : MonoBehaviour
         {
             HP -= 1;
         }
+        if (Col.CompareTag("AirBomb"))
+        {
+            HP -= 300;
+        }
     }
     void FixedUpdate()
     {

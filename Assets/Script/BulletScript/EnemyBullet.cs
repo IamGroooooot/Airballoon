@@ -34,6 +34,7 @@ public class EnemyBullet : MonoBehaviour {
         {
             Airship.playerOnHit = true;
             PlayerDB.DB.cur_Health -= damage;
+            HP_Bar.IsDamaged = true;
             GameObject Hit = ObjectPooling.pool.GetPoolObject_Hit();
             if (Hit == null) return;
 

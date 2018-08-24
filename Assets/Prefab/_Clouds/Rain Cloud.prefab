@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 4955164707595460}
   - component: {fileID: 33777957847171584}
   - component: {fileID: 65918987504399046}
-  - component: {fileID: 114872562178222868}
   m_Layer: 12
   m_Name: Col
   m_TagString: Untagged
@@ -419,18 +418,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   makeThemSlow: 0
---- !u!114 &114872562178222868
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1961162411039872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db524c8d37636d94cb555a41caad5886, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  warning2: {fileID: 0}
 --- !u!198 &198765978408784414
 ParticleSystem:
   m_ObjectHideFlags: 1

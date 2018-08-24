@@ -10,46 +10,73 @@ public class CamCtrl : MonoBehaviour {
     private Vector3 offset;
 
 	public GameObject MainCam;
-	//public GameObject SubCam;
-	//public GameObject ZoomInButton;
-	//public GameObject InBattleUI;
-	//public GameObject InIslandUI;
 
-	// Use this for initialization
-	void Start () {
+    public float shakes = 0f;
+
+    public float shakeAmount = 0.7f;
+
+    public float decreaseFactor = 1.0f;
+
+    Vector3 originalPos;
+
+    bool CameraShaking;
+
+    // Use this for initialization
+    void Start () {
 		Player = PlayerManager.instance.player;
 
-		//mainCamOn ();
+        originalPos = gameObject.transform.position;
 
-		offset = transform.position - Player.transform.position;
+        CameraShaking = false;
+
+        offset = transform.position - Player.transform.position;
 
     }
 
-	// Update is called once per frame
-	void LateUpdate () {
+    private void Update()
+    {
+        if (HP_Bar.IsDamaged)
+        {
+            Camera.main.GetComponent<CamCtrl>().ShakeCamera(1.0f);
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (CameraShaking)
+        {
+
+            if (shakes > 0)
+
+            {
+                gameObject.transform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+                gameObject.transform.position += new Vector3(0f, 0f, -50f);
+                shakes -= Time.deltaTime * decreaseFactor;
+
+            }
+
+            else
+
+            {
+                shakes = 0f;
+                gameObject.transform.localPosition = originalPos;
+                CameraShaking = false;
+            }
+        }
+}
+    // Update is called once per frame
+    void LateUpdate () {
 
         transform.position = Player.transform.position + offset;
 
     }
 
-	/*public void ZoomClick()
-	{
-		//Debug.Log ("Zoom in");
-		subCamOn ();
-		ZoomInButton.gameObject.SetActive (false);
-		InBattleUI.gameObject.SetActive (false);
-		InIslandUI.gameObject.SetActive (true);
-	}
+    public void ShakeCamera(float shaking)
 
-	public void mainCamOn()
-	{
-		MainCam.gameObject.SetActive(true);
-		SubCam.gameObject.SetActive(false);
-	}
+    {
+        shakes = shaking;
+        originalPos = gameObject.transform.position;
+        CameraShaking = true;
 
-	public void subCamOn()
-	{
-		SubCam.gameObject.SetActive(true);
-		MainCam.gameObject.SetActive(false);
-	}*/
+    }
 }

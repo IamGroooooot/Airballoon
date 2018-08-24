@@ -21,7 +21,7 @@ public class DroneAI : MonoBehaviour {
         {
             distance = Vector3.Distance(Enemy.transform.position,transform.position);
 
-            if (distance > 200f)
+            if (distance > 400f)
             {
                 FaceTarget();
                 Move();

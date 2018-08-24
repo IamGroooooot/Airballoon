@@ -22,8 +22,9 @@ public class SkillList : MonoBehaviour{
 	public Transform PlayerTr2;
 
     AudioSource BoosterSound;
+    AudioSource HealSound;
 
-	public float cool0 = 20f;
+    public float cool0 = 20f;
 	public float cool1 = 20f;
 	public float cool2 =2f;
 	public float cool3 =15f;
@@ -42,7 +43,7 @@ public class SkillList : MonoBehaviour{
     void Start()
     {
         BoosterSound = PlayerManager.instance.player.transform.GetChild(6).GetChild(6).GetComponent<AudioSource>();
-
+        HealSound = PlayerManager.instance.player.transform.GetChild(6).GetChild(11).GetComponent<AudioSource>();
 
     }
 
@@ -56,7 +57,8 @@ public class SkillList : MonoBehaviour{
 	//Using Skill List
 	public void Repair () //0 쿨20초
 	{
-		HP_Bar.IsHeal = true;
+        HealSound.Play();
+        HP_Bar.IsHeal = true;
 		//Debug.Log ("Repair성공");
         heal.gameObject.SetActive(true);
 
@@ -76,7 +78,7 @@ public class SkillList : MonoBehaviour{
 
 	public void Shield() //2 쿨2초
 	{
-		shield.gameObject.SetActive(true);
+        shield.gameObject.SetActive(true);
 		StartCoroutine(LastTime(shield,4f));
         //string DescriptionKor = "방어막을 생성한다";
     }

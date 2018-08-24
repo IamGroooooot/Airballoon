@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class BonusCtrl : MonoBehaviour {
 
     public static BonusCtrl Instance2 = null;
-    public GameObject BonusBubble;
+    //public GameObject BonusBubble;
     public int Bonus;
-    public Text BonusText;
+    //public Text BonusText;
 
     private void Awake()
     {
@@ -30,10 +30,17 @@ public class BonusCtrl : MonoBehaviour {
     {
         if (ColEnter.gameObject.tag == "Player")
         {
+            this.transform.parent.gameObject.GetComponent<AudioSource>().Play();
             TimerShip.Instance.bounus += Bonus;
-            BonusBubble.gameObject.SetActive(true);
-            this.transform.parent.gameObject.SetActive(false);
-            this.gameObject.GetComponent<AudioSource>().Play();
+            //BonusBubble.gameObject.SetActive(true);
+            StartCoroutine(Sound());
+
         }
+    }
+
+    IEnumerator Sound()
+    {
+        yield return new WaitForSeconds(0.5f);
+        this.transform.parent.gameObject.SetActive(false);
     }
 }

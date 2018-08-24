@@ -102,6 +102,10 @@ public class TutoShip : MonoBehaviour
         {
             HP -= 1;
         }
+        if (Col.CompareTag("AirBomb"))
+        {
+            HP -= 300;
+        }
     }
 
     public GameObject FindClosest()

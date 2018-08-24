@@ -70,7 +70,10 @@ public class SelfDestrucer : MonoBehaviour
         {
             PlayerDB.DB.cur_Health -= damage;
         }
-        
+        if (Col.CompareTag("AirBomb"))
+        {
+            HP -= 300;
+        }
     }
 
     void OnTriggerStay(Collider Col)

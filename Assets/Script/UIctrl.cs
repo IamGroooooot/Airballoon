@@ -39,6 +39,8 @@ public class UIctrl : MonoBehaviour
     public GameObject Resource;
     public GameObject Info;
 
+    public AudioSource Roll, Coin, No;
+
     // Update is called once per frame
     void Update()
     {
@@ -143,12 +145,13 @@ public class UIctrl : MonoBehaviour
     {
         if (PlayerDB.DB.steel >= 5)
         {
+            Coin.Play();
             PlayerDB.DB.steel -= 5;
             PlayerDB.DB.CannonDamage += 1;
         }
         else
         {
-            //삐빅 효과음 
+            No.Play();//삐빅 효과음 
         }
     }
 
@@ -156,13 +159,14 @@ public class UIctrl : MonoBehaviour
     {
         if (PlayerDB.DB.log >= 5)
         {
+            Coin.Play();
             PlayerDB.DB.log -= 5;
             PlayerDB.DB.rotationSpeed += 10;
             //선회최대속도 제한 = Max Speed로 놔야할듯
         }
         else
         {
-            //삐빅 효과음 
+            No.Play();//삐빅 효과음 
         }
     }
 
@@ -198,8 +202,10 @@ public class UIctrl : MonoBehaviour
             PlayerDB.DB.gold -= 500;
             Before_Gamble.gameObject.SetActive(false);
             Dice_on.gameObject.SetActive(true);
-            StartCoroutine(DiceON());
+            Roll.Play();
             Gamble_Dialog.text = "(초긴장 상태)";
+            StartCoroutine(DiceON());
+            
         }
         else { Gamble_Dialog.text = "금이 부족하잖아!"; }
     }
@@ -238,17 +244,21 @@ public class UIctrl : MonoBehaviour
     {
         if (PlayerDB.DB.gold >= 100)
         {
+            Coin.Play();
             PlayerDB.DB.gold -= 100;
             PlayerDB.DB.log++;
         }
+        else { No.Play(); }
     }
 
     public void Steel_buying()
     {
         if (PlayerDB.DB.gold >= 150)
         {
+            Coin.Play();
             PlayerDB.DB.gold -= 150;
             PlayerDB.DB.steel++;
         }
+        else { No.Play(); }
     }
 }

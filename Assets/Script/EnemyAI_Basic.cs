@@ -107,6 +107,10 @@ public class EnemyAI_Basic : MonoBehaviour
         {
             HP -= 1;
         }
+        if (Col.CompareTag("AirBomb"))
+        {
+            HP -= 300;
+        }
         if (Col.gameObject.CompareTag("Cloud"))
         {
             if (Col.GetComponent<RainCtrl>() != null || Col.GetComponent<SnowCtrl>() != null)

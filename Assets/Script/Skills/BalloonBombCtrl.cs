@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BalloonBombCtrl : MonoBehaviour {
     GameObject Enemy;
-
+    public GameObject explosion;
+    public AudioClip exp;
 
     // Use this for initialization
     void Start()
@@ -28,10 +29,13 @@ public class BalloonBombCtrl : MonoBehaviour {
     void OnTriggerEnter(Collider CollEnter)
     {
         //Hit Particle생성
-        if (this.gameObject.tag == "Bullet")
+        if (this.gameObject.tag == "AirBomb")
         {
             if (CollEnter.CompareTag("Enemy") || CollEnter.CompareTag("EnemyR") || CollEnter.CompareTag("EnemyL"))
             {
+                explosion.gameObject.SetActive(true);
+                explosion.transform.position = this.transform.position;
+                gameObject.GetComponent<AudioSource>().Play();
                 GameObject Hit = ObjectPooling.pool.GetPoolObject_Hit();
                 if (Hit == null) return;
 
@@ -41,7 +45,7 @@ public class BalloonBombCtrl : MonoBehaviour {
                 {
                     CollEnter.GetComponent<EnemyAirShipCtrl>().onHit = true;
                 }
-                this.gameObject.SetActive(false);
+                StartCoroutine(Disable());
             }
         }
     }
@@ -70,7 +74,7 @@ public class BalloonBombCtrl : MonoBehaviour {
             {
                 Enemy = CollEnter.gameObject;
                 gameObject.GetComponent<SphereCollider>().radius = 9.5f;
-                gameObject.tag = "Bullet";
+                gameObject.tag = "AirBomb";
             }
         }
 }
@@ -89,5 +93,9 @@ public class BalloonBombCtrl : MonoBehaviour {
         gameObject.GetComponent<Rigidbody>().velocity = transform.forward * 140f;
     }
 
-
+    IEnumerator Disable()
+    {
+        yield return new WaitForSeconds(1.0f);
+        this.gameObject.transform.parent.gameObject.SetActive(false);
+    }
 }
