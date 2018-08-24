@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 65141679564999420}
   m_Layer: 0
   m_Name: Rain Cloud
-  m_TagString: Untagged
+  m_TagString: Cloud
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,6 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64ccf88d3ef23c4f8ac92b1fee077d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  makeThemSlow: 0
 --- !u!114 &114872562178222868
 MonoBehaviour:
   m_ObjectHideFlags: 1

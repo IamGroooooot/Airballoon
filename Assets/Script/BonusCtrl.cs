@@ -33,6 +33,7 @@ public class BonusCtrl : MonoBehaviour {
             TimerShip.Instance.bounus += Bonus;
             BonusBubble.gameObject.SetActive(true);
             this.transform.parent.gameObject.SetActive(false);
+            this.gameObject.GetComponent<AudioSource>().Play();
         }
     }
 }

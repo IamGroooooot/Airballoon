@@ -19,7 +19,6 @@ public class Joystick2 : MonoBehaviour {
 	public static float BoostTime;
 	public static float BoostRate;
 
-	private float BoostedSpeed;
 	private float OriginSpeed;
 	// 비공개
 	private Vector3 StickFirstPos;  // 조이스틱의 처음 위치.
@@ -40,7 +39,6 @@ public class Joystick2 : MonoBehaviour {
 
 		max_Speed = PlayerDB.DB.max_Speed;
 		rotationSpeed = PlayerDB.DB.rotationSpeed;
-		BoostedSpeed = BoostRate * max_Speed ;
 
 
 		Radius = GetComponent<RectTransform>().sizeDelta.y * 0.15f;
@@ -56,11 +54,10 @@ public class Joystick2 : MonoBehaviour {
 	void Update(){
 		if (BoostTimerOn) //빠르게
 		{
-			max_Speed = BoostedSpeed;
 			BoostTime -= Time.deltaTime;
-			if (BoostTime <= 0) //느리게
+            Player.Translate(-1f*Player.right * 10f);
+            if (BoostTime <= 0) //느리게
 			{
-				max_Speed = PlayerDB.DB.max_Speed;//원래 스피드로
 				BoostTimerOn = false;
 			}
 

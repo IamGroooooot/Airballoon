@@ -20,10 +20,15 @@ public class EnemyAirShipCtrl : MonoBehaviour {
     public bool onHit;
     //Effects
     public GameObject Fire1;
-
+    private bool Slow=false;
+    private bool DamPer3sec= false;
+    float damTimer;
+    public float thunderOrSnowDamage = 10f;
     // Use this for initialization
     void Start () {
         onHit = false;
+        DamPer3sec = false;
+        damTimer = 0f;
         OnlyOnce = 0;
         random = 0;
 		target = PlayerManager.instance.player.transform;
@@ -32,6 +37,9 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 
     private void OnEnable()
     {
+        Slow = false;
+        DamPer3sec = false;
+        damTimer = 0f;
         onHit = false;
         is_dead = false;
         HP = 1000;
@@ -41,6 +49,16 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+
+        if (DamPer3sec)
+        {
+            damTimer += Time.deltaTime;
+            if (damTimer >= 3f)
+            {
+                HP -= thunderOrSnowDamage;
+                damTimer = 0f;
+            }
+        }
 
         if (HP <= 0 && is_dead == false)
         {
@@ -74,15 +92,29 @@ public class EnemyAirShipCtrl : MonoBehaviour {
 		//Debug.Log (DistanceIS);
 		if (DistanceIS > 600f) { 
 			FaceTarget ();
-			GetComponent<Rigidbody> ().velocity= transform.forward*Speed;
+            if (Slow)
+            {
+
+                GetComponent<Rigidbody>().velocity = transform.forward * Speed * 0.5f;
+            }
+            else
+            {
+                GetComponent<Rigidbody>().velocity = transform.forward * Speed;
+            }
 		}
 		else 
 		{
 			targetForRotation = FindClosest ().transform;
 
 			FaceTargetForRotation ();
-
-			GetComponent<Rigidbody> ().velocity= transform.forward*Speed*0.3f;
+            if (Slow)
+            {
+                GetComponent<Rigidbody>().velocity = transform.forward * Speed * 0.1f;
+            }
+            else
+            {
+                GetComponent<Rigidbody>().velocity = transform.forward * Speed * 0.3f;
+            }
 		}
         if (onHit)
         {
@@ -117,8 +149,40 @@ public class EnemyAirShipCtrl : MonoBehaviour {
         {
             HP -= 1;
         }
-    }
+        if (Col.gameObject.CompareTag("Cloud"))
+        {
+            if (Col.GetComponent<RainCtrl>() != null || Col.GetComponent<SnowCtrl>() != null)
+            {
 
+                Slow = true;
+
+            }
+            else
+            {
+                Slow = false;
+            }
+
+            if((Col.GetComponent<ThunderCtrl>()!=null && Col.GetComponent<ThunderCtrl>().makeThemThundered==true) || (Col.GetComponent<SnowCtrl>() != null && Col.GetComponent<SnowCtrl>().makeThemSlow == true))
+            {
+                DamPer3sec = true;
+
+            }
+            else
+            {
+                DamPer3sec = false;
+            }
+
+        }
+
+    }
+    void OnTriggerExit(Collider Exit)
+    {
+        if (Exit.gameObject.CompareTag("Cloud"))
+        {
+            DamPer3sec = false;
+            Slow = false;
+        }
+    }
 
     public GameObject FindClosest(){
 		GameObject[] gos;

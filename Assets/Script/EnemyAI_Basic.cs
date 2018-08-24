@@ -32,12 +32,17 @@ public class EnemyAI_Basic : MonoBehaviour
     bool onFire;
     float timer;
     public float fireDelay = 3f;
-
+    bool Slow;
+    private bool DamPer3sec = false;
+    float damTimer;
+    public float thunderOrSnowDamage = 10f;
 
     // Use this for initialization
     void Awake()
     {
-
+        Slow = false;
+        DamPer3sec = false;
+        damTimer = 0f;
         Tr = this.gameObject.GetComponent<Transform>();
         //Rb = this.GetComponent<Rigidbody>();
         onFire = false;
@@ -46,17 +51,33 @@ public class EnemyAI_Basic : MonoBehaviour
 
     private void Start()
     {
+        Slow = false;
+        DamPer3sec = false;
+        damTimer = 0f;
         PlayerTr = PlayerManager.instance.player.transform;
     }
 
     private void OnEnable()
     {
+        Slow = false;
+        DamPer3sec = false;
+        damTimer = 0f;
         StartCoroutine(this.CheckState());
         StartCoroutine(this.Action());
     }
 
     void Update()
     {
+
+        if (DamPer3sec)
+        {
+            damTimer += Time.deltaTime;
+            if (damTimer >= 3f)
+            {
+                HP -= thunderOrSnowDamage;
+                damTimer = 0f;
+            }
+        }
 
         if (onFire)
         {
@@ -85,6 +106,33 @@ public class EnemyAI_Basic : MonoBehaviour
         if (Col.CompareTag("SmallBullet"))
         {
             HP -= 1;
+        }
+        if (Col.gameObject.CompareTag("Cloud"))
+        {
+            if (Col.GetComponent<RainCtrl>() != null || Col.GetComponent<SnowCtrl>() != null)
+            {
+
+                Slow = true;
+
+            }
+            
+
+            if ((Col.GetComponent<ThunderCtrl>() != null && Col.GetComponent<ThunderCtrl>().makeThemThundered == true) || (Col.GetComponent<SnowCtrl>() != null && Col.GetComponent<SnowCtrl>().makeThemSlow == true))
+            {
+                DamPer3sec = true;
+
+            }
+            
+
+        }
+    }
+
+    void OnTriggerExit(Collider Exit)
+    {
+        if (Exit.gameObject.CompareTag("Cloud"))
+        {
+            DamPer3sec = false;
+            Slow = false;
         }
     }
 
@@ -136,7 +184,14 @@ public class EnemyAI_Basic : MonoBehaviour
                     Quaternion rot = Quaternion.LookRotation(PlayerTr.position - Tr.position);
 
                     Tr.rotation = Quaternion.Lerp(this.Tr.rotation, rot, Time.deltaTime * damping);
-                    Tr.Translate(new Vector3(0, 0, 1) * velocity);
+                    if (Slow)
+                    {
+                        Tr.Translate(new Vector3(0, 0, 1) * velocity*0.5f);
+                    }
+                    else
+                    {
+                        Tr.Translate(new Vector3(0, 0, 1) * velocity);
+                    }
 
                     break;
 

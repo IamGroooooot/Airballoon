@@ -7,7 +7,7 @@ public class RainCtrl : MonoBehaviour {
     float WhenToDestroy = 40f;
     Vector3 RandomPos;
 
-    public static bool makeThemSlow;
+    public bool makeThemSlow;
     // Use this for initialization
     void OnEnable () {
         StartCoroutine(MoveRandom());
@@ -19,6 +19,7 @@ public class RainCtrl : MonoBehaviour {
     private void Update()
     {
         transform.Translate(RandomPos);
+        
     }
 
     void OnTriggerEnter(Collider Enter)
@@ -28,11 +29,18 @@ public class RainCtrl : MonoBehaviour {
     void OnTriggerStay(Collider Stay)
     {
         makeThemSlow = true;
+        if (Stay.GetComponent<Rigidbody>() != null) {
+            Stay.GetComponent<Rigidbody>().drag = 2f;
+        }
         //Slow Particle효과 ㅡ 온
     }
     void OnTriggerExit(Collider other)
     {
         makeThemSlow = false;
+        if (other.GetComponent<Rigidbody>() != null)
+        {
+            other.GetComponent<Rigidbody>().drag = 1f;
+        }
     }
 
     // Update is called once per frame
@@ -46,9 +54,9 @@ public class RainCtrl : MonoBehaviour {
     }
 
 
-IEnumerator Disable(float waitTime)
-{
-    yield return new WaitForSeconds(waitTime);
-    this.gameObject.SetActive(false);
-}
+    IEnumerator Disable(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        this.gameObject.SetActive(false);
+    }
 }

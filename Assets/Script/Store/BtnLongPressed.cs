@@ -10,7 +10,8 @@ public class BtnLongPressed : MonoBehaviour, IPointerDownHandler,IPointerUpHandl
 {
     private bool pointerDown;
     private float pointerDownTimer;
-    
+
+    public static bool LongPressed = false;
     public float requiredHoldTime = 2f;
     private StoreToolTip Tooltip;
     [SerializeField]
@@ -19,7 +20,7 @@ public class BtnLongPressed : MonoBehaviour, IPointerDownHandler,IPointerUpHandl
     void Start()
     {
         Tooltip = GameObject.Find("Store").GetComponent<StoreToolTip>();
-
+        LongPressed = false;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -33,8 +34,8 @@ public class BtnLongPressed : MonoBehaviour, IPointerDownHandler,IPointerUpHandl
     public void OnPointerUp(PointerEventData eventData)
     {
         Reset();
-
-        //Debug.Log("OnPointerUp");
+        
+        Debug.Log("OnPointerUp");
 
         Tooltip.Deactivate();
 
@@ -50,6 +51,7 @@ public class BtnLongPressed : MonoBehaviour, IPointerDownHandler,IPointerUpHandl
                 if(onLongClick != null)
                 {
                     onLongClick.Invoke();
+                    LongPressed = true;
                     //Debug.Log("까꿍");
                 }
 
@@ -59,8 +61,14 @@ public class BtnLongPressed : MonoBehaviour, IPointerDownHandler,IPointerUpHandl
     }
     private void Reset()
     {
+        if(pointerDownTimer < requiredHoldTime)    StartCoroutine(NoLongerPressed());
         pointerDown = false;
         pointerDownTimer = 0;
         
+    }
+    IEnumerator NoLongerPressed()
+    {
+        yield return new WaitForEndOfFrame();
+        LongPressed = false;
     }
 }

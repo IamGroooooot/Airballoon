@@ -53,10 +53,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4343605074077298}
-  - component: {fileID: 114302795078826818}
+  - component: {fileID: 114815144554943406}
   m_Layer: 0
   m_Name: Meteo Cloud
-  m_TagString: Untagged
+  m_TagString: Cloud
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,18 +194,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114302795078826818
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1658153290987018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 598cac60aea6f1a4ba2801016bdc4e5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 20
 --- !u!114 &114525843904961332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,6 +206,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   warning2: {fileID: 0}
+--- !u!114 &114815144554943406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1658153290987018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcbc059d35fc8f34db02f7faf520d8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  makeThemThundered: 0
 --- !u!198 &198799461233320592
 ParticleSystem:
   m_ObjectHideFlags: 1

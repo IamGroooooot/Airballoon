@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class SnowCtrl : MonoBehaviour
 {
+    public float damage;
+    float WhenToDestroy = 40f;
     Vector3 RandomPos;
 
-    public float damage;
-    public static bool makeThemDamaged; //Snow = Meteor 같은 효과 (데미지) but 인스펙터에서 조정가능하도록 데미지 public
+    public bool makeThemSlow;
     // Use this for initialization
-    void Awake()
+    void OnEnable()
     {
         StartCoroutine(MoveRandom());
+
+        StartCoroutine((Disable(WhenToDestroy)));
+        //Destroy(this.gameObject, WhenToDestroy);
     }
 
-    void Update()
+    private void Update()
     {
         transform.Translate(RandomPos);
-
 
     }
 
@@ -27,9 +30,20 @@ public class SnowCtrl : MonoBehaviour
     }
     void OnTriggerStay(Collider Stay)
     {
-        makeThemDamaged = true;
-        //Thunder Particle효과 ㅡ 온
-
+        makeThemSlow = true;
+        if (Stay.GetComponent<Rigidbody>() != null)
+        {
+            Stay.GetComponent<Rigidbody>().drag = 2f;
+        }
+        //Slow Particle효과 ㅡ 온
+    }
+    void OnTriggerExit(Collider other)
+    {
+        makeThemSlow = false;
+        if (other.GetComponent<Rigidbody>() != null)
+        {
+            other.GetComponent<Rigidbody>().drag = 1f;
+        }
     }
 
     // Update is called once per frame
@@ -38,8 +52,14 @@ public class SnowCtrl : MonoBehaviour
         while (true)
         {
             RandomPos = new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1));
-
             yield return new WaitForSeconds(5.1f);
         }
+    }
+
+
+    IEnumerator Disable(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        this.gameObject.SetActive(false);
     }
 }

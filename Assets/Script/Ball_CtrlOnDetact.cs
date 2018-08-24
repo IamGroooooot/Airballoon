@@ -32,10 +32,16 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
     float distance;
     Vector3 playerPos;
 
+    public float damage = 10f;
+    private bool DamPer3sec = false;
+    float damTimer;
+    public float thunderOrSnowDamage = 10f;
+
     void Start () {
+        DamPer3sec = false;
+        damTimer = 0f;
 
-
-		PlayerTrans = PlayerManager.instance.player.transform.GetChild(0);
+        PlayerTrans = PlayerManager.instance.player.transform.GetChild(0);
 
 
         canAttack = false;
@@ -50,11 +56,23 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
 	void OnEnable()
     {
         canAttack = false;
-
+        DamPer3sec = false;
+        damTimer = 0f;
 
     }
 	// Update is called once per frame
-	void Update () { 
+	void Update () {
+
+        if (DamPer3sec)
+        {
+            damTimer += Time.deltaTime;
+            if (damTimer >= 3f)
+            {
+                transform.parent.GetComponent<EnemyCtrl>().HP -= thunderOrSnowDamage;
+                damTimer = 0f;
+            }
+        }
+
         myPosition = Skel.transform.position;
         myRotation = Skel.transform.rotation;
 
@@ -131,14 +149,33 @@ public class Ball_CtrlOnDetact : MonoBehaviour {
     void OnTriggerStay(Collider C){
 		if(C.gameObject.tag == "Player")
 			canAttack = true;
-	}
+        if (C.gameObject.CompareTag("Cloud"))
+        {
+
+            if ((C.GetComponent<ThunderCtrl>() != null && C.GetComponent<ThunderCtrl>().makeThemThundered == true) || (C.GetComponent<SnowCtrl>() != null && C.GetComponent<SnowCtrl>().makeThemSlow == true))
+            {
+                DamPer3sec = true;
+
+            }
+            
+            
+        }
+    }
 
 	void OnTriggerExit(Collider C){
-		if (C.gameObject.tag == "Player") {
+		if (C.gameObject.tag == "Player")
+        {
 			canAttack = false;
 			TimerOn = false;
 		}
-	}
+
+        
+        if (C.gameObject.CompareTag("Cloud"))
+        {
+            DamPer3sec = false;
+        }
+        
+    }
 
 
     //포물선으로 쏘는것

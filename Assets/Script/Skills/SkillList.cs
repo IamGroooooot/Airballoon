@@ -67,9 +67,8 @@ public class SkillList : MonoBehaviour{
 	{
         BoosterSound.Play();
 
-        Joystick2.max_Speed = PlayerDB.DB.max_Speed;
-		Joystick2.BoostRate = 2.0f; // 200%증가
-		Joystick2.BoostTime = 5f;
+        
+		Joystick2.BoostTime = 1f;
 		Joystick2.BoostTimerOn = true;
         booster.gameObject.SetActive(true);
         //string DescriptionKor = "일시적으로 속도가 증가한다";

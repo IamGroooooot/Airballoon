@@ -23,22 +23,39 @@ public class HP_Bar : MonoBehaviour
     public GameObject Fire3;
     public GameObject Smoke;
 
-
+    public bool DamPer3sec = false;
+    float damTimer;
+    public float thunderOrSnowDamage = 10f;
     // Use this for initialization
     void Start()
     {
 		StartCoroutine (SetHealthbar ());
-		//max_Health = PlayerDB.DB.max_Health;
-		//cur_Health = PlayerDB.DB.cur_Health;
+        //max_Health = PlayerDB.DB.max_Health;
+        //cur_Health = PlayerDB.DB.cur_Health;
 
         //cur_Health = max_Health;
+
+        
+        DamPer3sec = false;
+        damTimer = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (DamPer3sec)
+        {
+            damTimer += Time.deltaTime;
+            if (damTimer >= 3f)
+            {
+                PlayerDB.DB.cur_Health -= thunderOrSnowDamage;
+                damTimer = 0f;
+            }
+        }
+
         //화염 이펙트
-		if (PlayerDB.DB.cur_Health/100 <= 0.6)
+        if (PlayerDB.DB.cur_Health/100 <= 0.6)
         {
             FireSound.SetActive(true);
             Fire1.gameObject.SetActive(true);
@@ -94,6 +111,33 @@ public class HP_Bar : MonoBehaviour
 		}
 
 
+    }
+    void OnTriggerEnter(Collider Enter)
+    {
+        OnTriggerStay(Enter);
+
+    }
+    void OnTriggerStay(Collider C)
+    {
+        if (C.gameObject.CompareTag("Cloud"))
+        {
+
+            if ((C.GetComponent<ThunderCtrl>() != null && C.GetComponent<ThunderCtrl>().makeThemThundered == true) || (C.GetComponent<SnowCtrl>() != null && C.GetComponent<SnowCtrl>().makeThemSlow == true))
+            {
+                DamPer3sec = true;
+
+            }
+            
+        }
+        
+    }
+    void OnTriggerExit(Collider Exit)
+    {
+        if (Exit.gameObject.CompareTag("Cloud"))
+        {
+            DamPer3sec = false;
+
+        }
     }
 
 	IEnumerator SetHealthbar(){

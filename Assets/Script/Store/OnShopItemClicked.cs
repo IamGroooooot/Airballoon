@@ -26,53 +26,61 @@ public class OnShopItemClicked : MonoBehaviour {
 
 	public void OnBtnClick()
 	{
-		switch (WhichSlot)
-		{
-		case 0:
-			OnItem1Clicked ();
-			break;
-		case 1:
-			OnItem2Clicked ();
-			break;
+        if (BtnLongPressed.LongPressed)
+        {
+            //Debug.Log("LongPressed");
+            BtnLongPressed.LongPressed = false;
+        }
+        else
+        {
 
-		case 2:
-			OnItem3Clicked ();
-			break;
+            switch (WhichSlot)
+            {
+                case 0:
+                    OnItem1Clicked();
+                    break;
+                case 1:
+                    OnItem2Clicked();
+                    break;
 
-		case 3:
-			OnItem4Clicked ();
-			break;
+                case 2:
+                    OnItem3Clicked();
+                    break;
 
-		case 4:
-			OnItem5Clicked ();
-			break;
-		case 5:
-			OnItem6Clicked ();
-			break;
-		case 6:
-			OnItem7Clicked ();
-			break;
-		case 7:
-			OnItem8Clicked ();
-			break;
-		case 8:
-			OnItem9Clicked ();
-			break;
-		case 9:
-			OnItem10Clicked ();
-			break;
-		case 10:
-			OnItem11Clicked ();
-			break;
-		case 11:
-			OnItem12Clicked ();
-			break;
-		
-		default:
-			Debug.Log ("해당하는 스킬 없음");
-			break;
-		}
+                case 3:
+                    OnItem4Clicked();
+                    break;
 
+                case 4:
+                    OnItem5Clicked();
+                    break;
+                case 5:
+                    OnItem6Clicked();
+                    break;
+                case 6:
+                    OnItem7Clicked();
+                    break;
+                case 7:
+                    OnItem8Clicked();
+                    break;
+                case 8:
+                    OnItem9Clicked();
+                    break;
+                case 9:
+                    OnItem10Clicked();
+                    break;
+                case 10:
+                    OnItem11Clicked();
+                    break;
+                case 11:
+                    OnItem12Clicked();
+                    break;
+
+                default:
+                    Debug.Log("No Skill");
+                    break;
+            }
+        }
 	}
 
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ThunderCtrl : MonoBehaviour {
     Vector3 RandomPos;
 
-    public static bool makeThemThundered;
+    public bool makeThemThundered;
     // Use this for initialization
     void Awake()
     {
@@ -26,7 +26,12 @@ public class ThunderCtrl : MonoBehaviour {
     void OnTriggerStay(Collider Stay)
     {
         makeThemThundered = true;
-        //Thunder Particle효과 ㅡ 온
+
+    }
+    void OnTriggerExit(Collider Exit)
+    {
+        makeThemThundered = false;
+
 
     }
 
