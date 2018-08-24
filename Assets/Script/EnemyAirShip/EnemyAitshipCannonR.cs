@@ -6,7 +6,7 @@ public class EnemyAitshipCannonR : MonoBehaviour {
     AudioSource R1, R2, R3;
 
 	//포탄 발사 딜레이
-	public float delay = 4f;
+	public float delay = 3f;
 	public int reload = 30;
 	public bool CanShoot, TimerOn,FindPlayerR;
 	int time;

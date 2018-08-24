@@ -517,6 +517,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 239229209}
     m_Modifications:
+    - target: {fileID: 114995832462450644, guid: ac65a39b50c46d54f882623696447e35,
+        type: 2}
+      propertyPath: GullPool.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4138978905930156, guid: ac65a39b50c46d54f882623696447e35, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -572,7 +577,7 @@ Prefab:
         type: 2}
       propertyPath: Gull_Prefab1
       value: 
-      objectReference: {fileID: 1417914585491954, guid: 1ca18e005e3cd42448cd354f25e98d56,
+      objectReference: {fileID: 1385731150628748, guid: 1ca18e005e3cd42448cd354f25e98d56,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ac65a39b50c46d54f882623696447e35, type: 2}
@@ -1984,7 +1989,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 444001745}
-  - component: {fileID: 444001747}
   - component: {fileID: 444001746}
   m_Layer: 0
   m_Name: '*Optimizer'
@@ -2017,18 +2021,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5651797645f5ba49a522c5a9626cc5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &444001747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114501747899866652, guid: 37ba84e530d716648af909946a4815fe,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 444001744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4abfffc76b4146640be29a0bcf30a074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &450510120 stripped
@@ -2247,8 +2239,8 @@ MonoBehaviour:
   Cloud: {fileID: 1385731150628748, guid: 1ca18e005e3cd42448cd354f25e98d56, type: 2}
   Drone_skill: {fileID: 1192919578911756, guid: e92b66f8912234947bc29248acae8067,
     type: 2}
-  Rain_skill: {fileID: 1879759671036974, guid: 60206d82bc386054b8651d8397b9e0b3, type: 2}
-  Thunder_skill: {fileID: 1590137640347260, guid: 4fb8e47c31f2d904e946240e4161b1ab,
+  Rain_skill: {fileID: 1757604487936756, guid: 4e7b7b4d017d33847a4b5e2e3b613744, type: 2}
+  Thunder_skill: {fileID: 1281334197319194, guid: 5e3a3c4f5a7241847b92633b995ad69d,
     type: 2}
   AirBomb: {fileID: 1011650883872018, guid: c24f71527ca6f8a48a685c745eeb4bee, type: 2}
   SkullBomb_Folder: {fileID: 1974689252}

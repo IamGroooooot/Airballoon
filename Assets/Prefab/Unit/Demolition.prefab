@@ -530,13 +530,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   explosion: {fileID: 1141467703471570}
-  velocity: 2
-  MAX_HP: 25
-  HP: 40
+  velocity: 1.5
+  MAX_HP: 30
+  HP: 30
   attackDist: 30
   traceDist: 1000
   isDie: 0
   damage: 30
+  thunderOrSnowDamage: 10
 --- !u!114 &114997081865398608
 MonoBehaviour:
   m_ObjectHideFlags: 1

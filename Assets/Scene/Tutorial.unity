@@ -2482,7 +2482,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 444001745}
-  - component: {fileID: 444001747}
   - component: {fileID: 444001746}
   m_Layer: 0
   m_Name: '*Optimizer'
@@ -2515,18 +2514,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5651797645f5ba49a522c5a9626cc5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &444001747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114501747899866652, guid: 37ba84e530d716648af909946a4815fe,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 444001744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4abfffc76b4146640be29a0bcf30a074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &446914472
@@ -3087,9 +3074,10 @@ MonoBehaviour:
   Cloud: {fileID: 0}
   Drone_skill: {fileID: 1192919578911756, guid: e92b66f8912234947bc29248acae8067,
     type: 2}
-  Rain_skill: {fileID: 2050211671}
-  Thunder_skill: {fileID: 555924992}
-  AirBomb: {fileID: 1397205425061704, guid: c24f71527ca6f8a48a685c745eeb4bee, type: 2}
+  Rain_skill: {fileID: 1757604487936756, guid: 4e7b7b4d017d33847a4b5e2e3b613744, type: 2}
+  Thunder_skill: {fileID: 1281334197319194, guid: 5e3a3c4f5a7241847b92633b995ad69d,
+    type: 2}
+  AirBomb: {fileID: 1011650883872018, guid: c24f71527ca6f8a48a685c745eeb4bee, type: 2}
   SkullBomb_Folder: {fileID: 1808347507}
   Player_Bullet: {fileID: 450510120}
   Hit_Folder: {fileID: 1992235298}
@@ -3150,11 +3138,6 @@ MonoBehaviour:
   PoolObjs_Rain_skill: []
   PoolObjs_Thunder_skill: []
   PoolObjs_AirBomb: []
---- !u!1 &555924992 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1898315924079648, guid: 37ccfa156e95ca24cbaf69ab44eb350b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1520828407}
 --- !u!1 &564510844
 GameObject:
   m_ObjectHideFlags: 0
@@ -9490,6 +9473,7 @@ GameObject:
   - component: {fileID: 1609495331}
   - component: {fileID: 1609495333}
   - component: {fileID: 1609495332}
+  - component: {fileID: 1609495334}
   m_Layer: 0
   m_Name: Enter Col
   m_TagString: Untagged
@@ -9523,6 +9507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2ad992ff1ddfbb438a69333531d782a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enter: {fileID: 1609495334}
 --- !u!136 &1609495333
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9537,6 +9522,86 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.10523455, y: -0.0027766842, z: 0.2906425}
+--- !u!82 &1609495334
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1609495330}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1af6ce72714b84c449bf75c4efe4d4cc, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1001 &1623631254
 Prefab:
   m_ObjectHideFlags: 0
@@ -11622,11 +11687,6 @@ Transform:
   m_Father: {fileID: 2096726386}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2050211671 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1118895700865214, guid: 37ccfa156e95ca24cbaf69ab44eb350b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1520828407}
 --- !u!1001 &2056197559
 Prefab:
   m_ObjectHideFlags: 0

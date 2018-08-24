@@ -9,7 +9,7 @@ public class BulletCtrl : MonoBehaviour {
 	public GameObject Enemy = null;
 	//포탄 공격력
 	public int damage = 10;
-	float speed = 100f; 
+	float speed = 200f; 
 	//public float speed = 10f;
 
 	private Rigidbody Rb;

@@ -150,7 +150,7 @@ public class HP_Bar : MonoBehaviour
 
     void HealthDecrease()
     {
-		PlayerDB.DB.cur_Health -= Damage;
+		//PlayerDB.DB.cur_Health -= Damage;
 
 		float calc_Health = PlayerDB.DB.cur_Health / PlayerDB.DB.max_Health;
         MyHealthBarSet(calc_Health);

@@ -39,7 +39,7 @@ public class UIctrl : MonoBehaviour
     public GameObject Resource;
     public GameObject Info;
 
-    public AudioSource Roll, Coin, No;
+    public AudioSource Roll, Coin, No, Click;
 
     // Update is called once per frame
     void Update()
@@ -260,5 +260,13 @@ public class UIctrl : MonoBehaviour
             PlayerDB.DB.steel++;
         }
         else { No.Play(); }
+    }
+
+    public void ClickSound() {
+        Click.Play();
+    }
+    public void NoSound()
+    {
+        No.Play();
     }
 }

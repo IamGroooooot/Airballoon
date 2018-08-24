@@ -63,7 +63,7 @@ public class SelfDestrucer : MonoBehaviour
 
         if (Col.CompareTag("SmallBullet"))
         {
-            HP -= 1;
+            HP -= 2;
         }
 
         if (Col.CompareTag("Player"))

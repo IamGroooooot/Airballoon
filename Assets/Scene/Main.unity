@@ -1017,8 +1017,8 @@ MonoBehaviour:
   Cloud: {fileID: 1757604487936756, guid: 4e7b7b4d017d33847a4b5e2e3b613744, type: 2}
   Drone_skill: {fileID: 1192919578911756, guid: e92b66f8912234947bc29248acae8067,
     type: 2}
-  Rain_skill: {fileID: 1879759671036974, guid: 60206d82bc386054b8651d8397b9e0b3, type: 2}
-  Thunder_skill: {fileID: 1590137640347260, guid: 4fb8e47c31f2d904e946240e4161b1ab,
+  Rain_skill: {fileID: 1757604487936756, guid: 4e7b7b4d017d33847a4b5e2e3b613744, type: 2}
+  Thunder_skill: {fileID: 1281334197319194, guid: 5e3a3c4f5a7241847b92633b995ad69d,
     type: 2}
   AirBomb: {fileID: 1011650883872018, guid: c24f71527ca6f8a48a685c745eeb4bee, type: 2}
   SkullBomb_Folder: {fileID: 1155496781}
@@ -2991,6 +2991,7 @@ MonoBehaviour:
   Roll: {fileID: 0}
   Coin: {fileID: 0}
   No: {fileID: 0}
+  Click: {fileID: 0}
 --- !u!1 &837953884
 GameObject:
   m_ObjectHideFlags: 0
@@ -3668,7 +3669,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1072754305}
-  - component: {fileID: 1072754307}
   - component: {fileID: 1072754306}
   m_Layer: 0
   m_Name: '*Optimizer'
@@ -3701,18 +3701,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5651797645f5ba49a522c5a9626cc5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1072754307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114501747899866652, guid: 37ba84e530d716648af909946a4815fe,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1072754304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4abfffc76b4146640be29a0bcf30a074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1089475154

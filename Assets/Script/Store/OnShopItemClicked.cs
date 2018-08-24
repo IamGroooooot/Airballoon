@@ -12,6 +12,7 @@ public class OnShopItemClicked : MonoBehaviour {
     StoreToolTip Tooltip;
     Item_Database Myitem_Database;
     inventoryInStore MyInvScript;
+    public AudioSource Coin;
 
 	void Start()
 	{
@@ -90,6 +91,7 @@ public class OnShopItemClicked : MonoBehaviour {
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (0);
 			PlayerDB.DB.gold -= cost;
+            Coin.Play();
 		} else {
 			Debug.Log ("No Money");
 		}
@@ -101,7 +103,8 @@ public class OnShopItemClicked : MonoBehaviour {
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (1);
             PlayerDB.DB.gold -= cost;
-		}
+            Coin.Play();
+        }
 
 	}
 	public void OnItem3Clicked()
@@ -110,7 +113,8 @@ public class OnShopItemClicked : MonoBehaviour {
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (2);
             PlayerDB.DB.gold -= cost;
-		}
+            Coin.Play();
+        }
 	}
 	public void OnItem4Clicked()
 	{
@@ -118,24 +122,27 @@ public class OnShopItemClicked : MonoBehaviour {
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (3);
             PlayerDB.DB.gold -= cost;
-		}
+            Coin.Play();
+        }
 
 	}
 	public void OnItem5Clicked()
 	{
-		int cost = 3;
+		int cost = 10;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (4);
             PlayerDB.DB.gold -= cost;
-		}
+            Coin.Play();
+        }
 	}
 	public void OnItem6Clicked()
 	{
-		int cost = 1;
+		int cost = 5;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (5);
             PlayerDB.DB.gold -= cost;
-		}
+            Coin.Play();
+        }
 	}
 	public void OnItem7Clicked()
 	{
@@ -149,11 +156,12 @@ public class OnShopItemClicked : MonoBehaviour {
 	}
 	public void OnItem8Clicked()
 	{
-		int cost = 1;
+		int cost = 8;
 		if (PlayerDB.DB.gold >= cost) {
 			MyInvScript.AddItem (7);
             PlayerDB.DB.gold -= cost;
-		}
+            Coin.Play();
+        }
 
 	}
 	public void OnItem9Clicked()

@@ -259,8 +259,10 @@ public class ItemList : MonoBehaviour
             switch (page)
             {
                 case 0:
+                    PlayerDB.DB.CannonDamage += 2;
                     break;
                 case 1:
+                    PlayerDB.DB.rotationSpeed += 5;
                     break;
                 case 2:
                     PlayerDB.DB.max_Speed += 50;

@@ -12,10 +12,10 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: CIEN_BiBimBaB
-  productName: "\uC628\uB204\uB9AC\uB0A0\uC74C\uBC30"
+  productName: "\uC628\uB204\uB9AC \uB0A0\uC74C\uBC30"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.41176468, g: 0.805274, b: 1, a: 1}
+  m_SplashScreenBackgroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
@@ -242,7 +242,7 @@ PlayerSettings:
   clonedFromGUID: 00000000000000000000000000000000
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  androidSplashScreen: {fileID: 0}
+  androidSplashScreen: {fileID: 2800000, guid: f28d0a01055af6844a07c7d4306a82ca, type: 3}
   AndroidKeystoreName: 
   AndroidKeyaliasName: 
   AndroidTVCompatibility: 1
@@ -288,6 +288,13 @@ PlayerSettings:
       m_Icon: {fileID: 0}
       m_Width: 36
       m_Height: 36
+      m_Kind: 0
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: c56f712da6fd1424ca89581fbfb9f9ad, type: 3}
+      m_Width: 128
+      m_Height: 128
       m_Kind: 0
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsAPIs: []

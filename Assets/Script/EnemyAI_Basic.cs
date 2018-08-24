@@ -152,7 +152,7 @@ public class EnemyAI_Basic : MonoBehaviour
             {
                 
                 explosion.gameObject.SetActive(true);
-                explosion.GetComponent<AudioSource>().Play();
+                //explosion.GetComponent<AudioSource>().Play();
                 explosion.transform.position = this.transform.position;
                 state = State.die;
             }

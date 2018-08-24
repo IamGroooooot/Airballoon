@@ -10,6 +10,8 @@ public class OnMyItemClicked : MonoBehaviour {
 	//GameObject SlotPanel;
 	GameObject mySkill;
 
+    public AudioSource Coin;
+
 	inventoryInStore MyInvScript;
 
 	void Start()
@@ -155,7 +157,7 @@ public class OnMyItemClicked : MonoBehaviour {
 
 	public void OnSellId1()
 	{
-		
+        Coin.Play();
 		int cost = 3;
 
 		MyInvScript.items [WhichSlot] = new Item ();
@@ -171,7 +173,8 @@ public class OnMyItemClicked : MonoBehaviour {
 	}
 	public void OnSellId2()
 	{
-		int cost = 2;
+        Coin.Play();
+        int cost = 2;
 		MyInvScript.items [WhichSlot] = new Item ();
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
@@ -185,7 +188,8 @@ public class OnMyItemClicked : MonoBehaviour {
 	}
 	public void OnSellId3()
 	{
-		int cost = 4;
+        Coin.Play();
+        int cost = 4;
 		MyInvScript.items [WhichSlot] = new Item ();
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
@@ -198,7 +202,8 @@ public class OnMyItemClicked : MonoBehaviour {
 	}
 	public void OnSellId4()
 	{
-		int cost = 5;
+        Coin.Play();
+        int cost = 5;
 		MyInvScript.items [WhichSlot] = new Item ();
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
@@ -212,7 +217,8 @@ public class OnMyItemClicked : MonoBehaviour {
     }
 	public void OnSellId5()
 	{
-		int cost = 3;
+        Coin.Play();
+        int cost = 10;
 		MyInvScript.items [WhichSlot] = new Item ();
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
@@ -225,7 +231,8 @@ public class OnMyItemClicked : MonoBehaviour {
     }
 	public void OnSellId6()
 	{
-		int cost = 1;
+        Coin.Play();
+        int cost = 5;
 		MyInvScript.items [WhichSlot] = new Item ();
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)
@@ -252,7 +259,8 @@ public class OnMyItemClicked : MonoBehaviour {
     }
 	public void OnSellId8()
 	{
-		int cost = 1;
+        Coin.Play();
+        int cost = 8;
 		MyInvScript.items [WhichSlot] = new Item ();
 		//Destroy(mySkill);
 		if (transform.parent.childCount == 2)

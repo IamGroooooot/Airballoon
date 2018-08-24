@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enter : MonoBehaviour
 {
+    public AudioSource enter;
 
     //public GameObject _Enter;
 
@@ -11,7 +12,14 @@ public class Enter : MonoBehaviour
     {
         if (ColEnter.gameObject.tag == "Player")
         {
-            Tuto.Tutorial.EnterCircle = true;
+            enter.Play();
+            PlayerDB.DB.gold += 10;
+            StartCoroutine(Entering());
         }
+    }
+    IEnumerator Entering()
+    {
+        yield return new WaitForSeconds(0.8f);
+        Tuto.Tutorial.EnterCircle = true;
     }
 }

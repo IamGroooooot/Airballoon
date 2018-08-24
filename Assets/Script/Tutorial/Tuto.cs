@@ -136,5 +136,6 @@ public class Tuto : MonoBehaviour {
     public void TUtoOK()
     {
         PlayerDB.DB.Tuto = 1;
+        PlayerDB.DB.gold += 20;
     }
 }
